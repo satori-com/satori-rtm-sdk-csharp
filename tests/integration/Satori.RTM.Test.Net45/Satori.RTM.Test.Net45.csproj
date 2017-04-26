@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A1DE2C47-59A0-4124-9ED9-7FA9786D2BEB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Satori.Rtm.Test</RootNamespace>
+    <AssemblyName>Satori.RTM.Test.Net45</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <StyleCopTreatErrorsAsWarnings>false</StyleCopTreatErrorsAsWarnings>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <StyleCopTreatErrorsAsWarnings>false</StyleCopTreatErrorsAsWarnings>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\.packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>..\..\..\.packages\NUnit.3.6.0\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="OneTimeSetup.net45.cs" />
+    <Compile Include="RtmConfig.net45.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\sources\Satori.RTM.Net45\Satori.RTM.Net45.csproj">
+      <Project>{99629B45-BE1C-460E-A9D1-CBBBAA34E277}</Project>
+      <Name>Satori.RTM.Net45</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="..\Satori.RTM.Test\Satori.RTM.Test.projitems" Label="Shared" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+
+  <PropertyGroup Condition=" '$(OS)' == 'Unix' ">
+    <NUnitConsole>mono ../../../.packages/NUnit.ConsoleRunner.3.6.1/tools/nunit3-console.exe</NUnitConsole>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(OS)' != 'Unix' ">
+    <NUnitConsole>..\..\..\.packages\NUnit.ConsoleRunner.3.6.1\tools\nunit3-console.exe</NUnitConsole>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NUnitResultsFolder>$(OutputPath)test-results</NUnitResultsFolder>
+    <NUnitArgs>$(OutputPath)$(AssemblyName).dll --timeout=60000 --work=$(NUnitResultsFolder)</NUnitArgs>
+  </PropertyGroup>
+
+  <Target Name="RunTests" DependsOnTargets="Build">
+    <Message Text="Run tests in $(Configuration) mode" />
+    <Exec Command="$(NUnitConsole) $(NUnitArgs)" IgnoreStandardErrorWarningFormat="true" />
+  </Target>
+
+  <UsingTask AssemblyFile="..\..\..\.packages\OpenCover.4.6.519\MSBuild\OpenCover.MSBuild.dll" TaskName="OpenCover.MSBuild.OpenCover" />
+  <UsingTask TaskName="ReportGenerator" AssemblyFile="..\..\..\.packages\ReportGenerator.2.5.6\tools\ReportGenerator.exe" />
+
+  <Target Name="ComputeCoverage" DependsOnTargets="Build">
+    <Error Condition=" '$(OS)' == 'Unix' " Text="Computing test coverage works on Windows only" />
+    <OpenCover ReturnTargetCode="True" ToolPath="..\..\..\.packages\OpenCover.4.6.519\tools" Filter="+[*]* -[*.Test.*]* -[Autofac*]* -[Newtonsoft.Json]* -[*]System.*" ExcludeByAttribute="System.ObsoleteAttribute" ToolExe="OpenCover.Console.exe" Register="True" ShowUnvisited="True" Target="$(NUnitConsole)" TargetWorkingDir="." TargetArgs="$(NUnitArgs) --output=nunit.log" Output="$(NUnitResultsFolder)\CoverageResult.xml">
+      <Output TaskParameter="ExitCode" PropertyName="TestExitCode" />
+    </OpenCover>
+    <ReportGenerator ReportFiles="$(NUnitResultsFolder)\CoverageResult.xml" TargetDirectory="$(NUnitResultsFolder)" ReportTypes="Html" VerbosityLevel="Verbose" />
+
+  </Target>
+
+  <PropertyGroup>
+    <StyleCopOverrideSettingsFile>..\..\..\Settings.StyleCop</StyleCopOverrideSettingsFile>
+  </PropertyGroup>
+  <Import Project="..\..\..\.packages\StyleCop.MSBuild.4.7.55.0\build\StyleCop.MSBuild.Targets" Condition="Exists('..\..\..\.packages\StyleCop.MSBuild.4.7.55.0\build\StyleCop.MSBuild.Targets')" />
+</Project>

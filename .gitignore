@@ -1,0 +1,11 @@
+/.vs/
+/.packages/
+/components/
+*.userprefs
+**/bin
+**/obj
+TestResult.xml
+*.user
+Resource.designer.cs
+
+**/StyleCop.Cache

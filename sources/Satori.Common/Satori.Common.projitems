@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>fe354457-bdd5-4bd4-b29d-861b4974ac56</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>$(MSBuildProjectName)</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)ActionExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Common.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UnhandledExceptionWatcher.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MonitorAsync.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)QueueAsync.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)QueueAsync.Extensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SuccessfulAwaiter%28T%29.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AwaiterExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SuccessfulAwaiterTransform.cs" />
+  </ItemGroup>
+</Project>

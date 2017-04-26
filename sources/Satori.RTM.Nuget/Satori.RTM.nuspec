@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Satori.RTM.SDK</id>
+    <version>0.0.0</version>
+    <title>.NET SDK for Satori RTM</title>
+    <authors>Satori Worldwide, Inc</authors>
+    <owners>Satori Worldwide, Inc</owners>
+    <licenseUrl>https://github.com/satori-com/satori-rtm-sdk-net/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/satori-com/satori-rtm-sdk-net</projectUrl>
+    <!--<iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>-->
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Satori is a cloud-based, live data ecosystem that manages any form of schema-less real-time live data as it happens. The ecosystem includes a ludicrously fast and massively scalable messaging engine known as RTM. Use the .NET SDK for Satori RTM to create mobile, desktop or server-based applications that communicate with the RTM to publish and subscribe. </description>
+    <!--<releaseNotes>Summary of changes made in this release of the package.</releaseNotes>-->
+    <language>en-US</language>
+    <copyright>Copyright (c) 2017, Satori Worldwide, Inc.</copyright>
+    <tags>satori rtm pubsub</tags>
+    <dependencies>
+      <dependency id="Newtonsoft.Json" version="9.0.1" />
+      <dependency id="System.Buffers" version="4.3.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="../Satori.RTM.Net45/bin/$configuration$/Satori.RTM.Net45.dll" target="lib/net45" />
+    <file src="../Satori.RTM.Android/bin/$configuration$/Satori.RTM.Android.dll" target="lib/monoandroid10" />
+    <file src="../Satori.RTM.iOS/bin/$configuration$/Satori.RTM.iOS.dll" target="lib/xamarinios" />
+  </files>
+</package>

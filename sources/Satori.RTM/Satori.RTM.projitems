@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>90743487-cbea-41f0-9162-6bf7081caf01</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Satori.Rtm</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Client\IRtmClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Client\RtmClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Client\RtmClient.IRtmClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Client\RtmClient.Log.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Client\RtmClient.RtmModule.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Client\RtmClient.RtmModule.Log.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Client\RtmClient.State.Awaiting.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Client\RtmClient.State.Connected.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Client\RtmClient.State.Connecting.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Client\RtmClient.State.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Client\RtmClient.State.Stopped.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Client\RtmClient.State.Uninitialized.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Client\RtmClientBuilder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Client\SubscriptionConfig.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Connection\Connection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Connection\Connection.Log.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Connection\ConnectionExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Connection\ConnectionOperationResult.generated.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Connection\ConnectionStepResult.generated.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Connection\IConnection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Dispatcher\Dispatcher.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Dispatcher\Dispatcher.Log.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Dispatcher\IDispatcher.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Logger\DefaultLogger.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Logger\Logger.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Logger\LoggerExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Logger\TraceLogger.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Subscription\ISubscription.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Subscription\ISubscriptionEventSource.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Subscription\ISubscriptionObserver.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Subscription\Subscription.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Subscription\Subscription.State.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Subscription\Subscription.Log.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Subscription\SubscriptionCompoundObserver.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Subscription\SubscriptionFuture.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Subscription\SubscriptionFutureExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Subscription\SubscriptionObserver.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Subscription\SubscriptionObserverExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AuthRoleSecretTypes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AuthTypes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ISerialization.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PduException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RtmException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RtmTypes.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Serialization.Log.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Serialization.WsNet45.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Client\TooManyRequestsException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Connection\DisconnectedException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Client\Ack.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Client\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Connection\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Dispatcher\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Logger\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Subscription\" />
+  </ItemGroup>
+</Project>

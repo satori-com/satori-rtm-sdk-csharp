@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <!-- SatoriSdkAssemblyVersion cannot contain '-' and other non-digit characters except '.'.
+         Check documentation about AssemblyVersionAttribute class. --> 
+    <SatoriSdkAssemblyVersion>1.0.0</SatoriSdkAssemblyVersion>
+    <!-- SatoriSdkVersion must have '-' after SatoriSdkAssemblyVersion part. 
+         Check documentation about version element in .nuspec file -->
+    <SatoriSdkVersion>$(SatoriSdkAssemblyVersion)-beta</SatoriSdkVersion>
+  </PropertyGroup>
+</Project>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\..\Satori.RTM.props" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{62CE6C57-3F40-4288-8C45-D0A556C34BE6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AssemblyName>Satori.RTM.DocFx</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <OutputPath>bin</OutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="toc.yml" />
+    <None Include="index.md" />
+    <None Include="docfx.json" />
+    <None Include="articles\toc.md" />
+    <None Include="articles\intro.md" />
+    <None Include="api\index.md" />
+    <None Include="packages.config" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <BuildDocToolPath>$(MSBuildThisFileDirectory)..\..\.packages\docfx.console.2.16.0\tools\docfx.exe</BuildDocToolPath>
+    <OutputFolder>$(OutputPath)</OutputFolder>
+    <LogFile>$(OutputPath)\log.txt</LogFile>
+  </PropertyGroup>
+
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\..\.packages\docfx.console.2.16.0\tools\docfx.console.targets" />
+    
+  <Target Name="Build" DependsOnTargets="CreateDirectories">
+    <Message Text="Generating docs..." />
+    <Error Condition=" '$(OS)' == 'Unix' " Text="Generating docs works on Windows only" />
+  </Target>
+
+  <Target Name="CreateDirectories" DependsOnTargets="RemoveDirectories">  
+    <MakeDir Directories="$(OutputPath)" />  
+  </Target>
+
+  <Target Name="RemoveDirectories">  
+    <RemoveDir Directories="$(OutputPath)" />  
+  </Target>  
+
+</Project>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>{92BFE9E9-143C-4B76-B11A-1FF6263F12FD}</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>System.Net.WebSockets.Managed</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)ClientWebSocket.3rd.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ClientWebSocketOptions.3rd.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FormattableString.3rd.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HttpKnownHeaderNames.3rd.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ManagedWebSocket.3rd.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SecurityProtocol.3rd.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UriScheme.3rd.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)WebSocketHandle.Managed.3rd.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)WebSocketValidate.3rd.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SR.3rd.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TaskHelpers.3rd.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UriExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SocketExtensions.3rd.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NetEventSource.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)LICENSE" />
+  </ItemGroup>
+</Project>

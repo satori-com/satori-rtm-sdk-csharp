@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\..\Satori.RTM.props" />
+  <PropertyGroup>
+    <ProjectGuid>{A1DE6A47-78A0-4274-9ED9-7FA9786D2B34}</ProjectGuid>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <UpdateAssemblyInfo>false</UpdateAssemblyInfo>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Satori.RTM.Net45\Satori.RTM.Net45.csproj">
+      <Project>{99629B45-BE1C-460E-A9D1-CBBBAA34E277}</Project>
+      <Name>Satori.RTM.Net45</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Satori.RTM.Android\Satori.RTM.Android.csproj">
+      <Project>{63233545-4D99-4C71-95E8-34545403B8AC}</Project>
+      <Name>Satori.RTM.Android</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Satori.RTM.iOS\Satori.RTM.iOS.csproj">
+      <Project>{16092CE2-035B-41C1-BC99-3D902466E53D}</Project>
+      <Name>Satori.RTM.iOS</Name>
+    </ProjectReference>
+
+
+    <None Include="Satori.RTM.nuspec" />
+
+  </ItemGroup>
+
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+
+  <Target Name="Build" DependsOnTargets="CreateDirectories">
+    <MSBuild Projects="@(ProjectReference)" Targets="Build" BuildInParallel="true">
+      <Output TaskParameter="TargetOutputs" ItemName="ProjectReferenceAssemblies" />
+    </MSBuild>
+  </Target>
+
+  <Target Name="NugetPack" AfterTargets="Build">
+    <Exec Command="nuget pack Satori.RTM.nuspec -version $(SatoriSdkVersion) -outputdirectory $(OutputPath) -nodefaultexcludes -properties configuration=$(Configuration)" />
+  </Target>
+
+  <Target Name="CreateDirectories" DependsOnTargets="RemoveDirectories">  
+    <MakeDir Directories="$(OutputPath)" />  
+  </Target>
+
+  <Target Name="RemoveDirectories">  
+    <RemoveDir Directories="$(OutputPath)" />  
+  </Target>  
+
+  
+</Project>
