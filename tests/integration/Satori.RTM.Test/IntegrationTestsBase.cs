@@ -5,7 +5,7 @@ namespace Satori.Rtm.Test
     public class IntegrationTestsBase
     {
         protected const int DefaultTestCaseTimeoutMsec = 60 * 1000;
-        protected const string SuperUserRole = "superuser";
+
         protected readonly RtmConfig Config = RtmConfig.Instance;
 
         protected IntegrationTestsBase()

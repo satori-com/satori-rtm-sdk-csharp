@@ -12,7 +12,13 @@ namespace Satori.Rtm.Test
         [JsonProperty("appkey")]
         public string AppKey { get; set; }
 
-        [JsonProperty("superuser_role_secret")]
-        public string SuperuserRoleSecret { get; set; }
+        [JsonProperty("auth_role_name")]
+        public string AuthRoleName { get; set; }
+
+        [JsonProperty("auth_role_secret_key")]
+         public string AuthRoleSecretKey { get; set; }
+
+        [JsonProperty("auth_restricted_channel")]
+        public string AuthRestrictedChannel { get; set; }
     }
 }

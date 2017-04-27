@@ -21,7 +21,7 @@ namespace Satori.Rtm.Test
         public async Task AuthenticateWithSuccess()
         {
             var client = new RtmClientBuilder(Config.Endpoint, Config.AppKey)
-                .SetRoleSecretAuthenticator(SuperUserRole, Config.SuperuserRoleSecret)
+                .SetRoleSecretAuthenticator(Config.AuthRoleName, Config.AuthRoleSecretKey)
                 .Build();
 
             var queue = client.CreateStateQueue();
@@ -42,7 +42,7 @@ namespace Satori.Rtm.Test
         public async Task FailToAuthenticateWithBadKey()
         {
             var client = new RtmClientBuilder(Config.Endpoint, Config.AppKey)
-                .SetRoleSecretAuthenticator(SuperUserRole, "bad_secret")
+                .SetRoleSecretAuthenticator(Config.AuthRoleName, "bad_secret_key")
                 .Build();
 
             Exception error = null;
@@ -69,7 +69,7 @@ namespace Satori.Rtm.Test
         public async Task FailToAuthenticateWithBadRole()
         {
             var client = new RtmClientBuilder(Config.Endpoint, Config.AppKey)
-                .SetRoleSecretAuthenticator("bad_role", "bad_secret")
+                .SetRoleSecretAuthenticator("bad_role_name", "bad_secret_key")
                 .Build();
 
             Exception error = null;
@@ -92,7 +92,7 @@ namespace Satori.Rtm.Test
         public async Task SubscribeToRestrictedChannelWhenAuthorized()
         {
             var client = new RtmClientBuilder(Config.Endpoint, Config.AppKey)
-                .SetRoleSecretAuthenticator(SuperUserRole, Config.SuperuserRoleSecret)
+                .SetRoleSecretAuthenticator(Config.AuthRoleName, Config.AuthRoleSecretKey)
                 .Build();
 
             var queue = client.CreateStateQueue();
@@ -129,7 +129,7 @@ namespace Satori.Rtm.Test
 
             try
             {
-                var restrictedChannel = "$restricted";
+                var restrictedChannel = Config.AuthRestrictedChannel;
                 await client.Publish(restrictedChannel, "foo", Ack.Yes);
             }
             catch (PduException ex)
