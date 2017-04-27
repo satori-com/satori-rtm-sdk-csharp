@@ -34,6 +34,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Satori.RTM.iOS", "sources\S
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Satori.RTM.Android", "sources\Satori.RTM.Android\Satori.RTM.Android.csproj", "{63233545-4D99-4C71-95E8-34545403B8AC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Satori.RTM.DocFx", "sources\Satori.RTM.DocFx\Satori.RTM.DocFx.csproj", "{62CE6C57-3F40-4288-8C45-D0A556C34BE6}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		3rd\System.Net.WebSockets.Managed\System.Net.WebSockets.Managed.projitems*{16092ce2-035b-41c1-bc99-3d902466e53d}*SharedItemsImports = 4
@@ -142,6 +144,22 @@ Global
 		{63233545-4D99-4C71-95E8-34545403B8AC}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{63233545-4D99-4C71-95E8-34545403B8AC}.Release|x86.ActiveCfg = Release|Any CPU
 		{63233545-4D99-4C71-95E8-34545403B8AC}.Release|x86.Build.0 = Release|Any CPU
+		{62CE6C57-3F40-4288-8C45-D0A556C34BE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62CE6C57-3F40-4288-8C45-D0A556C34BE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62CE6C57-3F40-4288-8C45-D0A556C34BE6}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{62CE6C57-3F40-4288-8C45-D0A556C34BE6}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{62CE6C57-3F40-4288-8C45-D0A556C34BE6}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{62CE6C57-3F40-4288-8C45-D0A556C34BE6}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{62CE6C57-3F40-4288-8C45-D0A556C34BE6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{62CE6C57-3F40-4288-8C45-D0A556C34BE6}.Debug|x86.Build.0 = Debug|Any CPU
+		{62CE6C57-3F40-4288-8C45-D0A556C34BE6}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{62CE6C57-3F40-4288-8C45-D0A556C34BE6}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{62CE6C57-3F40-4288-8C45-D0A556C34BE6}.Release|iPhone.ActiveCfg = Debug|Any CPU
+		{62CE6C57-3F40-4288-8C45-D0A556C34BE6}.Release|iPhone.Build.0 = Debug|Any CPU
+		{62CE6C57-3F40-4288-8C45-D0A556C34BE6}.Release|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{62CE6C57-3F40-4288-8C45-D0A556C34BE6}.Release|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{62CE6C57-3F40-4288-8C45-D0A556C34BE6}.Release|x86.ActiveCfg = Debug|Any CPU
+		{62CE6C57-3F40-4288-8C45-D0A556C34BE6}.Release|x86.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
