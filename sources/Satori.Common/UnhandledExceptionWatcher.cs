@@ -11,11 +11,7 @@ namespace Satori.Common
 
         public static void Swallow(Exception exception)
         {
-            var handlers = Volatile.Read(ref OnError);
-            if (handlers != null)
-            {
-                handlers(exception);
-            }
+            OnError?.Invoke(exception);
         }
     }
 }
