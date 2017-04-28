@@ -1,4 +1,5 @@
 # .NET SDK for Satori RTM
+[![NuGet Pre Release](https://img.shields.io/nuget/vpre/Satori.RTM.SDK.svg)]()
 
 Satori is a cloud-based, live data ecosystem that manages any form of schema-less real-time live data as it happens. 
 The ecosystem includes a fast and scalable messaging engine known as RTM. Use the .NET SDK 
