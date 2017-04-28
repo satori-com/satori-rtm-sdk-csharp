@@ -66,13 +66,19 @@ the following format:
 {
   "endpoint": "wss://<SATORI HOST>/",
   "appkey": "<APP KEY>",
-  "superuser_role_secret": "<ROLE SECRET KEY>"
+  "auth_role_name": "<ROLE NAME>",
+  "auth_role_secret_key": "<ROLE SECRET KEY>",
+  "auth_restricted_channel": "<CHANNEL NAME>"
 }
 ```
 
-* `endpoint` is your customer-specific DNS name for RTM access
-* `appkey` is your application key
-* `superuser_role_secret` is a role secret key for a role named `superuser`
+* `endpoint` is your customer-specific DNS name for RTM access.
+* `appkey` is your application key.
+* `auth_role_name` is a role name that permits to publish / subscribe to `auth_restricted_channel`. Must be not `default`.
+* `auth_role_secret_key` is a secret key for `auth_role_name`.
+* `auth_restricted_channel` is a channel with subscribe and publish access for `auth_role_name` role only.
+
+You must use [DevPortal](https://developer.satori.com/) to create role and set channel permissions.
 
 ## Command line on Windows
 Save credentials to `credentials.json` file and set path to this file to `RTM_CONFIG` environment variable. Path should be relative to `Satori.RTM.Test.Net45.csproj` file. 
