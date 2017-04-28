@@ -1,0 +1,273 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class RtmSubscriptionError
+   | .NET SDK for Satori RTM </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class RtmSubscriptionError
+   | .NET SDK for Satori RTM ">
+    <meta name="generator" content="docfx 2.16.5.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content">
+              
+              
+              <h1 id="Satori_Rtm_RtmSubscriptionError" data-uid="Satori.Rtm.RtmSubscriptionError">Class RtmSubscriptionError
+              </h1>
+              <div class="markdown level0 summary"></div>
+              <div class="markdown level0 conceptual"></div>
+              <div class="inheritance">
+                <h5>Inheritance</h5>
+                  <div class="level0"><span class="xref">System.Object</span></div>
+                  <div class="level1"><a class="xref" href="Satori.Rtm.RtmError.html">RtmError</a></div>
+                  <div class="level2"><span class="xref">RtmSubscriptionError</span></div>
+              </div>
+              <div class="inheritedMembers">
+                <h5>Inherited Members</h5>
+                <div>
+                  <a class="xref" href="Satori.Rtm.RtmError.html#Satori_Rtm_RtmError_Code">RtmError.Code</a>
+                </div>
+                <div>
+                  <a class="xref" href="Satori.Rtm.RtmError.html#Satori_Rtm_RtmError_Reason">RtmError.Reason</a>
+                </div>
+              </div>
+              <h6><strong>Namespace</strong>:Satori.Rtm</h6>
+              <h6><strong>Assembly</strong>:Satori.RTM.Net45.dll</h6>
+              <h5 id="Satori_Rtm_RtmSubscriptionError_syntax">Syntax</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public class RtmSubscriptionError : RtmError</code></pre>
+              </div>
+              <h3 id="fields">Fields
+              </h3>
+              
+              
+              <h4 id="Satori_Rtm_RtmSubscriptionError_ChannelDeleted" data-uid="Satori.Rtm.RtmSubscriptionError.ChannelDeleted">ChannelDeleted</h4>
+              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public const string ChannelDeleted = null</code></pre>
+              </div>
+              <h5 class="fieldValue">Field Value</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.String</span></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
+              <h4 id="Satori_Rtm_RtmSubscriptionError_InternalError" data-uid="Satori.Rtm.RtmSubscriptionError.InternalError">InternalError</h4>
+              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public const string InternalError = null</code></pre>
+              </div>
+              <h5 class="fieldValue">Field Value</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.String</span></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
+              <h4 id="Satori_Rtm_RtmSubscriptionError_OutOfSync" data-uid="Satori.Rtm.RtmSubscriptionError.OutOfSync">OutOfSync</h4>
+              <div class="markdown level1 summary"><p>Client&#39;s endpoint is too slow to process incoming channel messages. 
+The client is lagging behind the oldest available position: data loss 
+is imminent so the server pushes this error and forces unsubscription.
+<p>
+Note that the client should not re-subscribe with its last recorded position 
+as it would be expired. Client can recover by re-subscribing without 
+position or, if available from external sources, with a more current position 
+(client would be losing channel data in between). 
+<p>
+Note that a client experiencing this behavior consistently is also 
+a subject to uneven increasing latencies.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public const string OutOfSync = null</code></pre>
+              </div>
+              <h5 class="fieldValue">Field Value</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.String</span></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              <h3 id="properties">Properties
+              </h3>
+              
+              
+              <a id="Satori_Rtm_RtmSubscriptionError_MissedMessageCount_" data-uid="Satori.Rtm.RtmSubscriptionError.MissedMessageCount*"></a>
+              <h4 id="Satori_Rtm_RtmSubscriptionError_MissedMessageCount" data-uid="Satori.Rtm.RtmSubscriptionError.MissedMessageCount">MissedMessageCount</h4>
+              <div class="markdown level1 summary"><p>Gets or sets the missed message count.
+missed_message_count&quot; may be present in case &quot;error&quot;:&quot;out_of_sync&quot;.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public uint ? MissedMessageCount { get; set; }</code></pre>
+              </div>
+              <h5 class="propertyValue">Property Value</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.UInt32</span>&gt;</td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
+              <a id="Satori_Rtm_RtmSubscriptionError_Position_" data-uid="Satori.Rtm.RtmSubscriptionError.Position*"></a>
+              <h4 id="Satori_Rtm_RtmSubscriptionError_Position" data-uid="Satori.Rtm.RtmSubscriptionError.Position">Position</h4>
+              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public string Position { get; set; }</code></pre>
+              </div>
+              <h5 class="propertyValue">Property Value</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.String</span></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
+              <a id="Satori_Rtm_RtmSubscriptionError_SubscriptionId_" data-uid="Satori.Rtm.RtmSubscriptionError.SubscriptionId*"></a>
+              <h4 id="Satori_Rtm_RtmSubscriptionError_SubscriptionId" data-uid="Satori.Rtm.RtmSubscriptionError.SubscriptionId">SubscriptionId</h4>
+              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public string SubscriptionId { get; set; }</code></pre>
+              </div>
+              <h5 class="propertyValue">Property Value</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.String</span></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+                        </article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright (c) 2017, Satori Worldwide, Inc.
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

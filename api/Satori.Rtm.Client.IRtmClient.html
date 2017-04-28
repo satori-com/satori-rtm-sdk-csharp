@@ -1,0 +1,1205 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IRtmClient
+   | .NET SDK for Satori RTM </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IRtmClient
+   | .NET SDK for Satori RTM ">
+    <meta name="generator" content="docfx 2.16.5.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content">
+              
+              
+              <h1 id="Satori_Rtm_Client_IRtmClient" data-uid="Satori.Rtm.Client.IRtmClient">Interface IRtmClient
+              </h1>
+              <div class="markdown level0 summary"><p>The <a class="xref" href="Satori.Rtm.Client.IRtmClient.html">IRtmClient</a>  interface is the main entry point for accessing 
+the RTM service, including publish and subscribe operations.</p>
+</div>
+              <div class="markdown level0 conceptual"></div>
+              <div class="inheritedMembers">
+                <h5>Inherited Members</h5>
+                <div>
+                  <a class="xref" href="Satori.Rtm.IDispatchObject.html#Satori_Rtm_IDispatchObject_Dispatcher">IDispatchObject.Dispatcher</a>
+                </div>
+              </div>
+              <h6><strong>Namespace</strong>:Satori.Rtm.Client</h6>
+              <h6><strong>Assembly</strong>:Satori.RTM.Net45.dll</h6>
+              <h5 id="Satori_Rtm_Client_IRtmClient_syntax">Syntax</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public interface IRtmClient : IDispatchObject</code></pre>
+              </div>
+              <h5 id="Satori_Rtm_Client_IRtmClient_remarks"><strong>Remarks</strong></h5>
+              <div class="markdown level0 remarks"><p>Create an instance of the client with <a class="xref" href="Satori.Rtm.Client.RtmClientBuilder.html">RtmClientBuilder</a> 
+and use the <a class="xref" href="Satori.Rtm.Client.IRtmClient.html">IRtmClient</a>  methods to start, stop, and restart 
+the client WebSocket connection, and publish and subscribe to channels.
+<example>
+This snippet shows how to create a client: 
+<pre><code>var client = new RtmClientBuilder("YOUR RTM ENFDPOINT", "YOUR APP KEY").Build();
+await client.Start();</code></pre> 
+This snippet shows how to subscribe to a channel: 
+<pre><code>var observer = new SubscriptionObserver();
+observer.OnSubscriptionData += (sub, data) =&gt; 
+    {
+        foreach (var m in data.Messages)
+            Console.WriteLine(m);
+    };
+await client.CreateSubscription(channel, SubscriptionModes.Simple, observer);</code></pre>
+This snippet shows how to publish to a channel: 
+<pre><code>await client.Publish(channel, "Hello World!", Ack.Yes);</code></pre>
+</example></p>
+</div>
+              <h3 id="methods">Methods
+              </h3>
+              
+              
+              <a id="Satori_Rtm_Client_IRtmClient_CreateSubscription_" data-uid="Satori.Rtm.Client.IRtmClient.CreateSubscription*"></a>
+              <h4 id="Satori_Rtm_Client_IRtmClient_CreateSubscription_System_String_Satori_Rtm_Client_SubscriptionConfig_" data-uid="Satori.Rtm.Client.IRtmClient.CreateSubscription(System.String,Satori.Rtm.Client.SubscriptionConfig)">CreateSubscription(String, SubscriptionConfig)</h4>
+              <div class="markdown level1 summary"><p>Creates subscription with the specific channel name or subscription id.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">Task CreateSubscription(string channelOrSubId, SubscriptionConfig config)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.String</span></td>
+                    <td><span class="parametername">channelOrSubId</span></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Satori.Rtm.Client.SubscriptionConfig.html">SubscriptionConfig</a></td>
+                    <td><span class="parametername">config</span></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">Task</span></td>
+                    <td><p>The task completes when this call is executed on the <a class="xref" href="Satori.Rtm.Dispatcher.html">Dispatcher</a>  dispatcher. 
+Task fails if a subscription with the same <span class="paramref">channelOrSubId</span> already exists. </p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 id="Satori_Rtm_Client_IRtmClient_CreateSubscription_System_String_Satori_Rtm_Client_SubscriptionConfig__remarks">Remarks</h5>
+              <div class="markdown level1 remarks"><p>You can create subscription at any time. The SDK manages 
+the subscription and sends a subscribe request when the WebSocket 
+connection is established. 
+Use the <span class="paramref">config</span>  parameter to define the behavior that 
+the SDK uses to handle dropped connections.</p>
+</div>
+              
+              
+              <a id="Satori_Rtm_Client_IRtmClient_CreateSubscription_" data-uid="Satori.Rtm.Client.IRtmClient.CreateSubscription*"></a>
+              <h4 id="Satori_Rtm_Client_IRtmClient_CreateSubscription_System_String_Satori_Rtm_Client_SubscriptionModes_Satori_Rtm_Client_ISubscriptionObserver_" data-uid="Satori.Rtm.Client.IRtmClient.CreateSubscription(System.String,Satori.Rtm.Client.SubscriptionModes,Satori.Rtm.Client.ISubscriptionObserver)">CreateSubscription(String, SubscriptionModes, ISubscriptionObserver)</h4>
+              <div class="markdown level1 summary"><p>Creates subscription with the specific <span class="paramref">channel</span> name.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">Task CreateSubscription(string channel, SubscriptionModes mode, ISubscriptionObserver observer)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.String</span></td>
+                    <td><span class="parametername">channel</span></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Satori.Rtm.Client.SubscriptionModes.html">SubscriptionModes</a></td>
+                    <td><span class="parametername">mode</span></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Satori.Rtm.Client.ISubscriptionObserver.html">ISubscriptionObserver</a></td>
+                    <td><span class="parametername">observer</span></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">Task</span></td>
+                    <td><p>The task completes when this call is executed on the <a class="xref" href="Satori.Rtm.Dispatcher.html">Dispatcher</a>  dispatcher. 
+Task fails if a subscription with the same <span class="paramref">channel</span> name already exists. </p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 id="Satori_Rtm_Client_IRtmClient_CreateSubscription_System_String_Satori_Rtm_Client_SubscriptionModes_Satori_Rtm_Client_ISubscriptionObserver__remarks">Remarks</h5>
+              <div class="markdown level1 remarks"><p>You can create subscription at any time. The SDK manages 
+the subscription and sends a subscribe request when the connection 
+to RTM service is established. 
+Use the <span class="paramref">mode</span>  parameter to define the behavior that 
+the SDK uses to handle dropped connections.</p>
+</div>
+              
+              
+              <a id="Satori_Rtm_Client_IRtmClient_Delete_" data-uid="Satori.Rtm.Client.IRtmClient.Delete*"></a>
+              <h4 id="Satori_Rtm_Client_IRtmClient_Delete_System_String_Satori_Rtm_Client_Ack_" data-uid="Satori.Rtm.Client.IRtmClient.Delete(System.String,Satori.Rtm.Client.Ack)">Delete(String, Ack)</h4>
+              <div class="markdown level1 summary"><p>Deletes the message from the specified <span class="paramref">channel</span>. </p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">Task&lt;RtmDeleteReply&gt; Delete(string channel, Ack ack)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.String</span></td>
+                    <td><span class="parametername">channel</span></td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Satori.Rtm.Client.Ack.html">Ack</a></td>
+                    <td><span class="parametername">ack</span></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">Task</span>&lt;<a class="xref" href="Satori.Rtm.RtmDeleteReply.html">RtmDeleteReply</a>&gt;</td>
+                    <td><p>The task which contains the successful reply or exception. </p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 id="Satori_Rtm_Client_IRtmClient_Delete_System_String_Satori_Rtm_Client_Ack__remarks">Remarks</h5>
+              <div class="markdown level1 remarks"><p>If client is not connected to the RTM service, the read request 
+is queued. The SDK reads the value when the connection is established. 
+The length of this queue is limited by 
+<a class="xref" href="Satori.Rtm.Client.RtmClientBuilder.html#Satori_Rtm_Client_RtmClientBuilder_PendingActionQueueLength">PendingActionQueueLength</a>.
+If the queue is full, the <a class="xref" href="Satori.Rtm.Client.TooManyRequestsException.html">TooManyRequestsException</a> exception is returned in the task. </p>
+</div>
+              
+              
+              <a id="Satori_Rtm_Client_IRtmClient_Dispose_" data-uid="Satori.Rtm.Client.IRtmClient.Dispose*"></a>
+              <h4 id="Satori_Rtm_Client_IRtmClient_Dispose" data-uid="Satori.Rtm.Client.IRtmClient.Dispose">Dispose()</h4>
+              <div class="markdown level1 summary"><p>Disposes the client.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">Task Dispose()</code></pre>
+              </div>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">Task</span></td>
+                    <td><p>The task completes when this call is executed on the <a class="xref" href="Satori.Rtm.Dispatcher.html">Dispatcher</a>  dispatcher. </p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 id="Satori_Rtm_Client_IRtmClient_Dispose_remarks">Remarks</h5>
+              <div class="markdown level1 remarks"><p>Call <a class="xref" href="Satori.Rtm.Client.IRtmClient.html#Satori_Rtm_Client_IRtmClient_Dispose">Dispose()</a> when you are finished using the <a class="xref" href="Satori.Rtm.Client.IRtmClient.html">IRtmClient</a>. The
+<a class="xref" href="Satori.Rtm.Client.IRtmClient.html#Satori_Rtm_Client_IRtmClient_Dispose">Dispose()</a> method leaves the <a class="xref" href="Satori.Rtm.Client.IRtmClient.html">IRtmClient</a> in an unusable state.
+After calling <a class="xref" href="Satori.Rtm.Client.IRtmClient.html#Satori_Rtm_Client_IRtmClient_Dispose">Dispose()</a>, you must release all references to the
+<a class="xref" href="Satori.Rtm.Client.IRtmClient.html">IRtmClient</a> so the garbage collector can reclaim the memory that the
+<a class="xref" href="Satori.Rtm.Client.IRtmClient.html">IRtmClient</a> was occupying.</p>
+</div>
+              
+              
+              <a id="Satori_Rtm_Client_IRtmClient_GetConnection_" data-uid="Satori.Rtm.Client.IRtmClient.GetConnection*"></a>
+              <h4 id="Satori_Rtm_Client_IRtmClient_GetConnection" data-uid="Satori.Rtm.Client.IRtmClient.GetConnection">GetConnection()</h4>
+              <div class="markdown level1 summary"><p>Returns the current connection or <code>null</code> if the client is not connected.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">Task&lt;IConnection&gt; GetConnection()</code></pre>
+              </div>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">Task</span>&lt;<a class="xref" href="Satori.Rtm.IConnection.html">IConnection</a>&gt;</td>
+                    <td><p>The task completes when this call is executed on the <a class="xref" href="Satori.Rtm.Dispatcher.html">Dispatcher</a> dispatcher. </p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
+              <a id="Satori_Rtm_Client_IRtmClient_GetSubscription_" data-uid="Satori.Rtm.Client.IRtmClient.GetSubscription*"></a>
+              <h4 id="Satori_Rtm_Client_IRtmClient_GetSubscription_System_String_" data-uid="Satori.Rtm.Client.IRtmClient.GetSubscription(System.String)">GetSubscription(String)</h4>
+              <div class="markdown level1 summary"><p>Gets the subscription with the specified channel name or subscription id.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">Task&lt;ISubscription&gt; GetSubscription(string channelOrSubId)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.String</span></td>
+                    <td><span class="parametername">channelOrSubId</span></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">Task</span>&lt;<a class="xref" href="Satori.Rtm.Client.ISubscription.html">ISubscription</a>&gt;</td>
+                    <td><p>The task completes when this call is executed on the <a class="xref" href="Satori.Rtm.Dispatcher.html">Dispatcher</a> dispatcher. 
+Task fails if a subscription with the specified <span class="paramref">channelOrSubId</span> doesn&#39;t exist. </p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
+              <a id="Satori_Rtm_Client_IRtmClient_Publish_" data-uid="Satori.Rtm.Client.IRtmClient.Publish*"></a>
+              <h4 id="Satori_Rtm_Client_IRtmClient_Publish__1_System_String___0_Satori_Rtm_Client_Ack_" data-uid="Satori.Rtm.Client.IRtmClient.Publish``1(System.String,``0,Satori.Rtm.Client.Ack)">Publish&lt;T&gt;(String, T, Ack)</h4>
+              <div class="markdown level1 summary"><p>Publishes the <span class="paramref">message</span> to the <span class="paramref">channel</span>.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">Task&lt;RtmPublishReply&gt; Publish&lt;T&gt;(string channel, T message, Ack ack)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.String</span></td>
+                    <td><span class="parametername">channel</span></td>
+                    <td><p>The channel to which the <span class="paramref">message</span>  is published. </p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">T</span></td>
+                    <td><span class="parametername">message</span></td>
+                    <td><p>The message which is published. </p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Satori.Rtm.Client.Ack.html">Ack</a></td>
+                    <td><span class="parametername">ack</span></td>
+                    <td><p>Specifies whether an acknowledgement from the RTM service is needed. 
+See <a class="xref" href="Satori.Rtm.Client.Ack.html">Ack</a> for more details. </p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">Task</span>&lt;<a class="xref" href="Satori.Rtm.RtmPublishReply.html">RtmPublishReply</a>&gt;</td>
+                    <td><p>The task which contains the successful reply or exception. </p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="typeParameters">Type Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="parametername">T</span></td>
+                    <td><p>It can be any reference or value type. The Newtonsoft.Json library is
+used for serialization. </p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 id="Satori_Rtm_Client_IRtmClient_Publish__1_System_String___0_Satori_Rtm_Client_Ack__remarks">Remarks</h5>
+              <div class="markdown level1 remarks"><p>If client is not connected to the RTM service, the publish request 
+is queued. The SDK sends the message when the connection is established. 
+The length of this queue is limited by <a class="xref" href="Satori.Rtm.Client.RtmClientBuilder.html#Satori_Rtm_Client_RtmClientBuilder_PendingActionQueueLength">PendingActionQueueLength</a>.
+If the queue is full, the <a class="xref" href="Satori.Rtm.Client.TooManyRequestsException.html">TooManyRequestsException</a> exception is returned in the task. </p>
+</div>
+              
+              
+              <a id="Satori_Rtm_Client_IRtmClient_Read_" data-uid="Satori.Rtm.Client.IRtmClient.Read*"></a>
+              <h4 id="Satori_Rtm_Client_IRtmClient_Read__1_Satori_Rtm_RtmReadRequest_" data-uid="Satori.Rtm.Client.IRtmClient.Read``1(Satori.Rtm.RtmReadRequest)">Read&lt;T&gt;(RtmReadRequest)</h4>
+              <div class="markdown level1 summary"><p>Reads the message from the <a class="xref" href="Satori.Rtm.RtmReadRequest.html">RtmReadRequest</a>.<a class="xref" href="Satori.Rtm.RtmReadRequest.html#Satori_Rtm_RtmReadRequest_Channel">Channel</a>. </p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">Task&lt;RtmReadReply&lt;T&gt;&gt; Read&lt;T&gt;(RtmReadRequest request)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Satori.Rtm.RtmReadRequest.html">RtmReadRequest</a></td>
+                    <td><span class="parametername">request</span></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">Task</span>&lt;<a class="xref" href="Satori.Rtm.RtmReadReply-1.html">RtmReadReply</a>&lt;T&gt;&gt;</td>
+                    <td><p>The task which contains the successful reply or exception. 
+Get the message from <a class="xref" href="Satori.Rtm.RtmReadReply.html">RtmReadReply</a>.<a class="xref" href="Satori.Rtm.RtmReadReply-1.html#Satori_Rtm_RtmReadReply_1_Message">Message</a>. </p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="typeParameters">Type Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="parametername">T</span></td>
+                    <td><p>It can be any reference or value type. The Newtonsoft.Json library is
+used for deserialization. </p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 id="Satori_Rtm_Client_IRtmClient_Read__1_Satori_Rtm_RtmReadRequest__remarks">Remarks</h5>
+              <div class="markdown level1 remarks"><p>If client is not connected to the RTM service, the read request 
+is queued. The SDK reads the value when the connection is established. 
+The length of this queue is limited by 
+<a class="xref" href="Satori.Rtm.Client.RtmClientBuilder.html#Satori_Rtm_Client_RtmClientBuilder_PendingActionQueueLength">PendingActionQueueLength</a>.
+If the queue is full, the <a class="xref" href="Satori.Rtm.Client.TooManyRequestsException.html">TooManyRequestsException</a> exception is returned in the task. </p>
+</div>
+              
+              
+              <a id="Satori_Rtm_Client_IRtmClient_Read_" data-uid="Satori.Rtm.Client.IRtmClient.Read*"></a>
+              <h4 id="Satori_Rtm_Client_IRtmClient_Read__1_System_String_" data-uid="Satori.Rtm.Client.IRtmClient.Read``1(System.String)">Read&lt;T&gt;(String)</h4>
+              <div class="markdown level1 summary"><p>Reads the massage from the specified <span class="paramref">channel</span>.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">Task&lt;RtmReadReply&lt;T&gt;&gt; Read&lt;T&gt;(string channel)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.String</span></td>
+                    <td><span class="parametername">channel</span></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">Task</span>&lt;<a class="xref" href="Satori.Rtm.RtmReadReply-1.html">RtmReadReply</a>&lt;T&gt;&gt;</td>
+                    <td><p>The task which contains the successful reply or exception. 
+Get the message from <a class="xref" href="Satori.Rtm.RtmReadReply.html">RtmReadReply</a>.<a class="xref" href="Satori.Rtm.RtmReadReply-1.html#Satori_Rtm_RtmReadReply_1_Message">Message</a>. </p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="typeParameters">Type Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="parametername">T</span></td>
+                    <td><p>It can be any reference or value type. The Newtonsoft.Json library is
+used for deserialization. </p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 id="Satori_Rtm_Client_IRtmClient_Read__1_System_String__remarks">Remarks</h5>
+              <div class="markdown level1 remarks"><p>If client is not connected to the RTM service, the read request 
+is queued. The SDK reads the value when the connection is established. 
+The length of this queue is limited by 
+<a class="xref" href="Satori.Rtm.Client.RtmClientBuilder.html#Satori_Rtm_Client_RtmClientBuilder_PendingActionQueueLength">PendingActionQueueLength</a>.
+If the queue is full, the <a class="xref" href="Satori.Rtm.Client.TooManyRequestsException.html">TooManyRequestsException</a> exception is returned in the task. </p>
+</div>
+              
+              
+              <a id="Satori_Rtm_Client_IRtmClient_RemoveSubscription_" data-uid="Satori.Rtm.Client.IRtmClient.RemoveSubscription*"></a>
+              <h4 id="Satori_Rtm_Client_IRtmClient_RemoveSubscription_System_String_" data-uid="Satori.Rtm.Client.IRtmClient.RemoveSubscription(System.String)">RemoveSubscription(String)</h4>
+              <div class="markdown level1 summary"><p>Removes the subscription with the specific subscription id.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">Task RemoveSubscription(string channelOrSubId)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.String</span></td>
+                    <td><span class="parametername">channelOrSubId</span></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">Task</span></td>
+                    <td><p>The task completes when this call is executed on the <a class="xref" href="Satori.Rtm.Dispatcher.html">Dispatcher</a>  dispatcher. 
+Task falls if a subscription with the specified <span class="paramref">channelOrSubId</span> doesn&#39;t exist. </p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
+              <a id="Satori_Rtm_Client_IRtmClient_Restart_" data-uid="Satori.Rtm.Client.IRtmClient.Restart*"></a>
+              <h4 id="Satori_Rtm_Client_IRtmClient_Restart" data-uid="Satori.Rtm.Client.IRtmClient.Restart">Restart()</h4>
+              <div class="markdown level1 summary"><p>Restarts the client.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">Task Restart()</code></pre>
+              </div>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">Task</span></td>
+                    <td><p>The task completes when this call is executed on the <a class="xref" href="Satori.Rtm.Dispatcher.html">Dispatcher</a>  dispatcher. </p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
+              <a id="Satori_Rtm_Client_IRtmClient_Start_" data-uid="Satori.Rtm.Client.IRtmClient.Start*"></a>
+              <h4 id="Satori_Rtm_Client_IRtmClient_Start" data-uid="Satori.Rtm.Client.IRtmClient.Start">Start()</h4>
+              <div class="markdown level1 summary"><p>Starts the client. Client tries to establish the WebSocket connection 
+to the RTM service asynchronously.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">Task Start()</code></pre>
+              </div>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">Task</span></td>
+                    <td><p>The task completes when this call is executed on the <a class="xref" href="Satori.Rtm.Dispatcher.html">Dispatcher</a>  dispatcher. </p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 id="Satori_Rtm_Client_IRtmClient_Start_remarks">Remarks</h5>
+              <div class="markdown level1 remarks"><p>The SDK attempts to reconnect to the RTM service if the WebSocket
+connection fails for any reason.
+If you make any publish or subscribe requests while the WebSocket 
+connection is not active, the SDK queues the requests and completes 
+them when the connection is established or re-established. 
+You can use the client events to define application functionality for when the application
+enters or leaves the connected state.</p>
+</div>
+              
+              
+              <a id="Satori_Rtm_Client_IRtmClient_Stop_" data-uid="Satori.Rtm.Client.IRtmClient.Stop*"></a>
+              <h4 id="Satori_Rtm_Client_IRtmClient_Stop" data-uid="Satori.Rtm.Client.IRtmClient.Stop">Stop()</h4>
+              <div class="markdown level1 summary"><p>Stops the client. The SDK tries to close the WebSocket connection 
+asynchronously and does not start it again unless you call <a class="xref" href="Satori.Rtm.Client.IRtmClient.html#Satori_Rtm_Client_IRtmClient_Start">Start()</a> .</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">Task Stop()</code></pre>
+              </div>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">Task</span></td>
+                    <td><p>The task completes when this call is executed on the <a class="xref" href="Satori.Rtm.Dispatcher.html">Dispatcher</a>  dispatcher. </p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 id="Satori_Rtm_Client_IRtmClient_Stop_remarks">Remarks</h5>
+              <div class="markdown level1 remarks"><p>Use this method to explicitly stop all interaction with the RTM service.
+You can use the client events to define application functionality for when the application
+enters or leaves the connected state.</p>
+</div>
+              
+              
+              <a id="Satori_Rtm_Client_IRtmClient_Write_" data-uid="Satori.Rtm.Client.IRtmClient.Write*"></a>
+              <h4 id="Satori_Rtm_Client_IRtmClient_Write__1_Satori_Rtm_RtmWriteRequest___0__Satori_Rtm_Client_Ack_" data-uid="Satori.Rtm.Client.IRtmClient.Write``1(Satori.Rtm.RtmWriteRequest{``0},Satori.Rtm.Client.Ack)">Write&lt;T&gt;(RtmWriteRequest&lt;T&gt;, Ack)</h4>
+              <div class="markdown level1 summary"><p>Writes the <a class="xref" href="Satori.Rtm.RtmWriteRequest.html">RtmWriteRequest</a>.<a class="xref" href="Satori.Rtm.RtmWriteRequest-1.html#Satori_Rtm_RtmWriteRequest_1_Message">Message</a> to 
+the <a class="xref" href="Satori.Rtm.RtmWriteRequest.html">RtmWriteRequest</a>.<a class="xref" href="Satori.Rtm.RtmWriteRequest-1.html#Satori_Rtm_RtmWriteRequest_1_Channel">Channel</a>.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">Task&lt;RtmWriteReply&gt; Write&lt;T&gt;(RtmWriteRequest&lt;T&gt; request, Ack ack)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Satori.Rtm.RtmWriteRequest-1.html">RtmWriteRequest</a>&lt;T&gt;</td>
+                    <td><span class="parametername">request</span></td>
+                    <td><p>The request which contains the channel and the message to be written</p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Satori.Rtm.Client.Ack.html">Ack</a></td>
+                    <td><span class="parametername">ack</span></td>
+                    <td><p>Specifies whether an acknowledgement from the RTM service is needed. 
+See <a class="xref" href="Satori.Rtm.Client.Ack.html">Ack</a> for more details. </p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">Task</span>&lt;<a class="xref" href="Satori.Rtm.RtmWriteReply.html">RtmWriteReply</a>&gt;</td>
+                    <td><p>The task which contains the successful reply or exception. </p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="typeParameters">Type Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="parametername">T</span></td>
+                    <td><p>It can be any reference or value type. The Newtonsoft.Json library is
+used for serialization. </p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 id="Satori_Rtm_Client_IRtmClient_Write__1_Satori_Rtm_RtmWriteRequest___0__Satori_Rtm_Client_Ack__remarks">Remarks</h5>
+              <div class="markdown level1 remarks"><p>If client is not connected to the RTM service, the read request 
+is queued. The SDK reads the value when the connection is established. 
+The length of this queue is limited by 
+<a class="xref" href="Satori.Rtm.Client.RtmClientBuilder.html#Satori_Rtm_Client_RtmClientBuilder_PendingActionQueueLength">PendingActionQueueLength</a>.
+If the queue is full, the <a class="xref" href="Satori.Rtm.Client.TooManyRequestsException.html">TooManyRequestsException</a> exception is returned in the task. </p>
+</div>
+              
+              
+              <a id="Satori_Rtm_Client_IRtmClient_Write_" data-uid="Satori.Rtm.Client.IRtmClient.Write*"></a>
+              <h4 id="Satori_Rtm_Client_IRtmClient_Write__1_System_String___0_Satori_Rtm_Client_Ack_" data-uid="Satori.Rtm.Client.IRtmClient.Write``1(System.String,``0,Satori.Rtm.Client.Ack)">Write&lt;T&gt;(String, T, Ack)</h4>
+              <div class="markdown level1 summary"><p>Writes the <span class="paramref">message</span>  to the specified <span class="paramref">channel</span>. </p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">Task&lt;RtmWriteReply&gt; Write&lt;T&gt;(string channel, T message, Ack ack)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.String</span></td>
+                    <td><span class="parametername">channel</span></td>
+                    <td><p>The channel to which the <span class="paramref">message</span>  is written. </p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><span class="xref">T</span></td>
+                    <td><span class="parametername">message</span></td>
+                    <td><p>The message which is written. </p>
+</td>
+                  </tr>
+                  <tr>
+                    <td><a class="xref" href="Satori.Rtm.Client.Ack.html">Ack</a></td>
+                    <td><span class="parametername">ack</span></td>
+                    <td><p>Specifies whether an acknowledgement from the RTM service is needed. 
+See <a class="xref" href="Satori.Rtm.Client.Ack.html">Ack</a> for more details. </p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">Task</span>&lt;<a class="xref" href="Satori.Rtm.RtmWriteReply.html">RtmWriteReply</a>&gt;</td>
+                    <td><p>The task which contains the successful reply or exception. </p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="typeParameters">Type Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="parametername">T</span></td>
+                    <td><p>It can be any reference or value type. The Newtonsoft.Json library is
+used for serialization. </p>
+</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 id="Satori_Rtm_Client_IRtmClient_Write__1_System_String___0_Satori_Rtm_Client_Ack__remarks">Remarks</h5>
+              <div class="markdown level1 remarks"><p>If client is not connected to the RTM service, the read request 
+is queued. The SDK reads the value when the connection is established. 
+The length of this queue is limited by 
+<a class="xref" href="Satori.Rtm.Client.RtmClientBuilder.html#Satori_Rtm_Client_RtmClientBuilder_PendingActionQueueLength">PendingActionQueueLength</a>.
+If the queue is full, the <a class="xref" href="Satori.Rtm.Client.TooManyRequestsException.html">TooManyRequestsException</a> exception is returned in the task. </p>
+</div>
+              <h3 id="events">Events
+              </h3>
+              
+              
+              <h4 id="Satori_Rtm_Client_IRtmClient_OnEnterAwaiting" data-uid="Satori.Rtm.Client.IRtmClient.OnEnterAwaiting">OnEnterAwaiting</h4>
+              <div class="markdown level1 summary"><p>Occurs when a client enters an awaiting state. 
+Client enters an awaiting state after it leaves
+a connecting or connected state because connection has been dropped.  </p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">event Action OnEnterAwaiting</code></pre>
+              </div>
+              <h5 class="eventType">Event Type</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">Action</span></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
+              <h4 id="Satori_Rtm_Client_IRtmClient_OnEnterConnected" data-uid="Satori.Rtm.Client.IRtmClient.OnEnterConnected">OnEnterConnected</h4>
+              <div class="markdown level1 summary"><p>Occurs when a client enters a connected state.
+Client enters a connected state after a connection 
+to RTM service is established and authentication succeed. </p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">event Action&lt;IConnection&gt; OnEnterConnected</code></pre>
+              </div>
+              <h5 class="eventType">Event Type</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">Action</span>&lt;<a class="xref" href="Satori.Rtm.IConnection.html">IConnection</a>&gt;</td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
+              <h4 id="Satori_Rtm_Client_IRtmClient_OnEnterConnecting" data-uid="Satori.Rtm.Client.IRtmClient.OnEnterConnecting">OnEnterConnecting</h4>
+              <div class="markdown level1 summary"><p>Occurs when a client enters a connecting state. 
+Client enters a connecting state after it leaves a stopped state
+or awaiting state. </p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">event Action OnEnterConnecting</code></pre>
+              </div>
+              <h5 class="eventType">Event Type</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">Action</span></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
+              <h4 id="Satori_Rtm_Client_IRtmClient_OnEnterDisposed" data-uid="Satori.Rtm.Client.IRtmClient.OnEnterDisposed">OnEnterDisposed</h4>
+              <div class="markdown level1 summary"><p>Occurs when a client is disposed.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">event Action OnEnterDisposed</code></pre>
+              </div>
+              <h5 class="eventType">Event Type</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">Action</span></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
+              <h4 id="Satori_Rtm_Client_IRtmClient_OnEnterStopped" data-uid="Satori.Rtm.Client.IRtmClient.OnEnterStopped">OnEnterStopped</h4>
+              <div class="markdown level1 summary"><p>Occurs when a client enters a stopped state. 
+Client enters a stopped state after <a class="xref" href="Satori.Rtm.Client.IRtmClient.html#Satori_Rtm_Client_IRtmClient_Stop">Stop()</a> method is called. </p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">event Action OnEnterStopped</code></pre>
+              </div>
+              <h5 class="eventType">Event Type</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">Action</span></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
+              <h4 id="Satori_Rtm_Client_IRtmClient_OnError" data-uid="Satori.Rtm.Client.IRtmClient.OnError">OnError</h4>
+              <div class="markdown level1 summary"><p>This event is fired when a client error occurs.
+Client error is contrasted to operation and subscription errors. 
+Client error occurs, for example, when a connection attempt fails or 
+RTM reports about a connection-wide error like a malformed PDU. </p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">event Action&lt;Exception&gt; OnError</code></pre>
+              </div>
+              <h5 class="eventType">Event Type</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">Action</span>&lt;<span class="xref">Exception</span>&gt;</td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
+              <h4 id="Satori_Rtm_Client_IRtmClient_OnLeaveAwaiting" data-uid="Satori.Rtm.Client.IRtmClient.OnLeaveAwaiting">OnLeaveAwaiting</h4>
+              <div class="markdown level1 summary"><p>Occurs when a client leaves an awaiting state.
+Client leaves an awaiting state after a reconnect interval has elapsed
+or <a class="xref" href="Satori.Rtm.Client.IRtmClient.html#Satori_Rtm_Client_IRtmClient_Stop">Stop()</a> method has been called. In former case,
+a client will enter a connecting state. </p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">event Action OnLeaveAwaiting</code></pre>
+              </div>
+              <h5 class="eventType">Event Type</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">Action</span></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
+              <h4 id="Satori_Rtm_Client_IRtmClient_OnLeaveConnected" data-uid="Satori.Rtm.Client.IRtmClient.OnLeaveConnected">OnLeaveConnected</h4>
+              <div class="markdown level1 summary"><p>Occurs when a client leaves a connected state. 
+Client leaves a connected state after <a class="xref" href="Satori.Rtm.Client.IRtmClient.html#Satori_Rtm_Client_IRtmClient_Stop">Stop()</a> method
+is called or a connection is dropped. </p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">event Action&lt;IConnection&gt; OnLeaveConnected</code></pre>
+              </div>
+              <h5 class="eventType">Event Type</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">Action</span>&lt;<a class="xref" href="Satori.Rtm.IConnection.html">IConnection</a>&gt;</td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
+              <h4 id="Satori_Rtm_Client_IRtmClient_OnLeaveConnecting" data-uid="Satori.Rtm.Client.IRtmClient.OnLeaveConnecting">OnLeaveConnecting</h4>
+              <div class="markdown level1 summary"><p>Occurs when a client leaves a connecting state. 
+Client leaves a connecting state after successful or failed
+attempt to connect to RTM service. 
+<p>
+Note, that authentication happens in a connecting state, just 
+after a connection to RTM service is established.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">event Action OnLeaveConnecting</code></pre>
+              </div>
+              <h5 class="eventType">Event Type</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">Action</span></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
+              <h4 id="Satori_Rtm_Client_IRtmClient_OnLeaveStopped" data-uid="Satori.Rtm.Client.IRtmClient.OnLeaveStopped">OnLeaveStopped</h4>
+              <div class="markdown level1 summary"><p>Occurs when a client leaves a stopped state. Client leaves 
+a stopped state after <a class="xref" href="Satori.Rtm.Client.IRtmClient.html#Satori_Rtm_Client_IRtmClient_Start">Start()</a> method is called </p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">event Action OnLeaveStopped</code></pre>
+              </div>
+              <h5 class="eventType">Event Type</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">Action</span></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              <h3 id="extensionmethods">Extension Methods</h3>
+              <div>
+                  <a class="xref" href="Satori.Rtm.DispatchObjectExtensions.html#Satori_Rtm_DispatchObjectExtensions_Post_Satori_Rtm_IDispatchObject_Action_">DispatchObjectExtensions.Post(IDispatchObject, Action)</a>
+              </div>
+              <div>
+                  <a class="xref" href="Satori.Rtm.DispatchObjectExtensions.html#Satori_Rtm_DispatchObjectExtensions_Yield_Satori_Rtm_IDispatchObject_">DispatchObjectExtensions.Yield(IDispatchObject)</a>
+              </div>
+                        </article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright (c) 2017, Satori Worldwide, Inc.
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
