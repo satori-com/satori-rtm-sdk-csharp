@@ -3,14 +3,14 @@
   <metadata>
     <id>Satori.RTM.SDK</id>
     <version>0.0.0</version>
-    <title>.NET SDK for Satori RTM</title>
+    <title>Satori RTM SDK for .NET</title>
     <authors>Satori Worldwide, Inc</authors>
     <owners>Satori Worldwide, Inc</owners>
     <licenseUrl>https://github.com/satori-com/satori-rtm-sdk-net/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/satori-com/satori-rtm-sdk-net</projectUrl>
     <!--<iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>-->
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Satori is a cloud-based, live data ecosystem that manages schema-less real-time live data as it happens. The ecosystem includes a fast and massively scalable messaging engine known as RTM. Use the .NET SDK for Satori RTM to create mobile, desktop or server-based applications that communicate with the RTM to publish and subscribe. </description>
+    <description>Satori is a cloud-based, live data ecosystem that manages schema-less real-time live data as it happens. The ecosystem includes a fast and massively scalable messaging engine known as RTM. Use the Satori RTM SDK for .NET to create mobile, desktop or server-based applications that communicate with the RTM to publish and subscribe. </description>
     <!--<releaseNotes>Summary of changes made in this release of the package.</releaseNotes>-->
     <language>en-US</language>
     <copyright>Copyright (c) 2017, Satori Worldwide, Inc.</copyright>
