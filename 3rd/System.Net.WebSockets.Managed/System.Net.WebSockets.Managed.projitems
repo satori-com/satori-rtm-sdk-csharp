@@ -32,7 +32,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)WebSocketException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ClientWebSocket.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)StringEx.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)DnsEx.3rd.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DnsEx.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)LICENSE" />

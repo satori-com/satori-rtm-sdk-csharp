@@ -10,7 +10,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)ArrayPool.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ArrayPoolEventSource.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DefaultArrayPool.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DefaultArrayPoolBucket.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities.cs" />

@@ -33,7 +33,7 @@ namespace Satori.Rtm
 
         public static async Task<WsSerialization> Connect(Uri uri, CancellationToken ct, Logger log)
         {
-            log.V("Connecting to '{0}'", uri?.OriginalString);
+            log.V("Connecting to '{0}', host: {1}, port: {2}", uri?.OriginalString, uri?.Host, uri?.Port);
 
             var wsock = new System.Net.WebSockets.Managed.ClientWebSocket();
             wsock.Options.KeepAliveInterval = TimeSpan.FromSeconds(60);
