@@ -75,11 +75,6 @@ namespace System.Threading
 			return Register (callback, state, false);
 		}
 
-        public CancellationTokenRegistration RegisterWithState (Action<object> callback, object state)
-        {
-            return Register (callback, state, false);
-        }
-
 		public CancellationTokenRegistration Register (Action<object> callback, object state, bool useSynchronizationContext)
 		{
 			if (callback == null)

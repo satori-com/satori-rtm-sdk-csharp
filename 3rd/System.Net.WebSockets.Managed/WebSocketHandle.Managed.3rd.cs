@@ -2,7 +2,6 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 // See the LICENSE file in the project root for more information.
 
-using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -151,7 +150,7 @@ namespace System.Net.WebSockets.Managed
         /// <returns>The connected Socket.</returns>
         private async Task<Socket> ConnectSocketAsync (string host, int port, CancellationToken cancellationToken)
         {
-            IPAddress [] addresses = await DnsExtensions.GetHostAddressesAsync(host).ConfigureAwait(false);
+            IPAddress [] addresses = await DnsEx.GetHostAddressesAsync(host).ConfigureAwait(false);
 
             ExceptionDispatchInfo lastException = null;
             foreach (IPAddress address in addresses)
@@ -159,7 +158,7 @@ namespace System.Net.WebSockets.Managed
                 var socket = new Socket(address.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
                 try
                 {
-                    using (cancellationToken.RegisterWithState(s => ((IDisposable)s).Dispose(), socket))
+                    using (cancellationToken.Register(s => ((IDisposable)s).Dispose(), socket))
                     using (_abortSource.Token.Register(s => ((IDisposable)s).Dispose(), socket))
                     {
                         try
@@ -252,7 +251,7 @@ namespace System.Net.WebSockets.Managed
                 if (options.Cookies != null)
                 {
                     string header = options.Cookies.GetCookieHeader(uri);
-                    if (!StringEx.IsNullOrWhitespace(header))
+                    if (!StringEx.IsNullOrWhiteSpace(header))
                     {
                         builder.Append(HttpKnownHeaderNames.Cookie).Append(": ").Append(header).Append("\r\n");
                     }
@@ -352,7 +351,7 @@ namespace System.Net.WebSockets.Managed
                 // and then it must only be one of the ones we requested.  If we got a subprotocol other than one we requested (or if we
                 // already got one in a previous header), fail. Otherwise, track which one we got.
                 if (string.Equals(HttpKnownHeaderNames.SecWebSocketProtocol, headerName, StringComparison.OrdinalIgnoreCase) &&
-                    !StringEx.IsNullOrWhitespace(headerValue))
+                    !StringEx.IsNullOrWhiteSpace(headerValue))
                 {
                     string newSubprotocol = options.RequestedSubProtocols.Find(requested => string.Equals(requested, headerValue, StringComparison.OrdinalIgnoreCase));
                     if (newSubprotocol == null || subprotocol != null)

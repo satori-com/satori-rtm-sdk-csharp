@@ -76,7 +76,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)System.Threading\SemaphoreSlim.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System.IO\StreamExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System.Net.Security\SslStream.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)System.Net\Dns.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Collections.Concurrent\BlockingCollection.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)System.IO\" />

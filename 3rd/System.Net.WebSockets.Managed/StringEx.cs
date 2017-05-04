@@ -1,11 +1,13 @@
-﻿using System.Collections.Generic;
+﻿#pragma warning disable 1591
+
+using System.Collections.Generic;
 using System.Text;
 
 namespace System
 {
     public static class StringEx
     {
-        public static bool IsNullOrWhitespace(String value)
+        public static bool IsNullOrWhiteSpace(string value)
         {
             #if NET_4_5_COMPAT
 
@@ -19,7 +21,7 @@ namespace System
             return true;
 
             #else
-            return string.IsNullOrWhitespace(value);
+            return string.IsNullOrWhiteSpace(value);
             #endif
         }
 

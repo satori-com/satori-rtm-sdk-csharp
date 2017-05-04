@@ -34,6 +34,8 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
+#pragma warning disable 1591
+
 using System;
 using System.Net.Sockets;
 using System.Text;
@@ -41,9 +43,8 @@ using System.Collections;
 using System.Threading;
 using System.Runtime.CompilerServices;
 using System.Runtime.Remoting.Messaging;
-#if NET_4_5
+
 using System.Threading.Tasks;
-#endif
 
 #if !MOBILE
 using Mono.Net.Dns;
@@ -51,19 +52,24 @@ using Mono.Net.Dns;
 
 namespace System.Net 
 {
-    public static class DnsExtensions 
+    public static class DnsEx 
     {        
-        #if NET_4_5
         public static Task<IPAddress[]> GetHostAddressesAsync (string hostNameOrAddress)
         {
+            #if NET_4_5
             return Task<IPAddress[]>.Factory.FromAsync (Dns.BeginGetHostAddresses, Dns.EndGetHostAddresses, hostNameOrAddress, null);
+            #else
+            return Dns.GetHostAddressesAsync(hostNameOrAddress);
+            #endif
         }
 
         public static Task<IPHostEntry> GetHostEntryAsync (string hostNameOrAddress)
         {
+            #if NET_4_5
             return Task<IPHostEntry>.Factory.FromAsync (Dns.BeginGetHostEntry, Dns.EndGetHostEntry, hostNameOrAddress, null);
+            #else
+            return Dns.GetHostEntryAsync(hostNameOrAddress);
+            #endif
         }
-        #endif
     }
 }
-
