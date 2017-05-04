@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>{06C9DB81-F14A-46BD-8140-C70AB41FD6C4}</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>System.Threading</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)LICENSE" />
+    <None Include="$(MSBuildThisFileDirectory)README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)System\AggregateException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System\Funcs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System\MonoTODOAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System\OperationCanceledExceptionExt.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System\Tuple.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System\Tuples.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Collections\CollectionDebuggerView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Collections\IStructuralComparable.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Collections\IStructuralEquatable.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Collections.Concurrent\ConcurrentDictionary.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Collections.Concurrent\ConcurrentOrderedList.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Collections.Concurrent\ConcurrentQueue.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Collections.Concurrent\IProducerConsumerCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Collections.Concurrent\SplitOrderedList.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Collections.Generic\CollectionDebuggerView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Runtime.CompilerServices\AsyncTaskMethodBuilder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Runtime.CompilerServices\AsyncTaskMethodBuilder_T.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Runtime.CompilerServices\AsyncVoidMethodBuilder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Runtime.CompilerServices\CallerMemberNameAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Runtime.CompilerServices\ConfiguredTaskAwaitable.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Runtime.CompilerServices\ConfiguredTaskAwaitable_T.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Runtime.CompilerServices\IAsyncStateMachine.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Runtime.CompilerServices\ICriticalNotifyCompletion.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Runtime.CompilerServices\INotifyCompletion.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Runtime.CompilerServices\YieldAwaitable.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Runtime.ExceptionServices\ExceptionDispatchInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Threading.Tasks\SynchronizationContextScheduler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Threading.Tasks\Task.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Threading.Tasks\TaskActionInvoker.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Threading.Tasks\TaskAwaiter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Threading.Tasks\TaskAwaiter_T.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Threading.Tasks\TaskCanceledException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Threading.Tasks\TaskCompletionQueue.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Threading.Tasks\TaskCompletionSource.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Threading.Tasks\TaskConstants.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Threading.Tasks\TaskConstants_T.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Threading.Tasks\TaskContinuation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Threading.Tasks\TaskContinuationOptions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Threading.Tasks\TaskCreationOptions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Threading.Tasks\TaskDebuggerView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Threading.Tasks\TaskExceptionSlot.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Threading.Tasks\TaskExtensionsImpl.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Threading.Tasks\TaskFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Threading.Tasks\TaskFactory_T.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Threading.Tasks\TaskScheduler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Threading.Tasks\TaskSchedulerException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Threading.Tasks\TaskStatus.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Threading.Tasks\Task_T.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Threading.Tasks\TpScheduler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Threading.Tasks\UnobservedTaskExceptionEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Threading\AtomicBoolean.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Threading\CancellationToken.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Threading\CancellationTokenRegistration.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Threading\CancellationTokenSource.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Threading\CountdownEvent.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Threading\ExecutionContextExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Threading\ManualResetEventSlim.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Threading\SpinWait.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Threading\Volatile.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Threading\SpinLock.cs" />
+  </ItemGroup>
+</Project>
