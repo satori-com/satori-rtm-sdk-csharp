@@ -67,12 +67,14 @@ namespace System.Buffers
                 {
                     buffer = new T[_bufferLength];
 
-                    //NET35 var log = ArrayPoolEventSource.Log;
-                    //if (log.IsEnabled())
-                    //{
-                    //    log.BufferAllocated(buffer.GetHashCode(), _bufferLength, _poolId, Id,
-                    //                        ArrayPoolEventSource.BufferAllocatedReason.Pooled);
-                    //}
+                    #if !NET_4_5_COMPAT
+                    var log = ArrayPoolEventSource.Log;
+                    if (log.IsEnabled())
+                    {
+                        log.BufferAllocated(buffer.GetHashCode(), _bufferLength, _poolId, Id,
+                                            ArrayPoolEventSource.BufferAllocatedReason.Pooled);
+                    }
+                    #endif
                 }
 
                 return buffer;
@@ -88,7 +90,11 @@ namespace System.Buffers
                 // Check to see if the buffer is the correct size for this bucket
                 if (array.Length != _bufferLength)
                 {
-                    throw new ArgumentException("Buffer Not From Pool", nameof(array)); //NET35SR.ArgumentException_BufferNotFromPool, nameof(array));
+                    #if !NET_4_5_COMPAT
+                    throw new ArgumentException(SR.ArgumentException_BufferNotFromPool, nameof(array));
+                    #else
+                    throw new ArgumentException("Buffer Not From Pool", nameof(array)); 
+                    #endif 
                 }
 
                 // While holding the spin lock, if there's room available in the bucket,

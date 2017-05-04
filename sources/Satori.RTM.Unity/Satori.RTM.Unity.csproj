@@ -14,7 +14,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;TRACE;NET_4_5;NET_4_0;</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;NET_4_5;NET_4_0;NET_4_5_COMPAT;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
@@ -23,7 +23,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <Optimize>true</Optimize>
     <OutputPath>bin\Release</OutputPath>
-    <DefineConstants>;NET_4_5;NET_4_0;</DefineConstants>
+    <DefineConstants>;NET_4_5;NET_4_0;NET_4_5_COMPAT;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
@@ -42,6 +42,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <Import Project="..\..\3rd\System.Net.WebSockets.Managed\System.Net.WebSockets.Managed.projitems" Label="Shared" Condition="Exists('..\..\3rd\System.Net.WebSockets.Managed\System.Net.WebSockets.Managed.projitems')" />
   <Import Project="..\..\3rd\System.Buffers.Net35\System.Buffers.Net35.projitems" Label="Shared" Condition="Exists('..\..\3rd\System.Buffers.Net35\System.Buffers.Net35.projitems')" />
   <Import Project="..\..\3rd\System.Threading.Net35\System.Threading.Net35.projitems" Label="Shared" Condition="Exists('..\..\3rd\System.Threading.Net35\System.Threading.Net35.projitems')" />
   <Import Project="..\Satori.Common\Satori.Common.projitems" Label="Shared" Condition="Exists('..\Satori.Common\Satori.Common.projitems')" />

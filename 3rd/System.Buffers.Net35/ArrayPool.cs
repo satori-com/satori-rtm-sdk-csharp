@@ -38,7 +38,9 @@ namespace System.Buffers
         /// </remarks>
         public static ArrayPool<T> Shared
         {
-            //NET35 [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            #if !NET_4_5_COMPAT
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            #endif
             get { return Volatile.Read(ref s_sharedInstance) ?? EnsureSharedCreated(); }
         }
 

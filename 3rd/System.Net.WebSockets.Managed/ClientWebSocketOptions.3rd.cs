@@ -152,11 +152,11 @@ namespace System.Net.WebSockets.Managed
             set
             {
                 ThrowIfReadOnly();
-                if (value != Timeout.InfiniteTimeSpan && value < TimeSpan.Zero)
+                if (value != ManagedWebSocket.InfiniteTimeSpan && value < TimeSpan.Zero)
                 {
                     throw new ArgumentOutOfRangeException(nameof(value), value,
                         SR.Format(SR.net_WebSockets_ArgumentOutOfRange_TooSmall,
-                        Timeout.InfiniteTimeSpan.ToString()));
+                                  ManagedWebSocket.InfiniteTimeSpan.ToString()));
                 }
                 _keepAliveInterval = value;
             }

@@ -5,7 +5,6 @@
 using System.Buffers;
 using System.Diagnostics;
 using System.IO;
-using System.Numerics;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Security.Cryptography;
@@ -28,6 +27,12 @@ namespace System.Net.WebSockets
     /// </remarks>
     internal sealed class ManagedWebSocket : WebSocket
     {
+        #if NET_4_5
+        public static readonly TimeSpan InfiniteTimeSpan = new TimeSpan(0, 0, 0, 0, Timeout.Infinite);
+        #else 
+        public static readonly TimeSpan InfiniteTimeSpan = Timeout.InfiniteTimeSpan;
+        #endif
+
         /// <summary>Creates a <see cref="ManagedWebSocket"/> from a <see cref="Stream"/> connected to a websocket endpoint.</summary>
         /// <param name="stream">The connected Stream.</param>
         /// <param name="isServer">true if this is the server-side of the connection; false if this is the client-side of the connection.</param>
@@ -176,6 +181,7 @@ namespace System.Net.WebSockets
         /// <param name="receiveBuffer">Optional buffer to use for receives</param>
         private ManagedWebSocket (Stream stream, bool isServer, string subprotocol, TimeSpan keepAliveInterval, int receiveBufferSize, ArraySegment<byte>? receiveBuffer)
         {
+            #if !NET_4_5_COMPAT
             Debug.Assert(StateUpdateLock != null, $"Expected {nameof(StateUpdateLock)} to be non-null");
             Debug.Assert(ReceiveAsyncLock != null, $"Expected {nameof(ReceiveAsyncLock)} to be non-null");
             Debug.Assert(StateUpdateLock != ReceiveAsyncLock, "Locks should be different objects");
@@ -183,8 +189,9 @@ namespace System.Net.WebSockets
             Debug.Assert(stream != null, $"Expected non-null stream");
             Debug.Assert(stream.CanRead, $"Expected readable stream");
             Debug.Assert(stream.CanWrite, $"Expected writeable stream");
-            Debug.Assert(keepAliveInterval == Timeout.InfiniteTimeSpan || keepAliveInterval >= TimeSpan.Zero, $"Invalid keepalive interval: {keepAliveInterval}");
+            Debug.Assert(keepAliveInterval == ManagedWebSocket.InfiniteTimeSpan || keepAliveInterval >= TimeSpan.Zero, $"Invalid keepalive interval: {keepAliveInterval}");
             Debug.Assert(receiveBufferSize >= MaxMessageHeaderLength, $"Receive buffer size {receiveBufferSize} is too small");
+            #endif 
 
             _stream = stream;
             _isServer = isServer;
@@ -238,7 +245,10 @@ namespace System.Net.WebSockets
 
         private void DisposeCore ()
         {
+            #if !NET_4_5_COMPAT
             Debug.Assert(Monitor.IsEntered(StateUpdateLock), $"Expected {nameof(StateUpdateLock)} to be held");
+            #endif 
+
             if (!_disposed)
             {
                 _disposed = true;
@@ -305,7 +315,7 @@ namespace System.Net.WebSockets
             {
                 WebSocketValidate.ThrowIfInvalidState(_state, _disposed, s_validReceiveStates);
 
-                Debug.Assert(!Monitor.IsEntered(StateUpdateLock), $"{nameof(StateUpdateLock)} must never be held when acquiring {nameof(ReceiveAsyncLock)}");
+                //NEET35 Debug.Assert(!Monitor.IsEntered(StateUpdateLock), $"{nameof(StateUpdateLock)} must never be held when acquiring {nameof(ReceiveAsyncLock)}");
                 lock (ReceiveAsyncLock) // synchronize with receives in CloseAsync
                 {
                     ThrowIfOperationInProgress(_lastReceiveAsync);
@@ -551,7 +561,9 @@ namespace System.Net.WebSockets
             // 0 or 4 bytes - Mask, if Masked is 1 - random value XOR'd with each 4 bytes of the payload, round-robin
             // Length bytes - Payload data
 
+            #if !NET_4_5_COMPAT
             Debug.Assert(sendBuffer.Length >= MaxMessageHeaderLength, $"Expected sendBuffer to be at least {MaxMessageHeaderLength}, got {sendBuffer.Length}");
+            #endif
 
             sendBuffer [0] = (byte)opcode; // 4 bits for the opcode
             if (endOfMessage)
@@ -602,7 +614,9 @@ namespace System.Net.WebSockets
         private static void WriteRandomMask (byte [] buffer, int offset)
         {
             byte [] mask = t_headerMask ?? (t_headerMask = new byte [MaskLength]);
+            #if !NET_4_5_COMPAT
             Debug.Assert(mask.Length == MaskLength, $"Expected mask of length {MaskLength}, got {mask.Length}");
+            #endif
             s_random.GetBytes(mask);
             Buffer.BlockCopy(mask, 0, buffer, offset, MaskLength);
         }
@@ -1016,7 +1030,10 @@ namespace System.Net.WebSockets
             {
                 while (!_receivedCloseFrame)
                 {
+                    #if !NET_4_5_COMPAT
                     Debug.Assert(!Monitor.IsEntered(StateUpdateLock), $"{nameof(StateUpdateLock)} must never be held when acquiring {nameof(ReceiveAsyncLock)}");
+                    #endif
+
                     Task<WebSocketReceiveResult> receiveTask;
                     lock (ReceiveAsyncLock)
                     {

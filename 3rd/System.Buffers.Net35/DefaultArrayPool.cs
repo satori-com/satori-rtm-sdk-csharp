@@ -72,7 +72,9 @@ namespace System.Buffers
                 return s_emptyArray ?? (s_emptyArray = new T[0]);
             }
 
-            //NET35 var log = ArrayPoolEventSource.Log;
+            #if !NET_4_5_COMPAT
+            var log = ArrayPoolEventSource.Log;
+            #endif
             T[] buffer = null;
 
             int index = Utilities.SelectBucketIndex(minimumLength);
@@ -88,11 +90,12 @@ namespace System.Buffers
                     buffer = _buckets[i].Rent();
                     if (buffer != null)
                     {
-                        ////NET35
-                        //if (log.IsEnabled())
-                        //{
-                        //    log.BufferRented(buffer.GetHashCode(), buffer.Length, Id, _buckets[i].Id);
-                        //}
+                        #if !NET_4_5_COMPAT
+                        if (log.IsEnabled())
+                        {
+                            log.BufferRented(buffer.GetHashCode(), buffer.Length, Id, _buckets[i].Id);
+                        }
+                        #endif
                         return buffer;
                     }
                 }
@@ -109,14 +112,15 @@ namespace System.Buffers
                 buffer = new T[minimumLength];
             }
 
-            //NET35
-            //if (log.IsEnabled())
-            //{
-            //    int bufferId = buffer.GetHashCode(), bucketId = -1; // no bucket for an on-demand allocated buffer
-            //    log.BufferRented(bufferId, buffer.Length, Id, bucketId);
-            //    log.BufferAllocated(bufferId, buffer.Length, Id, bucketId, index >= _buckets.Length ?
-            //                        ArrayPoolEventSource.BufferAllocatedReason.OverMaximumSize : ArrayPoolEventSource.BufferAllocatedReason.PoolExhausted);
-            //}
+            #if !NET_4_5_COMPAT
+            if (log.IsEnabled())
+            {
+                int bufferId = buffer.GetHashCode(), bucketId = -1; // no bucket for an on-demand allocated buffer
+                log.BufferRented(bufferId, buffer.Length, Id, bucketId);
+                log.BufferAllocated(bufferId, buffer.Length, Id, bucketId, index >= _buckets.Length ?
+                                    ArrayPoolEventSource.BufferAllocatedReason.OverMaximumSize : ArrayPoolEventSource.BufferAllocatedReason.PoolExhausted);
+            }
+            #endif
 
             return buffer;
         }
@@ -153,11 +157,13 @@ namespace System.Buffers
             }
 
             // Log that the buffer was returned
-            //NET35 var log = ArrayPoolEventSource.Log;
-            //if (log.IsEnabled())
-            //{
-            //    log.BufferReturned(array.GetHashCode(), array.Length, Id);
-            //}
+            #if !NET_4_5_COMPAT
+            var log = ArrayPoolEventSource.Log;
+            if (log.IsEnabled())
+            {
+                log.BufferReturned(array.GetHashCode(), array.Length, Id);
+            }
+            #endif
         }
     }
 }

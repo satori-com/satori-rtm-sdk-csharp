@@ -436,7 +436,7 @@ namespace System.Threading.Tasks
 						ExecutionContext.Run (ec, l => ((Task) l).InnerInvoke (), this);
 					else
 						InnerInvoke ();
-				} catch (OperationCanceledExceptionExt oce) {
+				} catch (OperationCanceledException oce) {
 					if (token != CancellationToken.None && oce.CancellationToken == token)
 						CancelReal ();
 					else

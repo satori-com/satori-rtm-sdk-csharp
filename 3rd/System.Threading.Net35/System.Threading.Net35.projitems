@@ -16,7 +16,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)System\AggregateException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Funcs.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\MonoTODOAttribute.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)System\OperationCanceledExceptionExt.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System\OperationCanceledException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Tuple.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System\Tuples.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System.Collections\CollectionDebuggerView.cs" />
@@ -73,5 +73,14 @@
     <Compile Include="$(MSBuildThisFileDirectory)System.Threading\SpinWait.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System.Threading\Volatile.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)System.Threading\SpinLock.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Threading\SemaphoreSlim.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.IO\StreamExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Net.Security\SslStream.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)System.Net\Dns.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)System.IO\" />
+    <Folder Include="$(MSBuildThisFileDirectory)System.Net.Security\" />
+    <Folder Include="$(MSBuildThisFileDirectory)System.Net\" />
   </ItemGroup>
 </Project>
