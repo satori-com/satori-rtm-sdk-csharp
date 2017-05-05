@@ -123,6 +123,25 @@ namespace System.Net.WebSockets.Managed
                 throw new ArgumentException(SR.net_WebSockets_Scheme, nameof(uri));
             }
 
+            //HOTFIX: Port is set to -1 on Unity if not specified in original URI string
+            if (uri.Port < 0) 
+            {
+                if (uri.Scheme == UriScheme.Ws)
+                {
+                    uri = new UriBuilder(uri) 
+                    {
+                        Port = 80
+                    }.Uri;
+                } 
+                else if (uri.Scheme == UriScheme.Wss)
+                {
+                    uri = new UriBuilder(uri) 
+                    {
+                        Port = 443
+                    }.Uri;
+                }
+            }
+
             // Check that we have not started already
             var priorState = (InternalState)Interlocked.CompareExchange(ref _state, (int)InternalState.Connecting, (int)InternalState.Created);
             if (priorState == InternalState.Disposed)
