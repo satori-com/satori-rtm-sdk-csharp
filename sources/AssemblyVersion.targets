@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
 	<PropertyGroup>
-		<AssemblyVersinFile>$(OutputPath)AssemblyVersion.gen.cs</AssemblyVersinFile>
+		<AssemblyVersionFile>$(OutputPath)AssemblyVersion.gen.cs</AssemblyVersionFile>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<Compile Include="$(AssemblyVersinFile)">
+		<Compile Include="$(AssemblyVersionFile)">
 			<InProject>false</InProject>
 		</Compile>
 	</ItemGroup>
@@ -13,7 +13,7 @@
 	<!-- " escaped to %22" and ; escaped to %3B -->
 	<Target Name="EmbedAssemblyVersion" BeforeTargets="CoreCompile">
 		<WriteLinesToFile 
-			File="$(AssemblyVersinFile)"
+			File="$(AssemblyVersionFile)"
 			Overwrite="true"
 			Lines="[assembly: System.Reflection.AssemblyVersion(%22$(SatoriSdkAssemblyVersion)%22)];[assembly: System.Reflection.AssemblyInformationalVersion(%22$(SatoriSdkVersion)%22)]"/>
   	</Target>
