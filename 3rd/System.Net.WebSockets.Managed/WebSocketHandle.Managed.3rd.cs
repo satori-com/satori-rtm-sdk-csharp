@@ -90,7 +90,14 @@ namespace System.Net.WebSockets.Managed
                 // Upgrade to SSL if needed
                 if (uri.Scheme == UriScheme.Wss)
                 {
+                    //TODO HACK: Disable certificate validation when targeting older runtime
+                    #if !NET_4_5_COMPAT
                     var sslStream = new SslStream(stream);
+                    #else
+                    RemoteCertificateValidationCallback callback = delegate { return true; };
+                    var sslStream = new SslStream(stream, false, callback);
+                    #endif
+
                     await sslStream.AuthenticateAsClientAsync(
                         uri.Host,
                         options.ClientCertificates,
