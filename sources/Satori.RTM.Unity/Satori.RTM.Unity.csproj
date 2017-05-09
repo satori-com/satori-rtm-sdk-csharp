@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -31,11 +31,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\.packages\Newtonsoft.Json.10.0.2\lib\net35\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine">
-      <HintPath>..\..\..\..\..\..\..\Applications\Unity\Unity.app\Contents\Managed\UnityEngine.dll</HintPath>
+      <HintPath>..\..\..\..\..\Program Files\Unity\Editor\Data\Managed\UnityEngine.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -44,6 +41,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\3rd\Newtonsoft.Json.Unity\Src\Newtonsoft.Json\Newtonsoft.Json.Net35.csproj">
+      <Project>{a9ae40ff-1a21-414a-9fe7-3be13644cc6d}</Project>
+      <Name>Newtonsoft.Json.Net35</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="..\Satori.RTM\Satori.RTM.projitems" Label="Shared" Condition="Exists('..\Satori.RTM\Satori.RTM.projitems')" />
   <Import Project="..\..\3rd\System.Net.WebSockets.Managed\System.Net.WebSockets.Managed.projitems" Label="Shared" Condition="Exists('..\..\3rd\System.Net.WebSockets.Managed\System.Net.WebSockets.Managed.projitems')" />
