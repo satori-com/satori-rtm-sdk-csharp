@@ -1,6 +1,7 @@
 ﻿using Satori.Common;
 using Satori.Rtm;
 using Satori.Rtm.Client;
+using System;
 using System.Collections;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -32,43 +33,51 @@ public class MyBehavior : MonoBehaviour
 
         UnityMainThreadDispatcher.Init();
 
-        string endpoint = "<YOUR RTM ENDPOINT>";
-        string appKey = "<YOUR APP KEY>";
-        client = new RtmClientBuilder(endpoint, appKey).Build();
-
-        var observer = new SubscriptionObserver();
-        
-        observer.OnEnterSubscribed += sub => 
+        try
         {
-            Debug.Log("Client subscribed to " + sub.SubscriptionId);
-            client.Publish(channel, "Hello World!", Ack.Yes)
-                .ContinueWith(t => {
-                    if (t.Exception == null)
-                        Debug.Log("Published successfully!");
-                    else
-                        Debug.LogError("Publishing failed: " + t.Exception);
-                });
-        };
+            string endpoint = "<YOUR RTM ENDPOINT>";
+            string appKey = "<YOUR APP KEY>";
+            client = new RtmClientBuilder(endpoint, appKey).Build();
 
-        observer.OnLeaveSubscribed += sub => Debug.Log("Unsubscribed from " + sub.SubscriptionId);
-    
-        observer.OnSubscriptionData += (ISubscription sub, RtmSubscriptionData data) =>
-        {
-            Debug.Log("Data received");
-            string msg = data.Messages[0].ToString();
+            var observer = new SubscriptionObserver();
 
-            // call on main thread
-            UnityMainThreadDispatcher.Enqueue(delegate
+            observer.OnEnterSubscribed += sub =>
             {
-                var textObj = GameObject.Find("MyText");
-                TextMesh mesh = (TextMesh)textObj.GetComponent(typeof(TextMesh));
-                mesh.text = msg;
-            });
-        };
-        
-        client.CreateSubscription(channel, SubscriptionModes.Simple, observer);
+                Debug.Log("Client subscribed to " + sub.SubscriptionId);
+                client.Publish(channel, "Hello World!", Ack.Yes)
+                    .ContinueWith(t =>
+                    {
+                        if (t.Exception == null)
+                            Debug.Log("Published successfully!");
+                        else
+                            Debug.LogError("Publishing failed: " + t.Exception);
+                    });
+            };
 
-        client.Start();
+            observer.OnLeaveSubscribed += sub => Debug.Log("Unsubscribed from " + sub.SubscriptionId);
+
+            observer.OnSubscriptionData += (ISubscription sub, RtmSubscriptionData data) =>
+            {
+                Debug.Log("Data received");
+                string msg = data.Messages[0].ToString();
+
+                // call on main thread
+                UnityMainThreadDispatcher.Enqueue(() => UpdateText(msg));
+            };
+
+            client.CreateSubscription(channel, SubscriptionModes.Simple, observer);
+
+            client.Start();
+        } catch (Exception ex) {
+            Debug.LogError("Setting up RTM client failed. " + ex);
+        }
+    }
+
+    void UpdateText(string msg)
+    {
+        var textObj = GameObject.Find("MyText");
+        TextMesh mesh = (TextMesh)textObj.GetComponent(typeof(TextMesh));
+        mesh.text = msg;
     }
 
     void OnApplicationPause(bool pauseStatus)
@@ -87,8 +96,10 @@ public class MyBehavior : MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
-        // execute dispatched actions
-        client.Dispatch();
+        if (client != null) {
+            // execute dispatched actions
+            client.Dispatch();
+        }
     }
 
     void OnDestroy()
