@@ -35,12 +35,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Content Include="link.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="UnityTraceListener.cs">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\3rd\Newtonsoft.Json.Unity\Src\Newtonsoft.Json\Newtonsoft.Json.Net35.csproj">
@@ -55,4 +49,18 @@
   <Import Project="..\Satori.Common\Satori.Common.projitems" Label="Shared" Condition="Exists('..\Satori.Common\Satori.Common.projitems')" />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="..\AssemblyVersion.targets" />
+  <PropertyGroup>
+    <UnityToolPath>$(MSBuildExtensionsPath)\..\..\Program Files\Unity\Editor\Unity.exe</UnityToolPath>
+    <SatoriRtmAssembly>Satori.RTM.Unity.dll</SatoriRtmAssembly>
+    <NewtonsoftJsonAssembly>Newtonsoft.Json.dll</NewtonsoftJsonAssembly>
+    <PackageFileName>Satori.RTM-$(SatoriSdkVersion).unitypackage</PackageFileName>
+  </PropertyGroup>
+  <Target Name="CleanPackage" AfterTargets="Clean">
+  	<Delete Files="UnityPackage\Assets\$(SatoriRtmAssembly);UnityPackage\Assets\$(NewtonsoftJsonAssembly);UnityPackage\$(PackageFileName)" />
+  </Target>
+  <Target Name="Package" DependsOnTargets="CleanPackage;Build">
+    <Error Condition=" '$(OS)' == 'Unix' " Text="Packaging Unity SDK works on Windows only. Satori.RTM.Unity project should be compiled by Microsoft compiler, not mono compiler. Mono compiler generates corrupted assembly if async/await keywords are used. " />
+    <Copy SourceFiles="$(OutputPath)\$(SatoriRtmAssembly);$(OutputPath)\$(NewtonsoftJsonAssembly)" DestinationFolder="UnityPackage\Assets" />
+    <Exec Command='"$(UnityToolPath)" -quit -batchmode -exportPackage Assets $(PackageFileName)' IgnoreStandardErrorWarningFormat="true" />
+  </Target>
 </Project>

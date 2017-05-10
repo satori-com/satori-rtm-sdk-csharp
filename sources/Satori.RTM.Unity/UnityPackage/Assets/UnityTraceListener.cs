@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics;
+using System.Text;
 using System.Threading;
 using Debug = UnityEngine.Debug;
 
@@ -35,7 +36,14 @@ namespace Satori.Rtm
 
     	public override void TraceEvent(TraceEventCache eventCache, string source, TraceEventType eventType, int id, string message)
         {
-    		var txt = $"{source} [tid={Thread.CurrentThread.ManagedThreadId}]: {message}";
+            StringBuilder sb = new StringBuilder();
+            sb.Append(source);
+            sb.Append(" [tid=");
+            sb.Append(Thread.CurrentThread.ManagedThreadId);
+            sb.Append("]: ");
+            sb.Append(message);
+            var txt = sb.ToString();
+
             if (eventType < TraceEventType.Warning)
             {
     			Debug.LogError(txt);
@@ -53,7 +61,14 @@ namespace Satori.Rtm
 
     	public override void Fail(string message, string detailMessage)
         {
-            Debug.LogError($"{message}\n{detailMessage}");
+            StringBuilder sb = new StringBuilder();
+            sb.Append(message);
+            if (!string.IsNullOrEmpty(detailMessage))
+            {
+                sb.AppendLine();
+                sb.Append(detailMessage);
+            }
+            Debug.LogError(sb.ToString());
     	}
 
     	public override void Fail(string message)
