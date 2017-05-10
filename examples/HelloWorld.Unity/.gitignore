@@ -1,3 +1,4 @@
 !*.dll
 HelloWorld.Unity.csproj
+Assembly-CSharp.csproj
 HelloWorld.Unity.sln
