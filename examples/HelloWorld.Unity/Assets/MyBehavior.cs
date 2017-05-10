@@ -29,6 +29,9 @@ public class MyBehavior : MonoBehaviour
         {
             Debug.LogError("Unhandled exception in event handler: " + exn);
         };
+
+        UnityMainThreadDispatcher.Init();
+
         string endpoint = "<YOUR RTM ENDPOINT>";
         string appKey = "<YOUR APP KEY>";
         client = new RtmClientBuilder(endpoint, appKey).Build();
@@ -64,9 +67,11 @@ public class MyBehavior : MonoBehaviour
         };
         
         client.CreateSubscription(channel, SubscriptionModes.Simple, observer);
+
+        client.Start();
     }
 
-    void OnApplicationFocus(bool pauseStatus)
+    void OnApplicationPause(bool pauseStatus)
     {
         if (client == null) {
             return;

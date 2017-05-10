@@ -48,12 +48,6 @@
     <Reference Include="UnityEngine" Condition=" '$(OS)' == 'Unix' ">
       <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/UnityEngine.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEditor" Condition=" '$(OS)' != 'Unix' ">
-      <HintPath>$(MSBuildExtensionsPath)\..\..\Program Files\Unity\Editor\Data\Managed\UnityEditor.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor" Condition=" '$(OS)' == 'Unix' ">
-      <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/UnityEditor.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <Import Project="..\Satori.RTM\Satori.RTM.projitems" Label="Shared" Condition="Exists('..\Satori.RTM\Satori.RTM.projitems')" />
   <Import Project="..\..\3rd\System.Net.WebSockets.Managed\System.Net.WebSockets.Managed.projitems" Label="Shared" Condition="Exists('..\..\3rd\System.Net.WebSockets.Managed\System.Net.WebSockets.Managed.projitems')" />

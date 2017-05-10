@@ -15,10 +15,10 @@ limitations under the License.
 */
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
 using System;
-using UnityEditor.Callbacks;
 
 namespace Satori.Rtm
 {
@@ -31,7 +31,25 @@ namespace Satori.Rtm
     {
 
         private static readonly Queue<IEnumerator> _executionQueue = new Queue<IEnumerator>();
-        private static UnityMainThreadDispatcher _instance;
+        private static UnityMainThreadDispatcher instance;
+        private static bool initialized;
+
+        public static void Init()
+        {
+            if (!initialized)
+            {
+                SceneManager.sceneLoaded += (scene, mode) => OnSceneLoaded();
+                OnSceneLoaded();
+                initialized = true;
+            }
+        }
+
+        static void OnSceneLoaded()
+        {
+            var dispatcherContainer = new GameObject("UnityMainThreadDispatcher");
+            DontDestroyOnLoad(dispatcherContainer);
+            dispatcherContainer.AddComponent<UnityMainThreadDispatcher>();
+        }
 
         /// <summary>
         /// Locks the queue and adds the IEnumerator to the queue
@@ -51,29 +69,18 @@ namespace Satori.Rtm
         /// <param name="action">function that will be executed from the main thread.</param>
         public static void Enqueue(Action action)
         {
-            Enqueue(_instance.ActionWrapper(action));
-        }
-
-        /// <summary>
-        /// This ensures that there's exactly one UnityMainThreadDispatcher in every scene, so the singleton will exist no matter which scene you play from.
-        /// </summary>
-        [PostProcessScene]
-        private static void AddDispatcherToScene()
-        {
-            var dispatcherContainer = new GameObject("UnityMainThreadDispatcher");
-            DontDestroyOnLoad(dispatcherContainer);
-            dispatcherContainer.AddComponent<UnityMainThreadDispatcher>();
+            Enqueue(ActionWrapper(action));
         }
 
         private void Awake()
         {
-            if (_instance != null)
+            if (instance != null)
             {
                 Destroy(gameObject);
             }
             else
             {
-                _instance = this;
+                instance = this;
             }
         }
         private void Update()
@@ -87,7 +94,7 @@ namespace Satori.Rtm
             }
         }
 
-        IEnumerator ActionWrapper(Action a)
+        static IEnumerator ActionWrapper(Action a)
         {
             a();
             yield return null;
