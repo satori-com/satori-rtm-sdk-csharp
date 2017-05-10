@@ -8,7 +8,7 @@ namespace Satori.Rtm
     public interface IDispatcher
     {
         void Post(Action act);
-
+        
         ISuccessfulAwaiter<bool> Yield();
     }
 
@@ -27,6 +27,11 @@ namespace Satori.Rtm
         public static ISuccessfulAwaiter<bool> Yield(this IDispatchObject dispObj)
         {
             return dispObj.Dispatcher.Yield();
+        }
+
+        public static void Dispatch(this IDispatchObject dispObj)
+        {
+            dispObj.Yield().OnCompleted(delegate { });
         }
     }
 }

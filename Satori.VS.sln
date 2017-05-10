@@ -44,6 +44,8 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "System.Threading.Net35", "3
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newtonsoft.Json.Net35", "3rd\Newtonsoft.Json.Unity\Src\Newtonsoft.Json\Newtonsoft.Json.Net35.csproj", "{A9AE40FF-1A21-414A-9FE7-3BE13644CC6D}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "UnityMainThreadDispatcher", "3rd\UnityMainThreadDispatcher\UnityMainThreadDispatcher.shproj", "{C1C79E8A-B3E8-4DC5-A332-46E04A13F2C6}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		3rd\System.Threading.Net35\System.Threading.Net35.projitems*{06c9db81-f14a-46bd-8140-c70ab41fd6c4}*SharedItemsImports = 13
@@ -55,6 +57,7 @@ Global
 		3rd\System.Threading.Net35\System.Threading.Net35.projitems*{1aad0257-4825-4596-a8ae-6fe6635c27e1}*SharedItemsImports = 4
 		sources\Satori.Common\Satori.Common.projitems*{1aad0257-4825-4596-a8ae-6fe6635c27e1}*SharedItemsImports = 4
 		sources\Satori.RTM\Satori.RTM.projitems*{1aad0257-4825-4596-a8ae-6fe6635c27e1}*SharedItemsImports = 4
+		3rd\UnityMainThreadDispatcher\UnityMainThreadDispatcher.projitems*{1aad0257-4825-4596-a8ae-6fe6635c27e1}*SharedItemsImports = 4
 		3rd\System.Net.WebSockets.Managed\System.Net.WebSockets.Managed.projitems*{63233545-4d99-4c71-95e8-34545403b8ac}*SharedItemsImports = 4
 		sources\Satori.Common\Satori.Common.projitems*{63233545-4d99-4c71-95e8-34545403b8ac}*SharedItemsImports = 4
 		sources\Satori.RTM\Satori.RTM.projitems*{63233545-4d99-4c71-95e8-34545403b8ac}*SharedItemsImports = 4
@@ -65,6 +68,7 @@ Global
 		sources\Satori.Common\Satori.Common.projitems*{99629b45-be1c-460e-a9d1-cbbbaa34e277}*SharedItemsImports = 4
 		sources\Satori.RTM\Satori.RTM.projitems*{99629b45-be1c-460e-a9d1-cbbbaa34e277}*SharedItemsImports = 4
 		tests\integration\Satori.RTM.Test\Satori.RTM.Test.projitems*{a1de2c47-59a0-4124-9ed9-7fa9786d2beb}*SharedItemsImports = 4
+		3rd\UnityMainThreadDispatcher\UnityMainThreadDispatcher.projitems*{c1c79e8a-b3e8-4dc5-a332-46e04a13f2c6}*SharedItemsImports = 13
 		tests\integration\Satori.RTM.Test\Satori.RTM.Test.projitems*{c7bb1436-6489-43ed-8f82-321fc36ba207}*SharedItemsImports = 13
 		sources\Satori.Common\Satori.Common.projitems*{fe354457-bdd5-4bd4-b29d-861b4974ac56}*SharedItemsImports = 13
 	EndGlobalSection
@@ -220,6 +224,7 @@ Global
 		{83496BAC-E06C-4C09-BCDA-E242059DEF0F} = {5BCCB028-0330-4936-BCFE-34CAED8AC4F2}
 		{06C9DB81-F14A-46BD-8140-C70AB41FD6C4} = {5BCCB028-0330-4936-BCFE-34CAED8AC4F2}
 		{A9AE40FF-1A21-414A-9FE7-3BE13644CC6D} = {5BCCB028-0330-4936-BCFE-34CAED8AC4F2}
+		{C1C79E8A-B3E8-4DC5-A332-46E04A13F2C6} = {5BCCB028-0330-4936-BCFE-34CAED8AC4F2}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		Policies = $0
