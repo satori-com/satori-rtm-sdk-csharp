@@ -96,3 +96,145 @@ public class ClientTestsWrapper
         new ClientTests().ThrowWhenDisconnectedAndMaxPendingQueueLengthIsZero().Wait();
     }
 }
+
+public class ConnectionTestsWrapper
+{
+    [Test]
+    public void ReconnectWhenConnectionDropped()
+    {
+        new ConnectionTests().ReconnectWhenConnectionDropped().Wait();
+    }
+
+    [Test]
+    public void ReconnectIfConnectionCannotBeEstablished()
+    {
+        new ConnectionTests().ReconnectIfConnectionCannotBeEstablished().Wait();
+    }
+
+    [Test]
+    public void ReconnectIntervals()
+    {
+        new ConnectionTests().ReconnectIntervals();
+    }
+}
+
+public class FilterTestsWrapper
+{
+    [Test]
+    public void TwoSubscriptionsWithDifferentNames()
+    {
+        new FilterTests().TwoSubscriptionsWithDifferentNames().Wait();
+    }
+
+    [Test]
+    public void BothChannelAndFilterSpecified()
+    {
+        new FilterTests().BothChannelAndFilterSpecified().Wait();
+    }
+}
+
+public class OutOfSyncTestsWrapper
+{
+    [Test]
+    public void FastForwardOnOutOfSyncWhenSimpleMode()
+    {
+        new OutOfSyncTests().FastForwardOnOutOfSyncWhenSimpleMode().Wait();
+    }
+
+    [Test]
+    public void FailOnOutOfSyncWhenAdvancedMode()
+    {
+        new OutOfSyncTests().FailOnOutOfSyncWhenAdvancedMode().Wait();
+    }
+}
+
+public class ReadWriteStorageTestsWrapper
+{
+    [Test]
+    public void ReadAfterWrite()
+    {
+        new ReadWriteStorageTests().ReadAfterWrite().Wait();
+    }
+
+    [Test]
+    public void WriteTwiceAndRead()
+    {
+        new ReadWriteStorageTests().WriteTwiceAndRead().Wait();
+    }
+
+    [Test]
+    public void WriteDeleteRead()
+    {
+        new ReadWriteStorageTests().WriteDeleteRead().Wait();
+    }
+
+    [Test]
+    public void ReadOldMessage()
+    {
+        new ReadWriteStorageTests().ReadOldMessage().Wait();
+    }
+
+    [Test]
+    public void WriteNullShouldBeOk()
+    {
+        new ReadWriteStorageTests().WriteNullShouldBeOk().Wait();
+    }
+}
+
+public class SubscriptionTestsWrapper
+{
+    [Test]
+    public void AutoDeleteSubscriptionOnDispose()
+    {
+        new SubscriptionTests().AutoDeleteSubscriptionOnDispose().Wait();
+    }
+
+    [Test]
+    public void AutoResubscribe()
+    {
+        new SubscriptionTests().AutoResubscribe().Wait();
+    }
+
+    [Test]
+    public void DelayedPublish()
+    {
+        new SubscriptionTests().DelayedPublish().Wait();
+    }
+
+    [Test]
+    public void ManualResubscribe()
+    {
+        new SubscriptionTests().ManualResubscribe().Wait();
+    }
+
+    [Test]
+    public void RepeatFirstMessage()
+    {
+        new SubscriptionTests().RepeatFirstMessage().Wait();
+    }
+
+    [Test]
+    public void RepeatSecondMessage()
+    {
+        new SubscriptionTests().RepeatSecondMessage().Wait();
+    }
+
+    [Test]
+    public void SubscribeWithSimpleModeAndPosition()
+    {
+        new SubscriptionTests().SubscribeWithSimpleModeAndPosition().Wait();
+    }
+
+    [Test]
+    public void SubscribeWithAdvancedModeAndPosition()
+    {
+        new SubscriptionTests().SubscribeWithAdvancedModeAndPosition().Wait();
+    }
+
+    [Test]
+    public void RestartOnUnsubscribeError()
+    {
+        new SubscriptionTests().RestartOnUnsubscribeError().Wait();
+    }
+}
+
