@@ -7,7 +7,7 @@
     <ProjectGuid>{DD600DA4-B57D-4261-A642-A881EA31AB09}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Satori.RTM.Test.Unity</RootNamespace>
+    <RootNamespace>Satori.Rtm.Tests</RootNamespace>
     <AssemblyName>Satori.RTM.Test.Unity</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -31,10 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="nunit.framework, Version=3.6.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
-      <HintPath>..\..\..\.packages\NUnit.3.6.0\lib\net35\nunit.framework.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -45,8 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UnityTestRunner.cs" />
+    <Compile Include="MyTestFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RtmConfig.Unity.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\3rd\Newtonsoft.Json.Unity\Src\Newtonsoft.Json\Newtonsoft.Json.Net35.csproj">
@@ -57,18 +54,15 @@
       <Project>{1aad0257-4825-4596-a8ae-6fe6635c27e1}</Project>
       <Name>Satori.RTM.Unity</Name>
     </ProjectReference>
-    <!--<Reference Include="nunit.framework" Condition=" '$(OS)' != 'Unix' ">
+    <Reference Include="nunit.framework" Condition=" '$(OS)' != 'Unix' ">
       <HintPath>$(MSBuildExtensionsPath)\..\..\Program Files\Unity\Editor\Data\Managed\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine" Condition=" '$(OS)' == 'Unix' ">
       <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/nunit.framework.dll</HintPath>
-    </Reference>-->
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="..\Satori.RTM.Test\Satori.RTM.Test.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

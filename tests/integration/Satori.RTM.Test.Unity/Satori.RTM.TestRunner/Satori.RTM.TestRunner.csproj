@@ -82,8 +82,18 @@
     <Reference Include="UnityEditor.iOS.Extensions.Common">
       <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Common.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Assets\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Satori.RTM.Test.Unity">
+      <HintPath>Assets\Satori.RTM.Test.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Satori.RTM.Unity">
+      <HintPath>Assets\Satori.RTM.Unity.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\PlayModeTests.cs" />
     <Compile Include="Assets\TestBehavior.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

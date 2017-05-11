@@ -130,6 +130,15 @@
     <Reference Include="UnityEditor.iOS.Extensions.Common">
       <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Common.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>Assets\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Satori.RTM.Test.Unity">
+      <HintPath>Assets\Satori.RTM.Test.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Satori.RTM.Unity">
+      <HintPath>Assets\Satori.RTM.Unity.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Satori.RTM.TestRunner.csproj">
@@ -139,7 +148,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Editor\EditModeTest.cs" />
-    <Compile Include="Assets\Editor\PlayModeTest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
