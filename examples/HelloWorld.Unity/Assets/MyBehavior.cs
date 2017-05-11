@@ -1,4 +1,6 @@
-﻿using Satori.Common;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Satori.Common;
 using Satori.Rtm;
 using Satori.Rtm.Client;
 using System;
@@ -6,6 +8,15 @@ using System.Collections;
 using System.Threading.Tasks;
 using UnityEngine;
 using Logger = Satori.Rtm.Logger;
+
+class Event
+{
+    [JsonProperty("who")]
+    public string Who { get; set; }
+
+    [JsonProperty("where")]
+    public float[] Where { get; set; }
+}
 
 public class MyBehavior : MonoBehaviour
 {
@@ -44,7 +55,14 @@ public class MyBehavior : MonoBehaviour
             observer.OnEnterSubscribed += sub =>
             {
                 Debug.Log("Client subscribed to " + sub.SubscriptionId);
-                client.Publish(channel, "Hello World!", Ack.Yes)
+
+                var msg = new Event
+                {
+                    Who = "zebra",
+                    Where = new float[] { 34.134358f, -118.321506f }
+                };
+
+                client.Publish(channel, msg, Ack.Yes)
                     .ContinueWith(t =>
                     {
                         if (t.Exception == null)
@@ -59,10 +77,12 @@ public class MyBehavior : MonoBehaviour
             observer.OnSubscriptionData += (ISubscription sub, RtmSubscriptionData data) =>
             {
                 Debug.Log("Data received");
-                string msg = data.Messages[0].ToString();
+                JToken jToken = data.Messages[0];
+                Event msg = jToken.ToObject<Event>();
+                string greeting = string.Format("Hello {0}!", msg.Who);
 
                 // call on main thread
-                UnityMainThreadDispatcher.Enqueue(() => UpdateText(msg));
+                UnityMainThreadDispatcher.Enqueue(() => UpdateText(greeting));
             };
 
             client.CreateSubscription(channel, SubscriptionModes.Simple, observer);
