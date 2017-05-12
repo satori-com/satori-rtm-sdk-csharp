@@ -3,8 +3,47 @@ using UnityEngine.TestTools;
 using NUnit.Framework;
 using System.Collections;
 using Satori.Rtm.Test;
+using System.Threading;
+using Satori.Rtm;
+using Satori.Rtm.Client;
+using Satori.Common;
+using Logger = Satori.Rtm.Logger;
 
-public class ClientBuilderTestsWrapper
+public class UnityTestBase 
+{
+	private static int initialized;
+
+	protected UnityTestBase() 
+	{
+		int initialized = Interlocked.CompareExchange (ref UnityTestBase.initialized, value: 1, comparand: 0);
+		if (initialized == 0) {
+			Init ();
+		}
+	}
+
+	static void Init()
+	{
+		Debug.Log("Initializing logging...");
+
+		System.Diagnostics.Trace.Listeners.Add(UnityTraceListener.Instance);
+
+		DefaultLoggers.Dispatcher.SetLevel(Logger.LogLevel.Verbose);
+		DefaultLoggers.Serialization.SetLevel(Logger.LogLevel.Verbose);
+		DefaultLoggers.Connection.SetLevel(Logger.LogLevel.Verbose);
+		DefaultLoggers.Client.SetLevel(Logger.LogLevel.Verbose);
+		DefaultLoggers.ClientRtm.SetLevel(Logger.LogLevel.Verbose);
+		DefaultLoggers.ClientRtmSubscription.SetLevel(Logger.LogLevel.Verbose);
+
+		UnhandledExceptionWatcher.OnError += exn =>
+		{
+			Debug.LogError("Unhandled exception in event handler: " + exn);
+		};
+
+	}
+
+}
+
+public class ClientBuilderTestsWrapper : UnityTestBase
 {
     [Test]
     public void AppendVersion()
@@ -13,7 +52,7 @@ public class ClientBuilderTestsWrapper
     }
 }
 
-public class AuthTestsWrapper
+public class AuthTestsWrapper : UnityTestBase
 {
     [Test]
     public void GenerateHash()
@@ -52,7 +91,7 @@ public class AuthTestsWrapper
     }
 }
 
-public class ClientTestsWrapper
+public class ClientTestsWrapper : UnityTestBase
 {
     [UnityTest]
     public IEnumerator NoStateTransitionsInCallbacks()
@@ -97,7 +136,7 @@ public class ClientTestsWrapper
     }
 }
 
-public class ConnectionTestsWrapper
+public class ConnectionTestsWrapper : UnityTestBase
 {
     [UnityTest]
     public IEnumerator ReconnectWhenConnectionDropped()
@@ -118,22 +157,22 @@ public class ConnectionTestsWrapper
     }
 }
 
-public class FilterTestsWrapper
+public class FilterTestsWrapper : UnityTestBase
 {
-    [UnityTest]
+	[UnityTest]
     public IEnumerator TwoSubscriptionsWithDifferentNames()
     {
         return new FilterTests().TwoSubscriptionsWithDifferentNames().Await();
     }
 
-    [UnityTest]
+	[UnityTest]
     public IEnumerator BothChannelAndFilterSpecified()
     {
         return new FilterTests().BothChannelAndFilterSpecified().Await();
     }
 }
 
-public class OutOfSyncTestsWrapper
+public class OutOfSyncTestsWrapper : UnityTestBase
 {
     [UnityTest]
     public IEnumerator FastForwardOnOutOfSyncWhenSimpleMode()
@@ -148,7 +187,7 @@ public class OutOfSyncTestsWrapper
     }
 }
 
-public class ReadWriteStorageTestsWrapper
+public class ReadWriteStorageTestsWrapper : UnityTestBase
 {
     [UnityTest]
     public IEnumerator ReadAfterWrite()
@@ -181,7 +220,7 @@ public class ReadWriteStorageTestsWrapper
     }
 }
 
-public class SubscriptionTestsWrapper
+public class SubscriptionTestsWrapper : UnityTestBase
 {
     [UnityTest]
     public IEnumerator AutoDeleteSubscriptionOnDispose()
@@ -237,4 +276,4 @@ public class SubscriptionTestsWrapper
         return new SubscriptionTests().RestartOnUnsubscribeError().Await();
     }
 }
-
+	
