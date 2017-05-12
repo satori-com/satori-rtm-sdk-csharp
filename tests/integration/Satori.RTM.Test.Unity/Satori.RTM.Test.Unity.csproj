@@ -7,7 +7,7 @@
     <ProjectGuid>{DD600DA4-B57D-4261-A642-A881EA31AB09}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Satori.Rtm.Tests</RootNamespace>
+    <RootNamespace>Satori.Rtm.Test</RootNamespace>
     <AssemblyName>Satori.RTM.Test.Unity</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -44,6 +44,7 @@
     <Compile Include="MyTestFixture.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RtmConfig.Unity.cs" />
+    <Compile Include="TaskExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\3rd\Newtonsoft.Json.Unity\Src\Newtonsoft.Json\Newtonsoft.Json.Net35.csproj">
