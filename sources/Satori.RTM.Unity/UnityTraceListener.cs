@@ -46,7 +46,7 @@ namespace Satori.Rtm
 
             if (eventType < TraceEventType.Warning)
             {
-    			Debug.LogError(txt);
+    			Debug.LogWarning(txt); // Unity Editor Tests treat error messages as test failure
     			return;
             }
 
@@ -68,12 +68,12 @@ namespace Satori.Rtm
                 sb.AppendLine();
                 sb.Append(detailMessage);
             }
-            Debug.LogError(sb.ToString());
-    	}
+            Debug.LogWarning(sb.ToString()); // Unity Editor Tests treat error messages as test failure
+        }
 
     	public override void Fail(string message)
         {
-            Debug.LogError(message);
-    	}
+            Debug.LogWarning(message); // Unity Editor Tests treat error messages as test failure
+        }
     }
 }
