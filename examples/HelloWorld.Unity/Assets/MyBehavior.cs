@@ -105,12 +105,6 @@ public class MyBehavior : MonoBehaviour
         if (client == null) {
             return;
         }
-
-        if (pauseStatus) {
-            client.Stop();
-        } else {
-            client.Start();
-        }
     }
 
     // Update is called once per frame
