@@ -122,15 +122,4 @@ public class MyBehavior : MonoBehaviour
             client.Dispose();
         }
     }
-
-	public void UsedOnlyForAOTCodeGeneration()
-	{
-		// Fix: System.ExecutionEngineException: Attempting to call method 
-		// 'System.Collections.Generic.List`1[[System.Single, mscorlib, 
-		// Version=2.0.0.0, Culture=, PublicKeyToken=b77a5c561934e089]]::.cctor' 
-		// for which no ahead of time (AOT) code was generated.
-		new System.Collections.Generic.List<System.Single> ();
-
-		throw new InvalidOperationException ();
-	}
 }

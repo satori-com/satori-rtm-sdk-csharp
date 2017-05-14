@@ -78,6 +78,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AOTCodeGenerationFixes.cs" />
     <Compile Include="Bson\BsonBinaryType.cs" />
     <Compile Include="Bson\BsonBinaryWriter.cs" />
     <Compile Include="Bson\BsonReader.cs" />
