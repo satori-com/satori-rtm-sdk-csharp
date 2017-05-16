@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <Import Project="Satori.RTM.props" />
+  <PropertyGroup>
+    <Configuration>Release</Configuration>
+    <OutputPath>bin</OutputPath>
+    <ApiDocProject>sources\Satori.RTM.DocFx\Satori.RTM.DocFx.csproj</ApiDocProject>
+    <GitRepo>git@github.com:satori-com/satori-rtm-sdk-net.git</GitRepo>
+  </PropertyGroup>
+  
+  <Target Name="Build" DependsOnTargets="CreateDirectories">
+    <Error Condition=" '$(OS)' == 'Unix' " Text="Publishing works on Windows only" />
+    <Message Text="Available targets: /t:PublishApiDoc" />
+  </Target>
+
+  <Target Name="CreateDirectories" DependsOnTargets="RemoveDirectories">  
+    <MakeDir Directories="$(OutputPath)" />  
+  </Target>
+
+  <Target Name="RemoveDirectories">  
+    <RemoveDir Directories="$(OutputPath)" />  
+  </Target>  
+
+  <Target Name="BuildApiDoc" DependsOnTargets="Build">
+    <MSBuild Projects="$(ApiDocProject)" Targets="Build" 
+        Properties="Configuration=$(Configuration)" BuildInParallel="true"/>
+  </Target>
+
+  <Target Name="PublishApiDoc" DependsOnTargets="BuildApiDoc">
+    <Exec Command="git clone $(GitRepo) -b gh-pages --single-branch" WorkingDirectory="$(OutputPath)" />
+    <Exec Command="git rm -rf ." WorkingDirectory="$(OutputPath)\satori-rtm-sdk-net" />
+    <ItemGroup>  
+   	  <ApiDocFiles Include="sources\Satori.RTM.DocFx\bin\_site\api\**\*.*"/>  
+    </ItemGroup>
+    <Copy SourceFiles="@(ApiDocFiles)" 
+        DestinationFiles="@(ApiDocFiles->'$(OutputPath)\satori-rtm-sdk-net\%(RecursiveDir)%(Filename)%(Extension)')" />  
+    <Exec Command="git add --all" WorkingDirectory="$(OutputPath)\satori-rtm-sdk-net" />
+    <Exec Command="git commit -m &quot;Update API Doc&quot;" WorkingDirectory="$(OutputPath)\satori-rtm-sdk-net" />
+    <Exec Command="git push" WorkingDirectory="$(OutputPath)\satori-rtm-sdk-net" />
+  </Target>
+</Project>

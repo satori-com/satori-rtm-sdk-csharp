@@ -34,10 +34,12 @@
   <Target Name="Build" DependsOnTargets="CreateDirectories">
     <Message Text="Generating docs..." />
     <Error Condition=" '$(OS)' == 'Unix' " Text="Generating docs works on Windows only" />
+    <Copy SourceFiles="..\..\README.md" DestinationFiles="obj\api\index.md" />  
   </Target>
 
   <Target Name="CreateDirectories" DependsOnTargets="RemoveDirectories">  
-    <MakeDir Directories="$(OutputPath)" />  
+    <MakeDir Directories="$(OutputPath)" />
+    <MakeDir Directories="obj\api" />  
   </Target>
 
   <Target Name="RemoveDirectories">  

@@ -20,6 +20,14 @@ Alternatively, install the package via the user interface provided by Xamarin St
 
 The package is hosted on [Nuget Gallery](https://www.nuget.org/packages/Satori.RTM.SDK/). 
 
+# Documentation
+
+The various documentation is available:
+
+* The Documentation on [Satori Website](https://www.satori.com/docs/introduction/new-to-satori)
+* The [API Documentation](https://satori-com.github.io/satori-rtm-sdk-net)
+* The [RTM API](https://www.satori.com/docs/references/rtm-api) specification
+
 # Logging
 
 All log messages are received by listeners in `Trace.Listeners` collection. For example, in order to direct 
