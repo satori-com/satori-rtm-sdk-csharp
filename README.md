@@ -25,7 +25,7 @@ The package is hosted on [Nuget Gallery](https://www.nuget.org/packages/Satori.R
 The various documentation is available:
 
 * The Documentation on [Satori Website](https://www.satori.com/docs/introduction/new-to-satori)
-* The [API Documentation](https://satori-com.github.io/satori-rtm-sdk-net)
+* The [API Documentation](https://satori-com.github.io/satori-rtm-sdk-net/api)
 * The [RTM API](https://www.satori.com/docs/references/rtm-api) specification
 
 # Logging

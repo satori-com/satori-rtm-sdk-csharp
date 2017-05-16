@@ -1,3 +1,3 @@
 
-# Satori RTM SDK for .NET
+# .NET SDK for Satori RTM
 Proceed to **[API Documentation](api/index.html)**
