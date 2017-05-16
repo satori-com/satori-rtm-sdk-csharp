@@ -28,8 +28,10 @@ public class MyBehavior : MonoBehaviour
     {
         Debug.Log("My behavior started");
 
+        // Log messages from SDK to the Unity Console
         System.Diagnostics.Trace.Listeners.Add(UnityTraceListener.Instance);
 
+        // Change logging levels. Default level is Warning. 
         DefaultLoggers.Dispatcher.SetLevel(Logger.LogLevel.Verbose);
         DefaultLoggers.Serialization.SetLevel(Logger.LogLevel.Verbose);
         DefaultLoggers.Connection.SetLevel(Logger.LogLevel.Verbose);
@@ -37,19 +39,34 @@ public class MyBehavior : MonoBehaviour
         DefaultLoggers.ClientRtm.SetLevel(Logger.LogLevel.Verbose);
         DefaultLoggers.ClientRtmSubscription.SetLevel(Logger.LogLevel.Verbose);
 
+        // Unhandled exceptions in user callbacks can be observed here. 
+        // Do not throw exceptions in user callbacks. 
         UnhandledExceptionWatcher.OnError += exn =>
         {
             Debug.LogError("Unhandled exception in event handler: " + exn);
         };
 
+        // Initialize dispatcher that allows performing actions on the main thread. 
+        // Initialization must be done in the main thread. 
+        // This method can be called several times. 
         UnityMainThreadDispatcher.Init();
 
         try
         {
-            string endpoint = "<YOUR RTM ENDPOINT>";
-            string appKey = "<YOUR APP KEY>";
+            // Replace placeholders for endpoint and app key with your values 
+            // from the Dev Portal at https://developer.satori.com 
+            string endpoint = "<YOUR_ENDPOINT>";
+            string appKey = "<YOUR_APPKEY>";
+
             client = new RtmClientBuilder(endpoint, appKey).Build();
 
+            // Hook up to client lifecycle events 
+            client.OnEnterConnecting += () => UpdateText("Connecting...");
+            client.OnEnterConnected += cn => UpdateText("Connected");
+            client.OnLeaveConnected += cn => UpdateText("Disconnected");
+            client.OnError += ex => UpdateText("Error occurred");
+
+            // Create subscription observer to observe channel subscription events 
             var observer = new SubscriptionObserver();
 
             observer.OnEnterSubscribed += sub =>
@@ -62,13 +79,14 @@ public class MyBehavior : MonoBehaviour
                     Where = new float[] { 34.134358f, -118.321506f }
                 };
 
+                // Publish message to the subscribed channel
                 client.Publish(channel, msg, Ack.Yes)
                     .ContinueWith(t =>
-                    {
-                        if (t.Exception == null)
-                            Debug.Log("Published successfully!");
-                        else
-                            Debug.LogError("Publishing failed: " + t.Exception);
+                        {
+                            if (t.Exception == null)
+                                Debug.Log("Published successfully!");
+                            else
+                                Debug.LogError("Publishing failed: " + t.Exception);
                     });
             };
 
@@ -76,34 +94,51 @@ public class MyBehavior : MonoBehaviour
 
             observer.OnSubscriptionData += (ISubscription sub, RtmSubscriptionData data) =>
             {
-                Debug.Log("Data received");
+                Debug.Log("Message received");
+
                 JToken jToken = data.Messages[0];
                 Event msg = jToken.ToObject<Event>();
                 string greeting = string.Format("Hello {0}!", msg.Who);
 
-                // call on main thread
-                UnityMainThreadDispatcher.Enqueue(() => UpdateText(greeting));
+                UpdateText(greeting);
             };
 
+            // Subscribe to the channel. Because client is not connected to Satori RTM, 
+            // subscription request will be queued. This request will be sent when 
+            // the client is connected. 
             client.CreateSubscription(channel, SubscriptionModes.Simple, observer);
 
+            // Connect to Satori RTM. If connection is dropped, the client will 
+            // reconnect automatically. 
             client.Start();
         } catch (Exception ex) {
             Debug.LogError("Setting up RTM client failed. " + ex);
         }
     }
 
+    // Update displayed text
     void UpdateText(string msg)
     {
-        var textObj = GameObject.Find("MyText");
-        TextMesh mesh = (TextMesh)textObj.GetComponent(typeof(TextMesh));
-        mesh.text = msg;
+        // call on main thread
+        UnityMainThreadDispatcher.Enqueue (() => 
+            {
+                var textObj = GameObject.Find("MyText");
+                var mesh = (TextMesh)textObj.GetComponent(typeof(TextMesh));
+                mesh.text = msg; 
+            });
     }
 
     void OnApplicationPause(bool pauseStatus)
     {
         if (client == null) {
             return;
+        }
+
+        // Disconnect client from Satori RTM when the app is not active
+        if (pauseStatus) {
+            client.Stop(); 
+        } else {
+            client.Start();
         }
     }
 
