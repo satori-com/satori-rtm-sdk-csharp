@@ -22,7 +22,8 @@
     "content": [
       {
         "files": [
-          "api/**.yml"
+          "api/**.yml",
+          "api/**.md"
         ],
         "cwd": "obj"
       },
@@ -42,7 +43,8 @@
     "resource": [
       {
         "files": [
-          "images/**"
+          "images/**",
+          "api/logo.png"
         ],
         "exclude": [
           "obj/**",
@@ -63,12 +65,14 @@
     ],
     "globalMetadata": {
       "_appTitle": ".NET SDK for Satori RTM",
+      "_appLogoPath": "api/logo.png",
       "_appFooter": "Copyright (c) 2017, Satori Worldwide, Inc.",
       "_disableNavbar": true
     },
     "dest": "_site",
     "template": [
-      "default"
+      "default", 
+      "custom_template"
     ]
   }
 }
