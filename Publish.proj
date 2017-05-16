@@ -31,7 +31,7 @@
     <Exec Command="git clone $(GitRepo) -b gh-pages --single-branch" WorkingDirectory="$(OutputPath)" />
     <Exec Command="git rm -rf ." WorkingDirectory="$(OutputPath)\satori-rtm-sdk-net" />
     <ItemGroup>  
-   	  <ApiDocFiles Include="sources\Satori.RTM.DocFx\bin\_site\**\*.*"/>  
+   	  <ApiDocFiles Include="sources\Satori.RTM.DocFx\bin\_site\api\**\*.*"/>  
     </ItemGroup>
     <Copy SourceFiles="@(ApiDocFiles)" 
         DestinationFiles="@(ApiDocFiles->'$(OutputPath)\satori-rtm-sdk-net\%(RecursiveDir)%(Filename)%(Extension)')" />  
