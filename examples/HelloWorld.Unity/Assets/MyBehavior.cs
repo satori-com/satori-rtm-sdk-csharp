@@ -9,6 +9,12 @@ using System.Threading.Tasks;
 using UnityEngine;
 using Logger = Satori.Rtm.Logger;
 
+// Sample model to publish to RTM
+// This class represents the following raw json structure:
+// {
+//   "who": "zebra",
+//   "where": [34.134358,-118.321506]
+// }
 class Event
 {
     [JsonProperty("who")]
@@ -90,7 +96,11 @@ public class MyBehavior : MonoBehaviour
                     });
             };
 
-            observer.OnLeaveSubscribed += sub => Debug.Log("Unsubscribed from " + sub.SubscriptionId);
+            observer.OnLeaveSubscribed += sub 
+                => Debug.Log("Unsubscribed from " + sub.SubscriptionId);
+
+            observer.OnSubscriptionError += (ISubscription sub, RtmSubscriptionError err) 
+                => Debug.LogError("Subscription error " + err.Code + ": " + err.Reason);
 
             observer.OnSubscriptionData += (ISubscription sub, RtmSubscriptionData data) =>
             {
