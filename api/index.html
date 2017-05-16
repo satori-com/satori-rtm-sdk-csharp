@@ -1,0 +1,176 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Satori RTM SDK for .NET | .NET SDK for Satori RTM </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Satori RTM SDK for .NET | .NET SDK for Satori RTM ">
+    <meta name="generator" content="docfx 2.16.5.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <div class="subnav navbar navbar-default" style="display: table; width:100%;">
+          <a href="index.html" style="display: table-cell; vertical-align: middle;">
+            <img id="logo" class="svg" src="../api/logo.png" alt="" style="width: 177px; height: 30px; margin: 10px 15px 10px 10px">
+          </a>
+          <div class="container hide-when-search" id="breadcrumb" style="display: table-cell; vertical-align: middle; padding: 4px 0 0 0;">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+              <h1 id="satori-rtm-sdk-for-net">Satori RTM SDK for .NET</h1>
+              
+<p>[<img src="https://img.shields.io/nuget/vpre/Satori.RTM.SDK.svg" alt="NuGet Pre Release">]()</p>
+<p>Satori is a cloud-based, live data ecosystem that manages any form of schema-less real-time live data as it happens. 
+The ecosystem includes a fast and scalable messaging engine known as RTM. Use the Satori RTM SDK for .NET to create mobile, desktop or server-based applications that communicate with the RTM to publish and subscribe.</p>
+<h1 id="target-frameworks">Target Frameworks</h1>
+<ul>
+<li>Mono / .NET 4.5+</li>
+<li>Xamarin.Android (Android 4.4+)</li>
+<li>Xamarin.iOS (iOS 8.1+)</li>
+</ul>
+<h1 id="nuget">NuGet</h1>
+<p>To install Satori RTM SDK for .NET, run the following command in the Package Manager Console:</p>
+<pre><code>PM&gt; Install-Package Satori.RTM.SDK -Version 1.0.0-beta -Pre
+</code></pre><p>Alternatively, install the package via the user interface provided by Xamarin Studio or Visual Studio. </p>
+<p>The package is hosted on <a href="https://www.nuget.org/packages/Satori.RTM.SDK/">Nuget Gallery</a>. </p>
+<h1 id="documentation">Documentation</h1>
+<p>The various documentation is available:</p>
+<ul>
+<li>The Documentation on <a href="https://www.satori.com/docs/introduction/new-to-satori">Satori Website</a></li>
+<li>The <a href="https://satori-com.github.io/satori-rtm-sdk-net/api">API Documentation</a></li>
+<li>The <a href="https://www.satori.com/docs/references/rtm-api">RTM API</a> specification</li>
+</ul>
+<h1 id="logging">Logging</h1>
+<p>All log messages are received by listeners in <code>Trace.Listeners</code> collection. For example, in order to direct 
+log messages to the console, add <code>ConsoleTraceListener</code> to <code>Trace.Listeners</code> collection: </p>
+<pre><code>using System.Diagnostics;
+...
+Trace.Listeners.Add(new ConsoleTraceListener());
+</code></pre><p>Read about Trace Listeners on <a href="https://msdn.microsoft.com/en-us/library/4y5y10s7(v=vs.110).aspx">MSDN</a></p>
+<p>By default, verbosity level is warning. Verbosity of the different components of .NET SDK can be set separately: </p>
+<pre><code>using Satori.Rtm;
+...
+DefaultLoggers.Dispatcher.SetLevel(Logger.LogLevel.Verbose);
+DefaultLoggers.Serialization.SetLevel(Logger.LogLevel.Verbose);
+DefaultLoggers.Connection.SetLevel(Logger.LogLevel.Verbose);
+DefaultLoggers.Client.SetLevel(Logger.LogLevel.Verbose);
+DefaultLoggers.ClientRtm.SetLevel(Logger.LogLevel.Verbose);
+DefaultLoggers.ClientRtmSubscription.SetLevel(Logger.LogLevel.Verbose);
+</code></pre><h1 id="build">Build</h1>
+<h2 id="mac">Mac</h2>
+<ol>
+<li>Open <code>./Satori.All.sln</code> with Xamarin Studio. </li>
+<li>Build the solution</li>
+</ol>
+<h2 id="windows">Windows</h2>
+<ol>
+<li>Open <code>./Satori.VS.sln</code> with Visual Studio 2015.</li>
+<li>Build the solution</li>
+</ol>
+<h1 id="running-tests">Running Tests</h1>
+<p>Tests require credentials to establish connection to Satori endpoint. Credentials should be provided in 
+the following format: </p>
+<pre><code>{
+  &quot;endpoint&quot;: &quot;wss://&lt;SATORI HOST&gt;/&quot;,
+  &quot;appkey&quot;: &quot;&lt;APP KEY&gt;&quot;,
+  &quot;auth_role_name&quot;: &quot;&lt;ROLE NAME&gt;&quot;,
+  &quot;auth_role_secret_key&quot;: &quot;&lt;ROLE SECRET KEY&gt;&quot;,
+  &quot;auth_restricted_channel&quot;: &quot;&lt;CHANNEL NAME&gt;&quot;
+}
+</code></pre><ul>
+<li><code>endpoint</code> is your customer-specific DNS name for RTM access.</li>
+<li><code>appkey</code> is your application key.</li>
+<li><code>auth_role_name</code> is a role name that permits to publish / subscribe to <code>auth_restricted_channel</code>. Must be not <code>default</code>.</li>
+<li><code>auth_role_secret_key</code> is a secret key for <code>auth_role_name</code>.</li>
+<li><code>auth_restricted_channel</code> is a channel with subscribe and publish access for <code>auth_role_name</code> role only.</li>
+</ul>
+<p>You must use <a href="https://developer.satori.com/">DevPortal</a> to create role and set channel permissions.</p>
+<h2 id="command-line-on-windows">Command line on Windows</h2>
+<p>Save credentials to <code>credentials.json</code> file and set path to this file to <code>RTM_CONFIG</code> environment variable. Path should be relative to <code>Satori.RTM.Test.Net45.csproj</code> file. </p>
+<pre><code>set RTM_CONFIG=&lt;PATH TO credentials.json&gt;
+nuget restore Satori.All.sln -ConfigFile nuget.config
+msbuild tests\integration\Satori.RTM.Test.Net45\Satori.RTM.Test.Net45.csproj /t:RunTests /p:Configuration=Release
+</code></pre><h2 id="command-line-on-linuxmac">Command line on Linux/Mac</h2>
+<p>Save credentials to <code>credentials.json</code> file and set path to this file to <code>RTM_CONFIG</code> environment variable. Path should be relative to <code>Satori.RTM.Test.Net45.csproj</code> file. </p>
+<pre><code>export RTM_CONFIG=&lt;PATH TO credentials.json&gt;
+nuget restore Satori.All.sln -ConfigFile nuget.config
+xbuild tests/integration/Satori.RTM.Test.Net45/Satori.RTM.Test.Net45.csproj /t:RunTests /p:Configuration=Release
+</code></pre><h2 id="xamarin-studio">Xamarin Studio</h2>
+<ol>
+<li>Put the <code>credentials.json</code> file next to the solution folder or define the environment varialbe <code>RTM_CONFIG</code> as described above</li>
+<li>Click &#39;Run &gt; Run Unit tests&#39; in the top menu</li>
+<li>Click <code>View &gt; Pads &gt; Test Results</code> to view test results </li>
+</ol>
+<h2 id="visual-studio-2015">Visual Studio 2015</h2>
+<ol>
+<li>Put the <code>credentials.json</code> file next to the solution folder or define the environment varialbe <code>RTM_CONFIG</code> as described above</li>
+<li>Build the solution</li>
+<li>Click <code>Test &gt; Run &gt; All Tests</code> in the top menu </li>
+</ol>
+<h1 id="code-style">Code Style</h1>
+<p>We follow <a href="https://github.com/dotnet/corefx/blob/master/Documentation/coding-guidelines/coding-style.md">C# Coding Style</a> of .NET Core Libraries (CoreFX) project. Code style is enforced by <a href="https://github.com/StyleCop/StyleCop">StyleCop</a>. Not all StyleCop rules are enabled. </p>
+
+            </article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright (c) 2017, Satori Worldwide, Inc.
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
