@@ -64,7 +64,7 @@
       }
     ],
     "globalMetadata": {
-      "_appTitle": ".NET SDK for Satori RTM",
+      "_appTitle": "C# SDK for Satori RTM",
       "_appLogoPath": "api/logo.png",
       "_appFooter": "Copyright (c) 2017, Satori Worldwide, Inc.",
       "_disableNavbar": true

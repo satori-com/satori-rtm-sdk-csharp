@@ -6,7 +6,7 @@
     <Configuration>Release</Configuration>
     <OutputPath>bin</OutputPath>
     <ApiDocProject>sources\Satori.RTM.DocFx\Satori.RTM.DocFx.csproj</ApiDocProject>
-    <GitRepo>git@github.com:satori-com/satori-rtm-sdk-net.git</GitRepo>
+    <GitRepo>git@github.com:satori-com/satori-rtm-sdk-csharp.git</GitRepo>
   </PropertyGroup>
   
   <Target Name="Build" DependsOnTargets="CreateDirectories">
@@ -29,14 +29,14 @@
 
   <Target Name="PublishApiDoc" DependsOnTargets="BuildApiDoc">
     <Exec Command="git clone $(GitRepo) -b gh-pages --single-branch" WorkingDirectory="$(OutputPath)" />
-    <Exec Command="git rm -rf ." WorkingDirectory="$(OutputPath)\satori-rtm-sdk-net" />
+    <Exec Command="git rm -rf ." WorkingDirectory="$(OutputPath)\satori-rtm-sdk-csharp" />
     <ItemGroup>  
    	  <ApiDocFiles Include="sources\Satori.RTM.DocFx\bin\_site\**\*.*"/>  
     </ItemGroup>
     <Copy SourceFiles="@(ApiDocFiles)" 
-        DestinationFiles="@(ApiDocFiles->'$(OutputPath)\satori-rtm-sdk-net\%(RecursiveDir)%(Filename)%(Extension)')" />  
-    <Exec Command="git add --all" WorkingDirectory="$(OutputPath)\satori-rtm-sdk-net" />
-    <Exec Command="git commit -m &quot;Update API Doc&quot;" WorkingDirectory="$(OutputPath)\satori-rtm-sdk-net" />
-    <Exec Command="git push" WorkingDirectory="$(OutputPath)\satori-rtm-sdk-net" />
+        DestinationFiles="@(ApiDocFiles->'$(OutputPath)\satori-rtm-sdk-csharp\%(RecursiveDir)%(Filename)%(Extension)')" />  
+    <Exec Command="git add --all" WorkingDirectory="$(OutputPath)\satori-rtm-sdk-csharp" />
+    <Exec Command="git commit -m &quot;Update API Doc&quot;" WorkingDirectory="$(OutputPath)\satori-rtm-sdk-csharp" />
+    <Exec Command="git push" WorkingDirectory="$(OutputPath)\satori-rtm-sdk-csharp" />
   </Target>
 </Project>
