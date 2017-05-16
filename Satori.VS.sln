@@ -50,6 +50,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Satori.RTM.Test.Android", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Satori.RTM.Test.Unity", "tests\integration\Satori.RTM.Test.Unity\Satori.RTM.Test.Unity.csproj", "{DD600DA4-B57D-4261-A642-A881EA31AB09}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Satori.RTM.Test.iOS", "tests\integration\Satori.RTM.Test.iOS\Satori.RTM.Test.iOS.csproj", "{D2EF9463-C63A-4C7D-8A53-6EC22C455197}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		3rd\System.Threading.Net35\System.Threading.Net35.projitems*{06c9db81-f14a-46bd-8140-c70ab41fd6c4}*SharedItemsImports = 13
@@ -75,6 +77,7 @@ Global
 		tests\integration\Satori.RTM.Test\Satori.RTM.Test.projitems*{a1de2c47-59a0-4124-9ed9-7fa9786d2beb}*SharedItemsImports = 4
 		3rd\UnityMainThreadDispatcher\UnityMainThreadDispatcher.projitems*{c1c79e8a-b3e8-4dc5-a332-46e04a13f2c6}*SharedItemsImports = 13
 		tests\integration\Satori.RTM.Test\Satori.RTM.Test.projitems*{c7bb1436-6489-43ed-8f82-321fc36ba207}*SharedItemsImports = 13
+		tests\integration\Satori.RTM.Test\Satori.RTM.Test.projitems*{d2ef9463-c63a-4c7d-8a53-6ec22c455197}*SharedItemsImports = 4
 		tests\integration\Satori.RTM.Test\Satori.RTM.Test.projitems*{dd600da4-b57d-4261-a642-a881ea31ab09}*SharedItemsImports = 4
 		sources\Satori.Common\Satori.Common.projitems*{fe354457-bdd5-4bd4-b29d-861b4974ac56}*SharedItemsImports = 13
 	EndGlobalSection
@@ -257,6 +260,18 @@ Global
 		{DD600DA4-B57D-4261-A642-A881EA31AB09}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{DD600DA4-B57D-4261-A642-A881EA31AB09}.Release|x86.ActiveCfg = Release|Any CPU
 		{DD600DA4-B57D-4261-A642-A881EA31AB09}.Release|x86.Build.0 = Release|Any CPU
+		{D2EF9463-C63A-4C7D-8A53-6EC22C455197}.Debug|Any CPU.ActiveCfg = Debug|iPhone
+		{D2EF9463-C63A-4C7D-8A53-6EC22C455197}.Debug|iPhone.ActiveCfg = Debug|iPhone
+		{D2EF9463-C63A-4C7D-8A53-6EC22C455197}.Debug|iPhone.Build.0 = Debug|iPhone
+		{D2EF9463-C63A-4C7D-8A53-6EC22C455197}.Debug|iPhoneSimulator.ActiveCfg = Debug|iPhoneSimulator
+		{D2EF9463-C63A-4C7D-8A53-6EC22C455197}.Debug|iPhoneSimulator.Build.0 = Debug|iPhoneSimulator
+		{D2EF9463-C63A-4C7D-8A53-6EC22C455197}.Debug|x86.ActiveCfg = Debug|iPhone
+		{D2EF9463-C63A-4C7D-8A53-6EC22C455197}.Release|Any CPU.ActiveCfg = Release|iPhone
+		{D2EF9463-C63A-4C7D-8A53-6EC22C455197}.Release|iPhone.ActiveCfg = Release|iPhone
+		{D2EF9463-C63A-4C7D-8A53-6EC22C455197}.Release|iPhone.Build.0 = Release|iPhone
+		{D2EF9463-C63A-4C7D-8A53-6EC22C455197}.Release|iPhoneSimulator.ActiveCfg = Release|iPhoneSimulator
+		{D2EF9463-C63A-4C7D-8A53-6EC22C455197}.Release|iPhoneSimulator.Build.0 = Release|iPhoneSimulator
+		{D2EF9463-C63A-4C7D-8A53-6EC22C455197}.Release|x86.ActiveCfg = Release|iPhone
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -273,6 +288,7 @@ Global
 		{C1C79E8A-B3E8-4DC5-A332-46E04A13F2C6} = {5BCCB028-0330-4936-BCFE-34CAED8AC4F2}
 		{8116D9EE-A195-4772-A559-8B6E68719806} = {68EB9F49-7CCE-4796-A0E7-6315A39517F5}
 		{DD600DA4-B57D-4261-A642-A881EA31AB09} = {68EB9F49-7CCE-4796-A0E7-6315A39517F5}
+		{D2EF9463-C63A-4C7D-8A53-6EC22C455197} = {68EB9F49-7CCE-4796-A0E7-6315A39517F5}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		Policies = $0
