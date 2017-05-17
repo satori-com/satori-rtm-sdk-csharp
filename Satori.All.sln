@@ -43,6 +43,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Satori.RTM.DocFx", "sources
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PublishSubscribe.Net45", "examples\PublishSubscribe.Net45\PublishSubscribe.Net45.csproj", "{84F1B18D-F628-4136-B6B5-CAB382ADA049}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubscribeToOpenChannel.Net45", "examples\SubscribeToOpenChannel.Net45\SubscribeToOpenChannel.Net45.csproj", "{F3124E04-4033-4CBC-8F0B-7C8B8C5323E3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -170,6 +172,18 @@ Global
 		{84F1B18D-F628-4136-B6B5-CAB382ADA049}.Release|iPhoneSimulator.Build.0 = Release|x86
 		{84F1B18D-F628-4136-B6B5-CAB382ADA049}.Debug|iPhone.ActiveCfg = Debug|x86
 		{84F1B18D-F628-4136-B6B5-CAB382ADA049}.Debug|iPhone.Build.0 = Debug|x86
+		{F3124E04-4033-4CBC-8F0B-7C8B8C5323E3}.Debug|x86.ActiveCfg = Debug|x86
+		{F3124E04-4033-4CBC-8F0B-7C8B8C5323E3}.Debug|x86.Build.0 = Debug|x86
+		{F3124E04-4033-4CBC-8F0B-7C8B8C5323E3}.Release|x86.ActiveCfg = Release|x86
+		{F3124E04-4033-4CBC-8F0B-7C8B8C5323E3}.Release|x86.Build.0 = Release|x86
+		{F3124E04-4033-4CBC-8F0B-7C8B8C5323E3}.Debug|iPhoneSimulator.ActiveCfg = Debug|x86
+		{F3124E04-4033-4CBC-8F0B-7C8B8C5323E3}.Debug|iPhoneSimulator.Build.0 = Debug|x86
+		{F3124E04-4033-4CBC-8F0B-7C8B8C5323E3}.Release|iPhone.ActiveCfg = Release|x86
+		{F3124E04-4033-4CBC-8F0B-7C8B8C5323E3}.Release|iPhone.Build.0 = Release|x86
+		{F3124E04-4033-4CBC-8F0B-7C8B8C5323E3}.Release|iPhoneSimulator.ActiveCfg = Release|x86
+		{F3124E04-4033-4CBC-8F0B-7C8B8C5323E3}.Release|iPhoneSimulator.Build.0 = Release|x86
+		{F3124E04-4033-4CBC-8F0B-7C8B8C5323E3}.Debug|iPhone.ActiveCfg = Debug|x86
+		{F3124E04-4033-4CBC-8F0B-7C8B8C5323E3}.Debug|iPhone.Build.0 = Debug|x86
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{68EB9F49-7CCE-4796-A0E7-6315A39517F5} = {FACFFF2B-E64A-4D10-9420-0C80C8D4F7CC}
@@ -180,6 +194,7 @@ Global
 		{92BFE9E9-143C-4B76-B11A-1FF6263F12FD} = {5BCCB028-0330-4936-BCFE-34CAED8AC4F2}
 		{D2EF9463-C63A-4C7D-8A53-6EC22C455197} = {68EB9F49-7CCE-4796-A0E7-6315A39517F5}
 		{84F1B18D-F628-4136-B6B5-CAB382ADA049} = {1F2487DD-EEA1-4558-B850-0F788E9A26D4}
+		{F3124E04-4033-4CBC-8F0B-7C8B8C5323E3} = {1F2487DD-EEA1-4558-B850-0F788E9A26D4}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		Policies = $0

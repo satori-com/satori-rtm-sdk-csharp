@@ -25,7 +25,7 @@ namespace HelloWorld
             public float[] Where { get; set; }
         }
 
-        static void Main(string[] args)
+        static void Main()
         {
             // Log messages from SDK to the console
             Trace.Listeners.Add(new ConsoleTraceListener());
