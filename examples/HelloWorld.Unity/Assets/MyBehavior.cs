@@ -18,10 +18,10 @@ using Logger = Satori.Rtm.Logger;
 class Event
 {
     [JsonProperty("who")]
-    public string Who { get; set; }
+    public string who { get; set; }
 
     [JsonProperty("where")]
-    public float[] Where { get; set; }
+    public float[] where { get; set; }
 }
 
 public class MyBehavior : MonoBehaviour
@@ -81,8 +81,8 @@ public class MyBehavior : MonoBehaviour
 
                 var msg = new Event
                 {
-                    Who = "zebra",
-                    Where = new float[] { 34.134358f, -118.321506f }
+                    who = "zebra",
+                    where = new float[] { 34.134358f, -118.321506f }
                 };
 
                 // Publish message to the subscribed channel
@@ -108,7 +108,7 @@ public class MyBehavior : MonoBehaviour
 
                 JToken jToken = data.Messages[0];
                 Event msg = jToken.ToObject<Event>();
-                string greeting = string.Format("Hello {0}!", msg.Who);
+                string greeting = string.Format("Hello {0}!", msg.who);
 
                 UpdateText(greeting);
             };
