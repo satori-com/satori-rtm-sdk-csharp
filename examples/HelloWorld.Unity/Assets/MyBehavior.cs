@@ -15,7 +15,7 @@ using Logger = Satori.Rtm.Logger;
 //   "who": "zebra",
 //   "where": [34.134358,-118.321506]
 // }
-class Event
+class Animal
 {
     [JsonProperty("who")]
     public string who { get; set; }
@@ -27,7 +27,7 @@ class Event
 public class MyBehavior : MonoBehaviour
 {
     IRtmClient client;
-    string channel = "my_channel";
+    string subscriptionId = "my-subscription";
 
     // Use this for initialization
     void Start ()
@@ -72,21 +72,22 @@ public class MyBehavior : MonoBehaviour
             client.OnLeaveConnected += cn => UpdateText("Disconnected");
             client.OnError += ex => UpdateText("Error occurred");
 
-            // Create subscription observer to observe channel subscription events 
+            // We create a subscription observer object in order to receive callbacks
+            // for incoming data, state changes and errors 
             var observer = new SubscriptionObserver();
 
             observer.OnEnterSubscribed += sub =>
             {
                 Debug.Log("Client subscribed to " + sub.SubscriptionId);
 
-                var msg = new Event
+                var msg = new Animal
                 {
                     who = "zebra",
                     where = new float[] { 34.134358f, -118.321506f }
                 };
 
-                // Publish message to the subscribed channel
-                client.Publish(channel, msg, Ack.Yes)
+                // Publish message to the subscription
+                client.Publish(subscriptionId, msg, Ack.Yes)
                     .ContinueWith(t =>
                         {
                             if (t.Exception == null)
@@ -106,17 +107,19 @@ public class MyBehavior : MonoBehaviour
             {
                 Debug.Log("Message received");
 
+                // Messages arrive in an array:
+                // we only expect one (first) message
                 JToken jToken = data.Messages[0];
-                Event msg = jToken.ToObject<Event>();
+                Animal msg = jToken.ToObject<Animal>();
                 string greeting = string.Format("Hello {0}!", msg.who);
 
                 UpdateText(greeting);
             };
 
-            // Subscribe to the channel. Because client is not connected to Satori RTM, 
+            // Because client is not yet connected to Satori RTM, 
             // subscription request will be queued. This request will be sent when 
             // the client is connected. 
-            client.CreateSubscription(channel, SubscriptionModes.Simple, observer);
+            client.CreateSubscription(subscriptionId, SubscriptionModes.Simple, observer);
 
             // Connect to Satori RTM. If connection is dropped, the client will 
             // reconnect automatically. 
