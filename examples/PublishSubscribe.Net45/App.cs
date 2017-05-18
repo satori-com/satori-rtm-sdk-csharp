@@ -65,7 +65,7 @@ namespace PublishSubscribe
 
             client.CreateSubscription(channel, SubscriptionModes.Simple, observer);
 
-            subscribedEvent.WaitOne(TimeSpan.FromSeconds(15));
+            subscribedEvent.WaitOne(TimeSpan.FromSeconds(30));
 
             var message = new Animal
             {
@@ -81,7 +81,7 @@ namespace PublishSubscribe
                         Console.Error.WriteLine("Publishing failed: " + t.Exception);
                 });
 
-            dataReceivedEvent.WaitOne(TimeSpan.FromSeconds(15));
+            dataReceivedEvent.WaitOne(TimeSpan.FromSeconds(30));
 
             // Dispose the client before exiting the app
             client.Dispose().Wait();

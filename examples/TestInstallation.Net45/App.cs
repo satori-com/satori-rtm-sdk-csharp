@@ -3,14 +3,12 @@ using System.Diagnostics;
 using System.Threading;
 using Satori.Rtm.Client;
 
-namespace Authentication
+namespace TestInstallation
 {
     class App
     {
-        const string endpoint = "YOUR_ENDPOINT";
-        const string appkey = "YOUR_APPKEY";
-        const string role = "YOUR_ROLE";
-        const string roleSecretKey = "YOUR_ROLE_SECRET_KEY";
+        const string endpoint = "ENDPOINT";
+        const string appkey = "APPKEY";
 
         static void Main()
         {
@@ -20,18 +18,16 @@ namespace Authentication
             // This event will be signalled when the client is connected to RTM
             var connectedEvent = new ManualResetEvent(initialState: false);
 
-            IRtmClient client = new RtmClientBuilder(endpoint, appkey)
-                .SetRoleSecretAuthenticator(role, roleSecretKey)
-                .Build();
+            IRtmClient client = new RtmClientBuilder(endpoint, appkey).Build();
 
             client.OnEnterConnected += cn => 
             {
-                Console.WriteLine("Successfully connected and authenticated");
+                Console.WriteLine("Connected to RTM!");
                 connectedEvent.Set();
             };
 
             client.OnError += ex => 
-                Console.Error.WriteLine("Error occurred: " + ex.Message);
+                Console.Error.WriteLine("Failed to connect: " + ex.Message);
 
             client.Start();
 

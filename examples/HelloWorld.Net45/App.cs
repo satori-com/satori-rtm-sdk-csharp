@@ -63,7 +63,7 @@ namespace HelloWorld
 
             RunAsync(client, ev);
 
-            ev.WaitOne();
+            ev.WaitOne(TimeSpan.FromSeconds(30));
 
             // Dispose the client before exiting the app
             client.Dispose().Wait();

@@ -45,7 +45,7 @@ namespace SubscribeToOpenChannel
 
             client.Start();
 
-            dataReceivedEvent.WaitOne(TimeSpan.FromSeconds(15));
+            dataReceivedEvent.WaitOne(TimeSpan.FromSeconds(30));
 
             // Dispose the client before exiting the app
             client.Dispose().Wait();
