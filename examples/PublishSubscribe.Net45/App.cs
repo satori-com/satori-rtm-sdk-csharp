@@ -6,7 +6,7 @@ using Newtonsoft.Json.Linq;
 using Satori.Rtm;
 using Satori.Rtm.Client;
 
-namespace HelloWorld
+namespace PublishSubscribe
 {
     class App
     {

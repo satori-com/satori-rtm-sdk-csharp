@@ -5,7 +5,7 @@ using Newtonsoft.Json.Linq;
 using Satori.Rtm;
 using Satori.Rtm.Client;
 
-namespace HelloWorld
+namespace SubscribeToOpenChannel
 {
     class App
     {

@@ -21,6 +21,15 @@ namespace Satori.Rtm.Client
             Observer = observer;
         }
 
+        /// <summary>
+        /// Creates a subscription configuration to use in subscription requests, with a specific
+        /// subscription modes.
+        /// </summary>
+        public SubscriptionConfig(SubscriptionModes mode, ISubscriptionObserver observer)
+            : this(mode, null, observer)
+        {
+        }
+
         public SubscriptionModes Mode { get; set; }
 
         /// <summary>
