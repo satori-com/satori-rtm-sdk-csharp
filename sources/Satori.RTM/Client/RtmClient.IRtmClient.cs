@@ -134,6 +134,11 @@ namespace Satori.Rtm.Client
                 });
         }
 
+        public Task CreateSubscription(string channel, ISubscriptionObserver observer)
+        {
+            return CreateSubscription(channel, SubscriptionModes.Simple, observer);
+        }
+        
         public Task CreateSubscription(string channelOrSubId, SubscriptionConfig subscriptionConfig)
         {
             return _rtmModule.CreateSubscription(channelOrSubId, subscriptionConfig);
@@ -154,6 +159,11 @@ namespace Satori.Rtm.Client
             return _rtmModule.Publish(channel, message, ack);
         }
 
+        public Task<RtmPublishReply> Publish<T>(string channel, T message)
+        {
+            return Publish(channel, message, Ack.Yes);
+        }
+
         public Task<RtmReadReply<T>> Read<T>(string channel)
         {
             return _rtmModule.Read<T>(channel);
@@ -169,6 +179,11 @@ namespace Satori.Rtm.Client
             return _rtmModule.Write(channel, message, ack);
         }
 
+        public Task<RtmWriteReply> Write<T>(string channel, T message)
+        {
+            return Write(channel, message, Ack.Yes);
+        }
+
         public Task<RtmWriteReply> Write<T>(RtmWriteRequest<T> request, Ack ack)
         {
             return _rtmModule.Write(request, ack);
@@ -177,6 +192,11 @@ namespace Satori.Rtm.Client
         public Task<RtmDeleteReply> Delete(string channel, Ack ack)
         {
             return _rtmModule.Delete(channel, ack);
+        }
+
+        public Task<RtmDeleteReply> Delete(string channel)
+        {
+            return Delete(channel, Ack.Yes);
         }
 
         #endregion

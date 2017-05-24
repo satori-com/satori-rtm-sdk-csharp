@@ -44,8 +44,6 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "System.Threading.Net35", "3
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newtonsoft.Json.Net35", "3rd\Newtonsoft.Json.Unity\Src\Newtonsoft.Json\Newtonsoft.Json.Net35.csproj", "{A9AE40FF-1A21-414A-9FE7-3BE13644CC6D}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "UnityMainThreadDispatcher", "3rd\UnityMainThreadDispatcher\UnityMainThreadDispatcher.shproj", "{C1C79E8A-B3E8-4DC5-A332-46E04A13F2C6}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Satori.RTM.Test.Android", "tests\integration\Satori.RTM.Test.Android\Satori.RTM.Test.Android.csproj", "{8116D9EE-A195-4772-A559-8B6E68719806}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Satori.RTM.Test.Unity", "tests\integration\Satori.RTM.Test.Unity\Satori.RTM.Test.Unity.csproj", "{DD600DA4-B57D-4261-A642-A881EA31AB09}"
@@ -61,7 +59,6 @@ Global
 		3rd\System.Buffers.Net35\System.Buffers.Net35.projitems*{1aad0257-4825-4596-a8ae-6fe6635c27e1}*SharedItemsImports = 4
 		3rd\System.Net.WebSockets.Managed\System.Net.WebSockets.Managed.projitems*{1aad0257-4825-4596-a8ae-6fe6635c27e1}*SharedItemsImports = 4
 		3rd\System.Threading.Net35\System.Threading.Net35.projitems*{1aad0257-4825-4596-a8ae-6fe6635c27e1}*SharedItemsImports = 4
-		3rd\UnityMainThreadDispatcher\UnityMainThreadDispatcher.projitems*{1aad0257-4825-4596-a8ae-6fe6635c27e1}*SharedItemsImports = 4
 		sources\Satori.Common\Satori.Common.projitems*{1aad0257-4825-4596-a8ae-6fe6635c27e1}*SharedItemsImports = 4
 		sources\Satori.RTM\Satori.RTM.projitems*{1aad0257-4825-4596-a8ae-6fe6635c27e1}*SharedItemsImports = 4
 		3rd\System.Net.WebSockets.Managed\System.Net.WebSockets.Managed.projitems*{63233545-4d99-4c71-95e8-34545403b8ac}*SharedItemsImports = 4
@@ -75,7 +72,6 @@ Global
 		sources\Satori.Common\Satori.Common.projitems*{99629b45-be1c-460e-a9d1-cbbbaa34e277}*SharedItemsImports = 4
 		sources\Satori.RTM\Satori.RTM.projitems*{99629b45-be1c-460e-a9d1-cbbbaa34e277}*SharedItemsImports = 4
 		tests\integration\Satori.RTM.Test\Satori.RTM.Test.projitems*{a1de2c47-59a0-4124-9ed9-7fa9786d2beb}*SharedItemsImports = 4
-		3rd\UnityMainThreadDispatcher\UnityMainThreadDispatcher.projitems*{c1c79e8a-b3e8-4dc5-a332-46e04a13f2c6}*SharedItemsImports = 13
 		tests\integration\Satori.RTM.Test\Satori.RTM.Test.projitems*{c7bb1436-6489-43ed-8f82-321fc36ba207}*SharedItemsImports = 13
 		tests\integration\Satori.RTM.Test\Satori.RTM.Test.projitems*{d2ef9463-c63a-4c7d-8a53-6ec22c455197}*SharedItemsImports = 4
 		tests\integration\Satori.RTM.Test\Satori.RTM.Test.projitems*{dd600da4-b57d-4261-a642-a881ea31ab09}*SharedItemsImports = 4
@@ -285,7 +281,6 @@ Global
 		{83496BAC-E06C-4C09-BCDA-E242059DEF0F} = {5BCCB028-0330-4936-BCFE-34CAED8AC4F2}
 		{06C9DB81-F14A-46BD-8140-C70AB41FD6C4} = {5BCCB028-0330-4936-BCFE-34CAED8AC4F2}
 		{A9AE40FF-1A21-414A-9FE7-3BE13644CC6D} = {5BCCB028-0330-4936-BCFE-34CAED8AC4F2}
-		{C1C79E8A-B3E8-4DC5-A332-46E04A13F2C6} = {5BCCB028-0330-4936-BCFE-34CAED8AC4F2}
 		{8116D9EE-A195-4772-A559-8B6E68719806} = {68EB9F49-7CCE-4796-A0E7-6315A39517F5}
 		{DD600DA4-B57D-4261-A642-A881EA31AB09} = {68EB9F49-7CCE-4796-A0E7-6315A39517F5}
 		{D2EF9463-C63A-4C7D-8A53-6EC22C455197} = {68EB9F49-7CCE-4796-A0E7-6315A39517F5}

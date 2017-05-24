@@ -32,6 +32,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Dispatcher\Dispatcher.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Dispatcher\Dispatcher.Log.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Dispatcher\IDispatcher.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Dispatcher\SingleThreadDispatcher.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Logger\DefaultLogger.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Logger\Logger.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Logger\LoggerExtensions.cs" />
@@ -62,7 +63,6 @@
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Client\" />
     <Folder Include="$(MSBuildThisFileDirectory)Connection\" />
-    <Folder Include="$(MSBuildThisFileDirectory)Dispatcher\" />
     <Folder Include="$(MSBuildThisFileDirectory)Logger\" />
     <Folder Include="$(MSBuildThisFileDirectory)Subscription\" />
   </ItemGroup>

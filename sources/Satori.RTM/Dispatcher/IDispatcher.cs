@@ -28,10 +28,5 @@ namespace Satori.Rtm
         {
             return dispObj.Dispatcher.Yield();
         }
-
-        public static void Dispatch(this IDispatchObject dispObj)
-        {
-            dispObj.Yield().OnCompleted(delegate { });
-        }
     }
 }
