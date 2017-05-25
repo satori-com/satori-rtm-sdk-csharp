@@ -5,10 +5,10 @@ using Satori.Rtm.Client;
 
 namespace TestInstallation
 {
-    class App
+    class Program
     {
-        const string endpoint = "ENDPOINT";
-        const string appkey = "APPKEY";
+        const string endpoint = "YOUR_ENDPOINT";
+        const string appkey = "YOUR_APPKEY";
 
         static void Main()
         {
