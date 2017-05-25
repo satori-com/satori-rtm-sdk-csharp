@@ -7,7 +7,7 @@ using Satori.Rtm.Client;
 
 namespace SubscribeToOpenChannel
 {
-    class App
+    class Program
     {
         const string endpoint = "wss://open-data.api.satori.com";
         const string appkey = "YOUR_APPKEY";
@@ -20,6 +20,7 @@ namespace SubscribeToOpenChannel
 
             IRtmClient client = new RtmClientBuilder(endpoint, appkey).Build();
 
+            client.OnEnterConnected += cn => Console.WriteLine("Connected to RTM");
             client.OnError += ex => Console.Error.WriteLine("Error occurred: " + ex.Message);
 
             // This event will be signalled when the client receives data
