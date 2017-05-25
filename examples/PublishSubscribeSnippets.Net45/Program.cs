@@ -8,10 +8,12 @@ using Satori.Rtm.Client;
 
 namespace PublishSubscribeSnippets
 {
-    class App
+    class Program
     {
         const string endpoint = "YOUR_ENDPOINT";
         const string appkey = "YOUR_APPKEY";
+
+        const string channel = "animals";
 
         class Animal
         {
@@ -44,7 +46,7 @@ namespace PublishSubscribeSnippets
                         Where =  new float[] {34.134358f, -118.321506f}
                     };
 
-                    RtmPublishReply reply = await client.Publish("my-channel", message, Ack.Yes);
+                    RtmPublishReply reply = await client.Publish("where.abouts", message, Ack.Yes);
                 }
                 catch(PduException ex) 
                 {
@@ -80,7 +82,7 @@ namespace PublishSubscribeSnippets
                     }
                 };
 
-                client.CreateSubscription("my-channel", SubscriptionModes.Simple, observer);
+                client.CreateSubscription(channel, SubscriptionModes.Simple, observer);
             }
             #endregion
 
@@ -105,9 +107,9 @@ namespace PublishSubscribeSnippets
 
                 var cfg = new SubscriptionConfig(SubscriptionModes.Simple, observer)
                 {
-                    Filter = "SELECT a, MAX(b) FROM my-channel GROUP BY a"
+                    Filter = "SELECT a, MAX(b) FROM mychannel GROUP BY a"
                 };
-                client.CreateSubscription("my-subscription-id", cfg);
+                client.CreateSubscription("group_by", cfg);
             }
             #endregion
 
@@ -131,15 +133,15 @@ namespace PublishSubscribeSnippets
 
                 var groupCfg = new SubscriptionConfig(SubscriptionModes.Simple, observer)
                 {
-                    Filter = "SELECT a, MAX(b) FROM my-channel GROUP BY a"
+                    Filter = "SELECT a, MAX(b) FROM mychannel GROUP BY a"
                 };
-                client.CreateSubscription("my-subscription-id-1", groupCfg);
+                client.CreateSubscription("group_by", groupCfg);
 
                 var allCfg = new SubscriptionConfig(SubscriptionModes.Simple, observer)
                 {
                     Filter = "SELECT * FROM my-channel"
                 };
-                client.CreateSubscription("my-subscription-id-2", allCfg);
+                client.CreateSubscription("all", allCfg);
             }
             #endregion
 
@@ -165,7 +167,7 @@ namespace PublishSubscribeSnippets
                 {
                     History = new RtmSubscribeHistory { Count = 10 }
                 };
-                client.CreateSubscription("my-channel", cfg);
+                client.CreateSubscription("channel", cfg);
             }
             #endregion
 
@@ -191,7 +193,7 @@ namespace PublishSubscribeSnippets
                 {
                     History = new RtmSubscribeHistory { Age = 60 /* seconds */ }
                 };
-                client.CreateSubscription("my-channel", cfg);
+                client.CreateSubscription("channel", cfg);
             }
             #endregion
         }
