@@ -22,6 +22,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)TestSubscriptionObserverQueue.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ReadWriteStorageTests.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TestConnection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SecureConnectionTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)unit\" />
