@@ -5,12 +5,12 @@ using Satori.Rtm.Client;
 
 namespace Authentication
 {
-    class App
+    class Program
     {
         const string endpoint = "YOUR_ENDPOINT";
         const string appkey = "YOUR_APPKEY";
         const string role = "YOUR_ROLE";
-        const string roleSecretKey = "YOUR_ROLE_SECRET_KEY";
+        const string roleSecret = "YOUR_SECRET";
 
         static void Main()
         {
@@ -21,7 +21,7 @@ namespace Authentication
             var connectedEvent = new ManualResetEvent(initialState: false);
 
             IRtmClient client = new RtmClientBuilder(endpoint, appkey)
-                .SetRoleSecretAuthenticator(role, roleSecretKey)
+                .SetRoleSecretAuthenticator(role, roleSecret)
                 .Build();
 
             client.OnEnterConnected += cn => 
