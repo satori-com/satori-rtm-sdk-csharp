@@ -11,27 +11,39 @@ namespace Satori.Rtm.Test
     public class SecureConnectionTests : IntegrationTestsBase
     {
         [Test]
-        public Task Expired()
+        public async Task Expired()
         {
-            return ConnectToInsecureUrl("wss://expired.badssl.com/");
+            // NOTE: You must use async/await keywords here instead of returning Task directly, 
+            // because otherwise test fails with message: 
+            // "Method has non-void return value, but no result is expected"
+           await ConnectToInsecureUrl("wss://expired.badssl.com/");
         }
 
         [Test]
-        public Task WrongHost()
+        public async Task WrongHost()
         {
-            return ConnectToInsecureUrl("wss://wrong.host.badssl.com/");
+            // NOTE: You must use async/await keywords here instead of returning Task directly, 
+            // because otherwise test fails with message: 
+            // "Method has non-void return value, but no result is expected"
+            await ConnectToInsecureUrl("wss://wrong.host.badssl.com/");
         }
 
         [Test]
-        public Task SelfSigned()
+        public async Task SelfSigned()
         {
-            return ConnectToInsecureUrl("wss://self-signed.badssl.com/");
+            // NOTE: You must use async/await keywords here instead of returning Task directly, 
+            // because otherwise test fails with message: 
+            // "Method has non-void return value, but no result is expected"
+            await ConnectToInsecureUrl("wss://self-signed.badssl.com/");
         }
 
         [Test]
-        public Task UntrustedRoot()
+        public async Task UntrustedRoot()
         {
-            return ConnectToInsecureUrl("wss://untrusted-root.badssl.com/");
+            // NOTE: You must use async/await keywords here instead of returning Task directly, 
+            // because otherwise test fails with message: 
+            // "Method has non-void return value, but no result is expected"
+            await ConnectToInsecureUrl("wss://untrusted-root.badssl.com/");
         }
 
         private async Task ConnectToInsecureUrl(string url)
@@ -50,9 +62,10 @@ namespace Satori.Rtm.Test
 
                 var monoException = "Mono.Security.Protocol.Tls.TlsException";
                 var netException = "System.Security.Authentication.AuthenticationException";
+                var iosException = "Mono.Security.Interface.TlsException";
                 Assert.That(
                     inner.GetType().FullName, 
-                    Is.EqualTo(monoException).Or.EqualTo(netException));
+                    Is.EqualTo(monoException).Or.EqualTo(netException).Or.EqualTo(iosException));
             }
         }
 

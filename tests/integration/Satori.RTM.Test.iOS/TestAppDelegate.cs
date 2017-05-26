@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.Diagnostics;
+using System.Reflection;
 using Foundation;
 using MonoTouch.NUnit.UI;
 using NUnit.Framework;
@@ -11,8 +12,8 @@ namespace Satori.Rtm.Test
     // The UIApplicationDelegate for the application. This class is responsible for launching the 
     // User Interface of the application, as well as listening (and optionally responding) to 
     // application events from iOS.
-    [Register("UnitTestAppDelegate")]
-    public partial class UnitTestAppDelegate : UIApplicationDelegate
+    [Register("TestAppDelegate")]
+    public partial class TestAppDelegate : UIApplicationDelegate
     {
         // class-level declarations
         private UIWindow _window;
