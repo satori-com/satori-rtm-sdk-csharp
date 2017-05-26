@@ -41,7 +41,12 @@ namespace Satori.Rtm.Test
             {
                 client.Log.V(ex, "Expected connection exception because connection is insecure");
                 var inner = GetMostInnerException(ex);
-                Assert.That(inner.GetType().Name, Is.EqualTo("TlsException"));
+
+                var monoException = "Mono.Security.Protocol.Tls.TlsException";
+                var netException = "System.Security.Authentication.AuthenticationException";
+                Assert.That(
+                    inner.GetType().FullName, 
+                    Is.EqualTo(monoException).Or.EqualTo(netException));
             }
         }
 
