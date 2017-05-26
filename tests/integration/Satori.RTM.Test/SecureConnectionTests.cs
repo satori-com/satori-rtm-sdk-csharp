@@ -28,6 +28,12 @@ namespace Satori.Rtm.Test
             return ConnectToInsecureUrl("wss://self-signed.badssl.com/");
         }
 
+        [Test]
+        public Task UntrustedRoot()
+        {
+            return ConnectToInsecureUrl("wss://untrusted-root.badssl.com/");
+        }
+
         private async Task ConnectToInsecureUrl(string url)
         {
             var client = (RtmClient)new RtmClientBuilder(Config.Endpoint, Config.AppKey).Build();
