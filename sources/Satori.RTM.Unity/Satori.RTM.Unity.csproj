@@ -34,8 +34,10 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChainValidationHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RtmManager.cs" />
+    <Compile Include="SingleThreadDispatcher.cs" />
     <Compile Include="UnityTraceListener.cs" />
   </ItemGroup>
   <ItemGroup>

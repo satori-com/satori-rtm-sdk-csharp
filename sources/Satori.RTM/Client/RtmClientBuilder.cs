@@ -50,7 +50,7 @@ namespace Satori.Rtm.Client
             }
             else
             {
-                if (!endpoint.EndsWith("/", StringComparison.InvariantCulture))
+                if (!endpoint.EndsWith("/", StringComparison.Ordinal))
                 {
                     fullEndpoint += "/";
                 }

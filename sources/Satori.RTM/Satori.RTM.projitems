@@ -23,7 +23,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Client\RtmClient.State.Uninitialized.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Client\RtmClientBuilder.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Client\SubscriptionConfig.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Connection\ChainValidationHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Connection\Connection.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Connection\Connection.Log.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Connection\ConnectionExtensions.cs" />
@@ -33,7 +32,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Dispatcher\Dispatcher.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Dispatcher\Dispatcher.Log.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Dispatcher\IDispatcher.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Dispatcher\SingleThreadDispatcher.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Dispatcher\TaskExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Logger\DefaultLogger.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Logger\Logger.cs" />
