@@ -167,7 +167,7 @@ namespace System.Net.WebSockets.Managed
                     {
                         try
                         {
-                            await socket.ConnectAsyncEx(address, port).ConfigureAwait(false);
+                            await socket.ConnectAsync(address, port).ConfigureAwait(false);
                         }
                         catch (ObjectDisposedException ode)
                         {

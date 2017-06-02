@@ -1,6 +1,7 @@
 /.vs/
 /.packages/
 /components/
+*project.lock.json
 *.userprefs
 **/bin
 **/obj

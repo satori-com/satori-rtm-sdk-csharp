@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
@@ -23,7 +23,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)UriExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SocketExtensions.3rd.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)NetEventSource.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)WebSocket.3rdcs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)WebSocket.3rd.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)WebSocketCloseStatus.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)WebSocketState.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)WebSocketReceiveResult.cs" />

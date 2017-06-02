@@ -29,7 +29,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <DefineConstants>DEBUG;$(DefineConstants)</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;NET_4_6</DefineConstants>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <StyleCopTreatErrorsAsWarnings>false</StyleCopTreatErrorsAsWarnings>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
@@ -41,6 +41,7 @@
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <StyleCopTreatErrorsAsWarnings>false</StyleCopTreatErrorsAsWarnings>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DefineConstants>TRACE;NET_4_6</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="properties\AssemblyInfo.cs" />
@@ -63,9 +64,8 @@
   <Import Project="..\..\3rd\System.Net.WebSockets.Managed\System.Net.WebSockets.Managed.projitems" Label="Shared" Condition="Exists('..\..\3rd\System.Net.WebSockets.Managed\System.Net.WebSockets.Managed.projitems')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\AssemblyVersion.targets" />
-
   <PropertyGroup>
     <StyleCopOverrideSettingsFile>..\..\Settings.StyleCop</StyleCopOverrideSettingsFile>
-  </PropertyGroup>  
+  </PropertyGroup>
   <Import Project="..\..\.packages\StyleCop.MSBuild.4.7.55.0\build\StyleCop.MSBuild.Targets" Condition="Exists('..\..\.packages\StyleCop.MSBuild.4.7.55.0\build\StyleCop.MSBuild.Targets')" />
 </Project>

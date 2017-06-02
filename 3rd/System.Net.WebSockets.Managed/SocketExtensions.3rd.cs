@@ -2,18 +2,14 @@
 // The .NET Foundation licenses this file to you under the MIT license.
 // See the LICENSE file in the project root for more information.
 
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Runtime.CompilerServices;
-using System.Threading;
+#if NET_4_6
 using System.Threading.Tasks;
 
 namespace System.Net.Sockets
 {
     internal static class SocketExtensions
     {
-        internal static Task ConnectAsyncEx (this Socket socket, IPAddress address, int port)
+        internal static Task ConnectAsync(this Socket socket, IPAddress address, int port)
         {
             var tcs = new TaskCompletionSource<bool>(socket);
             socket.BeginConnect(address, port, iar =>
@@ -30,3 +26,4 @@ namespace System.Net.Sockets
         }
     }
 }
+#endif

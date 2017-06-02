@@ -1,0 +1,16 @@
+﻿{
+  "supports": {},
+  "dependencies": {
+    "Microsoft.NETCore.Portable.Compatibility": "1.0.1",
+    "NETStandard.Library": "1.6.1",
+    "System.Buffers": "4.3.0",
+    "System.Globalization.Extensions": "4.3.0",
+    "System.Net.NameResolution": "4.3.0",
+    "System.Net.Security": "4.3.1",
+    "System.Net.WebHeaderCollection": "4.3.0",
+    "System.Net.WebSockets": "4.3.0"
+  },
+  "frameworks": {
+    "netstandard1.3": {}
+  }
+}
