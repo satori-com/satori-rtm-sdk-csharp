@@ -47,6 +47,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\..\.packages\System.Buffers.4.3.0\lib\netstandard1.1\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Mono.Android" />
@@ -75,9 +78,9 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\Icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\sources\Satori.RTM.Android\Satori.RTM.Android.csproj">
-      <Project>{63233545-4D99-4C71-95E8-34545403B8AC}</Project>
-      <Name>Satori.RTM.Android</Name>
+    <ProjectReference Include="..\..\..\sources\Satori.RTM.Portable\Satori.RTM.Portable.csproj">
+      <Project>{87D0D183-F833-4AE6-A7A8-ECEFB496CF81}</Project>
+      <Name>Satori.RTM.Portable</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="..\Satori.RTM.Test\Satori.RTM.Test.projitems" Label="Shared" />
