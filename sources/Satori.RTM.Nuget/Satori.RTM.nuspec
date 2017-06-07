@@ -4,8 +4,8 @@
     <id>Satori.RTM.SDK</id>
     <version>0.0.0</version>
     <title>C# SDK for Satori RTM</title>
-    <authors>Satori Worldwide, Inc</authors>
-    <owners>Satori Worldwide, Inc</owners>
+    <authors>satori</authors>
+    <owners>satori</owners>
     <licenseUrl>https://github.com/satori-com/satori-rtm-sdk-csharp/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/satori-com/satori-rtm-sdk-csharp</projectUrl>
     <!--<iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>-->
@@ -16,13 +16,48 @@
     <copyright>Copyright (c) 2017, Satori Worldwide, Inc.</copyright>
     <tags>satori rtm pubsub</tags>
     <dependencies>
-      <dependency id="Newtonsoft.Json" version="9.0.1" />
-      <dependency id="System.Buffers" version="4.3.0" />
+      <group targetFramework="monoandroid10">
+        <dependency id="Newtonsoft.Json" version="9.0.1" />
+        <dependency id="System.Buffers" version="4.3.0" />
+      </group>
+      <group targetFramework="xamarinios10">
+        <dependency id="Newtonsoft.Json" version="9.0.1" />
+        <dependency id="System.Buffers" version="4.3.0" />
+      </group>
+      <group targetFramework="net45">
+        <dependency id="Newtonsoft.Json" version="9.0.1" />
+        <dependency id="System.Buffers" version="4.3.0" />
+      </group>
+      <group targetFramework="net46">
+        <dependency id="Newtonsoft.Json" version="9.0.1" />
+        <dependency id="System.Buffers" version="4.3.0" />
+        <dependency id="System.Diagnostics.TraceSource" version="[4.0.0]" />
+        <dependency id="System.Globalization.Extensions" version="[4.0.1]" />
+        <dependency id="System.Net.NameResolution" version="[4.0.0]" />
+        <dependency id="System.Net.Security" version="[4.0.0]" />
+        <dependency id="System.Net.Sockets" version="[4.1.0]" />
+        <dependency id="System.Net.WebSockets" version="[4.0.0]" />
+        <dependency id="System.Security.Cryptography.Algorithms" version="[4.2.0]" />
+        <dependency id="System.Security.Cryptography.Encoding" version="[4.0.0]" />
+        <dependency id="System.Security.Cryptography.Primitives" version="[4.0.0]" />
+        <dependency id="System.Security.Cryptography.X509Certificates" version="[4.1.0]" />
+      </group>
+      <group targetFramework="netstandard10">
+        <dependency id="Newtonsoft.Json" version="9.0.1" />
+        <dependency id="System.Buffers" version="4.3.0" />
+      </group>
     </dependencies>
   </metadata>
   <files>
-    <file src="../Satori.RTM.Net45/bin/$configuration$/Satori.RTM.Net45.dll" target="lib/net45" />
-    <file src="../Satori.RTM.Android/bin/$configuration$/Satori.RTM.Android.dll" target="lib/monoandroid10" />
-    <file src="../Satori.RTM.iOS/bin/$configuration$/Satori.RTM.iOS.dll" target="lib/xamarinios" />
+    <file src="../Satori.RTM.Portable/bin/$configuration$/Satori.RTM.dll" target="lib\netstandard10" />
+    <file src="../../3rd/System.Net.WebSockets.Portable/bin/$configuration$/System.Net.WebSockets.Portable.dll" target="lib\netstandard10" />
+    
+    <file src="../Satori.RTM.Net45/bin/$configuration$/Satori.RTM.Net45.dll" target="lib\net45" />
+    
+    <file src="../Satori.RTM.Portable/bin/$configuration$/Satori.RTM.dll" target="lib\monoandroid10" />
+    <file src="../../3rd/System.Net.WebSockets.Portable/bin/$configuration$/System.Net.WebSockets.Portable.dll" target="lib\monoandroid10" />
+    
+    <file src="../Satori.RTM.Portable/bin/$configuration$/Satori.RTM.dll" target="lib\xamarinios10" />
+    <file src="../../3rd/System.Net.WebSockets.Portable/bin/$configuration$/System.Net.WebSockets.Portable.dll" target="lib\xamarinios10" />
   </files>
 </package>
