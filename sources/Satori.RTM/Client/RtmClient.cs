@@ -60,6 +60,8 @@ namespace Satori.Rtm.Client
             }
         }
 
+        public Func<string, CancellationToken, Task<IConnection>> Connector => _connector;
+
         public static Task<IConnection> DefaultConnector(string url, CancellationToken ct)
         {
             return Connection.Connect(url, ct);

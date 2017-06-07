@@ -1,8 +1,8 @@
-# Satori RTM SDK for .NET
+# C# SDK for Satori RTM
 [![NuGet Pre Release](https://img.shields.io/nuget/vpre/Satori.RTM.SDK.svg)]()
 
 Satori is a cloud-based, live data ecosystem that manages any form of schema-less real-time live data as it happens. 
-The ecosystem includes a fast and scalable messaging engine known as RTM. Use the Satori RTM SDK for .NET to create mobile, desktop or server-based applications that communicate with the RTM to publish and subscribe.
+The ecosystem includes a fast and scalable messaging engine known as RTM. Use the C# SDK for Satori RTM to create mobile, desktop or server-based applications that communicate with the RTM to publish and subscribe.
 
 # Target Frameworks
 
@@ -12,13 +12,21 @@ The ecosystem includes a fast and scalable messaging engine known as RTM. Use th
 
 # NuGet
 
-To install Satori RTM SDK for .NET, run the following command in the Package Manager Console:
+To install C# SDK for Satori RTM, run the following command in the Package Manager Console:
 ```
 PM> Install-Package Satori.RTM.SDK -Version 1.0.0-beta -Pre
 ```
 Alternatively, install the package via the user interface provided by Xamarin Studio or Visual Studio. 
 
 The package is hosted on [Nuget Gallery](https://www.nuget.org/packages/Satori.RTM.SDK/). 
+
+# Documentation
+
+The various documentation is available:
+
+* The Documentation on [Satori Website](https://www.satori.com/docs/introduction/new-to-satori)
+* The [API Documentation](https://satori-com.github.io/satori-rtm-sdk-csharp/api)
+* The [RTM API](https://www.satori.com/docs/references/rtm-api) specification
 
 # Logging
 
@@ -33,7 +41,7 @@ Trace.Listeners.Add(new ConsoleTraceListener());
 
 Read about Trace Listeners on [MSDN](https://msdn.microsoft.com/en-us/library/4y5y10s7(v=vs.110).aspx)
 
-By default, verbosity level is warning. Verbosity of the different components of .NET SDK can be set separately: 
+By default, verbosity level is warning. Verbosity of the different components of C# SDK can be set separately: 
 
 ```
 using Satori.Rtm;
