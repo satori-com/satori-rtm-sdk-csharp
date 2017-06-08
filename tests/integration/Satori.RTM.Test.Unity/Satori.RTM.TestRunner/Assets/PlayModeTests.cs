@@ -9,37 +9,38 @@ using Satori.Rtm.Client;
 using Satori.Common;
 using Logger = Satori.Rtm.Logger;
 
-public class UnityTestBase 
+public class UnityTestBase
 {
-	private static int initialized;
+    private static int initialized;
 
-	protected UnityTestBase() 
-	{
-		int initialized = Interlocked.CompareExchange (ref UnityTestBase.initialized, value: 1, comparand: 0);
-		if (initialized == 0) {
-			Init ();
-		}
-	}
+    protected UnityTestBase()
+    {
+        int initialized = Interlocked.CompareExchange(ref UnityTestBase.initialized, value: 1, comparand: 0);
+        if (initialized == 0)
+        {
+            Init();
+        }
+    }
 
-	static void Init()
-	{
-		Debug.Log("Initializing logging...");
+    static void Init()
+    {
+        Debug.Log("Initializing logging...");
 
-		System.Diagnostics.Trace.Listeners.Add(UnityTraceListener.Instance);
+        System.Diagnostics.Trace.Listeners.Add(UnityTraceListener.Instance);
 
-		DefaultLoggers.Dispatcher.SetLevel(Logger.LogLevel.Verbose);
-		DefaultLoggers.Serialization.SetLevel(Logger.LogLevel.Verbose);
-		DefaultLoggers.Connection.SetLevel(Logger.LogLevel.Verbose);
-		DefaultLoggers.Client.SetLevel(Logger.LogLevel.Verbose);
-		DefaultLoggers.ClientRtm.SetLevel(Logger.LogLevel.Verbose);
-		DefaultLoggers.ClientRtmSubscription.SetLevel(Logger.LogLevel.Verbose);
+        DefaultLoggers.Dispatcher.SetLevel(Logger.LogLevel.Verbose);
+        DefaultLoggers.Serialization.SetLevel(Logger.LogLevel.Verbose);
+        DefaultLoggers.Connection.SetLevel(Logger.LogLevel.Verbose);
+        DefaultLoggers.Client.SetLevel(Logger.LogLevel.Verbose);
+        DefaultLoggers.ClientRtm.SetLevel(Logger.LogLevel.Verbose);
+        DefaultLoggers.ClientRtmSubscription.SetLevel(Logger.LogLevel.Verbose);
 
-		UnhandledExceptionWatcher.OnError += exn =>
-		{
-			Debug.LogError("Unhandled exception in event handler: " + exn);
-		};
+        UnhandledExceptionWatcher.OnError += exn =>
+        {
+            Debug.LogError("Unhandled exception in event handler: " + exn);
+        };
 
-	}
+    }
 
 }
 
@@ -60,94 +61,94 @@ public class AuthTestsWrapper : UnityTestBase
         new AuthTests().GenerateHash();
     }
 
-    [UnityTest]
-    public IEnumerator AuthenticateWithSuccess()
+    [Test]
+    public void AuthenticateWithSuccess()
     {
-        return new AuthTests().AuthenticateWithSuccess().Await();
+        new AuthTests().AuthenticateWithSuccess().Wait();
     }
 
-    [UnityTest]
-    public IEnumerator FailToAuthenticateWithBadKey()
+    [Test]
+    public void FailToAuthenticateWithBadKey()
     {
-        return new AuthTests().FailToAuthenticateWithBadKey().Await();
+        new AuthTests().FailToAuthenticateWithBadKey().Wait();
     }
 
-    [UnityTest]
-    public IEnumerator FailToAuthenticateWithBadRole()
+    [Test]
+    public void FailToAuthenticateWithBadRole()
     {
-        return new AuthTests().FailToAuthenticateWithBadRole().Await();
+        new AuthTests().FailToAuthenticateWithBadRole().Wait();
     }
 
-    [UnityTest]
-    public IEnumerator SubscribeToRestrictedChannelWhenAuthorized()
+    [Test]
+    public void SubscribeToRestrictedChannelWhenAuthorized()
     {
-        return new AuthTests().SubscribeToRestrictedChannelWhenAuthorized().Await();
+        new AuthTests().SubscribeToRestrictedChannelWhenAuthorized().Wait();
     }
 
-    [UnityTest]
-    public IEnumerator PublishToRestrictedChannelWhenNotAuthorized()
+    [Test]
+    public void PublishToRestrictedChannelWhenNotAuthorized()
     {
-        return new AuthTests().PublishToRestrictedChannelWhenNotAuthorized().Await();
+        new AuthTests().PublishToRestrictedChannelWhenNotAuthorized().Wait();
     }
 }
 
 public class ClientTestsWrapper : UnityTestBase
 {
-    [UnityTest]
-    public IEnumerator NoStateTransitionsInCallbacks()
+    [Test]
+    public void NoStateTransitionsInCallbacks()
     {
-        return new ClientTests().NoStateTransitionsInCallbacks().Await();
+        new ClientTests().NoStateTransitionsInCallbacks().Wait();
     }
 
-    [UnityTest]
-    public IEnumerator RestartOnSubscriptionError()
+    [Test]
+    public void RestartOnSubscriptionError()
     {
-        return new ClientTests().RestartOnSubscriptionError().Await();
+        new ClientTests().RestartOnSubscriptionError().Wait();
     }
 
-    [UnityTest]
-    public IEnumerator StartStopAndAtomicity()
+    [Test]
+    public void StartStopAndAtomicity()
     {
-        return new ClientTests().StartStopAndAtomicity().Await();
+        new ClientTests().StartStopAndAtomicity().Wait();
     }
 
-    [UnityTest]
-    public IEnumerator StopOnConnected()
+    [Test]
+    public void StopOnConnected()
     {
-        return new ClientTests().StopOnConnected().Await();
+        new ClientTests().StopOnConnected().Wait();
     }
 
-    [UnityTest]
-    public IEnumerator TwoClients()
+    [Test]
+    public void TwoClients()
     {
-        return new ClientTests().TwoClients().Await();
+        new ClientTests().TwoClients().Wait();
     }
 
-    [UnityTest]
-    public IEnumerator ThrowWhenTooManyRequests()
+    [Test]
+    public void ThrowWhenTooManyRequests()
     {
-        return new ClientTests().ThrowWhenTooManyRequests().Await();
+        new ClientTests().ThrowWhenTooManyRequests().Wait();
     }
 
-    [UnityTest]
-    public IEnumerator ThrowWhenDisconnectedAndMaxPendingQueueLengthIsZero()
+    [Test]
+    public void ThrowWhenDisconnectedAndMaxPendingQueueLengthIsZero()
     {
-        return new ClientTests().ThrowWhenDisconnectedAndMaxPendingQueueLengthIsZero().Await();
+        new ClientTests().ThrowWhenDisconnectedAndMaxPendingQueueLengthIsZero().Wait();
     }
 }
 
 public class ConnectionTestsWrapper : UnityTestBase
 {
-    [UnityTest]
-    public IEnumerator ReconnectWhenConnectionDropped()
+    [Test]
+    public void ReconnectWhenConnectionDropped()
     {
-        return new ConnectionTests().ReconnectWhenConnectionDropped().Await();
+        new ConnectionTests().ReconnectWhenConnectionDropped().Wait();
     }
 
-    [UnityTest]
-    public IEnumerator ReconnectIfConnectionCannotBeEstablished()
+    [Test]
+    public void ReconnectIfConnectionCannotBeEstablished()
     {
-        return new ConnectionTests().ReconnectIfConnectionCannotBeEstablished().Await();
+        new ConnectionTests().ReconnectIfConnectionCannotBeEstablished().Wait();
     }
 
     [Test]
@@ -159,121 +160,147 @@ public class ConnectionTestsWrapper : UnityTestBase
 
 public class FilterTestsWrapper : UnityTestBase
 {
-	[UnityTest]
-    public IEnumerator TwoSubscriptionsWithDifferentNames()
+	[Test]
+    public void TwoSubscriptionsWithDifferentNames()
     {
-        return new FilterTests().TwoSubscriptionsWithDifferentNames().Await();
+        new FilterTests().TwoSubscriptionsWithDifferentNames().Wait();
     }
 
-	[UnityTest]
-    public IEnumerator BothChannelAndFilterSpecified()
+	[Test]
+    public void BothChannelAndFilterSpecified()
     {
-        return new FilterTests().BothChannelAndFilterSpecified().Await();
+        new FilterTests().BothChannelAndFilterSpecified().Wait();
     }
 }
 
 public class OutOfSyncTestsWrapper : UnityTestBase
 {
-    [UnityTest]
-    public IEnumerator FastForwardOnOutOfSyncWhenSimpleMode()
+    [Test]
+    public void FastForwardOnOutOfSyncWhenSimpleMode()
     {
-        return new OutOfSyncTests().FastForwardOnOutOfSyncWhenSimpleMode().Await();
+        new OutOfSyncTests().FastForwardOnOutOfSyncWhenSimpleMode().Wait();
     }
 
-    [UnityTest]
-    public IEnumerator FailOnOutOfSyncWhenAdvancedMode()
+    [Test]
+    public void FailOnOutOfSyncWhenAdvancedMode()
     {
-        return new OutOfSyncTests().FailOnOutOfSyncWhenAdvancedMode().Await();
+        new OutOfSyncTests().FailOnOutOfSyncWhenAdvancedMode().Wait();
     }
 }
 
 public class ReadWriteStorageTestsWrapper : UnityTestBase
 {
-    [UnityTest]
-    public IEnumerator ReadAfterWrite()
+    [Test]
+    public void ReadAfterWrite()
     {
-        return new ReadWriteStorageTests().ReadAfterWrite().Await();
+        new ReadWriteStorageTests().ReadAfterWrite().Wait();
     }
 
-    [UnityTest]
-    public IEnumerator WriteTwiceAndRead()
+    [Test]
+    public void WriteTwiceAndRead()
     {
-        return new ReadWriteStorageTests().WriteTwiceAndRead().Await();
+        new ReadWriteStorageTests().WriteTwiceAndRead().Wait();
     }
 
-    [UnityTest]
-    public IEnumerator WriteDeleteRead()
+    [Test]
+    public void WriteDeleteRead()
     {
-        return new ReadWriteStorageTests().WriteDeleteRead().Await();
+        new ReadWriteStorageTests().WriteDeleteRead().Wait();
     }
 
-    [UnityTest]
-    public IEnumerator ReadOldMessage()
+    [Test]
+    public void ReadOldMessage()
     {
-        return new ReadWriteStorageTests().ReadOldMessage().Await();
+        new ReadWriteStorageTests().ReadOldMessage().Wait();
     }
 
-    [UnityTest]
-    public IEnumerator WriteNullShouldBeOk()
+    [Test]
+    public void WriteNullShouldBeOk()
     {
-        return new ReadWriteStorageTests().WriteNullShouldBeOk().Await();
+        new ReadWriteStorageTests().WriteNullShouldBeOk().Wait();
+    }
+}
+
+public class SecureConnectionTestsWrapper : UnityTestBase
+{
+    [Test]
+    public void Expired()
+    {
+        new SecureConnectionTests().Expired().Wait();
+    }
+
+    [Test]
+    public void WrongHost()
+    {
+        new SecureConnectionTests().WrongHost().Wait();
+    }
+
+    [Test]
+    public void SelfSigned()
+    {
+        new SecureConnectionTests().SelfSigned().Wait();
+    }
+
+    [Test]
+    public void UntrustedRoot()
+    {
+        new SecureConnectionTests().UntrustedRoot().Wait();
     }
 }
 
 public class SubscriptionTestsWrapper : UnityTestBase
 {
-    [UnityTest]
-    public IEnumerator AutoDeleteSubscriptionOnDispose()
+    [Test]
+    public void AutoDeleteSubscriptionOnDispose()
     {
-        return new SubscriptionTests().AutoDeleteSubscriptionOnDispose().Await();
+        new SubscriptionTests().AutoDeleteSubscriptionOnDispose().Wait();
     }
 
-    [UnityTest]
-    public IEnumerator AutoResubscribe()
+    [Test]
+    public void AutoResubscribe()
     {
-        return new SubscriptionTests().AutoResubscribe().Await();
+        new SubscriptionTests().AutoResubscribe().Wait();
     }
 
-    [UnityTest]
-    public IEnumerator DelayedPublish()
+    [Test]
+    public void DelayedPublish()
     {
-        return new SubscriptionTests().DelayedPublish().Await();
+        new SubscriptionTests().DelayedPublish().Wait();
     }
 
-    [UnityTest]
-    public IEnumerator ManualResubscribe()
+    [Test]
+    public void ManualResubscribe()
     {
-        return new SubscriptionTests().ManualResubscribe().Await();
+        new SubscriptionTests().ManualResubscribe().Wait();
     }
 
-    [UnityTest]
-    public IEnumerator RepeatFirstMessage()
+    [Test]
+    public void RepeatFirstMessage()
     {
-        return new SubscriptionTests().RepeatFirstMessage().Await();
+        new SubscriptionTests().RepeatFirstMessage().Wait();
     }
 
-    [UnityTest]
-    public IEnumerator RepeatSecondMessage()
+    [Test]
+    public void RepeatSecondMessage()
     {
-        return new SubscriptionTests().RepeatSecondMessage().Await();
+        new SubscriptionTests().RepeatSecondMessage().Wait();
     }
 
-    [UnityTest]
-    public IEnumerator SubscribeWithSimpleModeAndPosition()
+    [Test]
+    public void SubscribeWithSimpleModeAndPosition()
     {
-        return new SubscriptionTests().SubscribeWithSimpleModeAndPosition().Await();
+        new SubscriptionTests().SubscribeWithSimpleModeAndPosition().Wait();
     }
 
-    [UnityTest]
-    public IEnumerator SubscribeWithAdvancedModeAndPosition()
+    [Test]
+    public void SubscribeWithAdvancedModeAndPosition()
     {
-        return new SubscriptionTests().SubscribeWithAdvancedModeAndPosition().Await();
+        new SubscriptionTests().SubscribeWithAdvancedModeAndPosition().Wait();
     }
 
-    [UnityTest]
-    public IEnumerator RestartOnUnsubscribeError()
+    [Test]
+    public void RestartOnUnsubscribeError()
     {
-        return new SubscriptionTests().RestartOnUnsubscribeError().Await();
+        new SubscriptionTests().RestartOnUnsubscribeError().Wait();
     }
 }
-	

@@ -37,6 +37,11 @@ namespace Satori.Rtm
             log.V("Connecting to '{0}://{1}:{2}'", uri?.Scheme, uri?.Host, uri?.Port);
 
             var wsock = new System.Net.WebSockets.Managed.ClientWebSocket();
+
+            #if UNITY
+            wsock.ValidationCallback = Satori.Rtm.ChainValidationHelper.RemoteCertificateValidationCallback;
+            #endif
+
             wsock.Options.KeepAliveInterval = TimeSpan.FromSeconds(60);
             try
             {

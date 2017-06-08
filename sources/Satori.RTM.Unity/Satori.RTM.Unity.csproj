@@ -15,7 +15,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;TRACE;NET_4_5;NET_4_0;NET_4_5_COMPAT;</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;NET_4_5;NET_4_0;NET_4_5_COMPAT;UNITY;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
@@ -24,7 +24,7 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <Optimize>false</Optimize>
     <OutputPath>bin\Release</OutputPath>
-    <DefineConstants>TRACE;;NET_4_5;NET_4_0;NET_4_5_COMPAT;</DefineConstants>
+    <DefineConstants>TRACE;NET_4_5;NET_4_0;NET_4_5_COMPAT;UNITY;</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>

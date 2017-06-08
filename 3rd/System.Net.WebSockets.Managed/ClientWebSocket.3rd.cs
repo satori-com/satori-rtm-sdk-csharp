@@ -5,6 +5,7 @@
 #pragma warning disable 1591
 
 using System.Diagnostics;
+using System.Net.Security;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -26,6 +27,9 @@ namespace System.Net.WebSockets.Managed
         // NOTE: this is really an InternalState value, but Interlocked doesn't support
         //       operations on values of enum types.
         private int _state;
+
+        public RemoteCertificateValidationCallback ValidationCallback;
+        public LocalCertificateSelectionCallback SelectionCallback;
 
         public ClientWebSocket ()
         {
@@ -160,6 +164,8 @@ namespace System.Net.WebSockets.Managed
         private async Task ConnectAsyncCore (Uri uri, CancellationToken cancellationToken)
         {
             _innerWebSocket = WebSocketHandle.Create();
+            _innerWebSocket.ValidationCallback = this.ValidationCallback;
+            _innerWebSocket.SelectionCallback = this.SelectionCallback;
 
             try
             {

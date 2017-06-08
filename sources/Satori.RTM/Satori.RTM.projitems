@@ -23,6 +23,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Client\RtmClient.State.Uninitialized.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Client\RtmClientBuilder.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Client\SubscriptionConfig.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Connection\ChainValidationHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Connection\Connection.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Connection\Connection.Log.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Connection\ConnectionExtensions.cs" />
@@ -62,7 +63,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Client\" />
-    <Folder Include="$(MSBuildThisFileDirectory)Connection\" />
     <Folder Include="$(MSBuildThisFileDirectory)Logger\" />
     <Folder Include="$(MSBuildThisFileDirectory)Subscription\" />
   </ItemGroup>
