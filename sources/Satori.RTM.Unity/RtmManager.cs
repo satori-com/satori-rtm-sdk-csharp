@@ -81,7 +81,6 @@ namespace Satori.Rtm.Client
 
             private void Update()
             {
-                Log.V("Updating RTM manager behavior");
                 RtmManager.Instance.dispatcher.ProcessQueue();
             }
 
