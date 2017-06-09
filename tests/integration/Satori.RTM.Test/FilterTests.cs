@@ -31,7 +31,7 @@ namespace Satori.Rtm.Test
             queue1.ObserveSubscriptionState();
             queue1.ObserveSubscriptionPdu();
             subCfg.Observer = queue1;
-            await client.CreateSubscription(subId1, subCfg);
+            client.CreateSubscription(subId1, subCfg);
 
             Assert.That(await queue1.Dequeue(), Is.EqualTo("rtm:created"));
             Assert.That(await queue1.Dequeue(), Is.EqualTo("rtm:enter-unsubscribed"));
@@ -44,7 +44,7 @@ namespace Satori.Rtm.Test
             queue2.ObserveSubscriptionState();
             queue2.ObserveSubscriptionPdu();
             subCfg.Observer = queue2;
-            await client.CreateSubscription(subId2, subCfg);
+            client.CreateSubscription(subId2, subCfg);
 
             Assert.That(await queue2.Dequeue(), Is.EqualTo("rtm:created"));
             Assert.That(await queue2.Dequeue(), Is.EqualTo("rtm:enter-unsubscribed"));
@@ -75,23 +75,21 @@ namespace Satori.Rtm.Test
 
             var channel = GenerateRandomChannelName();
 
-            await client.CreateSubscription(channel, SubscriptionModes.Advanced, null);
+            client.CreateSubscription(channel, SubscriptionModes.Advanced, null);
 
-            try
-            {
-                await client.CreateSubscription(
-                    channel, 
-                    new SubscriptionConfig(SubscriptionModes.Advanced)
-                    {
-                        Filter = $"select * FROM `{channel}`"
-                    });
+            var queue = client.CreateStateQueue();
+            client.SetClientErrorObserver(queue);
+            var subObserver = new TestSubscriptionObserverQueue(queue);
+            
+            client.CreateSubscription(
+                channel,
+                new SubscriptionConfig(SubscriptionModes.Advanced, observer: subObserver)
+                {
+                    Filter = $"select * FROM `{channel}`"
+                });
 
-                Assert.Fail("CreateSubscription should throw if subscription already exists");
-            }
-            catch (InvalidOperationException)
-            {
-                // test succeed
-            }
+            await queue.AssertDequeue("error:InvalidOperationException");
+            await queue.AssertEmpty(client, millis: 200);
 
             await client.Dispose();
         }

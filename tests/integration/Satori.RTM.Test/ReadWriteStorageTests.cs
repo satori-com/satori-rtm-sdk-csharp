@@ -14,7 +14,7 @@ namespace Satori.Rtm.Test
         {
             var channel = GenerateRandomChannelName();
             var client = new RtmClientBuilder(Config.Endpoint, Config.AppKey).Build();
-            await client.Start();
+            client.Start();
 
             var msg = "foo";
             await client.Write(channel, msg, Ack.Yes);
@@ -29,7 +29,7 @@ namespace Satori.Rtm.Test
         {
             var channel = GenerateRandomChannelName();
             var client = new RtmClientBuilder(Config.Endpoint, Config.AppKey).Build();
-            await client.Start();
+            client.Start();
 
             var msg1 = "foo";
             var msg2 = "bar";
@@ -46,7 +46,7 @@ namespace Satori.Rtm.Test
         {
             var channel = GenerateRandomChannelName();
             var client = new RtmClientBuilder(Config.Endpoint, Config.AppKey).Build();
-            await client.Start();
+            client.Start();
 
             var msg = "foo";
             await client.Write(channel, msg, Ack.Yes);
@@ -62,7 +62,7 @@ namespace Satori.Rtm.Test
         {
             var channel = GenerateRandomChannelName();
             var client = new RtmClientBuilder(Config.Endpoint, Config.AppKey).Build();
-            await client.Start();
+            client.Start();
 
             var msg1 = "foo";
             var msg2 = "bar";
@@ -83,7 +83,7 @@ namespace Satori.Rtm.Test
         {
             var channel = GenerateRandomChannelName();
             var client = new RtmClientBuilder(Config.Endpoint, Config.AppKey).Build();
-            await client.Start();
+            client.Start();
 
             var queue = new TestSubscriptionObserverQueue();
             await client.CreateSubscriptionAndWaitSubscribed(channel, null, queue);

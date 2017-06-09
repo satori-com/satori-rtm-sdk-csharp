@@ -1,8 +1,9 @@
-﻿using System;
+﻿#pragma warning disable 1591
+
 using System.Linq;
-using System.Text;
-using System.Security.Cryptography.X509Certificates;
 using System.Net.Security;
+using System.Security.Cryptography.X509Certificates;
+using System.Text;
 
 namespace Satori.Rtm
 {
@@ -70,6 +71,7 @@ zNSS
         /// <summary>
         /// This methods overrides chain validation. 
         /// </summary>
+        /// <returns>true if valid</returns>
         public static bool RemoteCertificateValidationCallback(object sender, X509Certificate certificate, X509Chain oldChain, SslPolicyErrors sslPolicyErrors)
         {
             if (certificate == null || oldChain == null)
@@ -136,10 +138,12 @@ zNSS
                                 Log.E("Chain building failed with status {0}: {1}", status.Status, status.StatusInformation);
                             }
                         }
+
                         return false;
                     }
                 }
             }
+
             return true;
         }
     }

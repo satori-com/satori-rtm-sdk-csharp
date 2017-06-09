@@ -13,7 +13,7 @@ namespace Satori.Rtm.Client
         {
             public IDispatcher Dispatcher => _client.Dispatcher;
 
-            public async Task CreateSubscription(
+            public async void CreateSubscription(
                 string channelOrSubId,
                 SubscriptionConfig config)
             {
@@ -40,7 +40,8 @@ namespace Satori.Rtm.Client
                     createdSub = storedSub.ProcessSubscribe(config, observer);
                     if (createdSub == null)
                     {
-                        throw new InvalidOperationException($"Subscription '{channelOrSubId}' already exists");
+                        _client.NotifyError(new InvalidOperationException($"Subscription '{channelOrSubId}' already exists"));
+                        return;
                     }
                 }
                 else
@@ -69,7 +70,7 @@ namespace Satori.Rtm.Client
                 Log.V("CreateSubscription method is completed, subscription id: '{0}'", channelOrSubId);
             }
 
-            public async Task RemoveSubscription(string subscriptionId)
+            public async void RemoveSubscription(string subscriptionId)
             {
                 Log.I("RemoveSubscription method is dispatched, subscription id: '{0}'", subscriptionId);
                 await this.Yield();
@@ -88,7 +89,8 @@ namespace Satori.Rtm.Client
 
                 if (removedSub == null)
                 {
-                    throw new InvalidOperationException($"Subscription '{subscriptionId}' doesn't exist");
+                    _client.NotifyError(new InvalidOperationException($"Subscription '{subscriptionId}' doesn't exist"));
+                    return;
                 }
 
                 Log.V("RemoveSubscription method is completed, subscription id: '{0}'", subscriptionId);

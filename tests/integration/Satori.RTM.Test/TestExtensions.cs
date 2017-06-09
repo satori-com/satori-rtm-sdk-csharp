@@ -36,7 +36,7 @@ namespace Satori.Rtm.Test
         {
             await client.Yield();
             var queue = client.CreateStateQueue();
-            await client.Start();
+            client.Start();
 
             Assert.That(await queue.Dequeue(), Is.EqualTo("leave-stopped"));
             Assert.That(await queue.Dequeue(), Is.EqualTo("enter-connecting"));
@@ -71,7 +71,7 @@ namespace Satori.Rtm.Test
                 Position = position,
                 Observer = new SubscriptionCompoundObserver(sobs, observer)
             };
-            await client.CreateSubscription(channel, subCfg);
+            client.CreateSubscription(channel, subCfg);
             return await tcs.Task.ConfigureAwait(false);
         }
 
@@ -114,6 +114,11 @@ namespace Satori.Rtm.Test
             client.OnEnterAwaiting += () => { observer.Next("enter-awaiting"); };
             client.OnLeaveAwaiting += () => { observer.Next("leave-awaiting"); };
             client.OnEnterDisposed += () => { observer.Next("enter-disposed"); };
+        }
+
+        public static void SetClientErrorObserver(this IRtmClient client, IObservableSink<string> observer)
+        {
+            client.OnError += ex => { observer.Next("error:" + ex.GetType().Name); };
         }
 
         public static void SetSubscriptionStateObserver(this ISubscriptionEventSource source, IObservableSink<string> observer)

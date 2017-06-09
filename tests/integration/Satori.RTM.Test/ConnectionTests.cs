@@ -15,7 +15,7 @@ namespace Satori.Rtm.Test
         {
             var client = (RtmClient)new RtmClientBuilder(Config.Endpoint, Config.AppKey).Build();
             var queue = client.CreateStateQueue();
-            await client.Start();
+            client.Start();
             Assert.That(await queue.Dequeue(), Is.EqualTo("leave-stopped"));
             Assert.That(await queue.Dequeue(), Is.EqualTo("enter-connecting"));
             Assert.That(await queue.Dequeue(), Is.EqualTo("leave-connecting"));
@@ -53,7 +53,7 @@ namespace Satori.Rtm.Test
         {
             var client = new RtmClientBuilder("ws://bad_endpoint", "bad_key").Build();
             var queue = client.CreateStateQueue();
-            await client.Start();
+            client.Start();
             Assert.That(await queue.Dequeue(), Is.EqualTo("leave-stopped"));
             Assert.That(await queue.Dequeue(), Is.EqualTo("enter-connecting"));
             Assert.That(await queue.Dequeue(), Is.EqualTo("leave-connecting"));
