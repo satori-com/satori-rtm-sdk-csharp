@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Text;
 using System.Security.Cryptography.X509Certificates;
 using System.Net.Security;
@@ -108,74 +109,38 @@ zNSS
                 {
                     Log.V("Certificate in the extra store: subject={0}, issuer={1}", cert.Subject, cert.Issuer);
                 }
-
-                bool buildSucceed = true;
+                
                 if (!newChain.Build(new X509Certificate2(certificate)))
                 {
-                    if (newChain.ChainElements.Count == 0)
+                    X509Certificate chainRootCert = null;
+                    if (newChain.ChainElements.Count > 0)
                     {
-                        Log.E("No chain elements in the new certificate chain");
-                        buildSucceed = false;
+                        chainRootCert = newChain.ChainElements[newChain.ChainElements.Count - 1].Certificate;
                     }
 
                     // Ignore only UntrustedRoot status for our root certificate. 
                     // Root certificates, that are not in roots trusted store, marked as UntrustedRoot. 
                     // In order to add a certificate to the trusted store, one needs additional priviliges. 
-                    for (int i = 0; i < newChain.ChainElements.Count; i++) // the first element is a server certificate
+                    if (newChain.ChainStatus.Length == 1
+                        && newChain.ChainStatus.First().Status == X509ChainStatusFlags.UntrustedRoot
+                        && rootCert == chainRootCert)
                     {
-                        var elem = newChain.ChainElements[i];
-                        var statuses = elem.ChainElementStatus;
-                        bool last = i + 1 == newChain.ChainElements.Count; // the last certificate is a root
-                        foreach (var status in statuses)
+                        Log.V("UntrustedRoot status is ignored because we trust this root certificate");
+                    }
+                    else
+                    {
+                        foreach (var status in newChain.ChainStatus)
                         {
                             if (status.Status != X509ChainStatusFlags.NoError)
                             {
-                                if (last && status.Status == X509ChainStatusFlags.UntrustedRoot
-                                    && elem.Certificate.Thumbprint == rootCert.Thumbprint)
-                                {
-                                    Log.V("UntrustedRoot status is ignored because we trust this root certificate");
-                                }
-                                else
-                                { 
-                                    Log.E("Chain element '{0}' has status {1}: {2}", elem.Certificate.Subject, status.Status, status.StatusInformation);
-                                    buildSucceed = false;
-                                }
+                                Log.E("Chain building failed with status {0}: {1}", status.Status, status.StatusInformation);
                             }
                         }
-                    }
-
-                    if (!buildSucceed)
-                    {
-                        Log.E("Trust chain building failed");
-                        return false;
-                    }
-                }
-
-                // Make sure all the thumbprints of the CAs match up.
-                // The first one should be a server certificate, leading up to the root CA.
-                for (var i = 1; i < newChain.ChainElements.Count; i++)
-                {
-                    bool found = false;
-                    for (int j = 0; j < newChain.ChainPolicy.ExtraStore.Count; j++)
-                    {
-                        if (newChain.ChainElements[i].Certificate.Thumbprint == newChain.ChainPolicy.ExtraStore[j].Thumbprint)
-                        {
-                            newChain.ChainPolicy.ExtraStore.RemoveAt(j);
-                            found = true;
-                            break;
-                        }
-                    }
-
-                    if (!found)
-                    {
-                        Log.E("Thumbprints in the trust chain don't match");
                         return false;
                     }
                 }
             }
-
             return true;
         }
-        
     }
 }
