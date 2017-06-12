@@ -128,6 +128,22 @@ namespace Satori.Rtm.Client
             }
         }
 
+        public static void NotifySubscribeError(this ISubscriptionObserver observer, ISubscription subscription, Exception error)
+        {
+            if (observer != null)
+            {
+                observer.OnSubscribeError(subscription, error);
+            }
+        }
+
+        public static void NotifyUnsubscribeError(this ISubscriptionObserver observer, ISubscription subscription, Exception error)
+        {
+            if (observer != null)
+            {
+                observer.OnUnsubscribeError(subscription, error);
+            }
+        }
+
         public static void NotifyCreated(this IEnumerable<ISubscriptionObserver> observers, ISubscription subscription)
         {
             if (observers == null)
@@ -420,6 +436,46 @@ namespace Satori.Rtm.Client
                 try
                 {
                     observer.OnSubscriptionError(subscription, error);
+                }
+                catch (Exception ex)
+                {
+                    UnhandledExceptionWatcher.Swallow(ex);
+                }
+            }
+        }
+
+        public static void NotifySubscribeError(this IEnumerable<ISubscriptionObserver> observers, ISubscription subscription, Exception error)
+        {
+            if (observers == null)
+            {
+                return;
+            }
+
+            foreach (var observer in observers)
+            {
+                try
+                {
+                    observer.OnSubscribeError(subscription, error);
+                }
+                catch (Exception ex)
+                {
+                    UnhandledExceptionWatcher.Swallow(ex);
+                }
+            }
+        }
+
+        public static void NotifyUnsubscribeError(this IEnumerable<ISubscriptionObserver> observers, ISubscription subscription, Exception error)
+        {
+            if (observers == null)
+            {
+                return;
+            }
+
+            foreach (var observer in observers)
+            {
+                try
+                {
+                    observer.OnUnsubscribeError(subscription, error);
                 }
                 catch (Exception ex)
                 {

@@ -174,8 +174,7 @@ namespace Satori.Rtm.Client
         /// You can use the client events to define application functionality for when the application
         /// enters or leaves the connected state.
         /// </remarks>
-        /// <returns>The task completes when this call is executed on the <see cref="Dispatcher"/>  dispatcher. </returns>
-        Task Start();
+        void Start();
 
         /// <summary>
         /// Stops the client. The SDK tries to close the WebSocket connection 
@@ -186,19 +185,17 @@ namespace Satori.Rtm.Client
         /// You can use the client events to define application functionality for when the application
         /// enters or leaves the connected state.
         /// </remarks>
-        /// <returns>The task completes when this call is executed on the <see cref="Dispatcher"/>  dispatcher. </returns>
-        Task Stop();
+        void Stop();
 
         /// <summary>
         /// Restarts the client.
         /// </summary>
-        /// <returns>The task completes when this call is executed on the <see cref="Dispatcher"/>  dispatcher. </returns>
-        Task Restart();
+        void Restart();
 
         /// <summary>
         /// Returns the current connection or <c>null</c> if the client is not connected.
         /// </summary>
-        /// <returns>The task completes when this call is executed on the <see cref="Dispatcher"/> dispatcher. </returns>
+        /// <returns>The task completes when this call is executed on the <see cref="Dispatcher"/>. </returns>
         Task<IConnection> GetConnection();
 
         /// <summary>
@@ -209,7 +206,7 @@ namespace Satori.Rtm.Client
         /// After calling <see cref="Dispose"/>, you must release all references to the
         /// <see cref="T:Satori.Rtm.Client.IRtmClient"/> so the garbage collector can reclaim the memory that the
         /// <see cref="T:Satori.Rtm.Client.IRtmClient"/> was occupying.</remarks>
-        /// <returns>The task completes when this call is executed on the <see cref="Dispatcher"/>  dispatcher. </returns>
+        /// <returns>The task completes when this call is executed on the <see cref="Dispatcher"/>. </returns>
         Task Dispose();
 
         #region RTM 
@@ -223,9 +220,7 @@ namespace Satori.Rtm.Client
         /// to RTM service is established. 
         /// Subscription mode <see cref="SubscriptionModes.Simple"/> is used.
         /// </remarks>
-        /// <returns>The task completes when this call is executed on the <see cref="Dispatcher"/>  dispatcher. 
-        /// Task fails if a subscription with the same <paramref name="channel"/> name already exists. </returns>
-        Task CreateSubscription(
+        void CreateSubscription(
             string channel,
             ISubscriptionObserver observer);
 
@@ -239,9 +234,7 @@ namespace Satori.Rtm.Client
         /// Use the <paramref name="mode"/>  parameter to define the behavior that 
         /// the SDK uses to handle dropped connections.
         /// </remarks>
-        /// <returns>The task completes when this call is executed on the <see cref="Dispatcher"/>  dispatcher. 
-        /// Task fails if a subscription with the same <paramref name="channel"/> name already exists. </returns>
-        Task CreateSubscription(
+        void CreateSubscription(
             string channel,
             SubscriptionModes mode,
             ISubscriptionObserver observer);
@@ -256,23 +249,19 @@ namespace Satori.Rtm.Client
         /// Use the <paramref name="config"/>  parameter to define the behavior that 
         /// the SDK uses to handle dropped connections.
         /// </remarks>
-        /// <returns>The task completes when this call is executed on the <see cref="Dispatcher"/>  dispatcher. 
-        /// Task fails if a subscription with the same <paramref name="channelOrSubId"/> already exists. </returns>
-        Task CreateSubscription(
+        void CreateSubscription(
             string channelOrSubId,
             SubscriptionConfig config);
 
         /// <summary>
         /// Removes the subscription with the specific subscription id.
         /// </summary>
-        /// <returns>The task completes when this call is executed on the <see cref="Dispatcher"/>  dispatcher. 
-        /// Task falls if a subscription with the specified <paramref name="channelOrSubId"/> doesn't exist. </returns>
-        Task RemoveSubscription(string channelOrSubId);
+        void RemoveSubscription(string channelOrSubId);
 
         /// <summary>
         /// Gets the subscription with the specified channel name or subscription id.
         /// </summary>
-        /// <returns>The task completes when this call is executed on the <see cref="Dispatcher"/> dispatcher. 
+        /// <returns>The task completes when this call is executed on the <see cref="Dispatcher"/>. 
         /// Task fails if a subscription with the specified <paramref name="channelOrSubId"/> doesn't exist. </returns>
         Task<ISubscription> GetSubscription(string channelOrSubId);
 

@@ -120,7 +120,7 @@ namespace HelloWorld
             // Subscribe to the channel. Because client is not connected to Satori RTM yet, 
             // subscription request will be queued. This request will be sent when 
             // the client is connected. 
-            await client.CreateSubscription(channel, SubscriptionModes.Simple, observer);
+            client.CreateSubscription(channel, SubscriptionModes.Simple, observer);
         }
     }
 }

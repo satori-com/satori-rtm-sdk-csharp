@@ -64,7 +64,7 @@ namespace Satori.Rtm.Test
             var client = new RtmClientBuilder(Config.Endpoint, Config.AppKey).Build();
             await client.Yield();
             var obs = new SubscriptionObserver();
-            await client.CreateSubscription(string.Empty, SubscriptionModes.Advanced, obs);
+            client.CreateSubscription(string.Empty, SubscriptionModes.Advanced, obs);
             obs.OnEnterFailed += (s) =>
             {
                 if (counts == 0)
@@ -77,26 +77,26 @@ namespace Satori.Rtm.Test
                     client.Restart();
                 }
             };
-            await client.Start();
+            client.Start();
             await trigger.Task;
-            await client.Stop();
+            client.Stop();
             await client.Dispose();
         }
 
         [Test]
         public async Task StartStopAndAtomicity()
         {
-            var client = new RtmClientBuilder(Config.Endpoint, Config.AppKey).Build();
+            var client = (RtmClient)new RtmClientBuilder(Config.Endpoint, Config.AppKey).Build();
             bool isStopped = false;
             await client.Yield();
-            var awaiter = client.Start();
+            var awaiter = client.StartImpl();
             client.OnLeaveStopped += () => isStopped = true;
             Thread.Sleep(100);
             Assert.That(isStopped == false);
             await awaiter;
             Assert.That(isStopped == true);
             client.OnEnterStopped += () => isStopped = false;
-            awaiter = client.Stop();
+            awaiter = client.StopImpl();
             Thread.Sleep(100);
             Assert.That(isStopped == true);
             await awaiter;
@@ -117,7 +117,7 @@ namespace Satori.Rtm.Test
             {
                 cs.TrySetResult(true);
             };
-            await client.Start();
+            client.Start();
             await cs.Task;
             await client.Dispose();
         }
@@ -132,8 +132,8 @@ namespace Satori.Rtm.Test
 
             var publisher = new RtmClientBuilder(Config.Endpoint, Config.AppKey).Build();
 
-            await publisher.Start();
-            await subscriber.Start();
+            publisher.Start();
+            subscriber.Start();
 
             var subObs = new SubscriptionObserver();
             var subData = subObs.CreateSubscriptionDataQueue();
@@ -142,7 +142,7 @@ namespace Satori.Rtm.Test
             await publisher.Publish(channel, msg, Ack.Yes).ConfigureAwait(false);
 
             await subData.DequeueAndVerify(channel, msg).ConfigureAwait(false);
-            await subscriber.Stop();
+            subscriber.Stop();
             if ((await subscriber.GetStateAsync()).GetConnection() != null)
             {
                 throw new Exception("test failed");
@@ -159,17 +159,17 @@ namespace Satori.Rtm.Test
                     throw new Exception("test failed");
                 }
 
-                await subscriber.Start();
+                subscriber.Start();
 
                 await subData.DequeueAndVerify(channel, msg).ConfigureAwait(false);
 
-                await subscriber.Stop();
+                subscriber.Stop();
                 GC.Collect();
             } while (i < 3);
 
             await subscriber.Dispose();
 
-            await publisher.Stop();
+            publisher.Stop();
             await publisher.Dispose();
         }
 
@@ -193,7 +193,7 @@ namespace Satori.Rtm.Test
             Assert.That(t3.Status, Is.EqualTo(TaskStatus.Faulted));
             Assert.That(t3.Exception.InnerException, Is.InstanceOf(typeof(TooManyRequestsException)));
 
-            await client.Start();
+            client.Start();
 
             await t1;
             await t2;
@@ -201,7 +201,7 @@ namespace Satori.Rtm.Test
             await client.Publish(channel, 4, Ack.Yes);
 
             var queue = client.CreateStateQueue();
-            await client.Stop();
+            client.Stop();
 
             Assert.That(await queue.Dequeue(), Is.EqualTo("leave-connected"));
 
@@ -215,7 +215,7 @@ namespace Satori.Rtm.Test
             Assert.That(t7.Status, Is.EqualTo(TaskStatus.Faulted));
             Assert.That(t7.Exception.InnerException, Is.InstanceOf(typeof(TooManyRequestsException)));
 
-            await client.Start();
+            client.Start();
             await t5;
             await t6;
 
@@ -244,7 +244,7 @@ namespace Satori.Rtm.Test
                 Assert.That(ex, Is.InstanceOf(typeof(TooManyRequestsException)));
             }
 
-            await client.Start();
+            client.Start();
 
             Assert.That(await queue.Dequeue(), Is.EqualTo("leave-stopped"));
             Assert.That(await queue.Dequeue(), Is.EqualTo("enter-connecting"));
@@ -253,7 +253,7 @@ namespace Satori.Rtm.Test
 
             await client.Publish(channel, 2, Ack.Yes);
 
-            await client.Stop();
+            client.Stop();
             Assert.That(await queue.Dequeue(), Is.EqualTo("leave-connected"));
 
             try

@@ -41,42 +41,19 @@ namespace Satori.Rtm.Client
 
         public IDispatcher Dispatcher { get; private set; }
 
-        public async Task Start()
+        public async void Start()
         {
-            Log.V("Start method is dispatched");
-            await this.Yield();
-            Log.V("Start method is executing");
-            if (_state == null)
-            {
-                Log.V("Start method is ignored because client is disposed");
-            }
-            else
-            {
-                var appliedState = _state.Start();
-                Log.V("Start method is completed, applied state: {0}", appliedState);
-            }
+            await StartImpl().ConfigureAwait(false);
         }
 
-        public async Task Stop()
+        public async void Stop()
         {
-            Log.V("Stop method is dispatched");
-            await this.Yield();
-            Log.V("Stop() method is executing");
-            if (_state == null)
-            {
-                Log.V("Stop method is ignored because client is disposed");
-            }
-            else
-            {
-                var appliedState = _state.Stop();
-                Log.V("Stop method is completed, applied state: {0}", appliedState);
-            }
+            await StopImpl().ConfigureAwait(false);
         }
 
-        public async Task Restart()
+        public async void Restart()
         {
-            await Stop();
-            await Start();
+            await RestartImpl().ConfigureAwait(false);
         }
 
         public async Task Dispose()
@@ -121,12 +98,12 @@ namespace Satori.Rtm.Client
 
         #region RTM
 
-        public Task CreateSubscription(
+        public void CreateSubscription(
             string channel, 
             SubscriptionModes mode,
             ISubscriptionObserver observer)
         {
-            return _rtmModule.CreateSubscription(
+            _rtmModule.CreateSubscription(
                 channel, 
                 new SubscriptionConfig(mode)
                 {
@@ -134,19 +111,19 @@ namespace Satori.Rtm.Client
                 });
         }
 
-        public Task CreateSubscription(string channel, ISubscriptionObserver observer)
+        public void CreateSubscription(string channel, ISubscriptionObserver observer)
         {
-            return CreateSubscription(channel, SubscriptionModes.Simple, observer);
+            CreateSubscription(channel, SubscriptionModes.Simple, observer);
         }
         
-        public Task CreateSubscription(string channelOrSubId, SubscriptionConfig subscriptionConfig)
+        public void CreateSubscription(string channelOrSubId, SubscriptionConfig subscriptionConfig)
         {
-            return _rtmModule.CreateSubscription(channelOrSubId, subscriptionConfig);
+            _rtmModule.CreateSubscription(channelOrSubId, subscriptionConfig);
         }
 
-        public Task RemoveSubscription(string channelOrSubId)
+        public void RemoveSubscription(string channelOrSubId)
         {
-            return _rtmModule.RemoveSubscription(channelOrSubId);
+            _rtmModule.RemoveSubscription(channelOrSubId);
         }
 
         public Task<ISubscription> GetSubscription(string channelOrSubId)
@@ -200,6 +177,44 @@ namespace Satori.Rtm.Client
         }
 
         #endregion
+
+        internal async Task StartImpl()
+        {
+            Log.V("Start method is dispatched");
+            await this.Yield();
+            Log.V("Start method is executing");
+            if (_state == null)
+            {
+                Log.V("Start method is ignored because client is disposed");
+            }
+            else
+            {
+                var appliedState = _state.Start();
+                Log.V("Start method is completed, applied state: {0}", appliedState);
+            }
+        }
+
+        internal async Task StopImpl()
+        {
+            Log.V("Stop method is dispatched");
+            await this.Yield();
+            Log.V("Stop() method is executing");
+            if (_state == null)
+            {
+                Log.V("Stop method is ignored because client is disposed");
+            }
+            else
+            {
+                var appliedState = _state.Stop();
+                Log.V("Stop method is completed, applied state: {0}", appliedState);
+            }
+        }
+
+        internal async Task RestartImpl()
+        {
+            await StopImpl();
+            await StartImpl();
+        }
 
         internal ISuccessfulAwaiter<State> GetStateAsync()
         {

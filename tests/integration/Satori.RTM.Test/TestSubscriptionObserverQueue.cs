@@ -52,5 +52,17 @@ namespace Satori.Rtm.Test
         {
             this.SetSubscriptionPduObserver(_queue);
         }
+
+        public void ObserveSubscribeUnsubscribeError()
+        {
+            this.SetSubscribeUnsubscribeErrorObserver(_queue);
+        }
+
+        public void ObserveAll()
+        {
+            ObserveSubscriptionState();
+            ObserveSubscriptionPdu();
+            ObserveSubscribeUnsubscribeError();
+        }
     }
 }

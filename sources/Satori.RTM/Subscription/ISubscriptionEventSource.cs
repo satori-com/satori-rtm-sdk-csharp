@@ -89,5 +89,15 @@ namespace Satori.Rtm.Client
         /// Occurs when a subscription receives an error.
         /// </summary>
         event Action<ISubscription, RtmSubscriptionError> OnSubscriptionError;
+
+        /// <summary>
+        /// Occurs when a subscribe request fails.
+        /// </summary>
+        event Action<ISubscription, Exception> OnSubscribeError;
+
+        /// <summary>
+        /// Occurs when an unsubscribe request fails.
+        /// </summary>
+        event Action<ISubscription, Exception> OnUnsubscribeError;
     }
 }

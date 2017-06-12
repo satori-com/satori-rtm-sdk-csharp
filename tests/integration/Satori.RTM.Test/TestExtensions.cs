@@ -36,7 +36,7 @@ namespace Satori.Rtm.Test
         {
             await client.Yield();
             var queue = client.CreateStateQueue();
-            await client.Start();
+            client.Start();
 
             Assert.That(await queue.Dequeue(), Is.EqualTo("leave-stopped"));
             Assert.That(await queue.Dequeue(), Is.EqualTo("enter-connecting"));
@@ -71,7 +71,7 @@ namespace Satori.Rtm.Test
                 Position = position,
                 Observer = new SubscriptionCompoundObserver(sobs, observer)
             };
-            await client.CreateSubscription(channel, subCfg);
+            client.CreateSubscription(channel, subCfg);
             return await tcs.Task.ConfigureAwait(false);
         }
 
@@ -116,6 +116,11 @@ namespace Satori.Rtm.Test
             client.OnEnterDisposed += () => { observer.Next("enter-disposed"); };
         }
 
+        public static void SetClientErrorObserver(this IRtmClient client, IObservableSink<string> observer)
+        {
+            client.OnError += ex => { observer.Next("error:" + ex.GetType().Name); };
+        }
+
         public static void SetSubscriptionStateObserver(this ISubscriptionEventSource source, IObservableSink<string> observer)
         {
             source.OnCreated += (_) => { observer.Next("rtm:created"); };
@@ -148,6 +153,35 @@ namespace Satori.Rtm.Test
             source.OnSubscriptionError += (_, pdu) =>
             {
                 observer.Next($"rtm:subscription-error:{pdu.Code}");
+            };
+        }
+
+        public static void SetSubscribeUnsubscribeErrorObserver(this ISubscriptionEventSource source, IObservableSink<string> observer)
+        {
+            source.OnSubscribeError += (_, exn) =>
+            {
+                if (exn is PduException)
+                {
+                    var pduExn = (PduException)exn;
+                    observer.Next($"rtm:subscribe-error:{exn.GetType().Name}:{pduExn.Error?.Code}");
+                }
+                else
+                {
+                    observer.Next($"rtm:subscribe-error:{exn.GetType().Name}");
+                }
+            };
+
+            source.OnUnsubscribeError += (_, exn) =>
+            {
+                if (exn is PduException)
+                {
+                    var pduExn = (PduException)exn;
+                    observer.Next($"rtm:unsubscribe-error:{exn.GetType().Name}:{pduExn.Error?.Code}");
+                }
+                else
+                {
+                    observer.Next($"rtm:unsubscribe-error:{exn.GetType().Name}");
+                }
             };
         }
 
