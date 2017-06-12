@@ -40,7 +40,7 @@ namespace Satori.Rtm.Client
                     createdSub = storedSub.ProcessSubscribe(config, observer);
                     if (createdSub == null)
                     {
-                        _client.NotifyError(new InvalidOperationException($"Subscription '{channelOrSubId}' already exists"));
+                        observer.NotifySubscribeError(storedSub, new InvalidOperationException($"Subscription '{channelOrSubId}' already exists"));
                         return;
                     }
                 }

@@ -86,6 +86,16 @@ namespace Satori.Rtm.Client
         /// </summary>
         public event Action<ISubscription, RtmSubscriptionError> OnSubscriptionError;
 
+        /// <summary>
+        /// See <see cref="ISubscriptionEventSource.OnSubscribeError"/>. 
+        /// </summary>
+        public event Action<ISubscription, Exception> OnSubscribeError;
+
+        /// <summary>
+        /// See <see cref="ISubscriptionEventSource.OnUnsubscribeError"/>. 
+        /// </summary>
+        public event Action<ISubscription, Exception> OnUnsubscribeError;
+
         void ISubscriptionObserver.OnDeleted(ISubscription subscription)
         {
             OnDeleted.InvokeSafe(subscription);
@@ -159,6 +169,16 @@ namespace Satori.Rtm.Client
         void ISubscriptionObserver.OnSubscriptionError(ISubscription subscription, RtmSubscriptionError error)
         {
             OnSubscriptionError.InvokeSafe(subscription, error);
+        }
+
+        void ISubscriptionObserver.OnSubscribeError(ISubscription subscription, Exception error)
+        {
+            OnSubscribeError.InvokeSafe(subscription, error);
+        }
+
+        void ISubscriptionObserver.OnUnsubscribeError(ISubscription subscription, Exception error)
+        {
+            OnUnsubscribeError.InvokeSafe(subscription, error);
         }
     }
 }

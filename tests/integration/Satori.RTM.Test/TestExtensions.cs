@@ -156,6 +156,35 @@ namespace Satori.Rtm.Test
             };
         }
 
+        public static void SetSubscribeUnsubscribeErrorObserver(this ISubscriptionEventSource source, IObservableSink<string> observer)
+        {
+            source.OnSubscribeError += (_, exn) =>
+            {
+                if (exn is PduException)
+                {
+                    var pduExn = (PduException)exn;
+                    observer.Next($"rtm:subscribe-error:{exn.GetType().Name}:{pduExn.Error?.Code}");
+                }
+                else
+                {
+                    observer.Next($"rtm:subscribe-error:{exn.GetType().Name}");
+                }
+            };
+
+            source.OnUnsubscribeError += (_, exn) =>
+            {
+                if (exn is PduException)
+                {
+                    var pduExn = (PduException)exn;
+                    observer.Next($"rtm:unsubscribe-error:{exn.GetType().Name}:{pduExn.Error?.Code}");
+                }
+                else
+                {
+                    observer.Next($"rtm:unsubscribe-error:{exn.GetType().Name}");
+                }
+            };
+        }
+
         public static QueueAsync<RtmSubscriptionData> CreateSubscriptionDataQueue(this ISubscriptionEventSource source)
         {
             var queue = new QueueAsync<RtmSubscriptionData>();

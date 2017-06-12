@@ -1,5 +1,7 @@
 #pragma warning disable 1591
 
+using System;
+
 namespace Satori.Rtm.Client
 {
     internal static class SubscriptionFutureExtensions
@@ -77,6 +79,16 @@ namespace Satori.Rtm.Client
         public static void NotifySubscriptionError(this SubscriptionFuture future, RtmSubscriptionError error)
         {
             future?.Observer.NotifySubscriptionError(future, error);
+        }
+
+        public static void NotifySubscribeError(this SubscriptionFuture future, ISubscription subscription, Exception error)
+        {
+            future?.Observer.NotifySubscribeError(future, error);
+        }
+
+        public static void NotifyUnsubscribeError(this SubscriptionFuture future, ISubscription subscription, Exception error)
+        {
+            future?.Observer.NotifyUnsubscribeError(future, error);
         }
     }
 }

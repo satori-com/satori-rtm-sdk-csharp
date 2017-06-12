@@ -451,10 +451,39 @@ namespace Satori.Rtm.Test
             var queue = client.CreateStateQueue();
             client.SetClientErrorObserver(queue);
             var subObserver = new TestSubscriptionObserverQueue(queue);
+            subObserver.ObserveAll();
+            
+            client.CreateSubscription(channel, SubscriptionModes.Advanced, subObserver);
+
+            await queue.AssertDequeue("rtm:subscribe-error:InvalidOperationException");
+            await queue.AssertEmpty(client, millis: 200);
+
+            await client.Dispose();
+        }
+
+        [Test]
+        public async Task CreateSubscriptionToRestrictedChannel()
+        {
+            var client = new RtmClientBuilder(Config.Endpoint, Config.AppKey).Build();
+            await client.StartAndWaitConnected();
+
+            var channel = Config.AuthRestrictedChannel;
+
+            var queue = client.CreateStateQueue();
+            client.SetClientErrorObserver(queue);
+            var subObserver = new TestSubscriptionObserverQueue(queue);
+            subObserver.ObserveAll();
 
             client.CreateSubscription(channel, SubscriptionModes.Advanced, subObserver);
 
-            await queue.AssertDequeue("error:InvalidOperationException");
+            await queue.AssertDequeue(
+                "rtm:created",
+                "rtm:enter-unsubscribed",
+                "rtm:leave-unsubscribed",
+                "rtm:enter-subscribing",
+                "rtm:subscribe-error:RtmSubscribeException:authorization_denied",
+                "rtm:leave-subscribing",
+                "rtm:enter-failed");
             await queue.AssertEmpty(client, millis: 200);
 
             await client.Dispose();

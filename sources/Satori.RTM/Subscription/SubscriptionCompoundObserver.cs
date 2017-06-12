@@ -1,5 +1,6 @@
 #pragma warning disable 1591
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -95,6 +96,16 @@ namespace Satori.Rtm.Client
         public void OnSubscriptionError(ISubscription subscription, RtmSubscriptionError error)
         {
             _observers.NotifySubscriptionError(subscription, error);
+        }
+
+        public void OnSubscribeError(ISubscription subscription, Exception error)
+        {
+            _observers.NotifySubscribeError(subscription, error);
+        }
+
+        public void OnUnsubscribeError(ISubscription subscription, Exception error)
+        {
+            _observers.NotifyUnsubscribeError(subscription, error);
         }
     }
 }

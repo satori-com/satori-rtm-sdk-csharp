@@ -68,7 +68,7 @@ namespace Satori.Rtm.Test
         }
 
         [Test]
-        public async Task BothChannelAndFilterSpecified()
+        public async Task CreateFilterWIthExistingSubscriptionId()
         {
             var client = new RtmClientBuilder(Config.Endpoint, Config.AppKey).Build();
             await client.StartAndWaitConnected();
@@ -80,6 +80,7 @@ namespace Satori.Rtm.Test
             var queue = client.CreateStateQueue();
             client.SetClientErrorObserver(queue);
             var subObserver = new TestSubscriptionObserverQueue(queue);
+            subObserver.ObserveAll();
             
             client.CreateSubscription(
                 channel,
@@ -88,7 +89,7 @@ namespace Satori.Rtm.Test
                     Filter = $"select * FROM `{channel}`"
                 });
 
-            await queue.AssertDequeue("error:InvalidOperationException");
+            await queue.AssertDequeue("rtm:subscribe-error:InvalidOperationException");
             await queue.AssertEmpty(client, millis: 200);
 
             await client.Dispose();
