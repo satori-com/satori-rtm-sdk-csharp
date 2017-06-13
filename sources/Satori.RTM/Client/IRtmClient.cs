@@ -195,19 +195,31 @@ namespace Satori.Rtm.Client
         /// <summary>
         /// Returns the current connection or <c>null</c> if the client is not connected.
         /// </summary>
-        /// <returns>The task completes when this call is executed on the <see cref="Dispatcher"/>. </returns>
+        /// <returns>The task completes when this call is executed on the <see cref="RtmClientBuilder.Dispatcher"/>. </returns>
         Task<IConnection> GetConnection();
+
+        /// <summary>
+        /// See <see cref="GetConnection()"/>. 
+        /// Callbacks are invoked on the <see cref="RtmClientBuilder.Dispatcher"/>. 
+        /// </summary>
+        void GetConnection(Action<IConnection> onSuccess, Action<Exception> onFailure);
 
         /// <summary>
         /// Disposes the client.
         /// </summary>
-        /// <remarks>Call <see cref="Dispose"/> when you are finished using the <see cref="T:Satori.Rtm.Client.IRtmClient"/>. The
-        /// <see cref="Dispose"/> method leaves the <see cref="T:Satori.Rtm.Client.IRtmClient"/> in an unusable state.
-        /// After calling <see cref="Dispose"/>, you must release all references to the
+        /// <remarks>Call <see cref="Dispose()"/> when you are finished using the <see cref="T:Satori.Rtm.Client.IRtmClient"/>. The
+        /// <see cref="Dispose()"/> method leaves the <see cref="T:Satori.Rtm.Client.IRtmClient"/> in an unusable state.
+        /// After calling <see cref="Dispose()"/>, you must release all references to the
         /// <see cref="T:Satori.Rtm.Client.IRtmClient"/> so the garbage collector can reclaim the memory that the
         /// <see cref="T:Satori.Rtm.Client.IRtmClient"/> was occupying.</remarks>
-        /// <returns>The task completes when this call is executed on the <see cref="Dispatcher"/>. </returns>
+        /// <returns>The task completes when this call is executed on the <see cref="RtmClientBuilder.Dispatcher"/>. </returns>
         Task Dispose();
+
+        /// <summary>
+        /// See <see cref="Dispose()"/>.
+        /// The callback is invoked on the <see cref="RtmClientBuilder.Dispatcher"/>.
+        /// </summary>
+        void Dispose(Action onCompleted);
 
         #region RTM 
 
@@ -261,9 +273,15 @@ namespace Satori.Rtm.Client
         /// <summary>
         /// Gets the subscription with the specified channel name or subscription id.
         /// </summary>
-        /// <returns>The task completes when this call is executed on the <see cref="Dispatcher"/>. 
+        /// <returns>The task completes when this call is executed on the <see cref="RtmClientBuilder.Dispatcher"/>. 
         /// Task fails if a subscription with the specified <paramref name="channelOrSubId"/> doesn't exist. </returns>
         Task<ISubscription> GetSubscription(string channelOrSubId);
+
+        /// <summary>
+        /// See <see cref="GetSubscription(string)"/>. 
+        /// Callbacks are invoked on the <see cref="RtmClientBuilder.Dispatcher"/>.
+        /// </summary>
+        void GetSubscription(string channelOrSubId, Action<ISubscription> onSuccess, Action<Exception> onFailure);
 
         /// <summary>
         /// Publishes the <paramref name="message"/> to the <paramref name="channel"/>.
@@ -283,6 +301,12 @@ namespace Satori.Rtm.Client
         Task<RtmPublishReply> Publish<T>(string channel, T message);
 
         /// <summary>
+        /// See <see cref="Publish{T}(string, T)"/>. 
+        /// Callbacks are invoked on the <see cref="RtmClientBuilder.Dispatcher"/>.
+        /// </summary>
+        void Publish<T>(string channel, T message, Action<RtmPublishReply> onSuccess, Action<Exception> onFailure);
+
+        /// <summary>
         /// Publishes the <paramref name="message"/> to the <paramref name="channel"/>.
         /// </summary>
         /// <remarks>
@@ -299,6 +323,12 @@ namespace Satori.Rtm.Client
         /// <typeparam name="T">It can be any reference or value type. The Newtonsoft.Json library is
         /// used for serialization. </typeparam>
         Task<RtmPublishReply> Publish<T>(string channel, T message, Ack ack);
+
+        /// <summary>
+        /// See <see cref="Publish{T}(string, T, Ack)"/>.
+        /// Callbacks are invoked on the <see cref="RtmClientBuilder.Dispatcher"/>.
+        /// </summary>
+        void Publish<T>(string channel, T message, Ack ack, Action<RtmPublishReply> onSuccess, Action<Exception> onFailure);
 
         /// <summary>
         /// Reads the massage from the specified <paramref name="channel"/>. 
@@ -322,6 +352,12 @@ namespace Satori.Rtm.Client
         Task<RtmReadReply<T>> Read<T>(string channel);
 
         /// <summary>
+        /// See <see cref="Read{T}(string)"/>. 
+        /// Callbacks are invoked on the <see cref="RtmClientBuilder.Dispatcher"/>.
+        /// </summary>
+        void Read<T>(string channel, Action<RtmReadReply<T>> onSuccess, Action<Exception> onFailure);
+
+        /// <summary>
         /// Reads the message from the <see cref="RtmReadRequest"/>.<see cref="RtmReadRequest.Channel"/>. 
         /// </summary>
         /// <remarks>
@@ -341,6 +377,12 @@ namespace Satori.Rtm.Client
         /// <typeparam name="T">It can be any reference or value type. The Newtonsoft.Json library is
         /// used for deserialization. </typeparam>
         Task<RtmReadReply<T>> Read<T>(RtmReadRequest request);
+
+        /// <summary>
+        /// See <see cref="Read{T}(RtmReadRequest)"/>.
+        /// Callbacks are invoked on the <see cref="RtmClientBuilder.Dispatcher"/>.
+        /// </summary>
+        void Read<T>(RtmReadRequest request, Action<RtmReadReply<T>> onSuccess, Action<Exception> onFailure);
 
         /// <summary>
         /// Writes a <paramref name="message"/> to the specified <paramref name="channel"/>. 
@@ -365,6 +407,12 @@ namespace Satori.Rtm.Client
         Task<RtmWriteReply> Write<T>(string channel, T message);
 
         /// <summary>
+        /// See <see cref="Write{T}(string, T)"/>. 
+        /// Callbacks are invoked on the <see cref="RtmClientBuilder.Dispatcher"/>.
+        /// </summary>
+        void Write<T>(string channel, T message, Action<RtmWriteReply> onSuccess, Action<Exception> onFailure);
+        
+        /// <summary>
         /// Writes a <paramref name="message"/> to the specified <paramref name="channel"/>. 
         /// </summary>
         /// <remarks>
@@ -386,6 +434,12 @@ namespace Satori.Rtm.Client
         /// <typeparam name="T">It can be any reference or value type. The Newtonsoft.Json library is
         /// used for serialization. </typeparam>
         Task<RtmWriteReply> Write<T>(string channel, T message, Ack ack);
+
+        /// <summary>
+        /// See <see cref="Write{T}(string, T, Ack)"/>.
+        /// Callbacks are invoked on the <see cref="RtmClientBuilder.Dispatcher"/>.
+        /// </summary>
+        void Write<T>(string channel, T message, Ack ack, Action<RtmWriteReply> onSuccess, Action<Exception> onFailure);
 
         /// <summary>
         /// Writes a <see cref="RtmWriteRequest"/>.<see cref="RtmWriteRequest{TPayload}.Message"/> 
@@ -412,6 +466,12 @@ namespace Satori.Rtm.Client
         Task<RtmWriteReply> Write<T>(RtmWriteRequest<T> request, Ack ack);
 
         /// <summary>
+        /// See <see cref="Write{T}(RtmWriteRequest{T}, Ack)"/>.
+        /// Callbacks are invoked on the <see cref="RtmClientBuilder.Dispatcher"/>.
+        /// </summary>
+        void Write<T>(RtmWriteRequest<T> request, Ack ack, Action<RtmWriteReply> onSuccess, Action<Exception> onFailure);
+
+        /// <summary>
         /// Deletes a value from the specified <paramref name="channel"/>.
         /// </summary>
         /// <remarks>
@@ -430,6 +490,12 @@ namespace Satori.Rtm.Client
         /// Task completes successfully when an acknowledgement from the server is received. </returns>
         /// <param name="channel">The channel represents a key</param>
         Task<RtmDeleteReply> Delete(string channel);
+
+        /// <summary>
+        /// See <see cref="Delete(string)"/>.
+        /// Callbacks are invoked on the <see cref="RtmClientBuilder.Dispatcher"/>.
+        /// </summary>
+        void Delete(string channel, Action<RtmDeleteReply> onSuccess, Action<Exception> onFailure);
 
         /// <summary>
         /// Deletes a value from the specified <paramref name="channel"/>.
@@ -451,6 +517,12 @@ namespace Satori.Rtm.Client
         /// <param name="ack">Specifies whether an acknowledgement from the RTM service is needed. 
         /// See <see cref="Ack"/> for more details. </param>
         Task<RtmDeleteReply> Delete(string channel, Ack ack);
+
+        /// <summary>
+        /// See <see cref="Delete(string, Ack)"/>.
+        /// Callbacks are invoked on the <see cref="RtmClientBuilder.Dispatcher"/>.
+        /// </summary>
+        void Delete(string channel, Ack ack, Action<RtmDeleteReply> onSuccess, Action<Exception> onFailure);
 
         #endregion
     }
