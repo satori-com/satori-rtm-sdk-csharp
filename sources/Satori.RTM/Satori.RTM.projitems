@@ -34,6 +34,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Dispatcher\Dispatcher.Log.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Dispatcher\IDispatcher.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Dispatcher\SingleThreadDispatcher.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Dispatcher\TaskExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Logger\DefaultLogger.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Logger\Logger.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Logger\LoggerExtensions.cs" />

@@ -144,7 +144,7 @@ namespace Satori.Rtm.Client
                         }
 
                         Log.W(exn, "Connect method failed, state: {0}", this);
-                        Fsm.NotifyError(exn);
+                        Fsm.NotifyError(TaskHelper.Unwrap(exn));
                         Complete(new Awaiting(this));
                     }
 

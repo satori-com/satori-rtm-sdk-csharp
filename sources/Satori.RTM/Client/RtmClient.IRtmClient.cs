@@ -103,7 +103,7 @@ namespace Satori.Rtm.Client
 
         public void GetConnection(Action<IConnection> onSuccess, Action<Exception> onFailure)
         {
-            GetConnection().ContinueSyncWith(onSuccess, onFailure);
+            GetConnection().ContinueOnDispatcher(Dispatcher, onSuccess, onFailure);
         }
 
         #region RTM
@@ -143,7 +143,7 @@ namespace Satori.Rtm.Client
 
         public void GetSubscription(string channelOrSubId, Action<ISubscription> onSuccess, Action<Exception> onFailure)
         {
-            GetSubscription(channelOrSubId).ContinueSyncWith(onSuccess, onFailure);
+            GetSubscription(channelOrSubId).ContinueOnDispatcher(Dispatcher, onSuccess, onFailure);
         }
 
         public Task<RtmPublishReply> Publish<T>(string channel, T message, Ack ack)
@@ -153,7 +153,7 @@ namespace Satori.Rtm.Client
 
         public void Publish<T>(string channel, T message, Ack ack, Action<RtmPublishReply> onSuccess, Action<Exception> onFailure)
         {
-            Publish(channel, message, ack).ContinueSyncWith(onSuccess, onFailure);
+            Publish(channel, message, ack).ContinueOnDispatcher(Dispatcher, onSuccess, onFailure);
         }
 
         public Task<RtmPublishReply> Publish<T>(string channel, T message)
@@ -163,7 +163,7 @@ namespace Satori.Rtm.Client
 
         public void Publish<T>(string channel, T message, Action<RtmPublishReply> onSuccess, Action<Exception> onFailure)
         {
-            Publish(channel, message).ContinueSyncWith(onSuccess, onFailure);
+            Publish(channel, message).ContinueOnDispatcher(Dispatcher, onSuccess, onFailure);
         }
 
         public Task<RtmReadReply<T>> Read<T>(string channel)
@@ -173,7 +173,7 @@ namespace Satori.Rtm.Client
 
         public void Read<T>(string channel, Action<RtmReadReply<T>> onSuccess, Action<Exception> onFailure)
         {
-            Read<T>(channel).ContinueSyncWith(onSuccess, onFailure);
+            Read<T>(channel).ContinueOnDispatcher(Dispatcher, onSuccess, onFailure);
         }
 
         public Task<RtmReadReply<T>> Read<T>(RtmReadRequest request)
@@ -183,7 +183,7 @@ namespace Satori.Rtm.Client
 
         public void Read<T>(RtmReadRequest request, Action<RtmReadReply<T>> onSuccess, Action<Exception> onFailure)
         {
-            Read<T>(request).ContinueSyncWith(onSuccess, onFailure);
+            Read<T>(request).ContinueOnDispatcher(Dispatcher, onSuccess, onFailure);
         }
 
         public Task<RtmWriteReply> Write<T>(string channel, T message, Ack ack)
@@ -193,7 +193,7 @@ namespace Satori.Rtm.Client
 
         public void Write<T>(string channel, T message, Ack ack, Action<RtmWriteReply> onSuccess, Action<Exception> onFailure)
         {
-            Write(channel, message, ack).ContinueSyncWith(onSuccess, onFailure);
+            Write(channel, message, ack).ContinueOnDispatcher(Dispatcher, onSuccess, onFailure);
         }
 
         public Task<RtmWriteReply> Write<T>(string channel, T message)
@@ -203,7 +203,7 @@ namespace Satori.Rtm.Client
 
         public void Write<T>(string channel, T message, Action<RtmWriteReply> onSuccess, Action<Exception> onFailure)
         {
-            Write(channel, message).ContinueSyncWith(onSuccess, onFailure);
+            Write(channel, message).ContinueOnDispatcher(Dispatcher, onSuccess, onFailure);
         }
 
         public Task<RtmWriteReply> Write<T>(RtmWriteRequest<T> request, Ack ack)
@@ -213,7 +213,7 @@ namespace Satori.Rtm.Client
 
         public void Write<T>(RtmWriteRequest<T> request, Ack ack, Action<RtmWriteReply> onSuccess, Action<Exception> onFailure)
         {
-            Write(request, ack).ContinueSyncWith(onSuccess, onFailure);
+            Write(request, ack).ContinueOnDispatcher(Dispatcher, onSuccess, onFailure);
         }
 
         public Task<RtmDeleteReply> Delete(string channel, Ack ack)
@@ -223,7 +223,7 @@ namespace Satori.Rtm.Client
 
         public void Delete(string channel, Ack ack, Action<RtmDeleteReply> onSuccess, Action<Exception> onFailure)
         {
-            Delete(channel, ack).ContinueSyncWith(onSuccess, onFailure);
+            Delete(channel, ack).ContinueOnDispatcher(Dispatcher, onSuccess, onFailure);
         }
 
         public Task<RtmDeleteReply> Delete(string channel)
@@ -233,7 +233,7 @@ namespace Satori.Rtm.Client
 
         public void Delete(string channel, Action<RtmDeleteReply> onSuccess, Action<Exception> onFailure)
         {
-            Delete(channel).ContinueSyncWith(onSuccess, onFailure);
+            Delete(channel).ContinueOnDispatcher(Dispatcher, onSuccess, onFailure);
         }
 
         #endregion

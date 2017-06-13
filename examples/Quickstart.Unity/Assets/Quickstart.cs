@@ -6,17 +6,14 @@
 // 
 // The app displays received message on the screen. 
 
+using System;
+using System.Linq;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Satori.Rtm;
 using Satori.Rtm.Client;
-using System;
 using UnityEngine;
 using Logger = Satori.Rtm.Logger;
-using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-
 
 // Animal class represents user message to publish to RTM
 // Message example in json: 
@@ -95,9 +92,10 @@ public class Quickstart : MonoBehaviour
             var observer = new SubscriptionObserver();
 
 			observer.OnEnterSubscribing += (ISubscription sub, RtmSubscribeRequest req) => ShowText("Subscribing to " + req.Channel); 
-			observer.OnEnterFailed += sub => {
-				ShowText("ERROR: subscription failed. " +
-				"Check channel subscribe permissions in Dev Portal"); 
+			observer.OnSubscribeError += (sub, ex) => 
+            {
+				ShowText("ERROR: subscribing failed. " +
+				"Check channel subscribe permissions in Dev Portal. \n" + ex); 
 			};
 
 			// when subscription is establshed (confirmed by RTM)
@@ -156,15 +154,9 @@ public class Quickstart : MonoBehaviour
 			who = "zebra", where = new float[] { 34.134358f, -118.321506f }
 		};
 		ShowText("publishing " + animal.who); 
-		var publishTask = client.Publish(channel, animal);
-		publishTask.ContinueWith(t =>
-		{
-			Debug.Log("publish completed on tid=" + Thread.CurrentThread.ManagedThreadId); 
-			if (t.Exception == null)
-				ShowText("Published successfully: " + animal.ToString());
-			else
-				ShowText("ERROR: Publishing failed:\n" + t.Exception);
-		});
+		client.Publish(channel, animal, 
+            onSuccess: reply => ShowText("Published successfully: " + animal.ToString()), 
+            onFailure: ex => ShowText("ERROR: Publishing failed:\n" + ex));
 	}
 	     
  	// log and show text on screen

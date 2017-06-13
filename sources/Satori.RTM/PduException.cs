@@ -18,6 +18,8 @@ namespace Satori.Rtm
         public PduException(Pdu pdu) : this(pdu, pdu.Body?.ToObject<RtmError>()) 
         {
         }
+
+        public override string Message => $"RTM returned the negative reply with code '{Error?.Code}': {Error?.Reason}";
     }
 
     public class PduException<T> : PduException where T : RtmError

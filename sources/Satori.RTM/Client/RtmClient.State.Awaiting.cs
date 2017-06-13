@@ -48,7 +48,7 @@ namespace Satori.Rtm.Client
                     catch (Exception exn)
                     {
                         Log.E(exn, "Failed to create timer, state: {0}", this);
-                        Fsm.NotifyError(exn);
+                        Fsm.NotifyError(TaskHelper.Unwrap(exn));
                         Complete(new Stopped(this));
                     }
 

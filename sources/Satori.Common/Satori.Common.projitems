@@ -11,7 +11,7 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)ActionExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Common.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)TaskExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TaskHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UnhandledExceptionWatcher.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MonitorAsync.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)QueueAsync.cs" />
