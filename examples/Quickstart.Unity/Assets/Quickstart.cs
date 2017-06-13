@@ -13,6 +13,7 @@ using Newtonsoft.Json.Linq;
 using Satori.Rtm;
 using Satori.Rtm.Client;
 using UnityEngine;
+using UnityEngine.UI;
 using Logger = Satori.Rtm.Logger;
 
 // Animal class represents user message to publish to RTM
@@ -43,7 +44,7 @@ public class Quickstart : MonoBehaviour
 
     string channel = "animals";
 
-	TextMesh mesh; 
+	Text mesh;
 
 	// Communication with RTM is done via RTM client which implements IRtmClient 
 	// interface. 
@@ -52,8 +53,8 @@ public class Quickstart : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-		var textObj =  GameObject.Find("MyText");
-		mesh = (TextMesh)textObj.GetComponent(typeof(TextMesh));
+		var textObj = GameObject.Find("Text"); 
+		mesh = (Text)textObj.GetComponent(typeof(Text));
 		mesh.text = ""; 
 
         // Change logging levels. Default level is Warning. 
