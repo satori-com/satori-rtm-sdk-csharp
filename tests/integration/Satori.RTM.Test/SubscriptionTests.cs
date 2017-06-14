@@ -481,7 +481,7 @@ namespace Satori.Rtm.Test
                 "rtm:enter-unsubscribed",
                 "rtm:leave-unsubscribed",
                 "rtm:enter-subscribing",
-                "rtm:subscribe-error:RtmSubscribeException:authorization_denied",
+                "rtm:subscribe-error:SubscribeException:authorization_denied",
                 "rtm:leave-subscribing",
                 "rtm:enter-failed");
             await queue.AssertEmpty(client, millis: 200);

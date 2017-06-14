@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Threading;
+using Satori.Rtm;
 using Satori.Rtm.Client;
 
 namespace Authentication
@@ -31,7 +32,16 @@ namespace Authentication
             };
 
             client.OnError += ex => 
-                Console.Error.WriteLine("Error occurred: " + ex.Message);
+            {
+                var authEx = ex as AuthException;
+                if (authEx != null) 
+                {
+                    Console.Error.WriteLine("Authentication failed: " + ex.Message);
+                } else 
+                {
+                    Console.Error.WriteLine("Error occurred: " + ex.Message);
+                }
+            };
 
             client.Start();
 

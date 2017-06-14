@@ -73,11 +73,11 @@ namespace Satori.Rtm
                     },
                     negative: p =>
                     {
-                        throw new RtmSubscribeException(p.pdu);
+                        throw new SubscribeException(p.pdu);
                     },
                     unknown: p =>
                     {
-                        throw new RtmSubscribeException(p.pdu);
+                        throw new SubscribeException(p.pdu);
                     }));
         }
 
@@ -105,11 +105,11 @@ namespace Satori.Rtm
                     },
                     negative: p =>
                     {
-                        throw new RtmUnsubscribeException(p.pdu);
+                        throw new UnsubscribeException(p.pdu);
                     },
                     unknown: p =>
                     {
-                        throw new RtmUnsubscribeException(p.pdu);
+                        throw new UnsubscribeException(p.pdu);
                     }));
         }
 

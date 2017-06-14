@@ -49,7 +49,7 @@ namespace SubscriptionWithHistoryAge
 
             observer.OnSubscribeError += (ISubscription sub, Exception err) => 
             {
-                var rtmEx = err as RtmSubscribeException;
+                var rtmEx = err as SubscribeException;
                 if (rtmEx != null) 
                     Console.WriteLine("Subscribing failed because RTM replied with the error {0}: {1}", rtmEx.Error.Code, rtmEx.Error.Reason);
                 else 

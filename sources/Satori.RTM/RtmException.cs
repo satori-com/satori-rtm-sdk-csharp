@@ -2,16 +2,16 @@
 
 namespace Satori.Rtm
 {
-    public class RtmSubscribeException : PduException<RtmSubscribeError>
+    public class SubscribeException : PduException<RtmSubscribeError>
     {
-        public RtmSubscribeException(Pdu pdu) : base(pdu) 
+        public SubscribeException(Pdu pdu) : base(pdu) 
         {
         }
     }
 
-    public class RtmUnsubscribeException : PduException<RtmUnsubscribeError>
+    public class UnsubscribeException : PduException<RtmUnsubscribeError>
     {
-        public RtmUnsubscribeException(Pdu pdu) : base(pdu) 
+        public UnsubscribeException(Pdu pdu) : base(pdu) 
         {
         }
     }
