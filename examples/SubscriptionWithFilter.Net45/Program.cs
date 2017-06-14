@@ -67,7 +67,7 @@ namespace SubscriptionWithFilter
             // Assume that someone already publishes animals to the channel 'animals'
             var cfg = new SubscriptionConfig(SubscriptionModes.Simple, observer)
             {
-                Filter = $"SELECT * FROM {channel} WHERE who = 'zebra'"
+                Filter = $"SELECT * FROM `{channel}` WHERE who = 'zebra'"
             };
             client.CreateSubscription("zebras", cfg);
 

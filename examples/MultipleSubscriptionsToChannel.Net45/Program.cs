@@ -68,13 +68,13 @@ namespace MultipleSubscriptionsToChannel
 
             var zebraCfg = new SubscriptionConfig(SubscriptionModes.Simple, observer)
             {
-                Filter = $"SELECT * FROM {channel} WHERE who = 'zebra'"
+                Filter = $"SELECT * FROM `{channel}` WHERE who = 'zebra'"
             };
             client.CreateSubscription("zebras", zebraCfg);
 
             var giraffeCfg = new SubscriptionConfig(SubscriptionModes.Simple, observer)
             {
-                Filter = $"SELECT * FROM {channel} WHERE who = 'giraffe'"
+                Filter = $"SELECT * FROM `{channel}` WHERE who = 'giraffe'"
             };
             client.CreateSubscription("giraffes", giraffeCfg);
 
