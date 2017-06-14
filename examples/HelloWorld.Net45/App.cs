@@ -54,7 +54,7 @@ namespace HelloWorld
             client.OnEnterConnecting += () => Console.WriteLine("Connecting...");
             client.OnEnterConnected += cn => Console.WriteLine("Connected");
             client.OnLeaveConnected += cn => Console.WriteLine("Disconnected");
-            client.OnError += ex => Console.Error.WriteLine("Error occurred: " + ex.Message);
+            client.OnError += ex => Console.WriteLine("Error occurred: " + ex.Message);
 
             client.Start();
 
@@ -93,7 +93,7 @@ namespace HelloWorld
                         if (t.Exception == null)
                             Console.WriteLine("Published successfully!");
                         else
-                            Console.Error.WriteLine("Publishing failed: " + t.Exception);
+                            Console.WriteLine("Publishing failed: " + t.Exception);
                     });
             };
 
@@ -101,7 +101,7 @@ namespace HelloWorld
                 => Console.WriteLine("Unsubscribed from " + sub.SubscriptionId);
 
             observer.OnSubscriptionError += (ISubscription sub, RtmSubscriptionError err) 
-                => Console.Error.WriteLine("Subscription error " + err.Code + ": " + err.Reason);
+                => Console.WriteLine("Subscription error " + err.Code + ": " + err.Reason);
 
             observer.OnSubscriptionData += (ISubscription sub, RtmSubscriptionData data) =>
             {

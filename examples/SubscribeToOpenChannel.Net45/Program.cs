@@ -21,7 +21,7 @@ namespace SubscribeToOpenChannel
             IRtmClient client = new RtmClientBuilder(endpoint, appkey).Build();
 
             client.OnEnterConnected += cn => Console.WriteLine("Connected to RTM");
-            client.OnError += ex => Console.Error.WriteLine("Error occurred: " + ex.Message);
+            client.OnError += ex => Console.WriteLine("Error occurred: " + ex.Message);
 
             client.Start();
 

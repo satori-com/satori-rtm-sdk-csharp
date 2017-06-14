@@ -35,6 +35,11 @@ namespace Publishing
             IRtmClient client = new RtmClientBuilder(endpoint, appkey)
                 .Build();
 
+            client.OnEnterConnected += cn => Console.WriteLine("Connected to RTM");
+            client.OnError += ex => Console.WriteLine("Error occurred: " + ex.Message);
+
+            client.Start();
+
             try 
             {
                 var message = new Animal 
@@ -61,6 +66,9 @@ namespace Publishing
             {
                 Console.WriteLine("Publishing failed: " + ex.Message);
             }
+
+            // Dispose the client before exiting the program
+            await client.Dispose();
         }
     }
 }

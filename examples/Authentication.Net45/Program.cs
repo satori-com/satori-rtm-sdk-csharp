@@ -36,10 +36,10 @@ namespace Authentication
                 var authEx = ex as AuthException;
                 if (authEx != null) 
                 {
-                    Console.Error.WriteLine("Authentication failed: " + ex.Message);
+                    Console.WriteLine("Authentication failed: " + ex.Message);
                 } else 
                 {
-                    Console.Error.WriteLine("Error occurred: " + ex.Message);
+                    Console.WriteLine("Error occurred: " + ex.Message);
                 }
             };
 

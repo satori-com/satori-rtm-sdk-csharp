@@ -27,7 +27,7 @@ namespace TestInstallation
             };
 
             client.OnError += ex => 
-                Console.Error.WriteLine("Connecting failed: " + ex.Message);
+                Console.WriteLine("Connecting failed: " + ex.Message);
 
             client.Start();
 

@@ -32,6 +32,11 @@ namespace SimpleSubscription
             IRtmClient client = new RtmClientBuilder(endpoint, appkey)
                 .Build();
 
+            client.OnEnterConnected += cn => Console.WriteLine("Connected to RTM");
+            client.OnError += ex => Console.WriteLine("Error occurred: " + ex.Message);
+
+            client.Start();
+
             var observer = new SubscriptionObserver();
 
             observer.OnEnterSubscribed += (ISubscription sub) => 
