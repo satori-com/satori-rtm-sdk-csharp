@@ -23,33 +23,38 @@ namespace SubscribeToOpenChannel
             client.OnEnterConnected += cn => Console.WriteLine("Connected to RTM");
             client.OnError += ex => Console.Error.WriteLine("Error occurred: " + ex.Message);
 
-            // This event will be signalled when the client receives data
-            var dataReceivedEvent = new ManualResetEvent(initialState: false);
+            client.Start();
 
             // Create subscription observer to observe channel subscription events 
             var observer = new SubscriptionObserver();
 
+            observer.OnEnterSubscribed += (ISubscription sub) => 
+                Console.WriteLine("Subscribed to: " + sub.SubscriptionId);
+            
             observer.OnSubscriptionData += (ISubscription sub, RtmSubscriptionData data) =>
             {
                 foreach(JToken msg in data.Messages) 
                 {
                     Console.WriteLine("Got message: " + msg);
                 }
-
-                dataReceivedEvent.Set();
             };
 
-            observer.OnSubscriptionError += (ISubscription sub, RtmSubscriptionError err) 
-                => Console.Error.WriteLine("Subscription error " + err.Code + ": " + err.Reason);
-            
+            observer.OnSubscribeError += (ISubscription sub, Exception err) => 
+            {
+                var rtmEx = err as SubscribeException;
+                if (rtmEx != null) 
+                    Console.WriteLine("Subscribing failed because RTM replied with the error {0}: {1}", rtmEx.Error.Code, rtmEx.Error.Reason);
+                else 
+                    Console.WriteLine("Subscribing failed: " + err.Message);
+            };
+
+            observer.OnSubscriptionError += (ISubscription sub, RtmSubscriptionError err) => 
+                Console.WriteLine("Subscription failed because RTM sent the error {0}: {1}", err.Code, err.Reason);
+
             client.CreateSubscription(channel, SubscriptionModes.Simple, observer);
 
-            client.Start();
-
-            dataReceivedEvent.WaitOne(TimeSpan.FromSeconds(30));
-
-            // Dispose the client before exiting the program
-            client.Dispose().Wait();
+            // Do not exit the program
+            new ManualResetEvent(false).WaitOne();
         }
     }
 }
