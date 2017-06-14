@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Threading;
+using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Satori.Rtm;
@@ -35,57 +36,74 @@ namespace PublishSubscribe
                 .SetRoleSecretAuthenticator(role, roleSecret)
                 .Build();
 
-            client.OnError += ex => Console.Error.WriteLine("Error occurred: " + ex.Message);
-
+            client.OnError += ex => 
+                Console.Error.WriteLine("Error occurred: " + ex.Message);
+            
             client.Start();
 
-            // This event will be signalled when the client subscribes to the channel
-            var subscribedEvent = new ManualResetEvent(initialState: false);
-
-            // This event will be signalled when the client receives data
-            var dataReceivedEvent = new ManualResetEvent(initialState: false);
-
-            // Create subscription observer to observe channel subscription events 
             var observer = new SubscriptionObserver();
 
-            observer.OnEnterSubscribed += sub => subscribedEvent.Set();
+            observer.OnEnterSubscribed += (ISubscription sub) => 
+                Console.WriteLine("Subscribed to: " + sub.SubscriptionId);
 
-            observer.OnSubscriptionError += (ISubscription sub, RtmSubscriptionError err) 
-                => Console.Error.WriteLine("Subscription error " + err.Code + ": " + err.Reason);
-
-            observer.OnSubscriptionData += (ISubscription sub, RtmSubscriptionData data) =>
+            observer.OnSubscriptionData += (ISubscription sub, RtmSubscriptionData data) => 
             {
-                foreach(JToken token in data.Messages) 
+                foreach(JToken jToken in data.Messages)
                 {
-                    Animal msg = token.ToObject<Animal>();
-                    Console.WriteLine("Hello {0} at ({1})!", msg.Who, string.Join(", ", msg.Where));
+                    Animal msg = jToken.ToObject<Animal>();
+                    string text = string.Format("Who? {0}. Where? At {1},{2}", msg.Who, msg.Where[0], msg.Where[1]);
+                    Console.WriteLine("Got message: " + text);
                 }
-
-                dataReceivedEvent.Set();
             };
 
+            observer.OnSubscribeError += (ISubscription sub, Exception err) => 
+            {
+                var rtmEx = err as SubscribeException;
+                if (rtmEx != null) 
+                    Console.WriteLine("Subscribing failed because RTM replied with the error {0}: {1}", rtmEx.Error.Code, rtmEx.Error.Reason);
+                else 
+                    Console.WriteLine("Subscribing failed: " + err.Message);
+            };
+
+            observer.OnSubscriptionError += (ISubscription sub, RtmSubscriptionError err) => 
+                Console.WriteLine("Subscription failed because RTM sent the error {0}: {1}", err.Code, err.Reason);
+
+            // Assume that someone already publishes animals to the channel 'animals'
             client.CreateSubscription(channel, SubscriptionModes.Simple, observer);
 
-            subscribedEvent.WaitOne(TimeSpan.FromSeconds(30));
+            PublishLoop(client).Wait();
+        }
 
-            var message = new Animal
+        private static async Task PublishLoop(IRtmClient client)
+        {
+            var random = new Random();
+
+            while(true)
             {
-                Who = "zebra",
-                Where = new float[] { 34.134358f, -118.321506f }
-            };
-
-            // Publish message to the subscribed channel
-            client.Publish(channel, message, Ack.Yes)
-                .ContinueWith(t =>
+                try 
                 {
-                    if (t.Exception != null)
-                        Console.Error.WriteLine("Publishing failed: " + t.Exception);
-                });
+                    var message = new Animal 
+                    {
+                        Who = "zebra",
+                        Where =  new float[] {
+                            34.134358f + (float)random.NextDouble(), 
+                            -118.321506f + (float)random.NextDouble()
+                        }
+                    };
 
-            dataReceivedEvent.WaitOne(TimeSpan.FromSeconds(30));
+                    RtmPublishReply reply = await client.Publish(channel, message, Ack.Yes);
+                }
+                catch(PduException ex) 
+                {
+                    Console.WriteLine("Publishing failed because RTM replied with the error {0}: {1}", ex.Error.Code, ex.Error.Reason);
+                }
+                catch (Exception ex) 
+                {
+                    Console.WriteLine("Publishing failed: " + ex.Message);
+                }
 
-            // Dispose the client before exiting the app
-            client.Dispose().Wait();
+                await Task.Delay(millisecondsDelay: 2000);
+            }
         }
     }
 }

@@ -47,7 +47,7 @@ namespace Authentication
 
             connectedEvent.WaitOne(TimeSpan.FromSeconds(30));
 
-            // Dispose the client before exiting the app
+            // Dispose the client before exiting the program
             client.Dispose().Wait();
         }
     }
