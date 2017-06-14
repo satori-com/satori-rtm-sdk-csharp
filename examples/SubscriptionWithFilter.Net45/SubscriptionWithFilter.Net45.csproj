@@ -3,10 +3,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{C061C9B4-9ED5-484B-8DB9-B8398ACABEFF}</ProjectGuid>
+    <ProjectGuid>{C349871D-3705-4DAD-952B-27B1B387F30E}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>PublishSubscribeSnippets.Net45</RootNamespace>
-    <AssemblyName>PublishSubscribeSnippets.Net45</AssemblyName>
+    <RootNamespace>SubscriptionWithFilter</RootNamespace>
+    <AssemblyName>SubscriptionWithFilter</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -33,19 +33,22 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\..\.packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="System.Buffers">
+      <HintPath>..\..\.packages\System.Buffers.4.3.0\lib\netstandard1.1\System.Buffers.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\..\sources\Satori.RTM.Net45\Satori.RTM.Net45.csproj">
       <Project>{99629B45-BE1C-460E-A9D1-CBBBAA34E277}</Project>
       <Name>Satori.RTM.Net45</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

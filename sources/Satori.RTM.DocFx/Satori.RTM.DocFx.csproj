@@ -28,8 +28,7 @@
   </PropertyGroup>
 
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Import Project="..\..\.packages\docfx.console.2.16.5\tools\docfx.console.targets"
-    Condition="Exists('..\..\.packages\docfx.console.2.16.5\tools\docfx.console.targets')" />
+  <Import Project="..\..\.packages\docfx.console.2.16.5\tools\docfx.console.targets" Condition="Exists('..\..\.packages\docfx.console.2.16.5\tools\docfx.console.targets')" />
     
   <Target Name="Build" DependsOnTargets="CreateDirectories">
     <Message Text="Generating docs..." />
