@@ -1,8 +1,8 @@
 ﻿#pragma warning disable 1591
 
-using Satori.Common;
 using System;
 using System.Threading.Tasks;
+using Satori.Common;
 
 namespace Satori.Rtm
 {
@@ -23,6 +23,5 @@ namespace Satori.Rtm
                 }
             }, TaskContinuationOptions.ExecuteSynchronously);
         }
-
     }
 }

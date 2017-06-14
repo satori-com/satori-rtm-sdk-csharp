@@ -11,6 +11,7 @@ namespace Satori.Common
             {
                 return Unwrap(exn.InnerException);
             }
+
             if (exn.InnerExceptions != null && exn.InnerExceptions.Count == 1)
             {
                 return Unwrap(exn.InnerExceptions[0]);

@@ -92,11 +92,10 @@ public class Quickstart : MonoBehaviour
             // The same observer can be shared between several subscriptions. 
             var observer = new SubscriptionObserver();
 
-			observer.OnEnterSubscribing += (ISubscription sub, RtmSubscribeRequest req) => ShowText("Subscribing to " + req.Channel); 
 			observer.OnSubscribeError += (sub, ex) => 
             {
 				ShowText("ERROR: subscribing failed. " +
-				"Check channel subscribe permissions in Dev Portal. \n" + ex); 
+                    "Check channel subscribe permissions in Dev Portal. \n" + ex); 
 			};
 
 			// when subscription is establshed (confirmed by RTM)
