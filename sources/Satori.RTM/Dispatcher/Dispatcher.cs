@@ -13,7 +13,7 @@ namespace Satori.Rtm
 
         public Logger Log { get; } = Client.DefaultLoggers.Dispatcher;
 
-        public void Post(Action act)
+        public void Enqueue(Action act)
         {
             lock (_queue)
             {
@@ -22,9 +22,17 @@ namespace Satori.Rtm
                     Log.W("Queue is too big: {0}", _queue.Count);
                 }
 
+                _queue.Enqueue(act);
+            }
+        }
+
+        public void Post(Action act)
+        {
+            lock (_queue)
+            {
                 if (_acquired)
                 {
-                    _queue.Enqueue(act);
+                    Enqueue(act);
                     return;
                 }
 
@@ -32,6 +40,21 @@ namespace Satori.Rtm
             }
 
             ProcessQueue(act);
+        }
+
+        public void ProcessQueue()
+        {
+            lock (_queue)
+            {
+                if (_acquired)
+                {
+                    return;
+                }
+
+                _acquired = true;
+            }
+
+            ProcessQueue(delegate { });
         }
 
         public ISuccessfulAwaiter<bool> Yield()

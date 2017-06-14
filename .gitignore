@@ -8,4 +8,8 @@ TestResult.xml
 *.user
 Resource.designer.cs
 
+**/Temp
+**/Library
+*.unitypackage
+
 **/StyleCop.Cache

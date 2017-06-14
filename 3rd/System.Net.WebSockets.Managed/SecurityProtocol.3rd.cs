@@ -10,10 +10,18 @@ namespace System.Net
     {
         // SSLv2 and SSLv3 are considered insecure and will not be supported by the underlying implementations.
         public const SslProtocols AllowedSecurityProtocols =
+            #if !NET_4_5_COMPAT
             SslProtocols.Tls | SslProtocols.Tls11 | SslProtocols.Tls12;
+            #else
+            SslProtocols.Tls;
+            #endif
 
         public const SslProtocols DefaultSecurityProtocols =
+            #if !NET_4_5_COMPAT
             SslProtocols.Tls | SslProtocols.Tls11 | SslProtocols.Tls12;
+            #else
+            SslProtocols.Tls;
+            #endif
 
         public const SslProtocols SystemDefaultSecurityProtocols = SslProtocols.None;
 

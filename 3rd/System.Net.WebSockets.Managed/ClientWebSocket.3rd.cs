@@ -5,6 +5,7 @@
 #pragma warning disable 1591
 
 using System.Diagnostics;
+using System.Net.Security;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -26,6 +27,9 @@ namespace System.Net.WebSockets.Managed
         // NOTE: this is really an InternalState value, but Interlocked doesn't support
         //       operations on values of enum types.
         private int _state;
+
+        public RemoteCertificateValidationCallback ValidationCallback;
+        public LocalCertificateSelectionCallback SelectionCallback;
 
         public ClientWebSocket ()
         {
@@ -123,6 +127,25 @@ namespace System.Net.WebSockets.Managed
                 throw new ArgumentException(SR.net_WebSockets_Scheme, nameof(uri));
             }
 
+            //HOTFIX: Port is set to -1 on Unity if not specified in original URI string
+            if (uri.Port < 0) 
+            {
+                if (uri.Scheme == UriScheme.Ws)
+                {
+                    uri = new UriBuilder(uri) 
+                    {
+                        Port = 80
+                    }.Uri;
+                } 
+                else if (uri.Scheme == UriScheme.Wss)
+                {
+                    uri = new UriBuilder(uri) 
+                    {
+                        Port = 443
+                    }.Uri;
+                }
+            }
+
             // Check that we have not started already
             var priorState = (InternalState)Interlocked.CompareExchange(ref _state, (int)InternalState.Connecting, (int)InternalState.Created);
             if (priorState == InternalState.Disposed)
@@ -141,6 +164,8 @@ namespace System.Net.WebSockets.Managed
         private async Task ConnectAsyncCore (Uri uri, CancellationToken cancellationToken)
         {
             _innerWebSocket = WebSocketHandle.Create();
+            _innerWebSocket.ValidationCallback = this.ValidationCallback;
+            _innerWebSocket.SelectionCallback = this.SelectionCallback;
 
             try
             {

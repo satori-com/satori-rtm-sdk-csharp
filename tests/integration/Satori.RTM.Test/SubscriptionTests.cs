@@ -21,8 +21,8 @@ namespace Satori.Rtm.Test
             var queue = new TestSubscriptionObserverQueue();
             queue.ObserveSubscriptionState();
 
-            await client.Start();
-            await client.CreateSubscription(channel, SubscriptionModes.Advanced, queue);
+            client.Start();
+            client.CreateSubscription(channel, SubscriptionModes.Advanced, queue);
 
             Assert.That(await queue.Dequeue(), Is.EqualTo("rtm:created"));
             Assert.That(await queue.Dequeue(), Is.EqualTo("rtm:enter-unsubscribed"));
@@ -55,7 +55,7 @@ namespace Satori.Rtm.Test
             var client = (RtmClient)new RtmClientBuilder(Config.Endpoint, Config.AppKey).Build();
             var queue = client.CreateStateQueue();
 
-            await client.Start();
+            client.Start();
             Assert.That(await queue.Dequeue(), Is.EqualTo("leave-stopped"));
             Assert.That(await queue.Dequeue(), Is.EqualTo("enter-connecting"));
             Assert.That(await queue.Dequeue(), Is.EqualTo("leave-connecting"));
@@ -96,7 +96,7 @@ namespace Satori.Rtm.Test
 
             var subClient = new RtmClientBuilder(Config.Endpoint, Config.AppKey).Build();
             await subClient.Yield();
-            await subClient.Start();
+            subClient.Start();
             var subData = new TestSubscriptionObserverQueue();
             subData.ObserveSubscriptionPdu();
             await subClient.CreateSubscriptionAndWaitSubscribed(channel, null, subData);
@@ -109,7 +109,7 @@ namespace Satori.Rtm.Test
             Assert.That(noAckTask.Status, Is.EqualTo(TaskStatus.WaitingForActivation));
             Assert.That(withAckTask.Status, Is.EqualTo(TaskStatus.WaitingForActivation));
 
-            await pubClient.Start();
+            pubClient.Start();
             await noAckTask.ConfigureAwait(false);
             await withAckTask.ConfigureAwait(false);
 
@@ -131,12 +131,12 @@ namespace Satori.Rtm.Test
             subObs.ObserveSubscriptionPdu();
 
             await client.Yield();
-            await client.Start();
+            client.Start();
             Assert.That(await queue.Dequeue(), Is.EqualTo("leave-stopped"));
             Assert.That(await queue.Dequeue(), Is.EqualTo("enter-connecting"));
             Assert.That(await queue.Dequeue(), Is.EqualTo("leave-connecting"));
             Assert.That(await queue.Dequeue(), Is.EqualTo("enter-connected"));
-            await client.CreateSubscription(channel, SubscriptionModes.Advanced, subObs);
+            client.CreateSubscription(channel, SubscriptionModes.Advanced, subObs);
             Assert.That(await queue.Dequeue(), Is.EqualTo("rtm:created"));
             Assert.That(await queue.Dequeue(), Is.EqualTo("rtm:enter-unsubscribed"));
             Assert.That(await queue.Dequeue(), Is.EqualTo("rtm:leave-unsubscribed"));
@@ -158,7 +158,7 @@ namespace Satori.Rtm.Test
             Assert.That(await queue.Dequeue(), Is.EqualTo("rtm:enter-unsubscribed"));
             Assert.That(await queue.Dequeue(), Is.EqualTo("leave-connected"));
             Assert.That(await queue.Dequeue(), Is.EqualTo("enter-awaiting"));
-            await client.Start();
+            client.Start();
             var sw = new Stopwatch();
             sw.Start();
             Assert.That(await queue.Dequeue(), Is.EqualTo("leave-awaiting"));
@@ -208,16 +208,16 @@ namespace Satori.Rtm.Test
                 subscription.Enqueue(s.Position);
             };
 
-            await client.Start();
-            await client.CreateSubscription(channel, SubscriptionModes.Advanced, subObs);
+            client.Start();
+            client.CreateSubscription(channel, SubscriptionModes.Advanced, subObs);
             var pos = await subscription.Dequeue().ConfigureAwait(false);
 
             await client.Publish(channel, "message-1", Ack.Yes).ConfigureAwait(false);
             await subData.DequeueAndVerify(channel, "message-1").ConfigureAwait(false);
             await client.Yield();
 
-            await client.RemoveSubscription(channel);
-            await client.CreateSubscription(
+            client.RemoveSubscription(channel);
+            client.CreateSubscription(
                 channel, 
                 new SubscriptionConfig(SubscriptionModes.Advanced, position: pos, observer: subObs));
             await subData.DequeueAndVerify(channel, "message-1").ConfigureAwait(false);
@@ -232,18 +232,18 @@ namespace Satori.Rtm.Test
 
             var obs = new SubscriptionObserver();
             var subData = obs.CreateSubscriptionDataQueue();
-            await client.Start();
+            client.Start();
 
-            await client.CreateSubscriptionAndWaitSubscribed(channel, null, obs).ConfigureAwait(false);
+            await client.CreateSubscriptionAndWaitSubscribed(channel, null, obs);
             await client.Publish(channel, "first-message", Ack.Yes).ConfigureAwait(false);
             var pos = (await subData.DequeueAndVerify(channel, "first-message").ConfigureAwait(false)).Position;
             await client.Publish(channel, "second-message", Ack.Yes).ConfigureAwait(false);
             await subData.DequeueAndVerify(channel, "second-message").ConfigureAwait(false);
-            await client.RemoveSubscription(channel);
+            client.RemoveSubscription(channel);
             await client.CreateSubscriptionAndWaitSubscribed(channel, pos, obs).ConfigureAwait(false);
             await subData.DequeueAndVerify(channel, "second-message").ConfigureAwait(false);
-            await client.RemoveSubscription(channel);
-            await client.Stop();
+            client.RemoveSubscription(channel);
+            client.Stop();
             await client.Dispose();
         }
 
@@ -257,10 +257,10 @@ namespace Satori.Rtm.Test
                 .SetConnector((url, ct) => TestConnection.Connect(url, ct, reqs, reps))
                 .Build();
 
-            await client.Start();
+            client.Start();
 
             // get position
-            await client.CreateSubscription(
+            client.CreateSubscription(
                 channel, 
                 new SubscriptionConfig(SubscriptionModes.Simple));
 
@@ -270,7 +270,7 @@ namespace Satori.Rtm.Test
             Assert.That(rep1.Action, Is.EqualTo("rtm/subscribe/ok"));
             var pos = rep1.As<RtmSubscribeReply>().Body.Position;
 
-            await client.RemoveSubscription(channel);
+            client.RemoveSubscription(channel);
             Assert.That((await reqs.Dequeue()).Action, Is.EqualTo("rtm/unsubscribe"));
             Assert.That((await reps.Dequeue()).Action, Is.EqualTo("rtm/unsubscribe/ok"));
 
@@ -278,7 +278,7 @@ namespace Satori.Rtm.Test
             var sub = await client.GetSubscription(channel);
             Assert.That(sub, Is.Null);
 
-            await client.CreateSubscription(
+            client.CreateSubscription(
                 channel, 
                 new SubscriptionConfig(SubscriptionModes.Simple, position: pos));
 
@@ -317,10 +317,10 @@ namespace Satori.Rtm.Test
                 .SetConnector((url, ct) => TestConnection.Connect(url, ct, reqs, reps))
                 .Build();
 
-            await client.Start();
+            client.Start();
 
             // get position
-            await client.CreateSubscription(
+            client.CreateSubscription(
                 channel, 
                 new SubscriptionConfig(SubscriptionModes.Simple));
 
@@ -330,7 +330,7 @@ namespace Satori.Rtm.Test
             Assert.That(rep1.Action, Is.EqualTo("rtm/subscribe/ok"));
             var pos1 = rep1.As<RtmSubscribeReply>().Body.Position;
 
-            await client.RemoveSubscription(channel);
+            client.RemoveSubscription(channel);
             Assert.That((await reqs.Dequeue()).Action, Is.EqualTo("rtm/unsubscribe"));
             Assert.That((await reps.Dequeue()).Action, Is.EqualTo("rtm/unsubscribe/ok"));
 
@@ -338,7 +338,7 @@ namespace Satori.Rtm.Test
             var sub = await client.GetSubscription(channel);
             Assert.That(sub, Is.Null); // subscription is removed
 
-            await client.CreateSubscription(
+            client.CreateSubscription(
                 channel, 
                 new SubscriptionConfig(SubscriptionModes.Advanced, position: pos1));
 
@@ -399,14 +399,14 @@ namespace Satori.Rtm.Test
             var subObs = new TestSubscriptionObserverQueue(queue);
             subObs.ObserveSubscriptionState();
 
-            await client.Start();
+            client.Start();
             await queue.AssertDequeue(
                 "leave-stopped", 
                 "enter-connecting", 
                 "leave-connecting", 
                 "enter-connected");
 
-            await client.CreateSubscription(channel, SubscriptionModes.Advanced, subObs);
+            client.CreateSubscription(channel, SubscriptionModes.Advanced, subObs);
             await queue.AssertDequeue(
                 "rtm:created", 
                 "rtm:enter-unsubscribed", 
@@ -415,7 +415,7 @@ namespace Satori.Rtm.Test
                 "rtm:leave-subscribing", 
                 "rtm:enter-subscribed");
 
-            await client.RemoveSubscription(channel);
+            client.RemoveSubscription(channel);
 
             await queue.AssertDequeue(
                 "rtm:leave-subscribed", 
@@ -434,6 +434,76 @@ namespace Satori.Rtm.Test
             await Task.Delay(200);
             await client.Yield();
             Assert.That(queue.TryDequeue(), Is.EqualTo(null));
+
+            await client.Dispose();
+        }
+
+        [Test]
+        public async Task CreateSubscriptionThatAlreadyExists()
+        {
+            var client = new RtmClientBuilder(Config.Endpoint, Config.AppKey).Build();
+            await client.StartAndWaitConnected();
+
+            var channel = GenerateRandomChannelName();
+
+            client.CreateSubscription(channel, SubscriptionModes.Advanced, null);
+
+            var queue = client.CreateStateQueue();
+            client.SetClientErrorObserver(queue);
+            var subObserver = new TestSubscriptionObserverQueue(queue);
+            subObserver.ObserveAll();
+            
+            client.CreateSubscription(channel, SubscriptionModes.Advanced, subObserver);
+
+            await queue.AssertDequeue("rtm:subscribe-error:InvalidOperationException");
+            await queue.AssertEmpty(client, millis: 200);
+
+            await client.Dispose();
+        }
+
+        [Test]
+        public async Task CreateSubscriptionToRestrictedChannel()
+        {
+            var client = new RtmClientBuilder(Config.Endpoint, Config.AppKey).Build();
+            await client.StartAndWaitConnected();
+
+            var channel = Config.AuthRestrictedChannel;
+
+            var queue = client.CreateStateQueue();
+            client.SetClientErrorObserver(queue);
+            var subObserver = new TestSubscriptionObserverQueue(queue);
+            subObserver.ObserveAll();
+
+            client.CreateSubscription(channel, SubscriptionModes.Advanced, subObserver);
+
+            await queue.AssertDequeue(
+                "rtm:created",
+                "rtm:enter-unsubscribed",
+                "rtm:leave-unsubscribed",
+                "rtm:enter-subscribing",
+                "rtm:subscribe-error:RtmSubscribeException:authorization_denied",
+                "rtm:leave-subscribing",
+                "rtm:enter-failed");
+            await queue.AssertEmpty(client, millis: 200);
+
+            await client.Dispose();
+        }
+
+        [Test]
+        public async Task RemoveSubscriptionThatDoesntExist()
+        {
+            var client = new RtmClientBuilder(Config.Endpoint, Config.AppKey).Build();
+            await client.StartAndWaitConnected();
+
+            var channel = GenerateRandomChannelName();
+
+            var queue = client.CreateStateQueue();
+            client.SetClientErrorObserver(queue);
+
+            client.RemoveSubscription(channel);
+
+            await queue.AssertDequeue("error:InvalidOperationException");
+            await queue.AssertEmpty(client, millis: 200);
 
             await client.Dispose();
         }

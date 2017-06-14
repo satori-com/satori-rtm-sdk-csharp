@@ -29,7 +29,15 @@ namespace System
         public static readonly string net_WebSockets_InvalidCloseStatusCode = "The close status code '{0}' is reserved for system use only and cannot be specified when calling this method.";
         public static readonly string net_WebSockets_InvalidCloseStatusDescription = "The close status description '{0}' is too long. The UTF8-representation of the status description must not be longer than {1} bytes.";
         public static readonly string net_WebSockets_UnsupportedPlatform = "The WebSocket protocol is not supported on this platform.";
-
+        public static readonly string net_WebSockets_Generic = "An internal WebSocket error occurred. Please see the innerException, if present, for more details. ";
+        public static readonly string net_WebSockets_InvalidMessageType_Generic = "The received  message type is invalid after calling {0}. {0} should only be used if no more data is expected from the remote endpoint. Use '{1}' instead to keep being able to receive data but close the output channel.";
+        public static readonly string net_Websockets_WebSocketBaseFaulted = "An exception caused the WebSocket to enter the Aborted state. Please see the InnerException, if present, for more details.";
+        public static readonly string net_WebSockets_NotAWebSocket_Generic = "A WebSocket operation was called on a request or response that is not a WebSocket.";
+        public static readonly string net_WebSockets_UnsupportedWebSocketVersion_Generic = "Unsupported WebSocket version.";
+        public static readonly string net_WebSockets_UnsupportedProtocol_Generic = "The WebSocket request or response operation was called with unsupported protocol(s). ";
+        public static readonly string net_WebSockets_HeaderError_Generic = "The WebSocket request or response contained unsupported header(s). ";
+        public static readonly string net_WebSockets_ConnectionClosedPrematurely_Generic = "The remote party closed the WebSocket connection without completing the close handshake.";
+        public static readonly string net_WebSockets_InvalidState_Generic = "The WebSocket instance cannot be used for communication because it has been transitioned into an invalid state.";
 
         // This method is used to decide if we need to append the exception message parameters to the message when calling SR.Format.
         // by default it returns false.
@@ -45,7 +53,7 @@ namespace System
             {
                 if (UsingResourceKeys())
                 {
-                    return resourceFormat + string.Join(", ", args);
+                    return resourceFormat + StringEx.Join(", ", args);
                 }
 
                 return string.Format(resourceFormat, args);
@@ -58,7 +66,7 @@ namespace System
         {
             if (UsingResourceKeys())
             {
-                return string.Join(", ", resourceFormat, p1);
+                return StringEx.Join(", ", resourceFormat, p1);
             }
 
             return string.Format(resourceFormat, p1);
@@ -68,7 +76,7 @@ namespace System
         {
             if (UsingResourceKeys())
             {
-                return string.Join(", ", resourceFormat, p1, p2);
+                return StringEx.Join(", ", resourceFormat, p1, p2);
             }
 
             return string.Format(resourceFormat, p1, p2);
@@ -78,7 +86,7 @@ namespace System
         {
             if (UsingResourceKeys())
             {
-                return string.Join(", ", resourceFormat, p1, p2, p3);
+                return StringEx.Join(", ", resourceFormat, p1, p2, p3);
             }
 
             return string.Format(resourceFormat, p1, p2, p3);

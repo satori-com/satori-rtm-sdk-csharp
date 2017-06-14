@@ -33,9 +33,9 @@ namespace Satori.Rtm.Test
             RtmSubscriptionInfo subInfo = null;
             obs.OnSubscriptionInfo += (_, info) => subInfo = info; 
 
-            await client.CreateSubscription(channel, SubscriptionModes.Simple, obs);
+            client.CreateSubscription(channel, SubscriptionModes.Simple, obs);
 
-            await client.Start();
+            client.Start();
 
             await queue.AssertDequeue(
                 "rtm:created",
@@ -84,12 +84,12 @@ namespace Satori.Rtm.Test
                 queue.Enqueue($"error:{ex.Message}");
             };
 
-            await client.CreateSubscription(channel, SubscriptionModes.Advanced, obs);
+            client.CreateSubscription(channel, SubscriptionModes.Advanced, obs);
 
             RtmSubscriptionError subError = null;
             obs.OnSubscriptionError += (_, error) => subError = error;
 
-            await client.Start();
+            client.Start();
 
             await queue.AssertDequeue(
                 "rtm:created",

@@ -41,42 +41,19 @@ namespace Satori.Rtm.Client
 
         public IDispatcher Dispatcher { get; private set; }
 
-        public async Task Start()
+        public async void Start()
         {
-            Log.V("Start method is dispatched");
-            await this.Yield();
-            Log.V("Start method is executing");
-            if (_state == null)
-            {
-                Log.V("Start method is ignored because client is disposed");
-            }
-            else
-            {
-                var appliedState = _state.Start();
-                Log.V("Start method is completed, applied state: {0}", appliedState);
-            }
+            await StartImpl().ConfigureAwait(false);
         }
 
-        public async Task Stop()
+        public async void Stop()
         {
-            Log.V("Stop method is dispatched");
-            await this.Yield();
-            Log.V("Stop() method is executing");
-            if (_state == null)
-            {
-                Log.V("Stop method is ignored because client is disposed");
-            }
-            else
-            {
-                var appliedState = _state.Stop();
-                Log.V("Stop method is completed, applied state: {0}", appliedState);
-            }
+            await StopImpl().ConfigureAwait(false);
         }
 
-        public async Task Restart()
+        public async void Restart()
         {
-            await Stop();
-            await Start();
+            await RestartImpl().ConfigureAwait(false);
         }
 
         public async Task Dispose()
@@ -95,6 +72,11 @@ namespace Satori.Rtm.Client
             }
 
             Log.V("Dispose method is completed");
+        }
+
+        public void Dispose(Action onCompleted)
+        {
+            Dispose().ContinueWith(t => onCompleted(), TaskContinuationOptions.ExecuteSynchronously);
         }
 
         public async Task<IConnection> GetConnection()
@@ -119,14 +101,19 @@ namespace Satori.Rtm.Client
             return await tcs.Task;
         }
 
+        public void GetConnection(Action<IConnection> onSuccess, Action<Exception> onFailure)
+        {
+            GetConnection().ContinueOnDispatcher(Dispatcher, onSuccess, onFailure);
+        }
+
         #region RTM
 
-        public Task CreateSubscription(
+        public void CreateSubscription(
             string channel, 
             SubscriptionModes mode,
             ISubscriptionObserver observer)
         {
-            return _rtmModule.CreateSubscription(
+            _rtmModule.CreateSubscription(
                 channel, 
                 new SubscriptionConfig(mode)
                 {
@@ -134,14 +121,19 @@ namespace Satori.Rtm.Client
                 });
         }
 
-        public Task CreateSubscription(string channelOrSubId, SubscriptionConfig subscriptionConfig)
+        public void CreateSubscription(string channel, ISubscriptionObserver observer)
         {
-            return _rtmModule.CreateSubscription(channelOrSubId, subscriptionConfig);
+            CreateSubscription(channel, SubscriptionModes.Simple, observer);
+        }
+        
+        public void CreateSubscription(string channelOrSubId, SubscriptionConfig subscriptionConfig)
+        {
+            _rtmModule.CreateSubscription(channelOrSubId, subscriptionConfig);
         }
 
-        public Task RemoveSubscription(string channelOrSubId)
+        public void RemoveSubscription(string channelOrSubId)
         {
-            return _rtmModule.RemoveSubscription(channelOrSubId);
+            _rtmModule.RemoveSubscription(channelOrSubId);
         }
 
         public Task<ISubscription> GetSubscription(string channelOrSubId)
@@ -149,9 +141,29 @@ namespace Satori.Rtm.Client
             return _rtmModule.GetSubscription(channelOrSubId);
         }
 
+        public void GetSubscription(string channelOrSubId, Action<ISubscription> onSuccess, Action<Exception> onFailure)
+        {
+            GetSubscription(channelOrSubId).ContinueOnDispatcher(Dispatcher, onSuccess, onFailure);
+        }
+
         public Task<RtmPublishReply> Publish<T>(string channel, T message, Ack ack)
         {
             return _rtmModule.Publish(channel, message, ack);
+        }
+
+        public void Publish<T>(string channel, T message, Ack ack, Action<RtmPublishReply> onSuccess, Action<Exception> onFailure)
+        {
+            Publish(channel, message, ack).ContinueOnDispatcher(Dispatcher, onSuccess, onFailure);
+        }
+
+        public Task<RtmPublishReply> Publish<T>(string channel, T message)
+        {
+            return Publish(channel, message, Ack.Yes);
+        }
+
+        public void Publish<T>(string channel, T message, Action<RtmPublishReply> onSuccess, Action<Exception> onFailure)
+        {
+            Publish(channel, message).ContinueOnDispatcher(Dispatcher, onSuccess, onFailure);
         }
 
         public Task<RtmReadReply<T>> Read<T>(string channel)
@@ -159,9 +171,19 @@ namespace Satori.Rtm.Client
             return _rtmModule.Read<T>(channel);
         }
 
+        public void Read<T>(string channel, Action<RtmReadReply<T>> onSuccess, Action<Exception> onFailure)
+        {
+            Read<T>(channel).ContinueOnDispatcher(Dispatcher, onSuccess, onFailure);
+        }
+
         public Task<RtmReadReply<T>> Read<T>(RtmReadRequest request)
         {
             return _rtmModule.Read<T>(request);
+        }
+
+        public void Read<T>(RtmReadRequest request, Action<RtmReadReply<T>> onSuccess, Action<Exception> onFailure)
+        {
+            Read<T>(request).ContinueOnDispatcher(Dispatcher, onSuccess, onFailure);
         }
 
         public Task<RtmWriteReply> Write<T>(string channel, T message, Ack ack)
@@ -169,9 +191,29 @@ namespace Satori.Rtm.Client
             return _rtmModule.Write(channel, message, ack);
         }
 
+        public void Write<T>(string channel, T message, Ack ack, Action<RtmWriteReply> onSuccess, Action<Exception> onFailure)
+        {
+            Write(channel, message, ack).ContinueOnDispatcher(Dispatcher, onSuccess, onFailure);
+        }
+
+        public Task<RtmWriteReply> Write<T>(string channel, T message)
+        {
+            return Write(channel, message, Ack.Yes);
+        }
+
+        public void Write<T>(string channel, T message, Action<RtmWriteReply> onSuccess, Action<Exception> onFailure)
+        {
+            Write(channel, message).ContinueOnDispatcher(Dispatcher, onSuccess, onFailure);
+        }
+
         public Task<RtmWriteReply> Write<T>(RtmWriteRequest<T> request, Ack ack)
         {
             return _rtmModule.Write(request, ack);
+        }
+
+        public void Write<T>(RtmWriteRequest<T> request, Ack ack, Action<RtmWriteReply> onSuccess, Action<Exception> onFailure)
+        {
+            Write(request, ack).ContinueOnDispatcher(Dispatcher, onSuccess, onFailure);
         }
 
         public Task<RtmDeleteReply> Delete(string channel, Ack ack)
@@ -179,7 +221,60 @@ namespace Satori.Rtm.Client
             return _rtmModule.Delete(channel, ack);
         }
 
+        public void Delete(string channel, Ack ack, Action<RtmDeleteReply> onSuccess, Action<Exception> onFailure)
+        {
+            Delete(channel, ack).ContinueOnDispatcher(Dispatcher, onSuccess, onFailure);
+        }
+
+        public Task<RtmDeleteReply> Delete(string channel)
+        {
+            return Delete(channel, Ack.Yes);
+        }
+
+        public void Delete(string channel, Action<RtmDeleteReply> onSuccess, Action<Exception> onFailure)
+        {
+            Delete(channel).ContinueOnDispatcher(Dispatcher, onSuccess, onFailure);
+        }
+
         #endregion
+
+        internal async Task StartImpl()
+        {
+            Log.V("Start method is dispatched");
+            await this.Yield();
+            Log.V("Start method is executing");
+            if (_state == null)
+            {
+                Log.V("Start method is ignored because client is disposed");
+            }
+            else
+            {
+                var appliedState = _state.Start();
+                Log.V("Start method is completed, applied state: {0}", appliedState);
+            }
+        }
+
+        internal async Task StopImpl()
+        {
+            Log.V("Stop method is dispatched");
+            await this.Yield();
+            Log.V("Stop() method is executing");
+            if (_state == null)
+            {
+                Log.V("Stop method is ignored because client is disposed");
+            }
+            else
+            {
+                var appliedState = _state.Stop();
+                Log.V("Stop method is completed, applied state: {0}", appliedState);
+            }
+        }
+
+        internal async Task RestartImpl()
+        {
+            await StopImpl();
+            await StartImpl();
+        }
 
         internal ISuccessfulAwaiter<State> GetStateAsync()
         {

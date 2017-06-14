@@ -36,7 +36,7 @@ namespace System.Net.WebSockets
                     }
                 }
 
-                validStatesText = string.Join(", ", validStates);
+                validStatesText = StringEx.Join(", ", validStates);
             }
 
             throw new WebSocketException(
@@ -46,7 +46,7 @@ namespace System.Net.WebSockets
 
         internal static void ValidateSubprotocol (string subProtocol)
         {
-            if (string.IsNullOrWhiteSpace(subProtocol))
+            if (StringEx.IsNullOrWhiteSpace(subProtocol))
             {
                 throw new ArgumentException(SR.net_WebSockets_InvalidEmptySubProtocol, nameof(subProtocol));
             }

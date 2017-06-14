@@ -149,7 +149,7 @@ namespace Satori.Rtm.Client
 
                     if (error != null)
                     {
-                        Fsm.NotifyError(error);
+                        Fsm.NotifyError(TaskHelper.Unwrap(error));
                     }
 
                     _process.Succeed(new Awaiting(this));

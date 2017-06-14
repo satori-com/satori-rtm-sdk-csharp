@@ -1,5 +1,7 @@
 #pragma warning disable 1591
 
+using System;
+
 namespace Satori.Rtm.Client
 {
     /// <summary>
@@ -168,5 +170,15 @@ namespace Satori.Rtm.Client
         /// Called when the subscription receives an error. See <see cref="RtmSubscriptionError"/> class. 
         /// </summary>
         void OnSubscriptionError(ISubscription subscription, RtmSubscriptionError error);
+
+        /// <summary>
+        /// Called when the subscribe request fails. See <see cref="RtmSubscribeError"/> class. 
+        /// </summary>
+        void OnSubscribeError(ISubscription subscription, Exception error);
+
+        /// <summary>
+        /// Called when the unsubscribe request fails. See <see cref="RtmUnsubscribeError"/> class. 
+        /// </summary>
+        void OnUnsubscribeError(ISubscription subscription, Exception error);
     }
 }

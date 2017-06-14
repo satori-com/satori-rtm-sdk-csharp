@@ -25,14 +25,14 @@ namespace Satori.Rtm.Test
                 .Build();
 
             var queue = client.CreateStateQueue();
-            await client.Start();
+            client.Start();
 
             Assert.That(await queue.Dequeue(), Is.EqualTo("leave-stopped"));
             Assert.That(await queue.Dequeue(), Is.EqualTo("enter-connecting"));
             Assert.That(await queue.Dequeue(), Is.EqualTo("leave-connecting"));
             Assert.That(await queue.Dequeue(), Is.EqualTo("enter-connected"));
 
-            await client.Stop();
+            client.Stop();
             Assert.That(await queue.Dequeue(), Is.EqualTo("leave-connected"));
 
             await client.Dispose();
@@ -49,7 +49,7 @@ namespace Satori.Rtm.Test
             client.OnError += ex => error = ex is AggregateException ? ex.InnerException : ex;
 
             var queue = client.CreateStateQueue();
-            await client.Start();
+            client.Start();
             Assert.That(await queue.Dequeue(), Is.EqualTo("leave-stopped"));
             Assert.That(await queue.Dequeue(), Is.EqualTo("enter-connecting"));
             Assert.That(await queue.Dequeue(), Is.EqualTo("leave-connecting"));
@@ -58,7 +58,7 @@ namespace Satori.Rtm.Test
 
             Assert.That(await queue.Dequeue(), Is.EqualTo("enter-awaiting"));
 
-            await client.Stop();
+            client.Stop();
             Assert.That(await queue.Dequeue(), Is.EqualTo("leave-awaiting"));
             Assert.That(await queue.Dequeue(), Is.EqualTo("enter-stopped"));
 
@@ -76,7 +76,7 @@ namespace Satori.Rtm.Test
             client.OnError += ex => error = ex is AggregateException ? ex.InnerException : ex;
 
             var queue = client.CreateStateQueue();
-            await client.Start();
+            client.Start();
             Assert.That(await queue.Dequeue(), Is.EqualTo("leave-stopped"));
             Assert.That(await queue.Dequeue(), Is.EqualTo("enter-connecting"));
             Assert.That(await queue.Dequeue(), Is.EqualTo("leave-connecting"));
@@ -96,14 +96,14 @@ namespace Satori.Rtm.Test
                 .Build();
 
             var queue = client.CreateStateQueue();
-            await client.Start();
+            client.Start();
 
             var channel = GenerateRandomChannelName();
 
             var subObs = new TestSubscriptionObserverQueue(queue);
             subObs.ObserveSubscriptionState();
             subObs.ObserveSubscriptionPdu();
-            await client.CreateSubscription(channel, SubscriptionModes.Advanced, subObs);
+            client.CreateSubscription(channel, SubscriptionModes.Advanced, subObs);
 
             Assert.That(await queue.Dequeue(), Is.EqualTo("leave-stopped"));
             Assert.That(await queue.Dequeue(), Is.EqualTo("enter-connecting"));
@@ -125,7 +125,7 @@ namespace Satori.Rtm.Test
             var client = new RtmClientBuilder(Config.Endpoint, Config.AppKey).Build();
 
             await client.Yield();
-            await client.Start();
+            client.Start();
 
             try
             {

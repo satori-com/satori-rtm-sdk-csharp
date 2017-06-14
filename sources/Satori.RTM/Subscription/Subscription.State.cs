@@ -310,6 +310,7 @@ namespace Satori.Rtm.Client
                 catch (Exception exn)
                 {
                     Log.E(exn, "Subscribe operation failed, state: {0}", this);
+                    _fsm.NotifySubscribeError(_fsm, TaskHelper.Unwrap(exn));
                     _awaiter.Succeed(new Failed(this));
                 }
             }
@@ -336,6 +337,11 @@ namespace Satori.Rtm.Client
                 else
                 {
                     Log.W("Unsubscribe error is not recoverable. Connection will be reopened");
+                    if (t.Exception != null)
+                    {
+                        _fsm.NotifyUnsubscribeError(_fsm, TaskHelper.Unwrap(t.Exception));
+                    }
+
                     _connection.Close();
                 }
             }

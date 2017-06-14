@@ -8,7 +8,7 @@ namespace Satori.Rtm
     public interface IDispatcher
     {
         void Post(Action act);
-
+        
         ISuccessfulAwaiter<bool> Yield();
     }
 

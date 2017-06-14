@@ -174,8 +174,7 @@ namespace Satori.Rtm.Client
         /// You can use the client events to define application functionality for when the application
         /// enters or leaves the connected state.
         /// </remarks>
-        /// <returns>The task completes when this call is executed on the <see cref="Dispatcher"/>  dispatcher. </returns>
-        Task Start();
+        void Start();
 
         /// <summary>
         /// Stops the client. The SDK tries to close the WebSocket connection 
@@ -186,33 +185,56 @@ namespace Satori.Rtm.Client
         /// You can use the client events to define application functionality for when the application
         /// enters or leaves the connected state.
         /// </remarks>
-        /// <returns>The task completes when this call is executed on the <see cref="Dispatcher"/>  dispatcher. </returns>
-        Task Stop();
+        void Stop();
 
         /// <summary>
         /// Restarts the client.
         /// </summary>
-        /// <returns>The task completes when this call is executed on the <see cref="Dispatcher"/>  dispatcher. </returns>
-        Task Restart();
+        void Restart();
 
         /// <summary>
         /// Returns the current connection or <c>null</c> if the client is not connected.
         /// </summary>
-        /// <returns>The task completes when this call is executed on the <see cref="Dispatcher"/> dispatcher. </returns>
+        /// <returns>The task completes when this call is executed on the <see cref="RtmClientBuilder.Dispatcher"/>. </returns>
         Task<IConnection> GetConnection();
+
+        /// <summary>
+        /// See <see cref="GetConnection()"/>. 
+        /// Callbacks are invoked on the <see cref="RtmClientBuilder.Dispatcher"/>. 
+        /// </summary>
+        void GetConnection(Action<IConnection> onSuccess, Action<Exception> onFailure);
 
         /// <summary>
         /// Disposes the client.
         /// </summary>
-        /// <remarks>Call <see cref="Dispose"/> when you are finished using the <see cref="T:Satori.Rtm.Client.IRtmClient"/>. The
-        /// <see cref="Dispose"/> method leaves the <see cref="T:Satori.Rtm.Client.IRtmClient"/> in an unusable state.
-        /// After calling <see cref="Dispose"/>, you must release all references to the
+        /// <remarks>Call <see cref="Dispose()"/> when you are finished using the <see cref="T:Satori.Rtm.Client.IRtmClient"/>. The
+        /// <see cref="Dispose()"/> method leaves the <see cref="T:Satori.Rtm.Client.IRtmClient"/> in an unusable state.
+        /// After calling <see cref="Dispose()"/>, you must release all references to the
         /// <see cref="T:Satori.Rtm.Client.IRtmClient"/> so the garbage collector can reclaim the memory that the
         /// <see cref="T:Satori.Rtm.Client.IRtmClient"/> was occupying.</remarks>
-        /// <returns>The task completes when this call is executed on the <see cref="Dispatcher"/>  dispatcher. </returns>
+        /// <returns>The task completes when this call is executed on the <see cref="RtmClientBuilder.Dispatcher"/>. </returns>
         Task Dispose();
 
+        /// <summary>
+        /// See <see cref="Dispose()"/>.
+        /// The callback is invoked on the <see cref="RtmClientBuilder.Dispatcher"/>.
+        /// </summary>
+        void Dispose(Action onCompleted);
+
         #region RTM 
+
+        /// <summary>
+        /// Creates subscription with the specific <paramref name="channel"/> name.
+        /// </summary>
+        /// <remarks>
+        /// You can create subscription at any time. The SDK manages 
+        /// the subscription and sends a subscribe request when the connection 
+        /// to RTM service is established. 
+        /// Subscription mode <see cref="SubscriptionModes.Simple"/> is used.
+        /// </remarks>
+        void CreateSubscription(
+            string channel,
+            ISubscriptionObserver observer);
 
         /// <summary>
         /// Creates subscription with the specific <paramref name="channel"/> name.
@@ -224,9 +246,7 @@ namespace Satori.Rtm.Client
         /// Use the <paramref name="mode"/>  parameter to define the behavior that 
         /// the SDK uses to handle dropped connections.
         /// </remarks>
-        /// <returns>The task completes when this call is executed on the <see cref="Dispatcher"/>  dispatcher. 
-        /// Task fails if a subscription with the same <paramref name="channel"/> name already exists. </returns>
-        Task CreateSubscription(
+        void CreateSubscription(
             string channel,
             SubscriptionModes mode,
             ISubscriptionObserver observer);
@@ -241,25 +261,50 @@ namespace Satori.Rtm.Client
         /// Use the <paramref name="config"/>  parameter to define the behavior that 
         /// the SDK uses to handle dropped connections.
         /// </remarks>
-        /// <returns>The task completes when this call is executed on the <see cref="Dispatcher"/>  dispatcher. 
-        /// Task fails if a subscription with the same <paramref name="channelOrSubId"/> already exists. </returns>
-        Task CreateSubscription(
+        void CreateSubscription(
             string channelOrSubId,
             SubscriptionConfig config);
 
         /// <summary>
         /// Removes the subscription with the specific subscription id.
         /// </summary>
-        /// <returns>The task completes when this call is executed on the <see cref="Dispatcher"/>  dispatcher. 
-        /// Task falls if a subscription with the specified <paramref name="channelOrSubId"/> doesn't exist. </returns>
-        Task RemoveSubscription(string channelOrSubId);
+        void RemoveSubscription(string channelOrSubId);
 
         /// <summary>
         /// Gets the subscription with the specified channel name or subscription id.
         /// </summary>
-        /// <returns>The task completes when this call is executed on the <see cref="Dispatcher"/> dispatcher. 
+        /// <returns>The task completes when this call is executed on the <see cref="RtmClientBuilder.Dispatcher"/>. 
         /// Task fails if a subscription with the specified <paramref name="channelOrSubId"/> doesn't exist. </returns>
         Task<ISubscription> GetSubscription(string channelOrSubId);
+
+        /// <summary>
+        /// See <see cref="GetSubscription(string)"/>. 
+        /// Callbacks are invoked on the <see cref="RtmClientBuilder.Dispatcher"/>.
+        /// </summary>
+        void GetSubscription(string channelOrSubId, Action<ISubscription> onSuccess, Action<Exception> onFailure);
+
+        /// <summary>
+        /// Publishes the <paramref name="message"/> to the <paramref name="channel"/>.
+        /// </summary>
+        /// <remarks>
+        /// If client is not connected to the RTM service, the publish request 
+        /// is queued. The SDK sends the message when the connection is established. 
+        /// The length of this queue is limited by <see cref="RtmClientBuilder.PendingActionQueueLength"/>.
+        /// If the queue is full, the <see cref="TooManyRequestsException"/> exception is returned in the task. 
+        /// </remarks>
+        /// <returns>The task which contains the successful reply or exception. 
+        /// Task completes successfully when an acknowledgement from the server is received. </returns>
+        /// <param name="channel">The channel to which the <paramref name="message"/>  is published. </param>
+        /// <param name="message">The message which is published. </param>
+        /// <typeparam name="T">It can be any reference or value type. The Newtonsoft.Json library is
+        /// used for serialization. </typeparam>
+        Task<RtmPublishReply> Publish<T>(string channel, T message);
+
+        /// <summary>
+        /// See <see cref="Publish{T}(string, T)"/>. 
+        /// Callbacks are invoked on the <see cref="RtmClientBuilder.Dispatcher"/>.
+        /// </summary>
+        void Publish<T>(string channel, T message, Action<RtmPublishReply> onSuccess, Action<Exception> onFailure);
 
         /// <summary>
         /// Publishes the <paramref name="message"/> to the <paramref name="channel"/>.
@@ -280,9 +325,20 @@ namespace Satori.Rtm.Client
         Task<RtmPublishReply> Publish<T>(string channel, T message, Ack ack);
 
         /// <summary>
-        /// Reads the massage from the specified <paramref name="channel"/>.
+        /// See <see cref="Publish{T}(string, T, Ack)"/>.
+        /// Callbacks are invoked on the <see cref="RtmClientBuilder.Dispatcher"/>.
+        /// </summary>
+        void Publish<T>(string channel, T message, Ack ack, Action<RtmPublishReply> onSuccess, Action<Exception> onFailure);
+
+        /// <summary>
+        /// Reads the massage from the specified <paramref name="channel"/>. 
         /// </summary>
         /// <remarks>
+        /// This method is provided for key-value (dictionary storage) semantics: 
+        /// <paramref name="channel"/> name represents a key and the last (and the only used) message 
+        /// the channel represents a value. 
+        /// In other words, a channel serves as a dictionary entry.  
+        /// <para/>
         /// If client is not connected to the RTM service, the read request 
         /// is queued. The SDK reads the value when the connection is established. 
         /// The length of this queue is limited by 
@@ -296,9 +352,20 @@ namespace Satori.Rtm.Client
         Task<RtmReadReply<T>> Read<T>(string channel);
 
         /// <summary>
+        /// See <see cref="Read{T}(string)"/>. 
+        /// Callbacks are invoked on the <see cref="RtmClientBuilder.Dispatcher"/>.
+        /// </summary>
+        void Read<T>(string channel, Action<RtmReadReply<T>> onSuccess, Action<Exception> onFailure);
+
+        /// <summary>
         /// Reads the message from the <see cref="RtmReadRequest"/>.<see cref="RtmReadRequest.Channel"/>. 
         /// </summary>
         /// <remarks>
+        /// This method is provided for key-value (dictionary storage) semantics: 
+        /// <see cref="RtmReadRequest"/>.<see cref="RtmReadRequest.Channel"/> name represents a key and the last 
+        /// (and the only used) message the channel represents a value. 
+        /// In other words, a channel serves as a dictionary entry.  
+        /// <para/>
         /// If client is not connected to the RTM service, the read request 
         /// is queued. The SDK reads the value when the connection is established. 
         /// The length of this queue is limited by 
@@ -312,9 +379,47 @@ namespace Satori.Rtm.Client
         Task<RtmReadReply<T>> Read<T>(RtmReadRequest request);
 
         /// <summary>
-        /// Writes the <paramref name="message"/>  to the specified <paramref name="channel"/>. 
+        /// See <see cref="Read{T}(RtmReadRequest)"/>.
+        /// Callbacks are invoked on the <see cref="RtmClientBuilder.Dispatcher"/>.
+        /// </summary>
+        void Read<T>(RtmReadRequest request, Action<RtmReadReply<T>> onSuccess, Action<Exception> onFailure);
+
+        /// <summary>
+        /// Writes a <paramref name="message"/> to the specified <paramref name="channel"/>. 
         /// </summary>
         /// <remarks>
+        /// This method is provided for key-value (dictionary storage) semantics: <paramref name="channel"/> 
+        /// name represents a key and the last (and the only used) message the channel represents a value. 
+        /// In other words, a channel serves as a dictionary entry.
+        /// <para/>
+        /// If client is not connected to the RTM service, the read request 
+        /// is queued. The SDK reads the value when the connection is established. 
+        /// The length of this queue is limited by 
+        /// <see cref="RtmClientBuilder.PendingActionQueueLength"/>.
+        /// If the queue is full, the <see cref="TooManyRequestsException"/> exception is returned in the task. 
+        /// </remarks>
+        /// <returns>The task which contains the successful reply or exception. 
+        /// Task completes successfully when an acknowledgement from the server is received. </returns>
+        /// <param name="channel">The channel to which the <paramref name="message"/>  is written. </param>
+        /// <param name="message">The message which is written. </param>
+        /// <typeparam name="T">It can be any reference or value type. The Newtonsoft.Json library is
+        /// used for serialization. </typeparam>
+        Task<RtmWriteReply> Write<T>(string channel, T message);
+
+        /// <summary>
+        /// See <see cref="Write{T}(string, T)"/>. 
+        /// Callbacks are invoked on the <see cref="RtmClientBuilder.Dispatcher"/>.
+        /// </summary>
+        void Write<T>(string channel, T message, Action<RtmWriteReply> onSuccess, Action<Exception> onFailure);
+        
+        /// <summary>
+        /// Writes a <paramref name="message"/> to the specified <paramref name="channel"/>. 
+        /// </summary>
+        /// <remarks>
+        /// This method is provided for key-value (dictionary storage) semantics: <paramref name="channel"/> 
+        /// name represents a key and the last (and the only used) message the channel represents a value. 
+        /// In other words, a channel serves as a dictionary entry.
+        /// <para/>
         /// If client is not connected to the RTM service, the read request 
         /// is queued. The SDK reads the value when the connection is established. 
         /// The length of this queue is limited by 
@@ -331,10 +436,21 @@ namespace Satori.Rtm.Client
         Task<RtmWriteReply> Write<T>(string channel, T message, Ack ack);
 
         /// <summary>
-        /// Writes the <see cref="RtmWriteRequest"/>.<see cref="RtmWriteRequest{TPayload}.Message"/> to 
-        /// the <see cref="RtmWriteRequest"/>.<see cref="RtmWriteRequest{TPayload}.Channel"/>.
+        /// See <see cref="Write{T}(string, T, Ack)"/>.
+        /// Callbacks are invoked on the <see cref="RtmClientBuilder.Dispatcher"/>.
+        /// </summary>
+        void Write<T>(string channel, T message, Ack ack, Action<RtmWriteReply> onSuccess, Action<Exception> onFailure);
+
+        /// <summary>
+        /// Writes a <see cref="RtmWriteRequest"/>.<see cref="RtmWriteRequest{TPayload}.Message"/> 
+        /// to the specified <see cref="RtmWriteRequest"/>.<see cref="RtmWriteRequest{TPayload}.Channel"/>. 
         /// </summary>
         /// <remarks>
+        /// This method is provided for key-value (dictionary storage) semantics: 
+        /// <see cref="RtmWriteRequest"/>.<see cref="RtmWriteRequest{TPayload}.Channel"/>
+        /// name represents a key and the last (and the only used) message the channel represents a value. 
+        /// In other words, a channel serves as a dictionary entry.
+        /// <para/>
         /// If client is not connected to the RTM service, the read request 
         /// is queued. The SDK reads the value when the connection is established. 
         /// The length of this queue is limited by 
@@ -350,9 +466,46 @@ namespace Satori.Rtm.Client
         Task<RtmWriteReply> Write<T>(RtmWriteRequest<T> request, Ack ack);
 
         /// <summary>
-        /// Deletes the message from the specified <paramref name="channel"/>. 
+        /// See <see cref="Write{T}(RtmWriteRequest{T}, Ack)"/>.
+        /// Callbacks are invoked on the <see cref="RtmClientBuilder.Dispatcher"/>.
+        /// </summary>
+        void Write<T>(RtmWriteRequest<T> request, Ack ack, Action<RtmWriteReply> onSuccess, Action<Exception> onFailure);
+
+        /// <summary>
+        /// Deletes a value from the specified <paramref name="channel"/>.
         /// </summary>
         /// <remarks>
+        /// This method is provided for key-value (dictionary storage) semantics to erase a value 
+        /// for a given key. Key is represented by a <paramref name="channel"/>, and only the last 
+        /// message in the channel is relevant (represents the value). 
+        /// Hence, publishing a null value, serves as deletion of the the previous value (if any).
+        /// <para/>
+        /// If client is not connected to the RTM service, the read request 
+        /// is queued. The SDK reads the value when the connection is established. 
+        /// The length of this queue is limited by 
+        /// <see cref="RtmClientBuilder.PendingActionQueueLength"/>.
+        /// If the queue is full, the <see cref="TooManyRequestsException"/> exception is returned in the task. 
+        /// </remarks>
+        /// <returns>The task which contains the successful reply or exception. 
+        /// Task completes successfully when an acknowledgement from the server is received. </returns>
+        /// <param name="channel">The channel represents a key</param>
+        Task<RtmDeleteReply> Delete(string channel);
+
+        /// <summary>
+        /// See <see cref="Delete(string)"/>.
+        /// Callbacks are invoked on the <see cref="RtmClientBuilder.Dispatcher"/>.
+        /// </summary>
+        void Delete(string channel, Action<RtmDeleteReply> onSuccess, Action<Exception> onFailure);
+
+        /// <summary>
+        /// Deletes a value from the specified <paramref name="channel"/>.
+        /// </summary>
+        /// <remarks>
+        /// This method is provided for key-value (dictionary storage) semantics to erase a value 
+        /// for a given key. Key is represented by a <paramref name="channel"/>, and only the last 
+        /// message in the channel is relevant (represents the value). 
+        /// Hence, publishing a null value, serves as deletion of the the previous value (if any).
+        /// <para/>
         /// If client is not connected to the RTM service, the read request 
         /// is queued. The SDK reads the value when the connection is established. 
         /// The length of this queue is limited by 
@@ -360,7 +513,16 @@ namespace Satori.Rtm.Client
         /// If the queue is full, the <see cref="TooManyRequestsException"/> exception is returned in the task. 
         /// </remarks>
         /// <returns>The task which contains the successful reply or exception. </returns>
+        /// <param name="channel">The channel represents a key</param>
+        /// <param name="ack">Specifies whether an acknowledgement from the RTM service is needed. 
+        /// See <see cref="Ack"/> for more details. </param>
         Task<RtmDeleteReply> Delete(string channel, Ack ack);
+
+        /// <summary>
+        /// See <see cref="Delete(string, Ack)"/>.
+        /// Callbacks are invoked on the <see cref="RtmClientBuilder.Dispatcher"/>.
+        /// </summary>
+        void Delete(string channel, Ack ack, Action<RtmDeleteReply> onSuccess, Action<Exception> onFailure);
 
         #endregion
     }

@@ -45,6 +45,9 @@ namespace System.Net.WebSockets.Managed
 
         public string SubProtocol => _webSocket?.SubProtocol;
 
+        public RemoteCertificateValidationCallback ValidationCallback;
+        public LocalCertificateSelectionCallback SelectionCallback;
+
         public static void CheckPlatformSupport () { /* nop */ }
 
         public void Dispose ()
@@ -90,7 +93,8 @@ namespace System.Net.WebSockets.Managed
                 // Upgrade to SSL if needed
                 if (uri.Scheme == UriScheme.Wss)
                 {
-                    var sslStream = new SslStream(stream);
+                    var sslStream = new SslStream(stream, false, ValidationCallback, SelectionCallback);
+                    
                     await sslStream.AuthenticateAsClientAsync(
                         uri.Host,
                         options.ClientCertificates,
@@ -150,7 +154,7 @@ namespace System.Net.WebSockets.Managed
         /// <returns>The connected Socket.</returns>
         private async Task<Socket> ConnectSocketAsync (string host, int port, CancellationToken cancellationToken)
         {
-            IPAddress [] addresses = await Dns.GetHostAddressesAsync(host).ConfigureAwait(false);
+            IPAddress [] addresses = await DnsEx.GetHostAddressesAsync(host).ConfigureAwait(false);
 
             ExceptionDispatchInfo lastException = null;
             foreach (IPAddress address in addresses)
@@ -158,8 +162,8 @@ namespace System.Net.WebSockets.Managed
                 var socket = new Socket(address.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
                 try
                 {
-                    using (cancellationToken.Register(s => ((Socket)s).Dispose(), socket))
-                    using (_abortSource.Token.Register(s => ((Socket)s).Dispose(), socket))
+                    using (cancellationToken.Register(s => ((IDisposable)s).Dispose(), socket))
+                    using (_abortSource.Token.Register(s => ((IDisposable)s).Dispose(), socket))
                     {
                         try
                         {
@@ -182,7 +186,7 @@ namespace System.Net.WebSockets.Managed
                 }
                 catch (Exception exc)
                 {
-                    socket.Dispose();
+                    ((IDisposable)socket).Dispose();
                     lastException = ExceptionDispatchInfo.Capture(exc);
                 }
             }
@@ -251,7 +255,7 @@ namespace System.Net.WebSockets.Managed
                 if (options.Cookies != null)
                 {
                     string header = options.Cookies.GetCookieHeader(uri);
-                    if (!string.IsNullOrWhiteSpace(header))
+                    if (!StringEx.IsNullOrWhiteSpace(header))
                     {
                         builder.Append(HttpKnownHeaderNames.Cookie).Append(": ").Append(header).Append("\r\n");
                     }
@@ -351,14 +355,14 @@ namespace System.Net.WebSockets.Managed
                 // and then it must only be one of the ones we requested.  If we got a subprotocol other than one we requested (or if we
                 // already got one in a previous header), fail. Otherwise, track which one we got.
                 if (string.Equals(HttpKnownHeaderNames.SecWebSocketProtocol, headerName, StringComparison.OrdinalIgnoreCase) &&
-                    !string.IsNullOrWhiteSpace(headerValue))
+                    !StringEx.IsNullOrWhiteSpace(headerValue))
                 {
                     string newSubprotocol = options.RequestedSubProtocols.Find(requested => string.Equals(requested, headerValue, StringComparison.OrdinalIgnoreCase));
                     if (newSubprotocol == null || subprotocol != null)
                     {
                         throw new WebSocketException(
                             WebSocketError.UnsupportedProtocol,
-                            SR.Format(SR.net_WebSockets_AcceptUnsupportedProtocol, string.Join(", ", options.RequestedSubProtocols), subprotocol));
+                            SR.Format(SR.net_WebSockets_AcceptUnsupportedProtocol, StringEx.Join(", ", options.RequestedSubProtocols), subprotocol));
                     }
                     subprotocol = newSubprotocol;
                 }
