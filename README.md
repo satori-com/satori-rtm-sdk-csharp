@@ -14,7 +14,7 @@ The ecosystem includes a fast and scalable messaging engine known as RTM. Use th
 
 To install C# SDK for Satori RTM, run the following command in the Package Manager Console:
 ```
-PM> Install-Package Satori.RTM.SDK -Version 1.0.0-beta -Pre
+PM> Install-Package Satori.RTM.SDK -Version 1.0.1-beta -Pre
 ```
 Alternatively, install the package via the user interface provided by Xamarin Studio or Visual Studio. 
 
