@@ -18,18 +18,12 @@ namespace Authentication
             // Log messages from SDK to the console
             Trace.Listeners.Add(new ConsoleTraceListener());
 
-            // This event will be signalled when the client is connected to RTM
-            var connectedEvent = new ManualResetEvent(initialState: false);
-
             IRtmClient client = new RtmClientBuilder(endpoint, appkey)
                 .SetRoleSecretAuthenticator(role, roleSecret)
                 .Build();
 
             client.OnEnterConnected += cn => 
-            {
                 Console.WriteLine("Successfully connected and authenticated");
-                connectedEvent.Set();
-            };
 
             client.OnError += ex => 
             {
@@ -45,9 +39,9 @@ namespace Authentication
 
             client.Start();
 
-            connectedEvent.WaitOne(TimeSpan.FromSeconds(30));
+            Console.ReadKey();
 
-            // Dispose the client before exiting the program
+            // Stop and clean up the client before exiting the program
             client.Dispose().Wait();
         }
     }

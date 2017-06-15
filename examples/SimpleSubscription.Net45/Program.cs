@@ -67,8 +67,10 @@ namespace SimpleSubscription
             // Assume that someone already publishes animals to the channel 'animals'
             client.CreateSubscription(channel, SubscriptionModes.Simple, observer);
 
-            // Do not exit the program
-            new ManualResetEvent(false).WaitOne();
+            Console.ReadKey();
+
+            // Stop and clean up the client before exiting the program
+            client.Dispose().Wait();
         }
     }
 }

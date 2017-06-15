@@ -67,7 +67,7 @@ namespace Publishing
                 Console.WriteLine("Publishing failed: " + ex.Message);
             }
 
-            // Dispose the client before exiting the program
+            // Stop and clean up the client before exiting the program
             await client.Dispose();
         }
     }

@@ -71,8 +71,10 @@ namespace SubscriptionWithHistoryAge
             };
             client.CreateSubscription(channel, cfg);
 
-            // Do not exit the program
-            new ManualResetEvent(false).WaitOne();
+            Console.ReadKey();
+
+            // Stop and clean up the client before exiting the program
+            client.Dispose().Wait();
         }
     }
 }

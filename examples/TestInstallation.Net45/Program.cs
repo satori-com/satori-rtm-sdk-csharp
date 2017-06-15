@@ -15,25 +15,18 @@ namespace TestInstallation
             // Log messages from SDK to the console
             Trace.Listeners.Add(new ConsoleTraceListener());
 
-            // This event will be signalled when the client is connected to RTM
-            var connectedEvent = new ManualResetEvent(initialState: false);
-
             IRtmClient client = new RtmClientBuilder(endpoint, appkey).Build();
 
-            client.OnEnterConnected += cn => 
-            {
-                Console.WriteLine("Connected to RTM!");
-                connectedEvent.Set();
-            };
+            client.OnEnterConnected += cn => Console.WriteLine("Connected to RTM!");
 
             client.OnError += ex => 
                 Console.WriteLine("Connecting failed: " + ex.Message);
 
             client.Start();
 
-            connectedEvent.WaitOne(TimeSpan.FromSeconds(30));
+            Console.ReadKey();
 
-            // Dispose the client before exiting the program
+            // Stop and clean up the client before exiting the program
             client.Dispose().Wait();
         }
     }
