@@ -167,9 +167,9 @@ public class FilterTestsWrapper : UnityTestBase
     }
 
 	[Test]
-    public void BothChannelAndFilterSpecified()
+    public void CreateFilterWIthExistingSubscriptionId()
     {
-        new FilterTests().BothChannelAndFilterSpecified().Wait();
+        new FilterTests().CreateFilterWIthExistingSubscriptionId().Wait();
     }
 }
 
@@ -302,5 +302,23 @@ public class SubscriptionTestsWrapper : UnityTestBase
     public void RestartOnUnsubscribeError()
     {
         new SubscriptionTests().RestartOnUnsubscribeError().Wait();
+    }
+
+    [Test]
+    public void CreateSubscriptionThatAlreadyExists()
+    {
+        new SubscriptionTests().CreateSubscriptionThatAlreadyExists().Wait();
+    }
+
+    [Test]
+    public void CreateSubscriptionToRestrictedChannel()
+    {
+        new SubscriptionTests().CreateSubscriptionToRestrictedChannel().Wait();
+    }
+
+    [Test]
+    public void RemoveSubscriptionThatDoesntExist()
+    {
+        new SubscriptionTests().RemoveSubscriptionThatDoesntExist().Wait();
     }
 }
