@@ -95,7 +95,7 @@ namespace Satori.Rtm.Client
             var tcs = new TaskCompletionSource<IConnection>();
             if (_pendingRequests == null || !_pendingRequests.TryAdd(tcs))
             {
-                throw new TooManyRequestsException($"Too many requests are queued: {_pendingRequests?.Count() ?? 0}");
+                throw new QueueFullException($"Too many requests are queued: {_pendingRequests?.Count() ?? 0}");
             }
 
             return await tcs.Task;

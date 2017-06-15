@@ -6,7 +6,7 @@ using Newtonsoft.Json.Linq;
 using Satori.Rtm;
 using Satori.Rtm.Client;
 
-namespace SubscriptionWithFilter
+namespace SubscriptionWithView
 {
     class Program
     {

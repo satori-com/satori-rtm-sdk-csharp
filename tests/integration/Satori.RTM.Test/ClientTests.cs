@@ -191,7 +191,7 @@ namespace Satori.Rtm.Test
             Assert.That(t1.Status, Is.EqualTo(TaskStatus.WaitingForActivation));
             Assert.That(t2.Status, Is.EqualTo(TaskStatus.WaitingForActivation));
             Assert.That(t3.Status, Is.EqualTo(TaskStatus.Faulted));
-            Assert.That(t3.Exception.InnerException, Is.InstanceOf(typeof(TooManyRequestsException)));
+            Assert.That(t3.Exception.InnerException, Is.InstanceOf(typeof(QueueFullException)));
 
             client.Start();
 
@@ -213,7 +213,7 @@ namespace Satori.Rtm.Test
             Assert.That(t5.Status, Is.EqualTo(TaskStatus.WaitingForActivation));
             Assert.That(t6.Status, Is.EqualTo(TaskStatus.WaitingForActivation));
             Assert.That(t7.Status, Is.EqualTo(TaskStatus.Faulted));
-            Assert.That(t7.Exception.InnerException, Is.InstanceOf(typeof(TooManyRequestsException)));
+            Assert.That(t7.Exception.InnerException, Is.InstanceOf(typeof(QueueFullException)));
 
             client.Start();
             await t5;
@@ -241,7 +241,7 @@ namespace Satori.Rtm.Test
             }
             catch (Exception ex)
             {
-                Assert.That(ex, Is.InstanceOf(typeof(TooManyRequestsException)));
+                Assert.That(ex, Is.InstanceOf(typeof(QueueFullException)));
             }
 
             client.Start();
@@ -263,7 +263,7 @@ namespace Satori.Rtm.Test
             }
             catch (Exception ex)
             {
-                Assert.That(ex, Is.InstanceOf(typeof(TooManyRequestsException)));
+                Assert.That(ex, Is.InstanceOf(typeof(QueueFullException)));
             }
 
             await client.Dispose();

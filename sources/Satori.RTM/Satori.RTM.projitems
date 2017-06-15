@@ -58,7 +58,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)RtmTypes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Serialization.Log.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Serialization.WsNet45.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Client\TooManyRequestsException.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Client\QueueFullException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Connection\DisconnectedException.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Client\Ack.cs" />
   </ItemGroup>

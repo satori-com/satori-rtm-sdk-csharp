@@ -8,9 +8,9 @@ namespace Satori.Rtm.Client
     /// This exception occurs when the client's offline action queue exceeds 
     /// <see cref="RtmClientBuilder.PendingActionQueueLength"/> 
     /// </summary>
-    public class TooManyRequestsException : Exception
+    public class QueueFullException : Exception
     {
-        public TooManyRequestsException(string message) : base(message)
+        public QueueFullException(string message) : base(message)
         {
         }
     }

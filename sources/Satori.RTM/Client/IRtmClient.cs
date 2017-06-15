@@ -290,7 +290,7 @@ namespace Satori.Rtm.Client
         /// If client is not connected to the RTM service, the publish request 
         /// is queued. The SDK sends the message when the connection is established. 
         /// The length of this queue is limited by <see cref="RtmClientBuilder.PendingActionQueueLength"/>.
-        /// If the queue is full, the <see cref="TooManyRequestsException"/> exception is returned in the task. 
+        /// If the queue is full, the <see cref="QueueFullException"/> exception is returned in the task. 
         /// </remarks>
         /// <returns>The task which contains the successful reply or exception. 
         /// Task completes successfully when an acknowledgement from the server is received. </returns>
@@ -313,7 +313,7 @@ namespace Satori.Rtm.Client
         /// If client is not connected to the RTM service, the publish request 
         /// is queued. The SDK sends the message when the connection is established. 
         /// The length of this queue is limited by <see cref="RtmClientBuilder.PendingActionQueueLength"/>.
-        /// If the queue is full, the <see cref="TooManyRequestsException"/> exception is returned in the task. 
+        /// If the queue is full, the <see cref="QueueFullException"/> exception is returned in the task. 
         /// </remarks>
         /// <returns>The task which contains the successful reply or exception. </returns>
         /// <param name="channel">The channel to which the <paramref name="message"/>  is published. </param>
@@ -343,7 +343,7 @@ namespace Satori.Rtm.Client
         /// is queued. The SDK reads the value when the connection is established. 
         /// The length of this queue is limited by 
         /// <see cref="RtmClientBuilder.PendingActionQueueLength"/>.
-        /// If the queue is full, the <see cref="TooManyRequestsException"/> exception is returned in the task. 
+        /// If the queue is full, the <see cref="QueueFullException"/> exception is returned in the task. 
         /// </remarks>
         /// <returns>The task which contains the successful reply or exception. 
         /// Get the message from <see cref="RtmReadReply"/>.<see cref="RtmReadReply{TPayload}.Message"/>. </returns>
@@ -370,7 +370,7 @@ namespace Satori.Rtm.Client
         /// is queued. The SDK reads the value when the connection is established. 
         /// The length of this queue is limited by 
         /// <see cref="RtmClientBuilder.PendingActionQueueLength"/>.
-        /// If the queue is full, the <see cref="TooManyRequestsException"/> exception is returned in the task. 
+        /// If the queue is full, the <see cref="QueueFullException"/> exception is returned in the task. 
         /// </remarks>
         /// <returns>The task which contains the successful reply or exception. 
         /// Get the message from <see cref="RtmReadReply"/>.<see cref="RtmReadReply{TPayload}.Message"/>. </returns>
@@ -396,7 +396,7 @@ namespace Satori.Rtm.Client
         /// is queued. The SDK reads the value when the connection is established. 
         /// The length of this queue is limited by 
         /// <see cref="RtmClientBuilder.PendingActionQueueLength"/>.
-        /// If the queue is full, the <see cref="TooManyRequestsException"/> exception is returned in the task. 
+        /// If the queue is full, the <see cref="QueueFullException"/> exception is returned in the task. 
         /// </remarks>
         /// <returns>The task which contains the successful reply or exception. 
         /// Task completes successfully when an acknowledgement from the server is received. </returns>
@@ -411,7 +411,7 @@ namespace Satori.Rtm.Client
         /// Callbacks are invoked on the <see cref="RtmClientBuilder.Dispatcher"/>.
         /// </summary>
         void Write<T>(string channel, T message, Action<RtmWriteReply> onSuccess, Action<Exception> onFailure);
-        
+
         /// <summary>
         /// Writes a <paramref name="message"/> to the specified <paramref name="channel"/>. 
         /// </summary>
@@ -424,7 +424,7 @@ namespace Satori.Rtm.Client
         /// is queued. The SDK reads the value when the connection is established. 
         /// The length of this queue is limited by 
         /// <see cref="RtmClientBuilder.PendingActionQueueLength"/>.
-        /// If the queue is full, the <see cref="TooManyRequestsException"/> exception is returned in the task. 
+        /// If the queue is full, the <see cref="QueueFullException"/> exception is returned in the task. 
         /// </remarks>
         /// <returns>The task which contains the successful reply or exception. </returns>
         /// <param name="channel">The channel to which the <paramref name="message"/>  is written. </param>
@@ -455,7 +455,7 @@ namespace Satori.Rtm.Client
         /// is queued. The SDK reads the value when the connection is established. 
         /// The length of this queue is limited by 
         /// <see cref="RtmClientBuilder.PendingActionQueueLength"/>.
-        /// If the queue is full, the <see cref="TooManyRequestsException"/> exception is returned in the task. 
+        /// If the queue is full, the <see cref="QueueFullException"/> exception is returned in the task. 
         /// </remarks>
         /// <returns>The task which contains the successful reply or exception. </returns>
         /// <param name="request">The request which contains the channel and the message to be written</param>
@@ -484,7 +484,7 @@ namespace Satori.Rtm.Client
         /// is queued. The SDK reads the value when the connection is established. 
         /// The length of this queue is limited by 
         /// <see cref="RtmClientBuilder.PendingActionQueueLength"/>.
-        /// If the queue is full, the <see cref="TooManyRequestsException"/> exception is returned in the task. 
+        /// If the queue is full, the <see cref="QueueFullException"/> exception is returned in the task. 
         /// </remarks>
         /// <returns>The task which contains the successful reply or exception. 
         /// Task completes successfully when an acknowledgement from the server is received. </returns>
@@ -510,7 +510,7 @@ namespace Satori.Rtm.Client
         /// is queued. The SDK reads the value when the connection is established. 
         /// The length of this queue is limited by 
         /// <see cref="RtmClientBuilder.PendingActionQueueLength"/>.
-        /// If the queue is full, the <see cref="TooManyRequestsException"/> exception is returned in the task. 
+        /// If the queue is full, the <see cref="QueueFullException"/> exception is returned in the task. 
         /// </remarks>
         /// <returns>The task which contains the successful reply or exception. </returns>
         /// <param name="channel">The channel represents a key</param>

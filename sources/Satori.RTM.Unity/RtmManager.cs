@@ -12,6 +12,8 @@ namespace Satori.Rtm.Client
         
         public IRtmClient Client => client;
 
+        public bool DisconnectOnAppPause { get; set; }
+
         private static Logger Log => DefaultLoggers.Client;
 
         public RtmManager()
@@ -93,6 +95,10 @@ namespace Satori.Rtm.Client
             private void OnApplicationPause(bool pauseStatus)
             {
                 Log.V("RTM manager behavior is Handling app pause");
+                if (!RtmManager.Instance.DisconnectOnAppPause)
+                {
+                    return;
+                }
 
                 var client = RtmManager.Instance.Client;
                 if (client == null)

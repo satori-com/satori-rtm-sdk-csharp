@@ -59,7 +59,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Publishing.Net45", "example
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleSubscription.Net45", "examples\SimpleSubscription.Net45\SimpleSubscription.Net45.csproj", "{50354B99-ACE1-4451-9553-05147D2072A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubscriptionWithFilter.Net45", "examples\SubscriptionWithFilter.Net45\SubscriptionWithFilter.Net45.csproj", "{C349871D-3705-4DAD-952B-27B1B387F30E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubscriptionWithView.Net45", "examples\SubscriptionWithView.Net45\SubscriptionWithView.Net45.csproj", "{C349871D-3705-4DAD-952B-27B1B387F30E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultipleSubscriptionsToChannel.Net45", "examples\MultipleSubscriptionsToChannel.Net45\MultipleSubscriptionsToChannel.Net45.csproj", "{D99550A4-4A27-4D54-98DA-C5ACEC514800}"
 EndProject
