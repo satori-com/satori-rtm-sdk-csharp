@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class AuthRoleSecretCredentials
+    <title>Class UnsubscribeException
    | C# SDK for Satori RTM </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class AuthRoleSecretCredentials
+    <meta name="title" content="Class UnsubscribeException
    | C# SDK for Satori RTM ">
     <meta name="generator" content="docfx 2.16.5.0">
     
@@ -49,19 +49,64 @@
             <article class="content wrap" id="_content">
               
               
-              <h1 id="Satori_Rtm_AuthRoleSecretCredentials" data-uid="Satori.Rtm.AuthRoleSecretCredentials">Class AuthRoleSecretCredentials
+              <h1 id="Satori_Rtm_UnsubscribeException" data-uid="Satori.Rtm.UnsubscribeException">Class UnsubscribeException
               </h1>
               <div class="markdown level0 summary"></div>
               <div class="markdown level0 conceptual"></div>
               <div class="inheritance">
                 <h5>Inheritance</h5>
                   <div class="level0"><span class="xref">System.Object</span></div>
-                  <div class="level1"><span class="xref">AuthRoleSecretCredentials</span></div>
+                  <div class="level1"><span class="xref">System.Exception</span></div>
+                  <div class="level2"><a class="xref" href="Satori.Rtm.PduException.html">PduException</a></div>
+                  <div class="level3"><a class="xref" href="Satori.Rtm.PduException-1.html">PduException</a>&lt;<a class="xref" href="Satori.Rtm.RtmUnsubscribeError.html">RtmUnsubscribeError</a>&gt;</div>
+                  <div class="level4"><span class="xref">UnsubscribeException</span></div>
               </div>
               <div class="inheritedMembers">
                 <h5>Inherited Members</h5>
                 <div>
-                  <span class="xref">System.Object.ToString()</span>
+                  <a class="xref" href="Satori.Rtm.PduException-1.html#Satori_Rtm_PduException_1_Error">PduException&lt;RtmUnsubscribeError&gt;.Error</a>
+                </div>
+                <div>
+                  <a class="xref" href="Satori.Rtm.PduException.html#Satori_Rtm_PduException_Pdu">PduException.Pdu</a>
+                </div>
+                <div>
+                  <a class="xref" href="Satori.Rtm.PduException.html#Satori_Rtm_PduException_Message">PduException.Message</a>
+                </div>
+                <div>
+                  <span class="xref">System.Exception.GetBaseException()</span>
+                </div>
+                <div>
+                  <span class="xref">System.Exception.ToString()</span>
+                </div>
+                <div>
+                  <span class="xref">System.Exception.GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)</span>
+                </div>
+                <div>
+                  <span class="xref">System.Exception.GetType()</span>
+                </div>
+                <div>
+                  <span class="xref">System.Exception.Data</span>
+                </div>
+                <div>
+                  <span class="xref">System.Exception.InnerException</span>
+                </div>
+                <div>
+                  <span class="xref">System.Exception.TargetSite</span>
+                </div>
+                <div>
+                  <span class="xref">System.Exception.StackTrace</span>
+                </div>
+                <div>
+                  <span class="xref">System.Exception.HelpLink</span>
+                </div>
+                <div>
+                  <span class="xref">System.Exception.Source</span>
+                </div>
+                <div>
+                  <span class="xref">System.Exception.HResult</span>
+                </div>
+                <div>
+                  <span class="xref">System.Exception.SerializeObjectState</span>
                 </div>
                 <div>
                   <span class="xref">System.Object.Equals(System.Object)</span>
@@ -76,42 +121,40 @@
                   <span class="xref">System.Object.GetHashCode()</span>
                 </div>
                 <div>
-                  <span class="xref">System.Object.GetType()</span>
-                </div>
-                <div>
                   <span class="xref">System.Object.MemberwiseClone()</span>
                 </div>
               </div>
               <h6><strong>Namespace</strong>:Satori.Rtm</h6>
               <h6><strong>Assembly</strong>:Satori.RTM.Net45.dll</h6>
-              <h5 id="Satori_Rtm_AuthRoleSecretCredentials_syntax">Syntax</h5>
+              <h5 id="Satori_Rtm_UnsubscribeException_syntax">Syntax</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public class AuthRoleSecretCredentials</code></pre>
+                <pre><code class="lang-csharp hljs">public class UnsubscribeException : PduException&lt;RtmUnsubscribeError&gt;, ISerializable, _Exception</code></pre>
               </div>
-              <h3 id="properties">Properties
+              <h3 id="constructors">Constructors
               </h3>
               
               
-              <a id="Satori_Rtm_AuthRoleSecretCredentials_Hash_" data-uid="Satori.Rtm.AuthRoleSecretCredentials.Hash*"></a>
-              <h4 id="Satori_Rtm_AuthRoleSecretCredentials_Hash" data-uid="Satori.Rtm.AuthRoleSecretCredentials.Hash">Hash</h4>
+              <a id="Satori_Rtm_UnsubscribeException__ctor_" data-uid="Satori.Rtm.UnsubscribeException.#ctor*"></a>
+              <h4 id="Satori_Rtm_UnsubscribeException__ctor_Satori_Rtm_Pdu_" data-uid="Satori.Rtm.UnsubscribeException.#ctor(Satori.Rtm.Pdu)">UnsubscribeException(Pdu)</h4>
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">[JsonProperty(&quot;hash&quot;, NullValueHandling = NullValueHandling.Ignore)]
-public string Hash { get; set; }</code></pre>
+                <pre><code class="lang-csharp hljs">public UnsubscribeException(Pdu pdu)</code></pre>
               </div>
-              <h5 class="propertyValue">Property Value</h5>
+              <h5 class="parameters">Parameters</h5>
               <table class="table table-bordered table-striped table-condensed">
                 <thead>
                   <tr>
                     <th>Type</th>
+                    <th>Name</th>
                     <th>Description</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td><span class="xref">System.String</span></td>
+                    <td><a class="xref" href="Satori.Rtm.Pdu.html">Pdu</a></td>
+                    <td><span class="parametername">pdu</span></td>
                     <td></td>
                   </tr>
                 </tbody>

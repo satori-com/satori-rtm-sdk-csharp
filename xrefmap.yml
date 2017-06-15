@@ -1314,6 +1314,12 @@ references:
   commentId: T:Satori.Rtm.Client.IRtmClient
   fullName: Satori.Rtm.Client.IRtmClient
   nameWithType: IRtmClient
+- uid: Satori.Rtm.Client.IRtmClient.CreateSubscription(System.String,Satori.Rtm.Client.ISubscriptionObserver)
+  name: CreateSubscription(String, ISubscriptionObserver)
+  href: api/Satori.Rtm.Client.IRtmClient.html#Satori_Rtm_Client_IRtmClient_CreateSubscription_System_String_Satori_Rtm_Client_ISubscriptionObserver_
+  commentId: M:Satori.Rtm.Client.IRtmClient.CreateSubscription(System.String,Satori.Rtm.Client.ISubscriptionObserver)
+  fullName: Satori.Rtm.Client.IRtmClient.CreateSubscription(System.String, Satori.Rtm.Client.ISubscriptionObserver)
+  nameWithType: IRtmClient.CreateSubscription(String, ISubscriptionObserver)
 - uid: Satori.Rtm.Client.IRtmClient.CreateSubscription(System.String,Satori.Rtm.Client.SubscriptionConfig)
   name: CreateSubscription(String, SubscriptionConfig)
   href: api/Satori.Rtm.Client.IRtmClient.html#Satori_Rtm_Client_IRtmClient_CreateSubscription_System_String_Satori_Rtm_Client_SubscriptionConfig_
@@ -1332,12 +1338,36 @@ references:
   commentId: Overload:Satori.Rtm.Client.IRtmClient.CreateSubscription
   fullName: Satori.Rtm.Client.IRtmClient.CreateSubscription
   nameWithType: IRtmClient.CreateSubscription
+- uid: Satori.Rtm.Client.IRtmClient.Delete(System.String)
+  name: Delete(String)
+  href: api/Satori.Rtm.Client.IRtmClient.html#Satori_Rtm_Client_IRtmClient_Delete_System_String_
+  commentId: M:Satori.Rtm.Client.IRtmClient.Delete(System.String)
+  fullName: Satori.Rtm.Client.IRtmClient.Delete(System.String)
+  nameWithType: IRtmClient.Delete(String)
 - uid: Satori.Rtm.Client.IRtmClient.Delete(System.String,Satori.Rtm.Client.Ack)
   name: Delete(String, Ack)
   href: api/Satori.Rtm.Client.IRtmClient.html#Satori_Rtm_Client_IRtmClient_Delete_System_String_Satori_Rtm_Client_Ack_
   commentId: M:Satori.Rtm.Client.IRtmClient.Delete(System.String,Satori.Rtm.Client.Ack)
   fullName: Satori.Rtm.Client.IRtmClient.Delete(System.String, Satori.Rtm.Client.Ack)
   nameWithType: IRtmClient.Delete(String, Ack)
+- uid: Satori.Rtm.Client.IRtmClient.Delete(System.String,Satori.Rtm.Client.Ack,System.Action{Satori.Rtm.RtmDeleteReply},System.Action{System.Exception})
+  name: Delete(String, Ack, Action<RtmDeleteReply>, Action<Exception>)
+  href: api/Satori.Rtm.Client.IRtmClient.html#Satori_Rtm_Client_IRtmClient_Delete_System_String_Satori_Rtm_Client_Ack_System_Action_Satori_Rtm_RtmDeleteReply__System_Action_System_Exception__
+  commentId: M:Satori.Rtm.Client.IRtmClient.Delete(System.String,Satori.Rtm.Client.Ack,System.Action{Satori.Rtm.RtmDeleteReply},System.Action{System.Exception})
+  name.vb: Delete(String, Ack, Action(Of RtmDeleteReply), Action(Of Exception))
+  fullName: Satori.Rtm.Client.IRtmClient.Delete(System.String, Satori.Rtm.Client.Ack, System.Action<Satori.Rtm.RtmDeleteReply>, System.Action<System.Exception>)
+  fullName.vb: Satori.Rtm.Client.IRtmClient.Delete(System.String, Satori.Rtm.Client.Ack, System.Action(Of Satori.Rtm.RtmDeleteReply), System.Action(Of System.Exception))
+  nameWithType: IRtmClient.Delete(String, Ack, Action<RtmDeleteReply>, Action<Exception>)
+  nameWithType.vb: IRtmClient.Delete(String, Ack, Action(Of RtmDeleteReply), Action(Of Exception))
+- uid: Satori.Rtm.Client.IRtmClient.Delete(System.String,System.Action{Satori.Rtm.RtmDeleteReply},System.Action{System.Exception})
+  name: Delete(String, Action<RtmDeleteReply>, Action<Exception>)
+  href: api/Satori.Rtm.Client.IRtmClient.html#Satori_Rtm_Client_IRtmClient_Delete_System_String_System_Action_Satori_Rtm_RtmDeleteReply__System_Action_System_Exception__
+  commentId: M:Satori.Rtm.Client.IRtmClient.Delete(System.String,System.Action{Satori.Rtm.RtmDeleteReply},System.Action{System.Exception})
+  name.vb: Delete(String, Action(Of RtmDeleteReply), Action(Of Exception))
+  fullName: Satori.Rtm.Client.IRtmClient.Delete(System.String, System.Action<Satori.Rtm.RtmDeleteReply>, System.Action<System.Exception>)
+  fullName.vb: Satori.Rtm.Client.IRtmClient.Delete(System.String, System.Action(Of Satori.Rtm.RtmDeleteReply), System.Action(Of System.Exception))
+  nameWithType: IRtmClient.Delete(String, Action<RtmDeleteReply>, Action<Exception>)
+  nameWithType.vb: IRtmClient.Delete(String, Action(Of RtmDeleteReply), Action(Of Exception))
 - uid: Satori.Rtm.Client.IRtmClient.Delete*
   name: Delete
   href: api/Satori.Rtm.Client.IRtmClient.html#Satori_Rtm_Client_IRtmClient_Delete_
@@ -1350,6 +1380,12 @@ references:
   commentId: M:Satori.Rtm.Client.IRtmClient.Dispose
   fullName: Satori.Rtm.Client.IRtmClient.Dispose()
   nameWithType: IRtmClient.Dispose()
+- uid: Satori.Rtm.Client.IRtmClient.Dispose(System.Action)
+  name: Dispose(Action)
+  href: api/Satori.Rtm.Client.IRtmClient.html#Satori_Rtm_Client_IRtmClient_Dispose_System_Action_
+  commentId: M:Satori.Rtm.Client.IRtmClient.Dispose(System.Action)
+  fullName: Satori.Rtm.Client.IRtmClient.Dispose(System.Action)
+  nameWithType: IRtmClient.Dispose(Action)
 - uid: Satori.Rtm.Client.IRtmClient.Dispose*
   name: Dispose
   href: api/Satori.Rtm.Client.IRtmClient.html#Satori_Rtm_Client_IRtmClient_Dispose_
@@ -1362,6 +1398,15 @@ references:
   commentId: M:Satori.Rtm.Client.IRtmClient.GetConnection
   fullName: Satori.Rtm.Client.IRtmClient.GetConnection()
   nameWithType: IRtmClient.GetConnection()
+- uid: Satori.Rtm.Client.IRtmClient.GetConnection(System.Action{Satori.Rtm.IConnection},System.Action{System.Exception})
+  name: GetConnection(Action<IConnection>, Action<Exception>)
+  href: api/Satori.Rtm.Client.IRtmClient.html#Satori_Rtm_Client_IRtmClient_GetConnection_System_Action_Satori_Rtm_IConnection__System_Action_System_Exception__
+  commentId: M:Satori.Rtm.Client.IRtmClient.GetConnection(System.Action{Satori.Rtm.IConnection},System.Action{System.Exception})
+  name.vb: GetConnection(Action(Of IConnection), Action(Of Exception))
+  fullName: Satori.Rtm.Client.IRtmClient.GetConnection(System.Action<Satori.Rtm.IConnection>, System.Action<System.Exception>)
+  fullName.vb: Satori.Rtm.Client.IRtmClient.GetConnection(System.Action(Of Satori.Rtm.IConnection), System.Action(Of System.Exception))
+  nameWithType: IRtmClient.GetConnection(Action<IConnection>, Action<Exception>)
+  nameWithType.vb: IRtmClient.GetConnection(Action(Of IConnection), Action(Of Exception))
 - uid: Satori.Rtm.Client.IRtmClient.GetConnection*
   name: GetConnection
   href: api/Satori.Rtm.Client.IRtmClient.html#Satori_Rtm_Client_IRtmClient_GetConnection_
@@ -1374,6 +1419,15 @@ references:
   commentId: M:Satori.Rtm.Client.IRtmClient.GetSubscription(System.String)
   fullName: Satori.Rtm.Client.IRtmClient.GetSubscription(System.String)
   nameWithType: IRtmClient.GetSubscription(String)
+- uid: Satori.Rtm.Client.IRtmClient.GetSubscription(System.String,System.Action{Satori.Rtm.Client.ISubscription},System.Action{System.Exception})
+  name: GetSubscription(String, Action<ISubscription>, Action<Exception>)
+  href: api/Satori.Rtm.Client.IRtmClient.html#Satori_Rtm_Client_IRtmClient_GetSubscription_System_String_System_Action_Satori_Rtm_Client_ISubscription__System_Action_System_Exception__
+  commentId: M:Satori.Rtm.Client.IRtmClient.GetSubscription(System.String,System.Action{Satori.Rtm.Client.ISubscription},System.Action{System.Exception})
+  name.vb: GetSubscription(String, Action(Of ISubscription), Action(Of Exception))
+  fullName: Satori.Rtm.Client.IRtmClient.GetSubscription(System.String, System.Action<Satori.Rtm.Client.ISubscription>, System.Action<System.Exception>)
+  fullName.vb: Satori.Rtm.Client.IRtmClient.GetSubscription(System.String, System.Action(Of Satori.Rtm.Client.ISubscription), System.Action(Of System.Exception))
+  nameWithType: IRtmClient.GetSubscription(String, Action<ISubscription>, Action<Exception>)
+  nameWithType.vb: IRtmClient.GetSubscription(String, Action(Of ISubscription), Action(Of Exception))
 - uid: Satori.Rtm.Client.IRtmClient.GetSubscription*
   name: GetSubscription
   href: api/Satori.Rtm.Client.IRtmClient.html#Satori_Rtm_Client_IRtmClient_GetSubscription_
@@ -1446,6 +1500,15 @@ references:
   commentId: Overload:Satori.Rtm.Client.IRtmClient.Publish
   fullName: Satori.Rtm.Client.IRtmClient.Publish
   nameWithType: IRtmClient.Publish
+- uid: Satori.Rtm.Client.IRtmClient.Publish``1(System.String,``0)
+  name: Publish<T>(String, T)
+  href: api/Satori.Rtm.Client.IRtmClient.html#Satori_Rtm_Client_IRtmClient_Publish__1_System_String___0_
+  commentId: M:Satori.Rtm.Client.IRtmClient.Publish``1(System.String,``0)
+  name.vb: Publish(Of T)(String, T)
+  fullName: Satori.Rtm.Client.IRtmClient.Publish<T>(System.String, T)
+  fullName.vb: Satori.Rtm.Client.IRtmClient.Publish(Of T)(System.String, T)
+  nameWithType: IRtmClient.Publish<T>(String, T)
+  nameWithType.vb: IRtmClient.Publish(Of T)(String, T)
 - uid: Satori.Rtm.Client.IRtmClient.Publish``1(System.String,``0,Satori.Rtm.Client.Ack)
   name: Publish<T>(String, T, Ack)
   href: api/Satori.Rtm.Client.IRtmClient.html#Satori_Rtm_Client_IRtmClient_Publish__1_System_String___0_Satori_Rtm_Client_Ack_
@@ -1455,6 +1518,24 @@ references:
   fullName.vb: Satori.Rtm.Client.IRtmClient.Publish(Of T)(System.String, T, Satori.Rtm.Client.Ack)
   nameWithType: IRtmClient.Publish<T>(String, T, Ack)
   nameWithType.vb: IRtmClient.Publish(Of T)(String, T, Ack)
+- uid: Satori.Rtm.Client.IRtmClient.Publish``1(System.String,``0,Satori.Rtm.Client.Ack,System.Action{Satori.Rtm.RtmPublishReply},System.Action{System.Exception})
+  name: Publish<T>(String, T, Ack, Action<RtmPublishReply>, Action<Exception>)
+  href: api/Satori.Rtm.Client.IRtmClient.html#Satori_Rtm_Client_IRtmClient_Publish__1_System_String___0_Satori_Rtm_Client_Ack_System_Action_Satori_Rtm_RtmPublishReply__System_Action_System_Exception__
+  commentId: M:Satori.Rtm.Client.IRtmClient.Publish``1(System.String,``0,Satori.Rtm.Client.Ack,System.Action{Satori.Rtm.RtmPublishReply},System.Action{System.Exception})
+  name.vb: Publish(Of T)(String, T, Ack, Action(Of RtmPublishReply), Action(Of Exception))
+  fullName: Satori.Rtm.Client.IRtmClient.Publish<T>(System.String, T, Satori.Rtm.Client.Ack, System.Action<Satori.Rtm.RtmPublishReply>, System.Action<System.Exception>)
+  fullName.vb: Satori.Rtm.Client.IRtmClient.Publish(Of T)(System.String, T, Satori.Rtm.Client.Ack, System.Action(Of Satori.Rtm.RtmPublishReply), System.Action(Of System.Exception))
+  nameWithType: IRtmClient.Publish<T>(String, T, Ack, Action<RtmPublishReply>, Action<Exception>)
+  nameWithType.vb: IRtmClient.Publish(Of T)(String, T, Ack, Action(Of RtmPublishReply), Action(Of Exception))
+- uid: Satori.Rtm.Client.IRtmClient.Publish``1(System.String,``0,System.Action{Satori.Rtm.RtmPublishReply},System.Action{System.Exception})
+  name: Publish<T>(String, T, Action<RtmPublishReply>, Action<Exception>)
+  href: api/Satori.Rtm.Client.IRtmClient.html#Satori_Rtm_Client_IRtmClient_Publish__1_System_String___0_System_Action_Satori_Rtm_RtmPublishReply__System_Action_System_Exception__
+  commentId: M:Satori.Rtm.Client.IRtmClient.Publish``1(System.String,``0,System.Action{Satori.Rtm.RtmPublishReply},System.Action{System.Exception})
+  name.vb: Publish(Of T)(String, T, Action(Of RtmPublishReply), Action(Of Exception))
+  fullName: Satori.Rtm.Client.IRtmClient.Publish<T>(System.String, T, System.Action<Satori.Rtm.RtmPublishReply>, System.Action<System.Exception>)
+  fullName.vb: Satori.Rtm.Client.IRtmClient.Publish(Of T)(System.String, T, System.Action(Of Satori.Rtm.RtmPublishReply), System.Action(Of System.Exception))
+  nameWithType: IRtmClient.Publish<T>(String, T, Action<RtmPublishReply>, Action<Exception>)
+  nameWithType.vb: IRtmClient.Publish(Of T)(String, T, Action(Of RtmPublishReply), Action(Of Exception))
 - uid: Satori.Rtm.Client.IRtmClient.Read*
   name: Read
   href: api/Satori.Rtm.Client.IRtmClient.html#Satori_Rtm_Client_IRtmClient_Read_
@@ -1470,6 +1551,15 @@ references:
   fullName.vb: Satori.Rtm.Client.IRtmClient.Read(Of T)(Satori.Rtm.RtmReadRequest)
   nameWithType: IRtmClient.Read<T>(RtmReadRequest)
   nameWithType.vb: IRtmClient.Read(Of T)(RtmReadRequest)
+- uid: Satori.Rtm.Client.IRtmClient.Read``1(Satori.Rtm.RtmReadRequest,System.Action{Satori.Rtm.RtmReadReply{``0}},System.Action{System.Exception})
+  name: Read<T>(RtmReadRequest, Action<RtmReadReply<T>>, Action<Exception>)
+  href: api/Satori.Rtm.Client.IRtmClient.html#Satori_Rtm_Client_IRtmClient_Read__1_Satori_Rtm_RtmReadRequest_System_Action_Satori_Rtm_RtmReadReply___0___System_Action_System_Exception__
+  commentId: M:Satori.Rtm.Client.IRtmClient.Read``1(Satori.Rtm.RtmReadRequest,System.Action{Satori.Rtm.RtmReadReply{``0}},System.Action{System.Exception})
+  name.vb: Read(Of T)(RtmReadRequest, Action(Of RtmReadReply(Of T)), Action(Of Exception))
+  fullName: Satori.Rtm.Client.IRtmClient.Read<T>(Satori.Rtm.RtmReadRequest, System.Action<Satori.Rtm.RtmReadReply<T>>, System.Action<System.Exception>)
+  fullName.vb: Satori.Rtm.Client.IRtmClient.Read(Of T)(Satori.Rtm.RtmReadRequest, System.Action(Of Satori.Rtm.RtmReadReply(Of T)), System.Action(Of System.Exception))
+  nameWithType: IRtmClient.Read<T>(RtmReadRequest, Action<RtmReadReply<T>>, Action<Exception>)
+  nameWithType.vb: IRtmClient.Read(Of T)(RtmReadRequest, Action(Of RtmReadReply(Of T)), Action(Of Exception))
 - uid: Satori.Rtm.Client.IRtmClient.Read``1(System.String)
   name: Read<T>(String)
   href: api/Satori.Rtm.Client.IRtmClient.html#Satori_Rtm_Client_IRtmClient_Read__1_System_String_
@@ -1479,6 +1569,15 @@ references:
   fullName.vb: Satori.Rtm.Client.IRtmClient.Read(Of T)(System.String)
   nameWithType: IRtmClient.Read<T>(String)
   nameWithType.vb: IRtmClient.Read(Of T)(String)
+- uid: Satori.Rtm.Client.IRtmClient.Read``1(System.String,System.Action{Satori.Rtm.RtmReadReply{``0}},System.Action{System.Exception})
+  name: Read<T>(String, Action<RtmReadReply<T>>, Action<Exception>)
+  href: api/Satori.Rtm.Client.IRtmClient.html#Satori_Rtm_Client_IRtmClient_Read__1_System_String_System_Action_Satori_Rtm_RtmReadReply___0___System_Action_System_Exception__
+  commentId: M:Satori.Rtm.Client.IRtmClient.Read``1(System.String,System.Action{Satori.Rtm.RtmReadReply{``0}},System.Action{System.Exception})
+  name.vb: Read(Of T)(String, Action(Of RtmReadReply(Of T)), Action(Of Exception))
+  fullName: Satori.Rtm.Client.IRtmClient.Read<T>(System.String, System.Action<Satori.Rtm.RtmReadReply<T>>, System.Action<System.Exception>)
+  fullName.vb: Satori.Rtm.Client.IRtmClient.Read(Of T)(System.String, System.Action(Of Satori.Rtm.RtmReadReply(Of T)), System.Action(Of System.Exception))
+  nameWithType: IRtmClient.Read<T>(String, Action<RtmReadReply<T>>, Action<Exception>)
+  nameWithType.vb: IRtmClient.Read(Of T)(String, Action(Of RtmReadReply(Of T)), Action(Of Exception))
 - uid: Satori.Rtm.Client.IRtmClient.RemoveSubscription(System.String)
   name: RemoveSubscription(String)
   href: api/Satori.Rtm.Client.IRtmClient.html#Satori_Rtm_Client_IRtmClient_RemoveSubscription_System_String_
@@ -1542,6 +1641,24 @@ references:
   fullName.vb: Satori.Rtm.Client.IRtmClient.Write(Of T)(Satori.Rtm.RtmWriteRequest(Of T), Satori.Rtm.Client.Ack)
   nameWithType: IRtmClient.Write<T>(RtmWriteRequest<T>, Ack)
   nameWithType.vb: IRtmClient.Write(Of T)(RtmWriteRequest(Of T), Ack)
+- uid: Satori.Rtm.Client.IRtmClient.Write``1(Satori.Rtm.RtmWriteRequest{``0},Satori.Rtm.Client.Ack,System.Action{Satori.Rtm.RtmWriteReply},System.Action{System.Exception})
+  name: Write<T>(RtmWriteRequest<T>, Ack, Action<RtmWriteReply>, Action<Exception>)
+  href: api/Satori.Rtm.Client.IRtmClient.html#Satori_Rtm_Client_IRtmClient_Write__1_Satori_Rtm_RtmWriteRequest___0__Satori_Rtm_Client_Ack_System_Action_Satori_Rtm_RtmWriteReply__System_Action_System_Exception__
+  commentId: M:Satori.Rtm.Client.IRtmClient.Write``1(Satori.Rtm.RtmWriteRequest{``0},Satori.Rtm.Client.Ack,System.Action{Satori.Rtm.RtmWriteReply},System.Action{System.Exception})
+  name.vb: Write(Of T)(RtmWriteRequest(Of T), Ack, Action(Of RtmWriteReply), Action(Of Exception))
+  fullName: Satori.Rtm.Client.IRtmClient.Write<T>(Satori.Rtm.RtmWriteRequest<T>, Satori.Rtm.Client.Ack, System.Action<Satori.Rtm.RtmWriteReply>, System.Action<System.Exception>)
+  fullName.vb: Satori.Rtm.Client.IRtmClient.Write(Of T)(Satori.Rtm.RtmWriteRequest(Of T), Satori.Rtm.Client.Ack, System.Action(Of Satori.Rtm.RtmWriteReply), System.Action(Of System.Exception))
+  nameWithType: IRtmClient.Write<T>(RtmWriteRequest<T>, Ack, Action<RtmWriteReply>, Action<Exception>)
+  nameWithType.vb: IRtmClient.Write(Of T)(RtmWriteRequest(Of T), Ack, Action(Of RtmWriteReply), Action(Of Exception))
+- uid: Satori.Rtm.Client.IRtmClient.Write``1(System.String,``0)
+  name: Write<T>(String, T)
+  href: api/Satori.Rtm.Client.IRtmClient.html#Satori_Rtm_Client_IRtmClient_Write__1_System_String___0_
+  commentId: M:Satori.Rtm.Client.IRtmClient.Write``1(System.String,``0)
+  name.vb: Write(Of T)(String, T)
+  fullName: Satori.Rtm.Client.IRtmClient.Write<T>(System.String, T)
+  fullName.vb: Satori.Rtm.Client.IRtmClient.Write(Of T)(System.String, T)
+  nameWithType: IRtmClient.Write<T>(String, T)
+  nameWithType.vb: IRtmClient.Write(Of T)(String, T)
 - uid: Satori.Rtm.Client.IRtmClient.Write``1(System.String,``0,Satori.Rtm.Client.Ack)
   name: Write<T>(String, T, Ack)
   href: api/Satori.Rtm.Client.IRtmClient.html#Satori_Rtm_Client_IRtmClient_Write__1_System_String___0_Satori_Rtm_Client_Ack_
@@ -1551,6 +1668,24 @@ references:
   fullName.vb: Satori.Rtm.Client.IRtmClient.Write(Of T)(System.String, T, Satori.Rtm.Client.Ack)
   nameWithType: IRtmClient.Write<T>(String, T, Ack)
   nameWithType.vb: IRtmClient.Write(Of T)(String, T, Ack)
+- uid: Satori.Rtm.Client.IRtmClient.Write``1(System.String,``0,Satori.Rtm.Client.Ack,System.Action{Satori.Rtm.RtmWriteReply},System.Action{System.Exception})
+  name: Write<T>(String, T, Ack, Action<RtmWriteReply>, Action<Exception>)
+  href: api/Satori.Rtm.Client.IRtmClient.html#Satori_Rtm_Client_IRtmClient_Write__1_System_String___0_Satori_Rtm_Client_Ack_System_Action_Satori_Rtm_RtmWriteReply__System_Action_System_Exception__
+  commentId: M:Satori.Rtm.Client.IRtmClient.Write``1(System.String,``0,Satori.Rtm.Client.Ack,System.Action{Satori.Rtm.RtmWriteReply},System.Action{System.Exception})
+  name.vb: Write(Of T)(String, T, Ack, Action(Of RtmWriteReply), Action(Of Exception))
+  fullName: Satori.Rtm.Client.IRtmClient.Write<T>(System.String, T, Satori.Rtm.Client.Ack, System.Action<Satori.Rtm.RtmWriteReply>, System.Action<System.Exception>)
+  fullName.vb: Satori.Rtm.Client.IRtmClient.Write(Of T)(System.String, T, Satori.Rtm.Client.Ack, System.Action(Of Satori.Rtm.RtmWriteReply), System.Action(Of System.Exception))
+  nameWithType: IRtmClient.Write<T>(String, T, Ack, Action<RtmWriteReply>, Action<Exception>)
+  nameWithType.vb: IRtmClient.Write(Of T)(String, T, Ack, Action(Of RtmWriteReply), Action(Of Exception))
+- uid: Satori.Rtm.Client.IRtmClient.Write``1(System.String,``0,System.Action{Satori.Rtm.RtmWriteReply},System.Action{System.Exception})
+  name: Write<T>(String, T, Action<RtmWriteReply>, Action<Exception>)
+  href: api/Satori.Rtm.Client.IRtmClient.html#Satori_Rtm_Client_IRtmClient_Write__1_System_String___0_System_Action_Satori_Rtm_RtmWriteReply__System_Action_System_Exception__
+  commentId: M:Satori.Rtm.Client.IRtmClient.Write``1(System.String,``0,System.Action{Satori.Rtm.RtmWriteReply},System.Action{System.Exception})
+  name.vb: Write(Of T)(String, T, Action(Of RtmWriteReply), Action(Of Exception))
+  fullName: Satori.Rtm.Client.IRtmClient.Write<T>(System.String, T, System.Action<Satori.Rtm.RtmWriteReply>, System.Action<System.Exception>)
+  fullName.vb: Satori.Rtm.Client.IRtmClient.Write(Of T)(System.String, T, System.Action(Of Satori.Rtm.RtmWriteReply), System.Action(Of System.Exception))
+  nameWithType: IRtmClient.Write<T>(String, T, Action<RtmWriteReply>, Action<Exception>)
+  nameWithType.vb: IRtmClient.Write(Of T)(String, T, Action(Of RtmWriteReply), Action(Of Exception))
 - uid: Satori.Rtm.Client.ISubscription
   name: ISubscription
   href: api/Satori.Rtm.Client.ISubscription.html
@@ -1707,6 +1842,12 @@ references:
   commentId: E:Satori.Rtm.Client.ISubscriptionEventSource.OnLeaveUnsubscribing
   fullName: Satori.Rtm.Client.ISubscriptionEventSource.OnLeaveUnsubscribing
   nameWithType: ISubscriptionEventSource.OnLeaveUnsubscribing
+- uid: Satori.Rtm.Client.ISubscriptionEventSource.OnSubscribeError
+  name: OnSubscribeError
+  href: api/Satori.Rtm.Client.ISubscriptionEventSource.html#Satori_Rtm_Client_ISubscriptionEventSource_OnSubscribeError
+  commentId: E:Satori.Rtm.Client.ISubscriptionEventSource.OnSubscribeError
+  fullName: Satori.Rtm.Client.ISubscriptionEventSource.OnSubscribeError
+  nameWithType: ISubscriptionEventSource.OnSubscribeError
 - uid: Satori.Rtm.Client.ISubscriptionEventSource.OnSubscriptionData
   name: OnSubscriptionData
   href: api/Satori.Rtm.Client.ISubscriptionEventSource.html#Satori_Rtm_Client_ISubscriptionEventSource_OnSubscriptionData
@@ -1725,6 +1866,12 @@ references:
   commentId: E:Satori.Rtm.Client.ISubscriptionEventSource.OnSubscriptionInfo
   fullName: Satori.Rtm.Client.ISubscriptionEventSource.OnSubscriptionInfo
   nameWithType: ISubscriptionEventSource.OnSubscriptionInfo
+- uid: Satori.Rtm.Client.ISubscriptionEventSource.OnUnsubscribeError
+  name: OnUnsubscribeError
+  href: api/Satori.Rtm.Client.ISubscriptionEventSource.html#Satori_Rtm_Client_ISubscriptionEventSource_OnUnsubscribeError
+  commentId: E:Satori.Rtm.Client.ISubscriptionEventSource.OnUnsubscribeError
+  fullName: Satori.Rtm.Client.ISubscriptionEventSource.OnUnsubscribeError
+  nameWithType: ISubscriptionEventSource.OnUnsubscribeError
 - uid: Satori.Rtm.Client.ISubscriptionObserver
   name: ISubscriptionObserver
   href: api/Satori.Rtm.Client.ISubscriptionObserver.html
@@ -1875,6 +2022,18 @@ references:
   commentId: Overload:Satori.Rtm.Client.ISubscriptionObserver.OnLeaveUnsubscribing
   fullName: Satori.Rtm.Client.ISubscriptionObserver.OnLeaveUnsubscribing
   nameWithType: ISubscriptionObserver.OnLeaveUnsubscribing
+- uid: Satori.Rtm.Client.ISubscriptionObserver.OnSubscribeError(Satori.Rtm.Client.ISubscription,System.Exception)
+  name: OnSubscribeError(ISubscription, Exception)
+  href: api/Satori.Rtm.Client.ISubscriptionObserver.html#Satori_Rtm_Client_ISubscriptionObserver_OnSubscribeError_Satori_Rtm_Client_ISubscription_System_Exception_
+  commentId: M:Satori.Rtm.Client.ISubscriptionObserver.OnSubscribeError(Satori.Rtm.Client.ISubscription,System.Exception)
+  fullName: Satori.Rtm.Client.ISubscriptionObserver.OnSubscribeError(Satori.Rtm.Client.ISubscription, System.Exception)
+  nameWithType: ISubscriptionObserver.OnSubscribeError(ISubscription, Exception)
+- uid: Satori.Rtm.Client.ISubscriptionObserver.OnSubscribeError*
+  name: OnSubscribeError
+  href: api/Satori.Rtm.Client.ISubscriptionObserver.html#Satori_Rtm_Client_ISubscriptionObserver_OnSubscribeError_
+  commentId: Overload:Satori.Rtm.Client.ISubscriptionObserver.OnSubscribeError
+  fullName: Satori.Rtm.Client.ISubscriptionObserver.OnSubscribeError
+  nameWithType: ISubscriptionObserver.OnSubscribeError
 - uid: Satori.Rtm.Client.ISubscriptionObserver.OnSubscriptionData(Satori.Rtm.Client.ISubscription,Satori.Rtm.RtmSubscriptionData)
   name: OnSubscriptionData(ISubscription, RtmSubscriptionData)
   href: api/Satori.Rtm.Client.ISubscriptionObserver.html#Satori_Rtm_Client_ISubscriptionObserver_OnSubscriptionData_Satori_Rtm_Client_ISubscription_Satori_Rtm_RtmSubscriptionData_
@@ -1911,6 +2070,36 @@ references:
   commentId: Overload:Satori.Rtm.Client.ISubscriptionObserver.OnSubscriptionInfo
   fullName: Satori.Rtm.Client.ISubscriptionObserver.OnSubscriptionInfo
   nameWithType: ISubscriptionObserver.OnSubscriptionInfo
+- uid: Satori.Rtm.Client.ISubscriptionObserver.OnUnsubscribeError(Satori.Rtm.Client.ISubscription,System.Exception)
+  name: OnUnsubscribeError(ISubscription, Exception)
+  href: api/Satori.Rtm.Client.ISubscriptionObserver.html#Satori_Rtm_Client_ISubscriptionObserver_OnUnsubscribeError_Satori_Rtm_Client_ISubscription_System_Exception_
+  commentId: M:Satori.Rtm.Client.ISubscriptionObserver.OnUnsubscribeError(Satori.Rtm.Client.ISubscription,System.Exception)
+  fullName: Satori.Rtm.Client.ISubscriptionObserver.OnUnsubscribeError(Satori.Rtm.Client.ISubscription, System.Exception)
+  nameWithType: ISubscriptionObserver.OnUnsubscribeError(ISubscription, Exception)
+- uid: Satori.Rtm.Client.ISubscriptionObserver.OnUnsubscribeError*
+  name: OnUnsubscribeError
+  href: api/Satori.Rtm.Client.ISubscriptionObserver.html#Satori_Rtm_Client_ISubscriptionObserver_OnUnsubscribeError_
+  commentId: Overload:Satori.Rtm.Client.ISubscriptionObserver.OnUnsubscribeError
+  fullName: Satori.Rtm.Client.ISubscriptionObserver.OnUnsubscribeError
+  nameWithType: ISubscriptionObserver.OnUnsubscribeError
+- uid: Satori.Rtm.Client.QueueFullException
+  name: QueueFullException
+  href: api/Satori.Rtm.Client.QueueFullException.html
+  commentId: T:Satori.Rtm.Client.QueueFullException
+  fullName: Satori.Rtm.Client.QueueFullException
+  nameWithType: QueueFullException
+- uid: Satori.Rtm.Client.QueueFullException.#ctor(System.String)
+  name: QueueFullException(String)
+  href: api/Satori.Rtm.Client.QueueFullException.html#Satori_Rtm_Client_QueueFullException__ctor_System_String_
+  commentId: M:Satori.Rtm.Client.QueueFullException.#ctor(System.String)
+  fullName: Satori.Rtm.Client.QueueFullException.QueueFullException(System.String)
+  nameWithType: QueueFullException.QueueFullException(String)
+- uid: Satori.Rtm.Client.QueueFullException.#ctor*
+  name: QueueFullException
+  href: api/Satori.Rtm.Client.QueueFullException.html#Satori_Rtm_Client_QueueFullException__ctor_
+  commentId: Overload:Satori.Rtm.Client.QueueFullException.#ctor
+  fullName: Satori.Rtm.Client.QueueFullException.QueueFullException
+  nameWithType: QueueFullException.QueueFullException
 - uid: Satori.Rtm.Client.RtmClientBuilder
   name: RtmClientBuilder
   href: api/Satori.Rtm.Client.RtmClientBuilder.html
@@ -2289,6 +2478,18 @@ references:
   commentId: Overload:Satori.Rtm.Client.SubscriptionCompoundObserver.OnLeaveUnsubscribing
   fullName: Satori.Rtm.Client.SubscriptionCompoundObserver.OnLeaveUnsubscribing
   nameWithType: SubscriptionCompoundObserver.OnLeaveUnsubscribing
+- uid: Satori.Rtm.Client.SubscriptionCompoundObserver.OnSubscribeError(Satori.Rtm.Client.ISubscription,System.Exception)
+  name: OnSubscribeError(ISubscription, Exception)
+  href: api/Satori.Rtm.Client.SubscriptionCompoundObserver.html#Satori_Rtm_Client_SubscriptionCompoundObserver_OnSubscribeError_Satori_Rtm_Client_ISubscription_System_Exception_
+  commentId: M:Satori.Rtm.Client.SubscriptionCompoundObserver.OnSubscribeError(Satori.Rtm.Client.ISubscription,System.Exception)
+  fullName: Satori.Rtm.Client.SubscriptionCompoundObserver.OnSubscribeError(Satori.Rtm.Client.ISubscription, System.Exception)
+  nameWithType: SubscriptionCompoundObserver.OnSubscribeError(ISubscription, Exception)
+- uid: Satori.Rtm.Client.SubscriptionCompoundObserver.OnSubscribeError*
+  name: OnSubscribeError
+  href: api/Satori.Rtm.Client.SubscriptionCompoundObserver.html#Satori_Rtm_Client_SubscriptionCompoundObserver_OnSubscribeError_
+  commentId: Overload:Satori.Rtm.Client.SubscriptionCompoundObserver.OnSubscribeError
+  fullName: Satori.Rtm.Client.SubscriptionCompoundObserver.OnSubscribeError
+  nameWithType: SubscriptionCompoundObserver.OnSubscribeError
 - uid: Satori.Rtm.Client.SubscriptionCompoundObserver.OnSubscriptionData(Satori.Rtm.Client.ISubscription,Satori.Rtm.RtmSubscriptionData)
   name: OnSubscriptionData(ISubscription, RtmSubscriptionData)
   href: api/Satori.Rtm.Client.SubscriptionCompoundObserver.html#Satori_Rtm_Client_SubscriptionCompoundObserver_OnSubscriptionData_Satori_Rtm_Client_ISubscription_Satori_Rtm_RtmSubscriptionData_
@@ -2325,12 +2526,30 @@ references:
   commentId: Overload:Satori.Rtm.Client.SubscriptionCompoundObserver.OnSubscriptionInfo
   fullName: Satori.Rtm.Client.SubscriptionCompoundObserver.OnSubscriptionInfo
   nameWithType: SubscriptionCompoundObserver.OnSubscriptionInfo
+- uid: Satori.Rtm.Client.SubscriptionCompoundObserver.OnUnsubscribeError(Satori.Rtm.Client.ISubscription,System.Exception)
+  name: OnUnsubscribeError(ISubscription, Exception)
+  href: api/Satori.Rtm.Client.SubscriptionCompoundObserver.html#Satori_Rtm_Client_SubscriptionCompoundObserver_OnUnsubscribeError_Satori_Rtm_Client_ISubscription_System_Exception_
+  commentId: M:Satori.Rtm.Client.SubscriptionCompoundObserver.OnUnsubscribeError(Satori.Rtm.Client.ISubscription,System.Exception)
+  fullName: Satori.Rtm.Client.SubscriptionCompoundObserver.OnUnsubscribeError(Satori.Rtm.Client.ISubscription, System.Exception)
+  nameWithType: SubscriptionCompoundObserver.OnUnsubscribeError(ISubscription, Exception)
+- uid: Satori.Rtm.Client.SubscriptionCompoundObserver.OnUnsubscribeError*
+  name: OnUnsubscribeError
+  href: api/Satori.Rtm.Client.SubscriptionCompoundObserver.html#Satori_Rtm_Client_SubscriptionCompoundObserver_OnUnsubscribeError_
+  commentId: Overload:Satori.Rtm.Client.SubscriptionCompoundObserver.OnUnsubscribeError
+  fullName: Satori.Rtm.Client.SubscriptionCompoundObserver.OnUnsubscribeError
+  nameWithType: SubscriptionCompoundObserver.OnUnsubscribeError
 - uid: Satori.Rtm.Client.SubscriptionConfig
   name: SubscriptionConfig
   href: api/Satori.Rtm.Client.SubscriptionConfig.html
   commentId: T:Satori.Rtm.Client.SubscriptionConfig
   fullName: Satori.Rtm.Client.SubscriptionConfig
   nameWithType: SubscriptionConfig
+- uid: Satori.Rtm.Client.SubscriptionConfig.#ctor(Satori.Rtm.Client.SubscriptionModes,Satori.Rtm.Client.ISubscriptionObserver)
+  name: SubscriptionConfig(SubscriptionModes, ISubscriptionObserver)
+  href: api/Satori.Rtm.Client.SubscriptionConfig.html#Satori_Rtm_Client_SubscriptionConfig__ctor_Satori_Rtm_Client_SubscriptionModes_Satori_Rtm_Client_ISubscriptionObserver_
+  commentId: M:Satori.Rtm.Client.SubscriptionConfig.#ctor(Satori.Rtm.Client.SubscriptionModes,Satori.Rtm.Client.ISubscriptionObserver)
+  fullName: Satori.Rtm.Client.SubscriptionConfig.SubscriptionConfig(Satori.Rtm.Client.SubscriptionModes, Satori.Rtm.Client.ISubscriptionObserver)
+  nameWithType: SubscriptionConfig.SubscriptionConfig(SubscriptionModes, ISubscriptionObserver)
 - uid: Satori.Rtm.Client.SubscriptionConfig.#ctor(Satori.Rtm.Client.SubscriptionModes,System.String,Satori.Rtm.Client.ISubscriptionObserver)
   name: SubscriptionConfig(SubscriptionModes, String, ISubscriptionObserver)
   href: api/Satori.Rtm.Client.SubscriptionConfig.html#Satori_Rtm_Client_SubscriptionConfig__ctor_Satori_Rtm_Client_SubscriptionModes_System_String_Satori_Rtm_Client_ISubscriptionObserver_
@@ -2529,6 +2748,12 @@ references:
   commentId: E:Satori.Rtm.Client.SubscriptionObserver.OnLeaveUnsubscribing
   fullName: Satori.Rtm.Client.SubscriptionObserver.OnLeaveUnsubscribing
   nameWithType: SubscriptionObserver.OnLeaveUnsubscribing
+- uid: Satori.Rtm.Client.SubscriptionObserver.OnSubscribeError
+  name: OnSubscribeError
+  href: api/Satori.Rtm.Client.SubscriptionObserver.html#Satori_Rtm_Client_SubscriptionObserver_OnSubscribeError
+  commentId: E:Satori.Rtm.Client.SubscriptionObserver.OnSubscribeError
+  fullName: Satori.Rtm.Client.SubscriptionObserver.OnSubscribeError
+  nameWithType: SubscriptionObserver.OnSubscribeError
 - uid: Satori.Rtm.Client.SubscriptionObserver.OnSubscriptionData
   name: OnSubscriptionData
   href: api/Satori.Rtm.Client.SubscriptionObserver.html#Satori_Rtm_Client_SubscriptionObserver_OnSubscriptionData
@@ -2547,6 +2772,12 @@ references:
   commentId: E:Satori.Rtm.Client.SubscriptionObserver.OnSubscriptionInfo
   fullName: Satori.Rtm.Client.SubscriptionObserver.OnSubscriptionInfo
   nameWithType: SubscriptionObserver.OnSubscriptionInfo
+- uid: Satori.Rtm.Client.SubscriptionObserver.OnUnsubscribeError
+  name: OnUnsubscribeError
+  href: api/Satori.Rtm.Client.SubscriptionObserver.html#Satori_Rtm_Client_SubscriptionObserver_OnUnsubscribeError
+  commentId: E:Satori.Rtm.Client.SubscriptionObserver.OnUnsubscribeError
+  fullName: Satori.Rtm.Client.SubscriptionObserver.OnUnsubscribeError
+  nameWithType: SubscriptionObserver.OnUnsubscribeError
 - uid: Satori.Rtm.Client.SubscriptionObserver.Satori#Rtm#Client#ISubscriptionObserver#OnCreated(Satori.Rtm.Client.ISubscription)
   name: ISubscriptionObserver.OnCreated(ISubscription)
   href: api/Satori.Rtm.Client.SubscriptionObserver.html#Satori_Rtm_Client_SubscriptionObserver_Satori_Rtm_Client_ISubscriptionObserver_OnCreated_Satori_Rtm_Client_ISubscription_
@@ -2739,6 +2970,22 @@ references:
   fullName: Satori.Rtm.Client.SubscriptionObserver.Satori.Rtm.Client.ISubscriptionObserver.OnLeaveUnsubscribing
   nameWithType: SubscriptionObserver.ISubscriptionObserver.OnLeaveUnsubscribing
   nameWithType.vb: SubscriptionObserver.Satori.Rtm.Client.ISubscriptionObserver.OnLeaveUnsubscribing
+- uid: Satori.Rtm.Client.SubscriptionObserver.Satori#Rtm#Client#ISubscriptionObserver#OnSubscribeError(Satori.Rtm.Client.ISubscription,System.Exception)
+  name: ISubscriptionObserver.OnSubscribeError(ISubscription, Exception)
+  href: api/Satori.Rtm.Client.SubscriptionObserver.html#Satori_Rtm_Client_SubscriptionObserver_Satori_Rtm_Client_ISubscriptionObserver_OnSubscribeError_Satori_Rtm_Client_ISubscription_System_Exception_
+  commentId: M:Satori.Rtm.Client.SubscriptionObserver.Satori#Rtm#Client#ISubscriptionObserver#OnSubscribeError(Satori.Rtm.Client.ISubscription,System.Exception)
+  name.vb: Satori.Rtm.Client.ISubscriptionObserver.OnSubscribeError(ISubscription, Exception)
+  fullName: Satori.Rtm.Client.SubscriptionObserver.Satori.Rtm.Client.ISubscriptionObserver.OnSubscribeError(Satori.Rtm.Client.ISubscription, System.Exception)
+  nameWithType: SubscriptionObserver.ISubscriptionObserver.OnSubscribeError(ISubscription, Exception)
+  nameWithType.vb: SubscriptionObserver.Satori.Rtm.Client.ISubscriptionObserver.OnSubscribeError(ISubscription, Exception)
+- uid: Satori.Rtm.Client.SubscriptionObserver.Satori#Rtm#Client#ISubscriptionObserver#OnSubscribeError*
+  name: ISubscriptionObserver.OnSubscribeError
+  href: api/Satori.Rtm.Client.SubscriptionObserver.html#Satori_Rtm_Client_SubscriptionObserver_Satori_Rtm_Client_ISubscriptionObserver_OnSubscribeError_
+  commentId: Overload:Satori.Rtm.Client.SubscriptionObserver.Satori#Rtm#Client#ISubscriptionObserver#OnSubscribeError
+  name.vb: Satori.Rtm.Client.ISubscriptionObserver.OnSubscribeError
+  fullName: Satori.Rtm.Client.SubscriptionObserver.Satori.Rtm.Client.ISubscriptionObserver.OnSubscribeError
+  nameWithType: SubscriptionObserver.ISubscriptionObserver.OnSubscribeError
+  nameWithType.vb: SubscriptionObserver.Satori.Rtm.Client.ISubscriptionObserver.OnSubscribeError
 - uid: Satori.Rtm.Client.SubscriptionObserver.Satori#Rtm#Client#ISubscriptionObserver#OnSubscriptionData(Satori.Rtm.Client.ISubscription,Satori.Rtm.RtmSubscriptionData)
   name: ISubscriptionObserver.OnSubscriptionData(ISubscription, RtmSubscriptionData)
   href: api/Satori.Rtm.Client.SubscriptionObserver.html#Satori_Rtm_Client_SubscriptionObserver_Satori_Rtm_Client_ISubscriptionObserver_OnSubscriptionData_Satori_Rtm_Client_ISubscription_Satori_Rtm_RtmSubscriptionData_
@@ -2787,24 +3034,22 @@ references:
   fullName: Satori.Rtm.Client.SubscriptionObserver.Satori.Rtm.Client.ISubscriptionObserver.OnSubscriptionInfo
   nameWithType: SubscriptionObserver.ISubscriptionObserver.OnSubscriptionInfo
   nameWithType.vb: SubscriptionObserver.Satori.Rtm.Client.ISubscriptionObserver.OnSubscriptionInfo
-- uid: Satori.Rtm.Client.TooManyRequestsException
-  name: TooManyRequestsException
-  href: api/Satori.Rtm.Client.TooManyRequestsException.html
-  commentId: T:Satori.Rtm.Client.TooManyRequestsException
-  fullName: Satori.Rtm.Client.TooManyRequestsException
-  nameWithType: TooManyRequestsException
-- uid: Satori.Rtm.Client.TooManyRequestsException.#ctor(System.String)
-  name: TooManyRequestsException(String)
-  href: api/Satori.Rtm.Client.TooManyRequestsException.html#Satori_Rtm_Client_TooManyRequestsException__ctor_System_String_
-  commentId: M:Satori.Rtm.Client.TooManyRequestsException.#ctor(System.String)
-  fullName: Satori.Rtm.Client.TooManyRequestsException.TooManyRequestsException(System.String)
-  nameWithType: TooManyRequestsException.TooManyRequestsException(String)
-- uid: Satori.Rtm.Client.TooManyRequestsException.#ctor*
-  name: TooManyRequestsException
-  href: api/Satori.Rtm.Client.TooManyRequestsException.html#Satori_Rtm_Client_TooManyRequestsException__ctor_
-  commentId: Overload:Satori.Rtm.Client.TooManyRequestsException.#ctor
-  fullName: Satori.Rtm.Client.TooManyRequestsException.TooManyRequestsException
-  nameWithType: TooManyRequestsException.TooManyRequestsException
+- uid: Satori.Rtm.Client.SubscriptionObserver.Satori#Rtm#Client#ISubscriptionObserver#OnUnsubscribeError(Satori.Rtm.Client.ISubscription,System.Exception)
+  name: ISubscriptionObserver.OnUnsubscribeError(ISubscription, Exception)
+  href: api/Satori.Rtm.Client.SubscriptionObserver.html#Satori_Rtm_Client_SubscriptionObserver_Satori_Rtm_Client_ISubscriptionObserver_OnUnsubscribeError_Satori_Rtm_Client_ISubscription_System_Exception_
+  commentId: M:Satori.Rtm.Client.SubscriptionObserver.Satori#Rtm#Client#ISubscriptionObserver#OnUnsubscribeError(Satori.Rtm.Client.ISubscription,System.Exception)
+  name.vb: Satori.Rtm.Client.ISubscriptionObserver.OnUnsubscribeError(ISubscription, Exception)
+  fullName: Satori.Rtm.Client.SubscriptionObserver.Satori.Rtm.Client.ISubscriptionObserver.OnUnsubscribeError(Satori.Rtm.Client.ISubscription, System.Exception)
+  nameWithType: SubscriptionObserver.ISubscriptionObserver.OnUnsubscribeError(ISubscription, Exception)
+  nameWithType.vb: SubscriptionObserver.Satori.Rtm.Client.ISubscriptionObserver.OnUnsubscribeError(ISubscription, Exception)
+- uid: Satori.Rtm.Client.SubscriptionObserver.Satori#Rtm#Client#ISubscriptionObserver#OnUnsubscribeError*
+  name: ISubscriptionObserver.OnUnsubscribeError
+  href: api/Satori.Rtm.Client.SubscriptionObserver.html#Satori_Rtm_Client_SubscriptionObserver_Satori_Rtm_Client_ISubscriptionObserver_OnUnsubscribeError_
+  commentId: Overload:Satori.Rtm.Client.SubscriptionObserver.Satori#Rtm#Client#ISubscriptionObserver#OnUnsubscribeError
+  name.vb: Satori.Rtm.Client.ISubscriptionObserver.OnUnsubscribeError
+  fullName: Satori.Rtm.Client.SubscriptionObserver.Satori.Rtm.Client.ISubscriptionObserver.OnUnsubscribeError
+  nameWithType: SubscriptionObserver.ISubscriptionObserver.OnUnsubscribeError
+  nameWithType.vb: SubscriptionObserver.Satori.Rtm.Client.ISubscriptionObserver.OnUnsubscribeError
 - uid: Satori.Rtm.CommonError
   name: CommonError
   href: api/Satori.Rtm.CommonError.html
@@ -5891,6 +6136,18 @@ references:
   commentId: T:Satori.Rtm.Dispatcher
   fullName: Satori.Rtm.Dispatcher
   nameWithType: Dispatcher
+- uid: Satori.Rtm.Dispatcher.Enqueue(System.Action)
+  name: Enqueue(Action)
+  href: api/Satori.Rtm.Dispatcher.html#Satori_Rtm_Dispatcher_Enqueue_System_Action_
+  commentId: M:Satori.Rtm.Dispatcher.Enqueue(System.Action)
+  fullName: Satori.Rtm.Dispatcher.Enqueue(System.Action)
+  nameWithType: Dispatcher.Enqueue(Action)
+- uid: Satori.Rtm.Dispatcher.Enqueue*
+  name: Enqueue
+  href: api/Satori.Rtm.Dispatcher.html#Satori_Rtm_Dispatcher_Enqueue_
+  commentId: Overload:Satori.Rtm.Dispatcher.Enqueue
+  fullName: Satori.Rtm.Dispatcher.Enqueue
+  nameWithType: Dispatcher.Enqueue
 - uid: Satori.Rtm.Dispatcher.GetResult
   name: GetResult()
   href: api/Satori.Rtm.Dispatcher.html#Satori_Rtm_Dispatcher_GetResult
@@ -5951,6 +6208,18 @@ references:
   commentId: Overload:Satori.Rtm.Dispatcher.Post
   fullName: Satori.Rtm.Dispatcher.Post
   nameWithType: Dispatcher.Post
+- uid: Satori.Rtm.Dispatcher.ProcessQueue
+  name: ProcessQueue()
+  href: api/Satori.Rtm.Dispatcher.html#Satori_Rtm_Dispatcher_ProcessQueue
+  commentId: M:Satori.Rtm.Dispatcher.ProcessQueue
+  fullName: Satori.Rtm.Dispatcher.ProcessQueue()
+  nameWithType: Dispatcher.ProcessQueue()
+- uid: Satori.Rtm.Dispatcher.ProcessQueue*
+  name: ProcessQueue
+  href: api/Satori.Rtm.Dispatcher.html#Satori_Rtm_Dispatcher_ProcessQueue_
+  commentId: Overload:Satori.Rtm.Dispatcher.ProcessQueue
+  fullName: Satori.Rtm.Dispatcher.ProcessQueue
+  nameWithType: Dispatcher.ProcessQueue
 - uid: Satori.Rtm.Dispatcher.Yield
   name: Yield()
   href: api/Satori.Rtm.Dispatcher.html#Satori_Rtm_Dispatcher_Yield
@@ -6747,6 +7016,18 @@ references:
   commentId: F:Satori.Rtm.PduException.Error
   fullName: Satori.Rtm.PduException.Error
   nameWithType: PduException.Error
+- uid: Satori.Rtm.PduException.Message
+  name: Message
+  href: api/Satori.Rtm.PduException.html#Satori_Rtm_PduException_Message
+  commentId: P:Satori.Rtm.PduException.Message
+  fullName: Satori.Rtm.PduException.Message
+  nameWithType: PduException.Message
+- uid: Satori.Rtm.PduException.Message*
+  name: Message
+  href: api/Satori.Rtm.PduException.html#Satori_Rtm_PduException_Message_
+  commentId: Overload:Satori.Rtm.PduException.Message
+  fullName: Satori.Rtm.PduException.Message
+  nameWithType: PduException.Message
 - uid: Satori.Rtm.PduException.Pdu
   name: Pdu
   href: api/Satori.Rtm.PduException.html#Satori_Rtm_PduException_Pdu
@@ -7194,6 +7475,12 @@ references:
   commentId: F:Satori.Rtm.RtmSubscribeError.AlreadySubscribed
   fullName: Satori.Rtm.RtmSubscribeError.AlreadySubscribed
   nameWithType: RtmSubscribeError.AlreadySubscribed
+- uid: Satori.Rtm.RtmSubscribeError.AuthorizationDenied
+  name: AuthorizationDenied
+  href: api/Satori.Rtm.RtmSubscribeError.html#Satori_Rtm_RtmSubscribeError_AuthorizationDenied
+  commentId: F:Satori.Rtm.RtmSubscribeError.AuthorizationDenied
+  fullName: Satori.Rtm.RtmSubscribeError.AuthorizationDenied
+  nameWithType: RtmSubscribeError.AuthorizationDenied
 - uid: Satori.Rtm.RtmSubscribeError.ExpiredPosition
   name: ExpiredPosition
   href: api/Satori.Rtm.RtmSubscribeError.html#Satori_Rtm_RtmSubscribeError_ExpiredPosition
@@ -7218,24 +7505,6 @@ references:
   commentId: Overload:Satori.Rtm.RtmSubscribeError.SubscriptionId
   fullName: Satori.Rtm.RtmSubscribeError.SubscriptionId
   nameWithType: RtmSubscribeError.SubscriptionId
-- uid: Satori.Rtm.RtmSubscribeException
-  name: RtmSubscribeException
-  href: api/Satori.Rtm.RtmSubscribeException.html
-  commentId: T:Satori.Rtm.RtmSubscribeException
-  fullName: Satori.Rtm.RtmSubscribeException
-  nameWithType: RtmSubscribeException
-- uid: Satori.Rtm.RtmSubscribeException.#ctor(Satori.Rtm.Pdu)
-  name: RtmSubscribeException(Pdu)
-  href: api/Satori.Rtm.RtmSubscribeException.html#Satori_Rtm_RtmSubscribeException__ctor_Satori_Rtm_Pdu_
-  commentId: M:Satori.Rtm.RtmSubscribeException.#ctor(Satori.Rtm.Pdu)
-  fullName: Satori.Rtm.RtmSubscribeException.RtmSubscribeException(Satori.Rtm.Pdu)
-  nameWithType: RtmSubscribeException.RtmSubscribeException(Pdu)
-- uid: Satori.Rtm.RtmSubscribeException.#ctor*
-  name: RtmSubscribeException
-  href: api/Satori.Rtm.RtmSubscribeException.html#Satori_Rtm_RtmSubscribeException__ctor_
-  commentId: Overload:Satori.Rtm.RtmSubscribeException.#ctor
-  fullName: Satori.Rtm.RtmSubscribeException.RtmSubscribeException
-  nameWithType: RtmSubscribeException.RtmSubscribeException
 - uid: Satori.Rtm.RtmSubscribeHistory
   name: RtmSubscribeHistory
   href: api/Satori.Rtm.RtmSubscribeHistory.html
@@ -7623,24 +7892,6 @@ references:
   commentId: Overload:Satori.Rtm.RtmUnsubscribeError.SubscriptionId
   fullName: Satori.Rtm.RtmUnsubscribeError.SubscriptionId
   nameWithType: RtmUnsubscribeError.SubscriptionId
-- uid: Satori.Rtm.RtmUnsubscribeException
-  name: RtmUnsubscribeException
-  href: api/Satori.Rtm.RtmUnsubscribeException.html
-  commentId: T:Satori.Rtm.RtmUnsubscribeException
-  fullName: Satori.Rtm.RtmUnsubscribeException
-  nameWithType: RtmUnsubscribeException
-- uid: Satori.Rtm.RtmUnsubscribeException.#ctor(Satori.Rtm.Pdu)
-  name: RtmUnsubscribeException(Pdu)
-  href: api/Satori.Rtm.RtmUnsubscribeException.html#Satori_Rtm_RtmUnsubscribeException__ctor_Satori_Rtm_Pdu_
-  commentId: M:Satori.Rtm.RtmUnsubscribeException.#ctor(Satori.Rtm.Pdu)
-  fullName: Satori.Rtm.RtmUnsubscribeException.RtmUnsubscribeException(Satori.Rtm.Pdu)
-  nameWithType: RtmUnsubscribeException.RtmUnsubscribeException(Pdu)
-- uid: Satori.Rtm.RtmUnsubscribeException.#ctor*
-  name: RtmUnsubscribeException
-  href: api/Satori.Rtm.RtmUnsubscribeException.html#Satori_Rtm_RtmUnsubscribeException__ctor_
-  commentId: Overload:Satori.Rtm.RtmUnsubscribeException.#ctor
-  fullName: Satori.Rtm.RtmUnsubscribeException.RtmUnsubscribeException
-  nameWithType: RtmUnsubscribeException.RtmUnsubscribeException
 - uid: Satori.Rtm.RtmUnsubscribeReply
   name: RtmUnsubscribeReply
   href: api/Satori.Rtm.RtmUnsubscribeReply.html
@@ -7754,6 +8005,129 @@ references:
   fullName.vb: Satori.Rtm.RtmWriteRequest(Of TPayload).Message
   nameWithType: RtmWriteRequest<TPayload>.Message
   nameWithType.vb: RtmWriteRequest(Of TPayload).Message
+- uid: Satori.Rtm.SingleThreadDispatcher
+  name: SingleThreadDispatcher
+  href: api/Satori.Rtm.SingleThreadDispatcher.html
+  commentId: T:Satori.Rtm.SingleThreadDispatcher
+  fullName: Satori.Rtm.SingleThreadDispatcher
+  nameWithType: SingleThreadDispatcher
+- uid: Satori.Rtm.SingleThreadDispatcher.GetResult
+  name: GetResult()
+  href: api/Satori.Rtm.SingleThreadDispatcher.html#Satori_Rtm_SingleThreadDispatcher_GetResult
+  commentId: M:Satori.Rtm.SingleThreadDispatcher.GetResult
+  fullName: Satori.Rtm.SingleThreadDispatcher.GetResult()
+  nameWithType: SingleThreadDispatcher.GetResult()
+- uid: Satori.Rtm.SingleThreadDispatcher.GetResult*
+  name: GetResult
+  href: api/Satori.Rtm.SingleThreadDispatcher.html#Satori_Rtm_SingleThreadDispatcher_GetResult_
+  commentId: Overload:Satori.Rtm.SingleThreadDispatcher.GetResult
+  fullName: Satori.Rtm.SingleThreadDispatcher.GetResult
+  nameWithType: SingleThreadDispatcher.GetResult
+- uid: Satori.Rtm.SingleThreadDispatcher.IsCompleted
+  name: IsCompleted
+  href: api/Satori.Rtm.SingleThreadDispatcher.html#Satori_Rtm_SingleThreadDispatcher_IsCompleted
+  commentId: P:Satori.Rtm.SingleThreadDispatcher.IsCompleted
+  fullName: Satori.Rtm.SingleThreadDispatcher.IsCompleted
+  nameWithType: SingleThreadDispatcher.IsCompleted
+- uid: Satori.Rtm.SingleThreadDispatcher.IsCompleted*
+  name: IsCompleted
+  href: api/Satori.Rtm.SingleThreadDispatcher.html#Satori_Rtm_SingleThreadDispatcher_IsCompleted_
+  commentId: Overload:Satori.Rtm.SingleThreadDispatcher.IsCompleted
+  fullName: Satori.Rtm.SingleThreadDispatcher.IsCompleted
+  nameWithType: SingleThreadDispatcher.IsCompleted
+- uid: Satori.Rtm.SingleThreadDispatcher.OnCompleted(System.Action)
+  name: OnCompleted(Action)
+  href: api/Satori.Rtm.SingleThreadDispatcher.html#Satori_Rtm_SingleThreadDispatcher_OnCompleted_System_Action_
+  commentId: M:Satori.Rtm.SingleThreadDispatcher.OnCompleted(System.Action)
+  fullName: Satori.Rtm.SingleThreadDispatcher.OnCompleted(System.Action)
+  nameWithType: SingleThreadDispatcher.OnCompleted(Action)
+- uid: Satori.Rtm.SingleThreadDispatcher.OnCompleted*
+  name: OnCompleted
+  href: api/Satori.Rtm.SingleThreadDispatcher.html#Satori_Rtm_SingleThreadDispatcher_OnCompleted_
+  commentId: Overload:Satori.Rtm.SingleThreadDispatcher.OnCompleted
+  fullName: Satori.Rtm.SingleThreadDispatcher.OnCompleted
+  nameWithType: SingleThreadDispatcher.OnCompleted
+- uid: Satori.Rtm.SingleThreadDispatcher.Post(System.Action)
+  name: Post(Action)
+  href: api/Satori.Rtm.SingleThreadDispatcher.html#Satori_Rtm_SingleThreadDispatcher_Post_System_Action_
+  commentId: M:Satori.Rtm.SingleThreadDispatcher.Post(System.Action)
+  fullName: Satori.Rtm.SingleThreadDispatcher.Post(System.Action)
+  nameWithType: SingleThreadDispatcher.Post(Action)
+- uid: Satori.Rtm.SingleThreadDispatcher.Post*
+  name: Post
+  href: api/Satori.Rtm.SingleThreadDispatcher.html#Satori_Rtm_SingleThreadDispatcher_Post_
+  commentId: Overload:Satori.Rtm.SingleThreadDispatcher.Post
+  fullName: Satori.Rtm.SingleThreadDispatcher.Post
+  nameWithType: SingleThreadDispatcher.Post
+- uid: Satori.Rtm.SingleThreadDispatcher.ProcessQueue
+  name: ProcessQueue()
+  href: api/Satori.Rtm.SingleThreadDispatcher.html#Satori_Rtm_SingleThreadDispatcher_ProcessQueue
+  commentId: M:Satori.Rtm.SingleThreadDispatcher.ProcessQueue
+  fullName: Satori.Rtm.SingleThreadDispatcher.ProcessQueue()
+  nameWithType: SingleThreadDispatcher.ProcessQueue()
+- uid: Satori.Rtm.SingleThreadDispatcher.ProcessQueue*
+  name: ProcessQueue
+  href: api/Satori.Rtm.SingleThreadDispatcher.html#Satori_Rtm_SingleThreadDispatcher_ProcessQueue_
+  commentId: Overload:Satori.Rtm.SingleThreadDispatcher.ProcessQueue
+  fullName: Satori.Rtm.SingleThreadDispatcher.ProcessQueue
+  nameWithType: SingleThreadDispatcher.ProcessQueue
+- uid: Satori.Rtm.SingleThreadDispatcher.ThreadId
+  name: ThreadId
+  href: api/Satori.Rtm.SingleThreadDispatcher.html#Satori_Rtm_SingleThreadDispatcher_ThreadId
+  commentId: F:Satori.Rtm.SingleThreadDispatcher.ThreadId
+  fullName: Satori.Rtm.SingleThreadDispatcher.ThreadId
+  nameWithType: SingleThreadDispatcher.ThreadId
+- uid: Satori.Rtm.SingleThreadDispatcher.Yield
+  name: Yield()
+  href: api/Satori.Rtm.SingleThreadDispatcher.html#Satori_Rtm_SingleThreadDispatcher_Yield
+  commentId: M:Satori.Rtm.SingleThreadDispatcher.Yield
+  fullName: Satori.Rtm.SingleThreadDispatcher.Yield()
+  nameWithType: SingleThreadDispatcher.Yield()
+- uid: Satori.Rtm.SingleThreadDispatcher.Yield*
+  name: Yield
+  href: api/Satori.Rtm.SingleThreadDispatcher.html#Satori_Rtm_SingleThreadDispatcher_Yield_
+  commentId: Overload:Satori.Rtm.SingleThreadDispatcher.Yield
+  fullName: Satori.Rtm.SingleThreadDispatcher.Yield
+  nameWithType: SingleThreadDispatcher.Yield
+- uid: Satori.Rtm.SubscribeException
+  name: SubscribeException
+  href: api/Satori.Rtm.SubscribeException.html
+  commentId: T:Satori.Rtm.SubscribeException
+  fullName: Satori.Rtm.SubscribeException
+  nameWithType: SubscribeException
+- uid: Satori.Rtm.SubscribeException.#ctor(Satori.Rtm.Pdu)
+  name: SubscribeException(Pdu)
+  href: api/Satori.Rtm.SubscribeException.html#Satori_Rtm_SubscribeException__ctor_Satori_Rtm_Pdu_
+  commentId: M:Satori.Rtm.SubscribeException.#ctor(Satori.Rtm.Pdu)
+  fullName: Satori.Rtm.SubscribeException.SubscribeException(Satori.Rtm.Pdu)
+  nameWithType: SubscribeException.SubscribeException(Pdu)
+- uid: Satori.Rtm.SubscribeException.#ctor*
+  name: SubscribeException
+  href: api/Satori.Rtm.SubscribeException.html#Satori_Rtm_SubscribeException__ctor_
+  commentId: Overload:Satori.Rtm.SubscribeException.#ctor
+  fullName: Satori.Rtm.SubscribeException.SubscribeException
+  nameWithType: SubscribeException.SubscribeException
+- uid: Satori.Rtm.TaskExtensions
+  name: TaskExtensions
+  href: api/Satori.Rtm.TaskExtensions.html
+  commentId: T:Satori.Rtm.TaskExtensions
+  fullName: Satori.Rtm.TaskExtensions
+  nameWithType: TaskExtensions
+- uid: Satori.Rtm.TaskExtensions.ContinueOnDispatcher*
+  name: ContinueOnDispatcher
+  href: api/Satori.Rtm.TaskExtensions.html#Satori_Rtm_TaskExtensions_ContinueOnDispatcher_
+  commentId: Overload:Satori.Rtm.TaskExtensions.ContinueOnDispatcher
+  fullName: Satori.Rtm.TaskExtensions.ContinueOnDispatcher
+  nameWithType: TaskExtensions.ContinueOnDispatcher
+- uid: Satori.Rtm.TaskExtensions.ContinueOnDispatcher``1(System.Threading.Tasks.Task{``0},Satori.Rtm.IDispatcher,System.Action{``0},System.Action{System.Exception})
+  name: ContinueOnDispatcher<T>(Task<T>, IDispatcher, Action<T>, Action<Exception>)
+  href: api/Satori.Rtm.TaskExtensions.html#Satori_Rtm_TaskExtensions_ContinueOnDispatcher__1_System_Threading_Tasks_Task___0__Satori_Rtm_IDispatcher_System_Action___0__System_Action_System_Exception__
+  commentId: M:Satori.Rtm.TaskExtensions.ContinueOnDispatcher``1(System.Threading.Tasks.Task{``0},Satori.Rtm.IDispatcher,System.Action{``0},System.Action{System.Exception})
+  name.vb: ContinueOnDispatcher(Of T)(Task(Of T), IDispatcher, Action(Of T), Action(Of Exception))
+  fullName: Satori.Rtm.TaskExtensions.ContinueOnDispatcher<T>(System.Threading.Tasks.Task<T>, Satori.Rtm.IDispatcher, System.Action<T>, System.Action<System.Exception>)
+  fullName.vb: Satori.Rtm.TaskExtensions.ContinueOnDispatcher(Of T)(System.Threading.Tasks.Task(Of T), Satori.Rtm.IDispatcher, System.Action(Of T), System.Action(Of System.Exception))
+  nameWithType: TaskExtensions.ContinueOnDispatcher<T>(Task<T>, IDispatcher, Action<T>, Action<Exception>)
+  nameWithType.vb: TaskExtensions.ContinueOnDispatcher(Of T)(Task(Of T), IDispatcher, Action(Of T), Action(Of Exception))
 - uid: Satori.Rtm.TraceLogger
   name: TraceLogger
   href: api/Satori.Rtm.TraceLogger.html
@@ -7784,6 +8158,24 @@ references:
   commentId: Overload:Satori.Rtm.TraceLogger.LogEvent
   fullName: Satori.Rtm.TraceLogger.LogEvent
   nameWithType: TraceLogger.LogEvent
+- uid: Satori.Rtm.UnsubscribeException
+  name: UnsubscribeException
+  href: api/Satori.Rtm.UnsubscribeException.html
+  commentId: T:Satori.Rtm.UnsubscribeException
+  fullName: Satori.Rtm.UnsubscribeException
+  nameWithType: UnsubscribeException
+- uid: Satori.Rtm.UnsubscribeException.#ctor(Satori.Rtm.Pdu)
+  name: UnsubscribeException(Pdu)
+  href: api/Satori.Rtm.UnsubscribeException.html#Satori_Rtm_UnsubscribeException__ctor_Satori_Rtm_Pdu_
+  commentId: M:Satori.Rtm.UnsubscribeException.#ctor(Satori.Rtm.Pdu)
+  fullName: Satori.Rtm.UnsubscribeException.UnsubscribeException(Satori.Rtm.Pdu)
+  nameWithType: UnsubscribeException.UnsubscribeException(Pdu)
+- uid: Satori.Rtm.UnsubscribeException.#ctor*
+  name: UnsubscribeException
+  href: api/Satori.Rtm.UnsubscribeException.html#Satori_Rtm_UnsubscribeException__ctor_
+  commentId: Overload:Satori.Rtm.UnsubscribeException.#ctor
+  fullName: Satori.Rtm.UnsubscribeException.UnsubscribeException
+  nameWithType: UnsubscribeException.UnsubscribeException
 - uid: Satori.Rtm.WsSerialization
   name: WsSerialization
   href: api/Satori.Rtm.WsSerialization.html
@@ -7886,6 +8278,48 @@ references:
   commentId: Overload:Satori.Rtm.WsSerialization.Send
   fullName: Satori.Rtm.WsSerialization.Send
   nameWithType: WsSerialization.Send
+- uid: System
+  name: System
+  href: api/System.html
+  commentId: N:System
+  fullName: System
+  nameWithType: System
+- uid: System.Net
+  name: System.Net
+  href: api/System.Net.html
+  commentId: N:System.Net
+  fullName: System.Net
+  nameWithType: System.Net
+- uid: System.Net.DnsEx
+  name: DnsEx
+  href: api/System.Net.DnsEx.html
+  commentId: T:System.Net.DnsEx
+  fullName: System.Net.DnsEx
+  nameWithType: DnsEx
+- uid: System.Net.DnsEx.GetHostAddressesAsync(System.String)
+  name: GetHostAddressesAsync(String)
+  href: api/System.Net.DnsEx.html#System_Net_DnsEx_GetHostAddressesAsync_System_String_
+  commentId: M:System.Net.DnsEx.GetHostAddressesAsync(System.String)
+  fullName: System.Net.DnsEx.GetHostAddressesAsync(System.String)
+  nameWithType: DnsEx.GetHostAddressesAsync(String)
+- uid: System.Net.DnsEx.GetHostAddressesAsync*
+  name: GetHostAddressesAsync
+  href: api/System.Net.DnsEx.html#System_Net_DnsEx_GetHostAddressesAsync_
+  commentId: Overload:System.Net.DnsEx.GetHostAddressesAsync
+  fullName: System.Net.DnsEx.GetHostAddressesAsync
+  nameWithType: DnsEx.GetHostAddressesAsync
+- uid: System.Net.DnsEx.GetHostEntryAsync(System.String)
+  name: GetHostEntryAsync(String)
+  href: api/System.Net.DnsEx.html#System_Net_DnsEx_GetHostEntryAsync_System_String_
+  commentId: M:System.Net.DnsEx.GetHostEntryAsync(System.String)
+  fullName: System.Net.DnsEx.GetHostEntryAsync(System.String)
+  nameWithType: DnsEx.GetHostEntryAsync(String)
+- uid: System.Net.DnsEx.GetHostEntryAsync*
+  name: GetHostEntryAsync
+  href: api/System.Net.DnsEx.html#System_Net_DnsEx_GetHostEntryAsync_
+  commentId: Overload:System.Net.DnsEx.GetHostEntryAsync
+  fullName: System.Net.DnsEx.GetHostEntryAsync
+  nameWithType: DnsEx.GetHostEntryAsync
 - uid: System.Net.WebSockets.Managed
   name: System.Net.WebSockets.Managed
   href: api/System.Net.WebSockets.Managed.html
@@ -8021,6 +8455,12 @@ references:
   commentId: Overload:System.Net.WebSockets.Managed.ClientWebSocket.ReceiveAsync
   fullName: System.Net.WebSockets.Managed.ClientWebSocket.ReceiveAsync
   nameWithType: ClientWebSocket.ReceiveAsync
+- uid: System.Net.WebSockets.Managed.ClientWebSocket.SelectionCallback
+  name: SelectionCallback
+  href: api/System.Net.WebSockets.Managed.ClientWebSocket.html#System_Net_WebSockets_Managed_ClientWebSocket_SelectionCallback
+  commentId: F:System.Net.WebSockets.Managed.ClientWebSocket.SelectionCallback
+  fullName: System.Net.WebSockets.Managed.ClientWebSocket.SelectionCallback
+  nameWithType: ClientWebSocket.SelectionCallback
 - uid: System.Net.WebSockets.Managed.ClientWebSocket.SendAsync(System.ArraySegment{System.Byte},System.Net.WebSockets.WebSocketMessageType,System.Boolean,System.Threading.CancellationToken)
   name: SendAsync(ArraySegment<Byte>, WebSocketMessageType, Boolean, CancellationToken)
   href: api/System.Net.WebSockets.Managed.ClientWebSocket.html#System_Net_WebSockets_Managed_ClientWebSocket_SendAsync_System_ArraySegment_System_Byte__System_Net_WebSockets_WebSocketMessageType_System_Boolean_System_Threading_CancellationToken_
@@ -8060,6 +8500,12 @@ references:
   commentId: Overload:System.Net.WebSockets.Managed.ClientWebSocket.SubProtocol
   fullName: System.Net.WebSockets.Managed.ClientWebSocket.SubProtocol
   nameWithType: ClientWebSocket.SubProtocol
+- uid: System.Net.WebSockets.Managed.ClientWebSocket.ValidationCallback
+  name: ValidationCallback
+  href: api/System.Net.WebSockets.Managed.ClientWebSocket.html#System_Net_WebSockets_Managed_ClientWebSocket_ValidationCallback
+  commentId: F:System.Net.WebSockets.Managed.ClientWebSocket.ValidationCallback
+  fullName: System.Net.WebSockets.Managed.ClientWebSocket.ValidationCallback
+  nameWithType: ClientWebSocket.ValidationCallback
 - uid: System.Net.WebSockets.Managed.ClientWebSocketOptions
   name: ClientWebSocketOptions
   href: api/System.Net.WebSockets.Managed.ClientWebSocketOptions.html
@@ -8183,3 +8629,45 @@ references:
   commentId: Overload:System.Net.WebSockets.Managed.ClientWebSocketOptions.UseDefaultCredentials
   fullName: System.Net.WebSockets.Managed.ClientWebSocketOptions.UseDefaultCredentials
   nameWithType: ClientWebSocketOptions.UseDefaultCredentials
+- uid: System.StringEx
+  name: StringEx
+  href: api/System.StringEx.html
+  commentId: T:System.StringEx
+  fullName: System.StringEx
+  nameWithType: StringEx
+- uid: System.StringEx.IsNullOrWhiteSpace(System.String)
+  name: IsNullOrWhiteSpace(String)
+  href: api/System.StringEx.html#System_StringEx_IsNullOrWhiteSpace_System_String_
+  commentId: M:System.StringEx.IsNullOrWhiteSpace(System.String)
+  fullName: System.StringEx.IsNullOrWhiteSpace(System.String)
+  nameWithType: StringEx.IsNullOrWhiteSpace(String)
+- uid: System.StringEx.IsNullOrWhiteSpace*
+  name: IsNullOrWhiteSpace
+  href: api/System.StringEx.html#System_StringEx_IsNullOrWhiteSpace_
+  commentId: Overload:System.StringEx.IsNullOrWhiteSpace
+  fullName: System.StringEx.IsNullOrWhiteSpace
+  nameWithType: StringEx.IsNullOrWhiteSpace
+- uid: System.StringEx.Join(System.String,System.Object[])
+  name: Join(String, Object[])
+  href: api/System.StringEx.html#System_StringEx_Join_System_String_System_Object___
+  commentId: M:System.StringEx.Join(System.String,System.Object[])
+  name.vb: Join(String, Object())
+  fullName: System.StringEx.Join(System.String, System.Object[])
+  fullName.vb: System.StringEx.Join(System.String, System.Object())
+  nameWithType: StringEx.Join(String, Object[])
+  nameWithType.vb: StringEx.Join(String, Object())
+- uid: System.StringEx.Join*
+  name: Join
+  href: api/System.StringEx.html#System_StringEx_Join_
+  commentId: Overload:System.StringEx.Join
+  fullName: System.StringEx.Join
+  nameWithType: StringEx.Join
+- uid: System.StringEx.Join``1(System.String,System.Collections.Generic.IEnumerable{``0})
+  name: Join<T>(String, IEnumerable<T>)
+  href: api/System.StringEx.html#System_StringEx_Join__1_System_String_System_Collections_Generic_IEnumerable___0__
+  commentId: M:System.StringEx.Join``1(System.String,System.Collections.Generic.IEnumerable{``0})
+  name.vb: Join(Of T)(String, IEnumerable(Of T))
+  fullName: System.StringEx.Join<T>(System.String, System.Collections.Generic.IEnumerable<T>)
+  fullName.vb: System.StringEx.Join(Of T)(System.String, System.Collections.Generic.IEnumerable(Of T))
+  nameWithType: StringEx.Join<T>(String, IEnumerable<T>)
+  nameWithType.vb: StringEx.Join(Of T)(String, IEnumerable(Of T))

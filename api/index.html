@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Satori RTM SDK for .NET | .NET SDK for Satori RTM </title>
+    <title>C# SDK for Satori RTM | C# SDK for Satori RTM </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Satori RTM SDK for .NET | .NET SDK for Satori RTM ">
+    <meta name="title" content="C# SDK for Satori RTM | C# SDK for Satori RTM ">
     <meta name="generator" content="docfx 2.16.5.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
@@ -45,11 +45,11 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-              <h1 id="satori-rtm-sdk-for-net">Satori RTM SDK for .NET</h1>
+              <h1 id="c-sdk-for-satori-rtm">C# SDK for Satori RTM</h1>
               
 <p>[<img src="https://img.shields.io/nuget/vpre/Satori.RTM.SDK.svg" alt="NuGet Pre Release">]()</p>
 <p>Satori is a cloud-based, live data ecosystem that manages any form of schema-less real-time live data as it happens. 
-The ecosystem includes a fast and scalable messaging engine known as RTM. Use the Satori RTM SDK for .NET to create mobile, desktop or server-based applications that communicate with the RTM to publish and subscribe.</p>
+The ecosystem includes a fast and scalable messaging engine known as RTM. Use the C# SDK for Satori RTM to create mobile, desktop or server-based applications that communicate with the RTM to publish and subscribe.</p>
 <h1 id="target-frameworks">Target Frameworks</h1>
 <ul>
 <li>Mono / .NET 4.5+</li>
@@ -57,15 +57,15 @@ The ecosystem includes a fast and scalable messaging engine known as RTM. Use th
 <li>Xamarin.iOS (iOS 8.1+)</li>
 </ul>
 <h1 id="nuget">NuGet</h1>
-<p>To install Satori RTM SDK for .NET, run the following command in the Package Manager Console:</p>
-<pre><code>PM&gt; Install-Package Satori.RTM.SDK -Version 1.0.0-beta -Pre
+<p>To install C# SDK for Satori RTM, run the following command in the Package Manager Console:</p>
+<pre><code>PM&gt; Install-Package Satori.RTM.SDK -Version 1.0.1-beta -Pre
 </code></pre><p>Alternatively, install the package via the user interface provided by Xamarin Studio or Visual Studio. </p>
 <p>The package is hosted on <a href="https://www.nuget.org/packages/Satori.RTM.SDK/">Nuget Gallery</a>. </p>
 <h1 id="documentation">Documentation</h1>
 <p>The various documentation is available:</p>
 <ul>
 <li>The Documentation on <a href="https://www.satori.com/docs/introduction/new-to-satori">Satori Website</a></li>
-<li>The <a href="https://satori-com.github.io/satori-rtm-sdk-net/api">API Documentation</a></li>
+<li>The <a href="https://satori-com.github.io/satori-rtm-sdk-csharp/api">API Documentation</a></li>
 <li>The <a href="https://www.satori.com/docs/references/rtm-api">RTM API</a> specification</li>
 </ul>
 <h1 id="logging">Logging</h1>
@@ -75,7 +75,7 @@ log messages to the console, add <code>ConsoleTraceListener</code> to <code>Trac
 ...
 Trace.Listeners.Add(new ConsoleTraceListener());
 </code></pre><p>Read about Trace Listeners on <a href="https://msdn.microsoft.com/en-us/library/4y5y10s7(v=vs.110).aspx">MSDN</a></p>
-<p>By default, verbosity level is warning. Verbosity of the different components of .NET SDK can be set separately: </p>
+<p>By default, verbosity level is warning. Verbosity of the different components of C# SDK can be set separately: </p>
 <pre><code>using Satori.Rtm;
 ...
 DefaultLoggers.Dispatcher.SetLevel(Logger.LogLevel.Verbose);

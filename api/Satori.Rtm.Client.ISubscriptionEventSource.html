@@ -6,10 +6,10 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>Interface ISubscriptionEventSource
-   | .NET SDK for Satori RTM </title>
+   | C# SDK for Satori RTM </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Interface ISubscriptionEventSource
-   | .NET SDK for Satori RTM ">
+   | C# SDK for Satori RTM ">
     <meta name="generator" content="docfx 2.16.5.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
@@ -370,6 +370,31 @@ method  with a subscription observer. </p>
               </table>
               
               
+              <h4 id="Satori_Rtm_Client_ISubscriptionEventSource_OnSubscribeError" data-uid="Satori.Rtm.Client.ISubscriptionEventSource.OnSubscribeError">OnSubscribeError</h4>
+              <div class="markdown level1 summary"><p>Occurs when a subscribe request fails.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">event Action&lt;ISubscription, Exception&gt; OnSubscribeError</code></pre>
+              </div>
+              <h5 class="eventType">Event Type</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.Action</span>&lt;<a class="xref" href="Satori.Rtm.Client.ISubscription.html">ISubscription</a>, <span class="xref">System.Exception</span>&gt;</td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
               <h4 id="Satori_Rtm_Client_ISubscriptionEventSource_OnSubscriptionData" data-uid="Satori.Rtm.Client.ISubscriptionEventSource.OnSubscriptionData">OnSubscriptionData</h4>
               <div class="markdown level1 summary"><p>Occurs when a subscription receives data.</p>
 </div>
@@ -439,6 +464,31 @@ method  with a subscription observer. </p>
                 <tbody>
                   <tr>
                     <td><span class="xref">System.Action</span>&lt;<a class="xref" href="Satori.Rtm.Client.ISubscription.html">ISubscription</a>, <a class="xref" href="Satori.Rtm.RtmSubscriptionInfo.html">RtmSubscriptionInfo</a>&gt;</td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              
+              
+              <h4 id="Satori_Rtm_Client_ISubscriptionEventSource_OnUnsubscribeError" data-uid="Satori.Rtm.Client.ISubscriptionEventSource.OnUnsubscribeError">OnUnsubscribeError</h4>
+              <div class="markdown level1 summary"><p>Occurs when an unsubscribe request fails.</p>
+</div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">event Action&lt;ISubscription, Exception&gt; OnUnsubscribeError</code></pre>
+              </div>
+              <h5 class="eventType">Event Type</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.Action</span>&lt;<a class="xref" href="Satori.Rtm.Client.ISubscription.html">ISubscription</a>, <span class="xref">System.Exception</span>&gt;</td>
                     <td></td>
                   </tr>
                 </tbody>

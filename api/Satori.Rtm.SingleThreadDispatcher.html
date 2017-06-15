@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class SuccessfulAwaiterTransform&lt;I, O&gt;
+    <title>Class SingleThreadDispatcher
    | C# SDK for Satori RTM </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class SuccessfulAwaiterTransform&lt;I, O&gt;
+    <meta name="title" content="Class SingleThreadDispatcher
    | C# SDK for Satori RTM ">
     <meta name="generator" content="docfx 2.16.5.0">
     
@@ -49,14 +49,14 @@
             <article class="content wrap" id="_content">
               
               
-              <h1 id="Satori_Common_SuccessfulAwaiterTransform_2" data-uid="Satori.Common.SuccessfulAwaiterTransform`2">Class SuccessfulAwaiterTransform&lt;I, O&gt;
+              <h1 id="Satori_Rtm_SingleThreadDispatcher" data-uid="Satori.Rtm.SingleThreadDispatcher">Class SingleThreadDispatcher
               </h1>
               <div class="markdown level0 summary"></div>
               <div class="markdown level0 conceptual"></div>
               <div class="inheritance">
                 <h5>Inheritance</h5>
                   <div class="level0"><span class="xref">System.Object</span></div>
-                  <div class="level1"><span class="xref">SuccessfulAwaiterTransform&lt;I, O&gt;</span></div>
+                  <div class="level1"><span class="xref">SingleThreadDispatcher</span></div>
               </div>
               <div class="inheritedMembers">
                 <h5>Inherited Members</h5>
@@ -82,61 +82,34 @@
                   <span class="xref">System.Object.MemberwiseClone()</span>
                 </div>
               </div>
-              <h6><strong>Namespace</strong>:Satori.Common</h6>
+              <h6><strong>Namespace</strong>:Satori.Rtm</h6>
               <h6><strong>Assembly</strong>:Satori.RTM.Net45.dll</h6>
-              <h5 id="Satori_Common_SuccessfulAwaiterTransform_2_syntax">Syntax</h5>
+              <h5 id="Satori_Rtm_SingleThreadDispatcher_syntax">Syntax</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public class SuccessfulAwaiterTransform&lt;I, O&gt; : ISuccessfulAwaiter&lt;O&gt;, INotifyCompletion</code></pre>
+                <pre><code class="lang-csharp hljs">public class SingleThreadDispatcher : IDispatcher, ISuccessfulAwaiter&lt;bool&gt;, INotifyCompletion</code></pre>
               </div>
-              <h5 class="typeParameters">Type Parameters</h5>
-              <table class="table table-bordered table-striped table-condensed">
-                <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th>Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><span class="parametername">I</span></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td><span class="parametername">O</span></td>
-                    <td></td>
-                  </tr>
-                </tbody>
-              </table>
-              <h3 id="constructors">Constructors
+              <h3 id="fields">Fields
               </h3>
               
               
-              <a id="Satori_Common_SuccessfulAwaiterTransform_2__ctor_" data-uid="Satori.Common.SuccessfulAwaiterTransform`2.#ctor*"></a>
-              <h4 id="Satori_Common_SuccessfulAwaiterTransform_2__ctor_Satori_Common_ISuccessfulAwaiter__0__System_Func__0__1__" data-uid="Satori.Common.SuccessfulAwaiterTransform`2.#ctor(Satori.Common.ISuccessfulAwaiter{`0},System.Func{`0,`1})">SuccessfulAwaiterTransform(ISuccessfulAwaiter&lt;I&gt;, Func&lt;I, O&gt;)</h4>
+              <h4 id="Satori_Rtm_SingleThreadDispatcher_ThreadId" data-uid="Satori.Rtm.SingleThreadDispatcher.ThreadId">ThreadId</h4>
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public SuccessfulAwaiterTransform(ISuccessfulAwaiter&lt;I&gt; awaiter, Func&lt;I, O&gt; transform)</code></pre>
+                <pre><code class="lang-csharp hljs">public readonly int ThreadId</code></pre>
               </div>
-              <h5 class="parameters">Parameters</h5>
+              <h5 class="fieldValue">Field Value</h5>
               <table class="table table-bordered table-striped table-condensed">
                 <thead>
                   <tr>
                     <th>Type</th>
-                    <th>Name</th>
                     <th>Description</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td><a class="xref" href="Satori.Common.ISuccessfulAwaiter-1.html">ISuccessfulAwaiter</a>&lt;I&gt;</td>
-                    <td><span class="parametername">awaiter</span></td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td><span class="xref">System.Func</span>&lt;I, O&gt;</td>
-                    <td><span class="parametername">transform</span></td>
+                    <td><span class="xref">System.Int32</span></td>
                     <td></td>
                   </tr>
                 </tbody>
@@ -145,8 +118,8 @@
               </h3>
               
               
-              <a id="Satori_Common_SuccessfulAwaiterTransform_2_IsCompleted_" data-uid="Satori.Common.SuccessfulAwaiterTransform`2.IsCompleted*"></a>
-              <h4 id="Satori_Common_SuccessfulAwaiterTransform_2_IsCompleted" data-uid="Satori.Common.SuccessfulAwaiterTransform`2.IsCompleted">IsCompleted</h4>
+              <a id="Satori_Rtm_SingleThreadDispatcher_IsCompleted_" data-uid="Satori.Rtm.SingleThreadDispatcher.IsCompleted*"></a>
+              <h4 id="Satori_Rtm_SingleThreadDispatcher_IsCompleted" data-uid="Satori.Rtm.SingleThreadDispatcher.IsCompleted">IsCompleted</h4>
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
@@ -174,13 +147,13 @@
               </h3>
               
               
-              <a id="Satori_Common_SuccessfulAwaiterTransform_2_GetResult_" data-uid="Satori.Common.SuccessfulAwaiterTransform`2.GetResult*"></a>
-              <h4 id="Satori_Common_SuccessfulAwaiterTransform_2_GetResult" data-uid="Satori.Common.SuccessfulAwaiterTransform`2.GetResult">GetResult()</h4>
+              <a id="Satori_Rtm_SingleThreadDispatcher_GetResult_" data-uid="Satori.Rtm.SingleThreadDispatcher.GetResult*"></a>
+              <h4 id="Satori_Rtm_SingleThreadDispatcher_GetResult" data-uid="Satori.Rtm.SingleThreadDispatcher.GetResult">GetResult()</h4>
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
               <div class="codewrapper">
-                <pre><code class="lang-csharp hljs">public O GetResult()</code></pre>
+                <pre><code class="lang-csharp hljs">public bool GetResult()</code></pre>
               </div>
               <h5 class="returns">Returns</h5>
               <table class="table table-bordered table-striped table-condensed">
@@ -192,7 +165,7 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td><span class="xref">O</span></td>
+                    <td><span class="xref">System.Boolean</span></td>
                     <td></td>
                   </tr>
                 </tbody>
@@ -201,8 +174,8 @@
                   <div><a class="xref" href="Satori.Common.ISuccessfulAwaiter-1.html#Satori_Common_ISuccessfulAwaiter_1_GetResult">ISuccessfulAwaiter&lt;TResult&gt;.GetResult()</a></div>
               
               
-              <a id="Satori_Common_SuccessfulAwaiterTransform_2_OnCompleted_" data-uid="Satori.Common.SuccessfulAwaiterTransform`2.OnCompleted*"></a>
-              <h4 id="Satori_Common_SuccessfulAwaiterTransform_2_OnCompleted_System_Action_" data-uid="Satori.Common.SuccessfulAwaiterTransform`2.OnCompleted(System.Action)">OnCompleted(Action)</h4>
+              <a id="Satori_Rtm_SingleThreadDispatcher_OnCompleted_" data-uid="Satori.Rtm.SingleThreadDispatcher.OnCompleted*"></a>
+              <h4 id="Satori_Rtm_SingleThreadDispatcher_OnCompleted_System_Action_" data-uid="Satori.Rtm.SingleThreadDispatcher.OnCompleted(System.Action)">OnCompleted(Action)</h4>
               <div class="markdown level1 summary"></div>
               <div class="markdown level1 conceptual"></div>
               <h5 class="decalaration">Declaration</h5>
@@ -228,6 +201,72 @@
               </table>
               <h5 class="implements">Implements</h5>
                   <div><span class="xref">System.Runtime.CompilerServices.INotifyCompletion.OnCompleted(System.Action)</span></div>
+              
+              
+              <a id="Satori_Rtm_SingleThreadDispatcher_Post_" data-uid="Satori.Rtm.SingleThreadDispatcher.Post*"></a>
+              <h4 id="Satori_Rtm_SingleThreadDispatcher_Post_System_Action_" data-uid="Satori.Rtm.SingleThreadDispatcher.Post(System.Action)">Post(Action)</h4>
+              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public void Post(Action act)</code></pre>
+              </div>
+              <h5 class="parameters">Parameters</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><span class="xref">System.Action</span></td>
+                    <td><span class="parametername">act</span></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="implements">Implements</h5>
+                  <div><a class="xref" href="Satori.Rtm.IDispatcher.html#Satori_Rtm_IDispatcher_Post_System_Action_">IDispatcher.Post(Action)</a></div>
+              
+              
+              <a id="Satori_Rtm_SingleThreadDispatcher_ProcessQueue_" data-uid="Satori.Rtm.SingleThreadDispatcher.ProcessQueue*"></a>
+              <h4 id="Satori_Rtm_SingleThreadDispatcher_ProcessQueue" data-uid="Satori.Rtm.SingleThreadDispatcher.ProcessQueue">ProcessQueue()</h4>
+              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public void ProcessQueue()</code></pre>
+              </div>
+              
+              
+              <a id="Satori_Rtm_SingleThreadDispatcher_Yield_" data-uid="Satori.Rtm.SingleThreadDispatcher.Yield*"></a>
+              <h4 id="Satori_Rtm_SingleThreadDispatcher_Yield" data-uid="Satori.Rtm.SingleThreadDispatcher.Yield">Yield()</h4>
+              <div class="markdown level1 summary"></div>
+              <div class="markdown level1 conceptual"></div>
+              <h5 class="decalaration">Declaration</h5>
+              <div class="codewrapper">
+                <pre><code class="lang-csharp hljs">public ISuccessfulAwaiter&lt;bool&gt; Yield()</code></pre>
+              </div>
+              <h5 class="returns">Returns</h5>
+              <table class="table table-bordered table-striped table-condensed">
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><a class="xref" href="Satori.Common.ISuccessfulAwaiter-1.html">ISuccessfulAwaiter</a>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5 class="implements">Implements</h5>
+                  <div><a class="xref" href="Satori.Rtm.IDispatcher.html#Satori_Rtm_IDispatcher_Yield">IDispatcher.Yield()</a></div>
               <h3 id="extensionmethods">Extension Methods</h3>
               <div>
                   <a class="xref" href="Satori.Common.AwaiterExtensions.html#Satori_Common_AwaiterExtensions_Map__2_Satori_Common_ISuccessfulAwaiter___0__System_Func___0___1__">AwaiterExtensions.Map&lt;I, O&gt;(ISuccessfulAwaiter&lt;I&gt;, Func&lt;I, O&gt;)</a>
