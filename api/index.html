@@ -55,12 +55,21 @@ The ecosystem includes a fast and scalable messaging engine known as RTM. Use th
 <li>Mono / .NET 4.5+</li>
 <li>Xamarin.Android (Android 4.4+)</li>
 <li>Xamarin.iOS (iOS 8.1+)</li>
+<li>Unity 5.6+ (Standalone, iOS, Android)</li>
 </ul>
-<h1 id="nuget">NuGet</h1>
+<h1 id="setup">Setup</h1>
+<h2 id="nuget">NuGet</h2>
 <p>To install C# SDK for Satori RTM, run the following command in the Package Manager Console:</p>
 <pre><code>PM&gt; Install-Package Satori.RTM.SDK -Version 1.0.1-beta -Pre
 </code></pre><p>Alternatively, install the package via the user interface provided by Xamarin Studio or Visual Studio. </p>
 <p>The package is hosted on <a href="https://www.nuget.org/packages/Satori.RTM.SDK/">Nuget Gallery</a>. </p>
+<h2 id="unity">Unity</h2>
+<p>To add C# SDK for Satori RTM to a Unity project, copy the following files from <a href="https://github.com/satori-com/satori-rtm-sdk-csharp/tree/master/examples/Quickstart.Unity/Assets">Quickstart on GitHub</a> to the Assets folder: </p>
+<ul>
+<li><code>link.xml</code></li>
+<li><code>Newtonsoft.Json.dll</code></li>
+<li><code>Satori.RTM.Unity.dll</code></li>
+</ul>
 <h1 id="documentation">Documentation</h1>
 <p>The various documentation is available:</p>
 <ul>
@@ -85,16 +94,23 @@ DefaultLoggers.Client.SetLevel(Logger.LogLevel.Verbose);
 DefaultLoggers.ClientRtm.SetLevel(Logger.LogLevel.Verbose);
 DefaultLoggers.ClientRtmSubscription.SetLevel(Logger.LogLevel.Verbose);
 </code></pre><h1 id="build">Build</h1>
-<h2 id="mac">Mac</h2>
+<h2 id="net-mono-xamarin">.NET, Mono, Xamarin</h2>
+<h3 id="build-on-mac">Build on Mac</h3>
 <ol>
 <li>Open <code>./Satori.All.sln</code> with Xamarin Studio. </li>
-<li>Build the solution</li>
+<li>Build the <code>Satori.RTM.Net45</code>, <code>Satori.RTM.iOS</code>, <code>Satori.RTM.Android</code> projects</li>
 </ol>
-<h2 id="windows">Windows</h2>
+<h3 id="build-on-windows">Build on Windows</h3>
 <ol>
 <li>Open <code>./Satori.VS.sln</code> with Visual Studio 2015.</li>
-<li>Build the solution</li>
+<li>Build the <code>Satori.RTM.Net45</code>, <code>Satori.RTM.iOS</code>, <code>Satori.RTM.Android</code> projects</li>
 </ol>
+<h2 id="unity-1">Unity</h2>
+<ol>
+<li>Open <code>./Satori.VS.sln</code> with Visual Studio 2015.</li>
+<li>Build the <code>Satori.RTM.Unity</code> project</li>
+</ol>
+<p>Note, the <code>Satori.RTM.Unity</code> project must be built by msbuild (Visual Studio). Assemblies, built by xbuild (Xamarin Studio), won&#39;t work. </p>
 <h1 id="running-tests">Running Tests</h1>
 <p>Tests require credentials to establish connection to Satori endpoint. Credentials should be provided in 
 the following format: </p>
