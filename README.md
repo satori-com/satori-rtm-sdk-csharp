@@ -9,8 +9,11 @@ The ecosystem includes a fast and scalable messaging engine known as RTM. Use th
 * Mono / .NET 4.5+
 * Xamarin.Android (Android 4.4+)
 * Xamarin.iOS (iOS 8.1+)
+* Unity 5.6+ (Standalone, iOS, Android)
 
-# NuGet
+# Setup
+
+## NuGet
 
 To install C# SDK for Satori RTM, run the following command in the Package Manager Console:
 ```
@@ -19,6 +22,13 @@ PM> Install-Package Satori.RTM.SDK -Version 1.0.1-beta -Pre
 Alternatively, install the package via the user interface provided by Xamarin Studio or Visual Studio. 
 
 The package is hosted on [Nuget Gallery](https://www.nuget.org/packages/Satori.RTM.SDK/). 
+
+## Unity
+
+To add C# SDK for Satori RTM to a Unity project, copy the following files from [Quickstart on GitHub](https://github.com/satori-com/satori-rtm-sdk-csharp/tree/master/examples/Quickstart.Unity/Assets) to the Assets folder: 
+- `link.xml`
+- `Newtonsoft.Json.dll`
+- `Satori.RTM.Unity.dll`
 
 # Documentation
 
@@ -55,15 +65,24 @@ DefaultLoggers.ClientRtmSubscription.SetLevel(Logger.LogLevel.Verbose);
 ```
 # Build
 
-## Mac
+## .NET, Mono, Xamarin 
+
+### Build on Mac
 
 1. Open `./Satori.All.sln` with Xamarin Studio. 
-2. Build the solution
+2. Build the `Satori.RTM.Net45`, `Satori.RTM.iOS`, `Satori.RTM.Android` projects
  
-## Windows
+### Build on Windows
 
 1. Open `./Satori.VS.sln` with Visual Studio 2015.
-2. Build the solution
+2. Build the `Satori.RTM.Net45`, `Satori.RTM.iOS`, `Satori.RTM.Android` projects
+
+## Unity
+
+1. Open `./Satori.VS.sln` with Visual Studio 2015.
+2. Build the `Satori.RTM.Unity` project
+
+Note, the `Satori.RTM.Unity` project must be built by msbuild (Visual Studio). Assemblies, built by xbuild (Xamarin Studio), won't work. 
 
 # Running Tests
 
