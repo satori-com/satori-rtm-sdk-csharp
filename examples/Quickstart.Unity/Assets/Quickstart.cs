@@ -14,7 +14,9 @@ using Satori.Rtm;
 using Satori.Rtm.Client;
 using UnityEngine;
 using UnityEngine.UI;
+
 using Logger = Satori.Rtm.Logger;
+using Random = UnityEngine.Random;
 
 // Animal class represents user message to publish to RTM
 // Message example in json: 
@@ -44,11 +46,17 @@ public class Quickstart : MonoBehaviour
 
     string channel = "animals";
 
-	Text mesh;
-
 	// Communication with RTM is done via RTM client which implements IRtmClient 
 	// interface. 
 	IRtmClient client;
+    
+    // Animal is published in the Update method if this flag is set
+    bool publishAnimal;
+    
+    // Time in seconds when the last animal was published
+    float lastPublished = 0;
+
+    Text mesh;
 
     // Use this for initialization
     void Start()
@@ -103,10 +111,10 @@ public class Quickstart : MonoBehaviour
             {
 				ShowText("Subscribed to " + sub.SubscriptionId);
 
-				// We publish a message to the same channel we have subscribed to
-				// and so will be receiving our own message. 
-				// (This is a contrived example just for tutorial purposes)
-				PublishAnimal(); 
+                // We publish a message to the same channel we have subscribed to
+                // and so will be receiving our own message. 
+                // (This is a contrived example just for tutorial purposes)
+                publishAnimal = true;
             };
 
             // when the subscription ends 
@@ -146,21 +154,41 @@ public class Quickstart : MonoBehaviour
 			ShowText("ERROR: setting up RTM client failed.\n" + ex);
         }
     }
+    
+    void Update()
+    {
+        if (publishAnimal && Time.time > lastPublished + 2 /*sec*/) {
+            publishAnimal = false;
+            lastPublished = Time.time;
+            PublishAnimal();
+        }
+    }
 
-	void PublishAnimal()
-	{
-		var animal = new Animal
-		{
-			who = "zebra", where = new float[] { 34.134358f, -118.321506f }
-		};
-		ShowText("publishing " + animal.who); 
-		client.Publish(channel, animal, 
-            onSuccess: reply => ShowText("Published successfully: " + animal.ToString()), 
-            onFailure: ex => ShowText("ERROR: Publishing failed:\n" + ex));
-	}
-	     
- 	// log and show text on screen
-	void ShowText(string msg)
+    void PublishAnimal()
+    {
+        var animal = new Animal
+        {
+            who = "zebra",
+            where = new float[] {
+                        34.134358f + Random.value,
+                        -118.321506f + Random.value
+                    }
+        };
+
+        ShowText("publishing " + animal.who);
+        client.Publish(channel, animal,
+            onSuccess: reply => {
+                ShowText("Published successfully: " + animal.ToString());
+                publishAnimal = true;
+            },
+            onFailure: ex => {
+                ShowText("ERROR: Publishing failed:\n" + ex);
+                publishAnimal = true;
+            });
+    }
+
+    // log and show text on screen
+    void ShowText(string msg)
     {
 		Debug.Log(msg);
         mesh.text += msg + "\n";
