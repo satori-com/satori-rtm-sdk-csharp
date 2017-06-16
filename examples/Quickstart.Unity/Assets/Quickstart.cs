@@ -46,9 +46,9 @@ public class Quickstart : MonoBehaviour
 
     string channel = "animals";
 
-	// Communication with RTM is done via RTM client which implements IRtmClient 
-	// interface. 
-	IRtmClient client;
+    // Communication with RTM is done via RTM client which implements IRtmClient 
+    // interface. 
+    IRtmClient client;
     
     // Animal is published in the Update method if this flag is set
     bool publishAnimal;
@@ -61,9 +61,9 @@ public class Quickstart : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-		var textObj = GameObject.Find("Text"); 
-		mesh = (Text)textObj.GetComponent(typeof(Text));
-		mesh.text = ""; 
+        var textObj = GameObject.Find("Text"); 
+        mesh = (Text)textObj.GetComponent(typeof(Text));
+        mesh.text = ""; 
 
         // Change logging levels. Default level is Warning. 
         DefaultLoggers.Dispatcher.SetLevel(Logger.LogLevel.Verbose);
@@ -75,19 +75,19 @@ public class Quickstart : MonoBehaviour
 
         try
         {
-			ShowText(string.Format("RTM connection config:\n\tendpoint='{0}'\n\tappkey='{1}'", endpoint, appKey)); 
+            ShowText(string.Format("RTM connection config:\n\tendpoint='{0}'\n\tappkey='{1}'", endpoint, appKey)); 
 
-			//check if the role is set to authenticate or not
-			var toAuthenticate = !new string[]{"YOUR_ROLE", "", null}.Contains(role);
-			ShowText(string.Format("Starting RTM client... Authenticate? {0} (role={1})", toAuthenticate, role)); 
+            //check if the role is set to authenticate or not
+            var toAuthenticate = !new string[]{"YOUR_ROLE", "", null}.Contains(role);
+            ShowText(string.Format("Starting RTM client... Authenticate? {0} (role={1})", toAuthenticate, role)); 
 
-			if (toAuthenticate)
-			{
+            if (toAuthenticate)
+            {
                 client = RtmManager.Instance.Register(endpoint, appKey, role, secret);
-			} else 
-			{   //no authentication (default role)
+            } else 
+            {   //no authentication (default role)
                 client = RtmManager.Instance.Register(endpoint, appKey);
-			}
+            }
             
             // Hook up to client connectivity state transitions 
             client.OnEnterConnecting += () => ShowText("Connecting...");
@@ -100,17 +100,18 @@ public class Quickstart : MonoBehaviour
             // The same observer can be shared between several subscriptions. 
             var observer = new SubscriptionObserver();
 
-			observer.OnSubscribeError += (sub, ex) => 
+            observer.OnSubscribeError += (sub, ex) => 
             {
-				ShowText("ERROR: subscribing failed. " +
+                ShowText("ERROR: subscribing failed. " +
                     "Check channel subscribe permissions in Dev Portal. \n" + ex); 
-			};
+            };
 
-			// when subscription is establshed (confirmed by RTM)
+            // when subscription is establshed (confirmed by RTM)
             observer.OnEnterSubscribed += sub =>
             {
-				ShowText("Subscribed to " + sub.SubscriptionId);
+                ShowText("Subscribed to " + sub.SubscriptionId);
 
+                // Instruct the Update method to publish next message. 
                 // We publish a message to the same channel we have subscribed to
                 // and so will be receiving our own message. 
                 // (This is a contrived example just for tutorial purposes)
@@ -122,41 +123,42 @@ public class Quickstart : MonoBehaviour
 
             // when a subscription error occurs 
             observer.OnSubscriptionError += (ISubscription sub, RtmSubscriptionError err)
-				=> ShowText("ERROR: subscription " + err.Code + ": " + err.Reason);
+                => ShowText("ERROR: subscription " + err.Code + ": " + err.Reason);
 
             // when messages arrive
             observer.OnSubscriptionData += (ISubscription sub, RtmSubscriptionData data) =>
             {
                 // Note: sub.SubscriptionId is the channel name
-				ShowText("Message received from channel " + sub.SubscriptionId);
+                ShowText("Message received from channel " + sub.SubscriptionId);
                 
-				// Messages arrive in an array. We will receive only one (first) message but 
-				// to have correct implementation, check all messages in the array
-				foreach(JToken jToken in data.Messages){
-					ShowText(jToken.ToString()); 
-	                Animal msg = jToken.ToObject<Animal>();
-					string text = string.Format("Who? {0}. Where? at {1},{2}", msg.who, msg.where[0], msg.where[1]);
-					ShowText(text);
-				}
+                // Messages arrive in an array
+                foreach(JToken jToken in data.Messages){
+                    ShowText(jToken.ToString()); 
+                    Animal msg = jToken.ToObject<Animal>();
+                    string text = string.Format("Who? {0}. Where? at {1},{2}", msg.who, msg.where[0], msg.where[1]);
+                    ShowText(text);
+                }
             };
 
             // At this point, the client may not yet be connected to Satori RTM. 
             // If the client is not connected, the SDK internally queues the subscription request and
-			// will send it once the client connects
-			client.CreateSubscription(channel, observer);
+            // will send it once the client connects
+            client.CreateSubscription(channel, observer);
         }
-		catch(System.UriFormatException uriEx)
-		{
-			ShowText("ERRROR: invalid connection credentials. Check endpoint and appkey"); 
-		}
+        catch(System.UriFormatException uriEx)
+        {
+            ShowText("ERRROR: invalid connection credentials. Check endpoint and appkey"); 
+        }
         catch (Exception ex)
         {
-			ShowText("ERROR: setting up RTM client failed.\n" + ex);
+            ShowText("ERROR: setting up RTM client failed.\n" + ex);
         }
     }
     
+    // This method is called by Unity on every frame 
     void Update()
     {
+        // Publish animals every ~2 seconds 
         if (publishAnimal && Time.time > lastPublished + 2 /*sec*/) {
             publishAnimal = false;
             lastPublished = Time.time;
@@ -179,10 +181,12 @@ public class Quickstart : MonoBehaviour
         client.Publish(channel, animal,
             onSuccess: reply => {
                 ShowText("Published successfully: " + animal.ToString());
+                // Instruct the Update method to publish next message
                 publishAnimal = true;
             },
             onFailure: ex => {
                 ShowText("ERROR: Publishing failed:\n" + ex);
+                // Instruct the Update method to publish next message
                 publishAnimal = true;
             });
     }

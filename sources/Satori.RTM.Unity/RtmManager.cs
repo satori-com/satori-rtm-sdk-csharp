@@ -12,13 +12,28 @@ namespace Satori.Rtm.Client
         
         public IRtmClient Client => client;
 
-        public bool DisconnectOnAppPause { get; set; }
+        /// <summary>
+        /// Stop an RTM client on the application pause. The client is started
+        /// again when the app is resumed. Enabled by default.
+        /// </summary>
+        public bool DisconnectOnAppPause = true;
+
+        /// <summary>
+        /// Adds the UnityTraceListener instance to 
+        /// the System.Diagnostics.Trace.Listeners collection.
+        /// UnityTraceListener redirects log messages to 
+        /// the UnityEngine.Debug.Log method. Enabled by default.
+        /// </summary>
+        public static bool AddUnityTraceListenter = true;
 
         private static Logger Log => DefaultLoggers.Client;
 
         public RtmManager()
         {
-            System.Diagnostics.Trace.Listeners.Add(UnityTraceListener.Instance);
+            if (AddUnityTraceListenter)
+            {
+                System.Diagnostics.Trace.Listeners.Add(UnityTraceListener.Instance);
+            }
 
             UnhandledExceptionWatcher.OnError += exn =>
             { 
