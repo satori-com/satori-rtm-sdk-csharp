@@ -1,12 +1,12 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{D99550A4-4A27-4D54-98DA-C5ACEC514800}</ProjectGuid>
+    <ProjectGuid>{5CDABDF9-67C3-406A-9B0F-840DB44F08E0}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>MultipleSubscriptionsToChannel</RootNamespace>
-    <AssemblyName>MultipleSubscriptionsToChannel.Net45</AssemblyName>
+    <RootNamespace>TestInstallation.Net45</RootNamespace>
+    <AssemblyName>TestInstallation.Net45</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -30,11 +30,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Buffers">
-      <HintPath>..\..\.packages\System.Buffers.4.3.0\lib\netstandard1.1\System.Buffers.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\.packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\..\.packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -42,7 +39,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\sources\Satori.RTM.Net45\Satori.RTM.Net45.csproj">
+    <ProjectReference Include="..\..\..\sources\Satori.RTM.Net45\Satori.RTM.Net45.csproj">
       <Project>{99629B45-BE1C-460E-A9D1-CBBBAA34E277}</Project>
       <Name>Satori.RTM.Net45</Name>
     </ProjectReference>

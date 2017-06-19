@@ -3,10 +3,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{1947E95E-4E5F-4987-B7B4-2E4E177A4A62}</ProjectGuid>
+    <ProjectGuid>{F3124E04-4033-4CBC-8F0B-7C8B8C5323E3}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>SubscriptionWithHistoryAge.Net45</RootNamespace>
-    <AssemblyName>SubscriptionWithHistoryAge.Net45</AssemblyName>
+    <RootNamespace>SubscribeToOpenChannel.Net45</RootNamespace>
+    <AssemblyName>SubscribeToOpenChannel.Net45</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -30,11 +30,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Buffers">
-      <HintPath>..\..\.packages\System.Buffers.4.3.0\lib\netstandard1.1\System.Buffers.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\.packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\..\.packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -42,7 +39,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\sources\Satori.RTM.Net45\Satori.RTM.Net45.csproj">
+    <ProjectReference Include="..\..\..\sources\Satori.RTM.Net45\Satori.RTM.Net45.csproj">
       <Project>{99629B45-BE1C-460E-A9D1-CBBBAA34E277}</Project>
       <Name>Satori.RTM.Net45</Name>
     </ProjectReference>
