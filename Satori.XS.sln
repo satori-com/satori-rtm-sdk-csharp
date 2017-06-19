@@ -31,8 +31,6 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "System.Threading.Net35", "3
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "System.Buffers.Net35", "3rd\System.Buffers.Net35\System.Buffers.Net35.shproj", "{83496BAC-E06C-4C09-BCDA-E242059DEF0F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWorld.Net45", "examples\net\HelloWorld.Net45\HelloWorld.Net45.csproj", "{33A5B639-E3CC-407D-B536-6076255CA336}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Satori.RTM.Test.Android", "tests\integration\Satori.RTM.Test.Android\Satori.RTM.Test.Android.csproj", "{8116D9EE-A195-4772-A559-8B6E68719806}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Satori.RTM.Test.Net45", "tests\integration\Satori.RTM.Test.Net45\Satori.RTM.Test.Net45.csproj", "{A1DE2C47-59A0-4124-9ED9-7FA9786D2BEB}"
@@ -47,25 +45,27 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Satori.RTM.Net45", "sources
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Satori.RTM.Nuget", "sources\Satori.RTM.Nuget\Satori.RTM.Nuget.csproj", "{A1DE6A47-78A0-4274-9ED9-7FA9786D2B34}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Authentication.Net45", "examples\net\Authentication.Net45\Authentication.Net45.csproj", "{A7F62E70-58D8-480F-9A65-5A2FFA1D6E9D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quickstart.Net45", "examples\net\Quickstart.Net45\Quickstart.Net45.csproj", "{33A5B639-E3CC-407D-B536-6076255CA336}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PublishSubscribe.Net45", "examples\net\PublishSubscribe.Net45\PublishSubscribe.Net45.csproj", "{84F1B18D-F628-4136-B6B5-CAB382ADA049}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Authenticate.Net45", "examples\net\Authenticate.Net45\Authenticate.Net45.csproj", "{A7F62E70-58D8-480F-9A65-5A2FFA1D6E9D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PublishSubscribeWithAuth.Net45", "examples\net\PublishSubscribeWithAuth.Net45\PublishSubscribeWithAuth.Net45.csproj", "{84F1B18D-F628-4136-B6B5-CAB382ADA049}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubscribeToOpenChannel.Net45", "examples\net\SubscribeToOpenChannel.Net45\SubscribeToOpenChannel.Net45.csproj", "{F3124E04-4033-4CBC-8F0B-7C8B8C5323E3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestInstallation.Net45", "examples\net\TestInstallation.Net45\TestInstallation.Net45.csproj", "{5CDABDF9-67C3-406A-9B0F-840DB44F08E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Publishing.Net45", "examples\net\Publishing.Net45\Publishing.Net45.csproj", "{709F5F97-55EC-47E2-A382-ACE1ECC36E39}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Publish.Net45", "examples\net\Publish.Net45\Publish.Net45.csproj", "{709F5F97-55EC-47E2-A382-ACE1ECC36E39}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChannelSubscription.Net45", "examples\net\ChannelSubscription.Net45\ChannelSubscription.Net45.csproj", "{50354B99-ACE1-4451-9553-05147D2072A6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubscribeToChannel.Net45", "examples\net\SubscribeToChannel.Net45\SubscribeToChannel.Net45.csproj", "{50354B99-ACE1-4451-9553-05147D2072A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubscriptionWithView.Net45", "examples\net\SubscriptionWithView.Net45\SubscriptionWithView.Net45.csproj", "{C349871D-3705-4DAD-952B-27B1B387F30E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubscribeWithView.Net45", "examples\net\SubscribeWithView.Net45\SubscribeWithView.Net45.csproj", "{C349871D-3705-4DAD-952B-27B1B387F30E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultipleSubscriptionsToChannel.Net45", "examples\net\MultipleSubscriptionsToChannel.Net45\MultipleSubscriptionsToChannel.Net45.csproj", "{D99550A4-4A27-4D54-98DA-C5ACEC514800}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubscribeWithMultipleViews.Net45", "examples\net\SubscribeWithMultipleViews.Net45\SubscribeWithMultipleViews.Net45.csproj", "{D99550A4-4A27-4D54-98DA-C5ACEC514800}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubscriptionWithHistoryCount.Net45", "examples\net\SubscriptionWithHistoryCount.Net45\SubscriptionWithHistoryCount.Net45.csproj", "{E6E9F576-CC28-4CF9-92C7-907F1855C9DC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubscribeWithCount.Net45", "examples\net\SubscribeWithCount.Net45\SubscribeWithCount.Net45.csproj", "{E6E9F576-CC28-4CF9-92C7-907F1855C9DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubscriptionWithHistoryAge.Net45", "examples\net\SubscriptionWithHistoryAge.Net45\SubscriptionWithHistoryAge.Net45.csproj", "{1947E95E-4E5F-4987-B7B4-2E4E177A4A62}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubscribeWithAge.Net45", "examples\net\SubscribeWithAge.Net45\SubscribeWithAge.Net45.csproj", "{1947E95E-4E5F-4987-B7B4-2E4E177A4A62}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newtonsoft.Json.Net35", "3rd\Newtonsoft.Json.Unity\Src\Newtonsoft.Json\Newtonsoft.Json.Net35.csproj", "{A9AE40FF-1A21-414A-9FE7-3BE13644CC6D}"
 EndProject
