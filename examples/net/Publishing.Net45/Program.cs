@@ -38,30 +38,30 @@ class Program
 
         client.Start();
 
-        try 
+        var random = new Random();
+        while(true)
         {
             var message = new Animal 
             {
                 Who = "zebra",
-                Where =  new float[] {34.134358f, -118.321506f}
+                Where =  new float[] {
+                    34.134358f + (float)random.NextDouble(), 
+                    -118.321506f + (float)random.NextDouble()
+                }
             };
 
-            RtmPublishReply reply = await client.Publish(channel, message, Ack.Yes);
+            try 
+            {
+                RtmPublishReply reply = await client.Publish(channel, message, Ack.Yes);
+            }
+            catch(PduException ex) 
+            {
+                Console.WriteLine("Publishing failed because RTM replied with the error {0}: {1}", ex.Error.Code, ex.Error.Reason);
+            }
+            catch (Exception ex) 
+            {
+                Console.WriteLine("Publishing failed: " + ex.Message);
+            }
         }
-        catch(PduException ex) 
-        {
-            Console.WriteLine("Publishing failed because RTM replied with the error {0}: {1}", ex.Error.Code, ex.Error.Reason);
-        }
-        catch(DisconnectedException ex)
-        {
-            Console.WriteLine("Publishing failed because the client was disconnected: " + ex.Message);
-        }
-        catch (Exception ex) 
-        {
-            Console.WriteLine("Publishing failed: " + ex.Message);
-        }
-
-        // Stop and clean up the client before exiting the program
-        await client.Dispose();
     }
 }
