@@ -69,7 +69,7 @@ DefaultLoggers.ClientRtmSubscription.SetLevel(Logger.LogLevel.Verbose);
 
 ### Build on Mac
 
-1. Open `./Satori.All.sln` with Xamarin Studio. 
+1. Open `./Satori.XS.sln` with Xamarin Studio. 
 2. Build the `Satori.RTM.Net45`, `Satori.RTM.iOS`, `Satori.RTM.Android` projects
  
 ### Build on Windows
@@ -111,7 +111,7 @@ You must use [DevPortal](https://developer.satori.com/) to create role and set c
 Save credentials to `credentials.json` file and set path to this file to `RTM_CONFIG` environment variable. Path should be relative to `Satori.RTM.Test.Net45.csproj` file. 
 ```
 set RTM_CONFIG=<PATH TO credentials.json>
-nuget restore Satori.All.sln -ConfigFile nuget.config
+nuget restore Satori.XS.sln -ConfigFile nuget.config
 msbuild tests\integration\Satori.RTM.Test.Net45\Satori.RTM.Test.Net45.csproj /t:RunTests /p:Configuration=Release
 ```
 
@@ -119,7 +119,7 @@ msbuild tests\integration\Satori.RTM.Test.Net45\Satori.RTM.Test.Net45.csproj /t:
 Save credentials to `credentials.json` file and set path to this file to `RTM_CONFIG` environment variable. Path should be relative to `Satori.RTM.Test.Net45.csproj` file. 
 ```
 export RTM_CONFIG=<PATH TO credentials.json>
-nuget restore Satori.All.sln -ConfigFile nuget.config
+nuget restore Satori.XS.sln -ConfigFile nuget.config
 xbuild tests/integration/Satori.RTM.Test.Net45/Satori.RTM.Test.Net45.csproj /t:RunTests /p:Configuration=Release
 ```
 
