@@ -132,7 +132,7 @@ public class Quickstart : MonoBehaviour
                 ShowText("Message received from channel " + sub.SubscriptionId);
                 
                 // Messages arrive in an array
-                foreach(JToken jToken in data.Messages){
+                foreach(JToken jToken in data.Messageså) {
                     ShowText(jToken.ToString()); 
                     Animal msg = jToken.ToObject<Animal>();
                     string text = string.Format("Who? {0}. Where? at {1},{2}", msg.who, msg.where[0], msg.where[1]);

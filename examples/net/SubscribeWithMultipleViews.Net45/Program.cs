@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Threading;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Satori.Rtm;
@@ -10,8 +9,6 @@ class Program
 {
     const string endpoint = "YOUR_ENDPOINT";
     const string appkey = "YOUR_APPKEY";
-
-    const string channel = "animals";
 
     class Animal
     {
@@ -44,37 +41,29 @@ class Program
         {
             foreach(JToken jToken in data.Messages)
             {
-                Animal msg = jToken.ToObject<Animal>();
-                string text = string.Format("Who? {0}. Where? At {1},{2}", msg.Who, msg.Where[0], msg.Where[1]);
-                Console.WriteLine("Got message: " + text);
+                Console.WriteLine("Got message: " + jToken);
             }
         };
 
         observer.OnSubscribeError += (ISubscription sub, Exception err) => 
-        {
-            var rtmEx = err as SubscribeException;
-            if (rtmEx != null) 
-                Console.WriteLine("Subscribing failed because RTM replied with the error {0}: {1}", rtmEx.Error.Code, rtmEx.Error.Reason);
-            else 
-                Console.WriteLine("Subscribing failed: " + err.Message);
-        };
-
+            Console.WriteLine("Failed to subscribe: " + err);
+        
         observer.OnSubscriptionError += (ISubscription sub, RtmSubscriptionError err) => 
-            Console.WriteLine("Subscription failed because RTM sent the error {0}: {1}", err.Code, err.Reason);
+            Console.WriteLine("Subscription failed because RTM sent the unsolicited error {0}: {1}", err.Code, err.Reason);
 
-        // Assume that someone already publishes animals to the channel 'animals'
+        // Assume that someone publishes animals to the channel 'animals'
 
         var zebraCfg = new SubscriptionConfig(SubscriptionModes.Simple, observer)
         {
-            Filter = $"SELECT * FROM `{channel}` WHERE who = 'zebra'"
+            Filter = "SELECT * FROM `animals` WHERE who = 'zebra'"
         };
         client.CreateSubscription("zebras", zebraCfg);
 
         var giraffeCfg = new SubscriptionConfig(SubscriptionModes.Simple, observer)
         {
-            Filter = $"SELECT * FROM `{channel}` WHERE who = 'giraffe'"
+            Filter = "SELECT count(*) as '#of animals', who FROM `animals` GROUP BY who"
         };
-        client.CreateSubscription("giraffes", giraffeCfg);
+        client.CreateSubscription("stats", giraffeCfg);
 
         Console.ReadKey();
 

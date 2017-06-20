@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Threading;
 using Newtonsoft.Json.Linq;
 using Satori.Rtm;
 using Satori.Rtm.Client;
@@ -41,13 +40,13 @@ class Program
         {
             var rtmEx = err as SubscribeException;
             if (rtmEx != null) 
-                Console.WriteLine("Subscribing failed because RTM replied with the error {0}: {1}", rtmEx.Error.Code, rtmEx.Error.Reason);
+                Console.WriteLine("Failed to subscribe because RTM replied with the error {0}: {1}", rtmEx.Error.Code, rtmEx.Error.Reason);
             else 
-                Console.WriteLine("Subscribing failed: " + err.Message);
+                Console.WriteLine("Failed to subscribe: " + err.Message);
         };
 
         observer.OnSubscriptionError += (ISubscription sub, RtmSubscriptionError err) => 
-            Console.WriteLine("Subscription failed because RTM sent the error {0}: {1}", err.Code, err.Reason);
+            Console.WriteLine("Subscription failed because RTM sent the unsolicited error {0}: {1}", err.Code, err.Reason);
 
         client.CreateSubscription(channel, SubscriptionModes.Simple, observer);
 

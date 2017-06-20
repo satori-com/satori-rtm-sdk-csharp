@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Threading;
 using Satori.Rtm;
 using Satori.Rtm.Client;
 
@@ -21,14 +20,14 @@ class Program
             .Build();
 
         client.OnEnterConnected += cn => 
-            Console.WriteLine("Successfully connected and authenticated");
+            Console.WriteLine("Connected and authenticated successfully");
 
         client.OnError += ex => 
         {
             var authEx = ex as AuthException;
             if (authEx != null) 
             {
-                Console.WriteLine("Authentication failed: " + ex.Message);
+                Console.WriteLine("Failed to authenticate: " + ex.Message);
             } else 
             {
                 Console.WriteLine("Error occurred: " + ex.Message);

@@ -47,9 +47,15 @@ class Program
         {
             foreach(JToken jToken in data.Messages)
             {
-                Animal msg = jToken.ToObject<Animal>();
-                string text = string.Format("Who? {0}. Where? At {1},{2}", msg.Who, msg.Where[0], msg.Where[1]);
-                Console.WriteLine("Got message: " + text);
+                try 
+                {
+                    Animal msg = jToken.ToObject<Animal>();
+                    Console.WriteLine("Got message: Who? {0}. Where? At {1},{2}", msg.Who, msg.Where[0], msg.Where[1]);
+                } 
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Failed to parse incoming message: {0}", ex);
+                }
             }
         };
 
@@ -57,15 +63,14 @@ class Program
         {
             var rtmEx = err as SubscribeException;
             if (rtmEx != null) 
-                Console.WriteLine("Subscribing failed because RTM replied with the error {0}: {1}", rtmEx.Error.Code, rtmEx.Error.Reason);
+                Console.WriteLine("Failed to subscribe because RTM replied with the error {0}: {1}", rtmEx.Error.Code, rtmEx.Error.Reason);
             else 
-                Console.WriteLine("Subscribing failed: " + err.Message);
+                Console.WriteLine("Failed to subscribe: " + err.Message);
         };
 
         observer.OnSubscriptionError += (ISubscription sub, RtmSubscriptionError err) => 
-            Console.WriteLine("Subscription failed because RTM sent the error {0}: {1}", err.Code, err.Reason);
+            Console.WriteLine("Subscription failed because RTM sent the unsolicited error {0}: {1}", err.Code, err.Reason);
 
-        // Assume that someone already publishes animals to the channel 'animals'
         client.CreateSubscription(channel, SubscriptionModes.Simple, observer);
 
         PublishLoop(client).Wait();
@@ -89,14 +94,15 @@ class Program
                 };
 
                 RtmPublishReply reply = await client.Publish(channel, message, Ack.Yes);
+                Console.WriteLine("Published successfully");
             }
             catch(PduException ex) 
             {
-                Console.WriteLine("Publishing failed because RTM replied with the error {0}: {1}", ex.Error.Code, ex.Error.Reason);
+                Console.WriteLine("Failed to publish because RTM replied with the error {0}: {1}", ex.Error.Code, ex.Error.Reason);
             }
             catch (Exception ex) 
             {
-                Console.WriteLine("Publishing failed: " + ex.Message);
+                Console.WriteLine("Failed to publish: " + ex.Message);
             }
 
             await Task.Delay(millisecondsDelay: 2000);

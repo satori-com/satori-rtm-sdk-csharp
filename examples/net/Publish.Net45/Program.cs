@@ -10,8 +10,6 @@ class Program
     const string endpoint = "YOUR_ENDPOINT";
     const string appkey = "YOUR_APPKEY";
 
-    const string channel = "animals";
-
     class Animal
     {
         [JsonProperty("who")]
@@ -38,30 +36,27 @@ class Program
 
         client.Start();
 
-        var random = new Random();
-        while(true)
+        try 
         {
             var message = new Animal 
             {
                 Who = "zebra",
-                Where =  new float[] {
-                    34.134358f + (float)random.NextDouble(), 
-                    -118.321506f + (float)random.NextDouble()
-                }
+                Where =  new float[] { 34.134358f, -118.321506f }
             };
 
-            try 
-            {
-                RtmPublishReply reply = await client.Publish(channel, message, Ack.Yes);
-            }
-            catch(PduException ex) 
-            {
-                Console.WriteLine("Publishing failed because RTM replied with the error {0}: {1}", ex.Error.Code, ex.Error.Reason);
-            }
-            catch (Exception ex) 
-            {
-                Console.WriteLine("Publishing failed: " + ex.Message);
-            }
+            RtmPublishReply reply = await client.Publish("animals", message, Ack.Yes);
+            Console.WriteLine("Published successfully");
         }
+        catch(PduException ex) 
+        {
+            Console.WriteLine("Failed to publish because RTM replied with the error {0}: {1}", ex.Error.Code, ex.Error.Reason);
+        }
+        catch (Exception ex) 
+        {
+            Console.WriteLine("Failed to publish: " + ex.Message);
+        }
+
+        // Stop and clean up the client before exiting the program
+        await client.Dispose();
     }
 }

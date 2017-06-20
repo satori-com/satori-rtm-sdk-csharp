@@ -17,7 +17,7 @@ class Program
         client.OnEnterConnected += cn => Console.WriteLine("Connected to RTM!");
 
         client.OnError += ex => 
-            Console.WriteLine("Connecting failed: " + ex.Message);
+            Console.WriteLine("Failed to connect: " + ex);
 
         client.Start();
 

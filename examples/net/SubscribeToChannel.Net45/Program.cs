@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Diagnostics;
-using System.Threading;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Satori.Rtm;
@@ -10,8 +9,6 @@ class Program
 {
     const string endpoint = "YOUR_ENDPOINT";
     const string appkey = "YOUR_APPKEY";
-
-    const string channel = "animals";
 
     class Animal
     {
@@ -44,9 +41,15 @@ class Program
         {
             foreach(JToken jToken in data.Messages)
             {
-                Animal msg = jToken.ToObject<Animal>();
-                string text = string.Format("Who? {0}. Where? At {1},{2}", msg.Who, msg.Where[0], msg.Where[1]);
-                Console.WriteLine("Got message: " + text);
+                try 
+                {
+                    Animal msg = jToken.ToObject<Animal>();
+                    Console.WriteLine("Got message: Who? {0}. Where? At {1},{2}", msg.Who, msg.Where[0], msg.Where[1]);
+                } 
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Failed to parse incoming message: {0}", ex);
+                }
             }
         };
 
@@ -54,16 +57,16 @@ class Program
         {
             var rtmEx = err as SubscribeException;
             if (rtmEx != null) 
-                Console.WriteLine("Subscribing failed because RTM replied with the error {0}: {1}", rtmEx.Error.Code, rtmEx.Error.Reason);
+                Console.WriteLine("Failed to subscribe because RTM replied with the error {0}: {1}", rtmEx.Error.Code, rtmEx.Error.Reason);
             else 
-                Console.WriteLine("Subscribing failed: " + err.Message);
+                Console.WriteLine("Failed to subscribe: " + err.Message);
         };
 
         observer.OnSubscriptionError += (ISubscription sub, RtmSubscriptionError err) => 
-            Console.WriteLine("Subscription failed because RTM sent the error {0}: {1}", err.Code, err.Reason);
+            Console.WriteLine("Subscription failed because RTM sent the unsolicited error {0}: {1}", err.Code, err.Reason);
 
-        // Assume that someone already publishes animals to the channel 'animals'
-        client.CreateSubscription(channel, SubscriptionModes.Simple, observer);
+        // Assume that someone publishes animals to the channel 'animals'
+        client.CreateSubscription("animals", SubscriptionModes.Simple, observer);
 
         Console.ReadKey();
 
