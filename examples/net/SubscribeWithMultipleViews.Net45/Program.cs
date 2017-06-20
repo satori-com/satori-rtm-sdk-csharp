@@ -59,11 +59,11 @@ class Program
         };
         client.CreateSubscription("zebras", zebraCfg);
 
-        var giraffeCfg = new SubscriptionConfig(SubscriptionModes.Simple, observer)
+        var statsCfg = new SubscriptionConfig(SubscriptionModes.Simple, observer)
         {
             Filter = "SELECT count(*) as '#of animals', who FROM `animals` GROUP BY who"
         };
-        client.CreateSubscription("stats", giraffeCfg);
+        client.CreateSubscription("stats", statsCfg);
 
         Console.ReadKey();
 
