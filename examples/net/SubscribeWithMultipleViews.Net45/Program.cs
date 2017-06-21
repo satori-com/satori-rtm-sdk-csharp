@@ -61,7 +61,7 @@ class Program
 
         var statsCfg = new SubscriptionConfig(SubscriptionModes.Simple, observer)
         {
-            Filter = "SELECT count(*) as '#of animals', who FROM `animals` GROUP BY who"
+            Filter = "SELECT count(*) as count, who FROM `animals` GROUP BY who"
         };
         client.CreateSubscription("stats", statsCfg);
 
