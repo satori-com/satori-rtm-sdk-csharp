@@ -64,11 +64,11 @@
     <PackageFileName>Satori.RTM-$(SatoriSdkVersion).unitypackage</PackageFileName>
   </PropertyGroup>
   <Target Name="CleanPackage" AfterTargets="Clean">
-    <Delete Files="UnityPackage\Assets\$(SatoriRtmAssembly);UnityPackage\Assets\$(NewtonsoftJsonAssembly);UnityPackage\$(PackageFileName)" />
+    <Delete Files="UnityPackage\Assets\Satori\Assets\$(SatoriRtmAssembly);UnityPackage\Assets\Satori\Assets\$(NewtonsoftJsonAssembly);UnityPackage\$(PackageFileName)" />
   </Target>
   <Target Name="Package" DependsOnTargets="CleanPackage;Build">
     <Error Condition=" '$(OS)' == 'Unix' " Text="Packaging Unity SDK works on Windows only. Satori.RTM.Unity project should be compiled by Microsoft compiler, not mono compiler. Mono compiler generates corrupted assembly if async/await keywords are used. " />
-    <Copy SourceFiles="$(OutputPath)\$(SatoriRtmAssembly);$(OutputPath)\$(NewtonsoftJsonAssembly)" DestinationFolder="UnityPackage\Assets" />
+    <Copy SourceFiles="$(OutputPath)\$(SatoriRtmAssembly);$(OutputPath)\$(NewtonsoftJsonAssembly)" DestinationFolder="UnityPackage\Assets\Satori\Assets" />
     <Exec Command="&quot;$(UnityToolPath)&quot; -projectPath &quot;$(MSBuildThisFileDirectory)\UnityPackage&quot; -quit -batchmode -exportPackage Assets $(PackageFileName)" IgnoreStandardErrorWarningFormat="true" />
   </Target>
 </Project>
