@@ -35,12 +35,12 @@ public class Quickstart : MonoBehaviour
 {
     // Replace these values with your project's credentials
     // from Dev Portal (https://developer.satori.com/#/projects).
-    string endpoint = "YOUR_ENDPOINT";
-    string appKey = "YOUR_APPKEY";
+    public string endpoint = "YOUR_ENDPOINT";
+    public string appKey = "YOUR_APPKEY";
 
     // Role and secret are optional: replace only if you need to authenticate. 
-    string role = "YOUR_ROLE";
-    string secret = "YOUR_SECRET";
+    public string role = "YOUR_ROLE";
+    public string secret = "YOUR_SECRET";
 
     string channel = "animals";
 
@@ -53,7 +53,7 @@ public class Quickstart : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-		var textObj = GameObject.Find("Text"); 
+		var textObj = GameObject.Find("text"); 
 		mesh = (Text)textObj.GetComponent(typeof(Text));
 		mesh.text = ""; 
 
