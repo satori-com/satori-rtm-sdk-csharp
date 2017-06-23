@@ -172,8 +172,8 @@ public class Quickstart : MonoBehaviour
         {
             who = "zebra",
             where = new float[] {
-                        34.134358f + Random.value,
-                        -118.321506f + Random.value
+                        34.134358f + Random.value/100,
+                        -118.321506f + Random.value/100
                     }
         };
 
