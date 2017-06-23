@@ -91,7 +91,7 @@ public class Quickstart : MonoBehaviour
             
             // Hook up to client connectivity state transitions 
             client.OnEnterConnecting += () => ShowText("Connecting...");
-            client.OnEnterConnected += cn => ShowText("Connected");
+            client.OnEnterConnected += cn => ShowText("Connected to Satori RTM");
             client.OnLeaveConnected += cn => ShowText("Disconnected");
             client.OnError += ex => ShowText("ERROR:\n" + ex);
 

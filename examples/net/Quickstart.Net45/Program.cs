@@ -49,7 +49,7 @@ class Program
 
         // Hook up to client lifecycle events 
         client.OnEnterConnecting += () => Console.WriteLine("Connecting...");
-        client.OnEnterConnected += cn => Console.WriteLine("Connected");
+        client.OnEnterConnected += cn => Console.WriteLine("Connected to Satori RTM!");
         client.OnLeaveConnected += cn => Console.WriteLine("Disconnected");
         client.OnError += ex => Console.WriteLine("Error occurred: " + ex.Message);
 

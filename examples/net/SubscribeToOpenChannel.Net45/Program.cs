@@ -17,7 +17,7 @@ class Program
 
         IRtmClient client = new RtmClientBuilder(endpoint, appkey).Build();
 
-        client.OnEnterConnected += cn => Console.WriteLine("Connected to RTM");
+        client.OnEnterConnected += cn => Console.WriteLine("Connected to Satori RTM!");
         client.OnError += ex => Console.WriteLine("Error occurred: " + ex.Message);
 
         client.Start();

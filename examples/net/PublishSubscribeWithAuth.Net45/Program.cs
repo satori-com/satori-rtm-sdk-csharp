@@ -33,7 +33,7 @@ class Program
             .SetRoleSecretAuthenticator(role, roleSecret)
             .Build();
 
-        client.OnEnterConnected += cn => Console.WriteLine("Connected to RTM");
+        client.OnEnterConnected += cn => Console.WriteLine("Connected to Satori RTM!");
         client.OnError += ex => Console.WriteLine("Error occurred: " + ex.Message);
             
         client.Start();
