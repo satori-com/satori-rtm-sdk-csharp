@@ -25,7 +25,7 @@ The package is hosted on [Nuget Gallery](https://www.nuget.org/packages/Satori.R
 
 ## Unity
 
-To add C# SDK for Satori RTM to a Unity project, copy the following files from [Quickstart on GitHub](https://github.com/satori-com/satori-rtm-sdk-csharp/tree/master/examples/Quickstart.Unity/Assets) to the Assets folder: 
+To add C# SDK for Satori RTM to a Unity project, copy the following files from [Quickstart on GitHub](https://github.com/satori-com/satori-rtm-sdk-csharp/tree/master/examples/unity/Quickstart.Unity/Assets) to the Assets folder: 
 - `link.xml`
 - `Newtonsoft.Json.dll`
 - `Satori.RTM.Unity.dll`
