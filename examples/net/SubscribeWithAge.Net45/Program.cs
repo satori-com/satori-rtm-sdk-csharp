@@ -37,6 +37,9 @@ class Program
         observer.OnEnterSubscribed += (ISubscription sub) => 
             Console.WriteLine("Subscribed to: " + sub.SubscriptionId);
 
+        observer.OnLeaveSubscribed += (ISubscription sub) => 
+            Console.WriteLine("Unsubscribed from: " + sub.SubscriptionId);
+        
         observer.OnSubscriptionData += (ISubscription sub, RtmSubscriptionData data) => 
         {
             foreach(JToken jToken in data.Messages)
@@ -49,7 +52,7 @@ class Program
             Console.WriteLine("Failed to subscribe: " + err);
 
         observer.OnSubscriptionError += (ISubscription sub, RtmSubscriptionError err) => 
-            Console.WriteLine("Subscription failed because RTM sent the unsolicited error {0}: {1}", err.Code, err.Reason);
+            Console.WriteLine("Subscription failed. RTM sent the unsolicited error {0}: {1}", err.Code, err.Reason);
 
         // Assume that someone publishes animals to the channel 'animals'
         var cfg = new SubscriptionConfig(SubscriptionModes.Simple, observer)

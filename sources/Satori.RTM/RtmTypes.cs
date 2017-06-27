@@ -326,11 +326,6 @@ namespace Satori.Rtm
         /// </summary>
         public const string ExpiredPosition = "expired_position";
 
-        /// <summary>
-        /// See <see cref="AuthErrorCodes.AuthorizationDenied"/>. 
-        /// </summary>
-        public const string AuthorizationDenied = "authorization_denied";
-
         [JsonProperty("subscription_id", NullValueHandling = NullValueHandling.Ignore)]
         public string SubscriptionId { get; set; }
     }

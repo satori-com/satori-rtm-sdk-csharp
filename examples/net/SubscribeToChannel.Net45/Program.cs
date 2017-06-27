@@ -37,6 +37,9 @@ class Program
         observer.OnEnterSubscribed += (ISubscription sub) => 
             Console.WriteLine("Subscribed to: " + sub.SubscriptionId);
 
+        observer.OnLeaveSubscribed += (ISubscription sub) => 
+            Console.WriteLine("Unsubscribed from: " + sub.SubscriptionId);
+        
         observer.OnSubscriptionData += (ISubscription sub, RtmSubscriptionData data) => 
         {
             foreach(JToken jToken in data.Messages)
@@ -48,7 +51,7 @@ class Program
                 } 
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Failed to parse incoming message: {0}", ex);
+                    Console.WriteLine("Failed to deserialize the incoming message: {0}", ex.Message);
                 }
             }
         };
@@ -57,16 +60,28 @@ class Program
         {
             var rtmEx = err as SubscribeException;
             if (rtmEx != null) 
-                Console.WriteLine("Failed to subscribe because RTM replied with the error {0}: {1}", rtmEx.Error.Code, rtmEx.Error.Reason);
-            else 
+            {
+                Console.WriteLine("Failed to subscribe. RTM replied with the error {0}: {1}", rtmEx.Error.Code, rtmEx.Error.Reason);
+
+                if (rtmEx.Error.Code == AuthErrorCodes.AuthorizationDenied)
+                    Console.WriteLine("Authorization denied. Check channel permissions in Dev Portal.");
+            }
+            else
+            {
                 Console.WriteLine("Failed to subscribe: " + err.Message);
+            }
         };
 
         observer.OnSubscriptionError += (ISubscription sub, RtmSubscriptionError err) => 
-            Console.WriteLine("Subscription failed because RTM sent the unsolicited error {0}: {1}", err.Code, err.Reason);
+            Console.WriteLine("Subscription failed. RTM sent the unsolicited error {0}: {1}", err.Code, err.Reason);
 
         // Assume that someone publishes animals to the channel 'animals'
         client.CreateSubscription("animals", SubscriptionModes.Simple, observer);
+
+        observer.OnLeaveSubscribed += (ISubscription sub) => 
+            Console.WriteLine("Unsubscribed from: " + sub.SubscriptionId);
+        
+        client.RemoveSubscription("animals");
 
         Console.ReadKey();
 

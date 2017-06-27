@@ -26,12 +26,9 @@ class Program
         {
             var authEx = ex as AuthException;
             if (authEx != null) 
-            {
                 Console.WriteLine("Failed to authenticate: " + ex.Message);
-            } else 
-            {
+            else 
                 Console.WriteLine("Error occurred: " + ex.Message);
-            }
         };
 
         client.Start();

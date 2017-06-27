@@ -45,11 +45,16 @@ class Program
             };
 
             RtmPublishReply reply = await client.Publish("animals", message, Ack.Yes);
-            Console.WriteLine("Published successfully");
+            Console.WriteLine("Publish confirmed");
         }
         catch(PduException ex) 
         {
-            Console.WriteLine("Failed to publish because RTM replied with the error {0}: {1}", ex.Error.Code, ex.Error.Reason);
+            Console.WriteLine("Failed to publish. RTM replied with the error {0}: {1}", ex.Error.Code, ex.Error.Reason);
+
+            if (ex.Error.Code == AuthErrorCodes.AuthorizationDenied)
+            {
+                Console.WriteLine("Authorization denied. Check channel permissions in Dev Portal.");
+            }
         }
         catch (Exception ex) 
         {

@@ -43,6 +43,9 @@ class Program
         observer.OnEnterSubscribed += (ISubscription sub) => 
             Console.WriteLine("Subscribed to: " + sub.SubscriptionId);
 
+        observer.OnLeaveSubscribed += (ISubscription sub) => 
+            Console.WriteLine("Unsubscribed from: " + sub.SubscriptionId);
+        
         observer.OnSubscriptionData += (ISubscription sub, RtmSubscriptionData data) => 
         {
             foreach(JToken jToken in data.Messages)
@@ -54,7 +57,7 @@ class Program
                 } 
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Failed to parse incoming message: {0}", ex);
+                    Console.WriteLine("Failed to deserialize the incoming message: {0}", ex.Message);
                 }
             }
         };
@@ -69,7 +72,7 @@ class Program
         };
 
         observer.OnSubscriptionError += (ISubscription sub, RtmSubscriptionError err) => 
-            Console.WriteLine("Subscription failed because RTM sent the unsolicited error {0}: {1}", err.Code, err.Reason);
+            Console.WriteLine("Subscription failed. RTM sent the unsolicited error {0}: {1}", err.Code, err.Reason);
 
         client.CreateSubscription(channel, SubscriptionModes.Simple, observer);
 
@@ -94,7 +97,7 @@ class Program
                 };
 
                 RtmPublishReply reply = await client.Publish(channel, message, Ack.Yes);
-                Console.WriteLine("Published successfully");
+                Console.WriteLine("Publish confirmed");
             }
             catch(PduException ex) 
             {

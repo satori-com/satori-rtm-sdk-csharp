@@ -88,7 +88,7 @@ class Program
                 .ContinueWith(t =>
                 {
                     if (t.Exception == null)
-                        Console.WriteLine("Published successfully!");
+                        Console.WriteLine("Publish confirmed");
                     else
                         Console.WriteLine("Publishing failed: " + t.Exception);
                 });
