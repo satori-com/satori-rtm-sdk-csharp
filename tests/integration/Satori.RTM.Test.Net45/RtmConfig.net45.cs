@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 namespace Satori.Rtm.Test
 {
-    public partial class RtmConfig
+    public class RtmConfigImpl : RtmConfig
     {
         private const string RtmConfigEnvVar = "RTM_CONFIG";
 

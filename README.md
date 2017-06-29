@@ -6,9 +6,8 @@ The ecosystem includes a fast and scalable messaging engine known as RTM. Use th
 
 # Target Frameworks
 
+* .NET Standard 1.3+ (Xamarin.Android, Xamarin.iOS, .NET Framework, Mono, etc)
 * Mono / .NET 4.5+
-* Xamarin.Android (Android 4.4+)
-* Xamarin.iOS (iOS 8.1+)
 * Unity 5.6+ (Standalone, iOS, Android)
 
 # Setup
@@ -70,12 +69,12 @@ DefaultLoggers.ClientRtmSubscription.SetLevel(Logger.LogLevel.Verbose);
 ### Build on Mac
 
 1. Open `./Satori.XS.sln` with Xamarin Studio. 
-2. Build the `Satori.RTM.Net45`, `Satori.RTM.iOS`, `Satori.RTM.Android` projects
+2. Build the `Satori.RTM.Portable` and `Satori.RTM.Net45`  projects
  
 ### Build on Windows
 
 1. Open `./Satori.VS.sln` with Visual Studio 2015.
-2. Build the `Satori.RTM.Net45`, `Satori.RTM.iOS`, `Satori.RTM.Android` projects
+2. Build the `Satori.RTM.Portable` and `Satori.RTM.Net45` projects
 
 ## Unity
 

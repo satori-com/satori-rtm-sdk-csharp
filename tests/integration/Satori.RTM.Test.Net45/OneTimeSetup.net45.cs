@@ -27,7 +27,7 @@ namespace Satori.Rtm.Test
             DefaultLoggers.ClientRtm.SetLevel(Logger.LogLevel.Verbose);
             DefaultLoggers.ClientRtmSubscription.SetLevel(Logger.LogLevel.Verbose);
 
-            RtmConfig.Init();
+            RtmConfigImpl.Init();
         }
     }
 }

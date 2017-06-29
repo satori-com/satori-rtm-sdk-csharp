@@ -2,9 +2,9 @@ using Newtonsoft.Json;
 
 namespace Satori.Rtm.Test
 {
-    public partial class RtmConfig
+    public class RtmConfig
     {
-        public static RtmConfig Instance { get; private set; }
+        public static RtmConfig Instance { get; protected set; }
 
         [JsonProperty("endpoint")]
         public string Endpoint { get; set; }
