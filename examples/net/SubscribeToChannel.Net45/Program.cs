@@ -78,11 +78,6 @@ class Program
         // Assume that someone publishes animals to the channel 'animals'
         client.CreateSubscription("animals", SubscriptionModes.Simple, observer);
 
-        observer.OnLeaveSubscribed += (ISubscription sub) => 
-            Console.WriteLine("Unsubscribed from: " + sub.SubscriptionId);
-        
-        client.RemoveSubscription("animals");
-
         Console.ReadKey();
 
         // Stop and clean up the client before exiting the program
