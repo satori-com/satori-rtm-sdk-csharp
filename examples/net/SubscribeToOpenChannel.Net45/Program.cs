@@ -16,9 +16,7 @@ class Program
         Trace.Listeners.Add(new ConsoleTraceListener());
 
         IRtmClient client = new RtmClientBuilder(endpoint, appkey).Build();
-
         client.OnEnterConnected += cn => Console.WriteLine("Connected to Satori RTM!");
-
         client.Start();
 
         // Create subscription observer to observe channel subscription events 
