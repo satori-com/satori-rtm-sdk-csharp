@@ -24,9 +24,6 @@ class Program
         // Create subscription observer to observe channel subscription events 
         var observer = new SubscriptionObserver();
 
-        observer.OnEnterSubscribed += (ISubscription sub) => 
-            Console.WriteLine("Subscribed to: " + sub.SubscriptionId);
-
         observer.OnSubscriptionData += (ISubscription sub, RtmSubscriptionData data) =>
         {
             foreach(JToken msg in data.Messages) 
