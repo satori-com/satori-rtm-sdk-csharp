@@ -35,7 +35,7 @@ class Program
 
         client.OnEnterConnected += cn => Console.WriteLine("Connected to Satori RTM!");
         client.OnError += ex => Console.WriteLine("Error occurred: " + ex.Message);
-            
+
         client.Start();
 
         var observer = new SubscriptionObserver();
@@ -43,9 +43,6 @@ class Program
         observer.OnEnterSubscribed += (ISubscription sub) => 
             Console.WriteLine("Subscribed to: " + sub.SubscriptionId);
 
-        observer.OnLeaveSubscribed += (ISubscription sub) => 
-            Console.WriteLine("Unsubscribed from: " + sub.SubscriptionId);
-        
         observer.OnSubscriptionData += (ISubscription sub, RtmSubscriptionData data) => 
         {
             foreach(JToken jToken in data.Messages)
@@ -53,7 +50,7 @@ class Program
                 try 
                 {
                     Animal msg = jToken.ToObject<Animal>();
-                    Console.WriteLine("Got message: Who? {0}. Where? At {1},{2}", msg.Who, msg.Where[0], msg.Where[1]);
+                    Console.WriteLine("Got animal {0}: ", msg.Who, jToken);
                 } 
                 catch (Exception ex)
                 {
@@ -66,7 +63,7 @@ class Program
         {
             var rtmEx = err as SubscribeException;
             if (rtmEx != null) 
-                Console.WriteLine("Failed to subscribe because RTM replied with the error {0}: {1}", rtmEx.Error.Code, rtmEx.Error.Reason);
+                Console.WriteLine("Failed to subscribe. RTM replied with the error {0}: {1}", rtmEx.Error.Code, rtmEx.Error.Reason);
             else 
                 Console.WriteLine("Failed to subscribe: " + err.Message);
         };
@@ -91,8 +88,8 @@ class Program
                 {
                     Who = "zebra",
                     Where =  new float[] {
-                        34.134358f + (float)random.NextDouble(), 
-                        -118.321506f + (float)random.NextDouble()
+                        34.134358f + (float)random.NextDouble() / 100, 
+                        -118.321506f + (float)random.NextDouble() / 100
                     }
                 };
 
@@ -101,7 +98,7 @@ class Program
             }
             catch(PduException ex) 
             {
-                Console.WriteLine("Failed to publish because RTM replied with the error {0}: {1}", ex.Error.Code, ex.Error.Reason);
+                Console.WriteLine("Failed to publish. RTM replied with the error {0}: {1}", ex.Error.Code, ex.Error.Reason);
             }
             catch (Exception ex) 
             {

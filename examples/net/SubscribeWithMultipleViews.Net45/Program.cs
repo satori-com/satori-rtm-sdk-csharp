@@ -44,7 +44,10 @@ class Program
         {
             foreach(JToken jToken in data.Messages)
             {
-                Console.WriteLine("Got message: " + jToken);
+                if (sub.SubscriptionId == "zebras")
+                    Console.WriteLine("Got a zebra: " + jToken);
+                else 
+                    Console.WriteLine("Got a count: " + jToken);
             }
         };
 
