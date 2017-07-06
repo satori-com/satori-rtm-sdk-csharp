@@ -114,7 +114,7 @@ class Program
         // Publish messages every 2 seconds
 
         var random = new Random();
-        while(true)
+        while (true)
         {
             try 
             {
