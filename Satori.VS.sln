@@ -48,8 +48,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quickstart.Net45", "example
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Authenticate.Net45", "examples\net\Authenticate.Net45\Authenticate.Net45.csproj", "{A7F62E70-58D8-480F-9A65-5A2FFA1D6E9D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PublishSubscribeWithAuth.Net45", "examples\net\PublishSubscribeWithAuth.Net45\PublishSubscribeWithAuth.Net45.csproj", "{84F1B18D-F628-4136-B6B5-CAB382ADA049}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubscribeToOpenChannel.Net45", "examples\net\SubscribeToOpenChannel.Net45\SubscribeToOpenChannel.Net45.csproj", "{F3124E04-4033-4CBC-8F0B-7C8B8C5323E3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestInstallation.Net45", "examples\net\TestInstallation.Net45\TestInstallation.Net45.csproj", "{5CDABDF9-67C3-406A-9B0F-840DB44F08E0}"
