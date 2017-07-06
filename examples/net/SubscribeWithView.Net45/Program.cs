@@ -49,7 +49,7 @@ class Program
         };
 
         observer.OnSubscribeError += (ISubscription sub, Exception err) => 
-            Console.WriteLine("Failed to subscribe: " + err);
+            Console.WriteLine("Failed to subscribe: " + err.Message);
 
         observer.OnSubscriptionError += (ISubscription sub, RtmSubscriptionError err) => 
             Console.WriteLine("Subscription failed. RTM sent the unsolicited error {0}: {1}", err.Code, err.Reason);

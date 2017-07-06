@@ -20,7 +20,7 @@ class Program
             .Build();
 
         client.OnEnterConnected += cn => 
-            Console.WriteLine("Connected and authenticated to Satori RTM!");
+            Console.WriteLine("Connected to Satori RTM and authenticated as " + role);
 
         client.OnError += ex => 
         {

@@ -16,20 +16,11 @@ class Program
         Trace.Listeners.Add(new ConsoleTraceListener());
 
         IRtmClient client = new RtmClientBuilder(endpoint, appkey).Build();
-
         client.OnEnterConnected += cn => Console.WriteLine("Connected to Satori RTM!");
-        client.OnError += ex => Console.WriteLine("Error occurred: " + ex.Message);
-
         client.Start();
 
         // Create subscription observer to observe channel subscription events 
         var observer = new SubscriptionObserver();
-
-        observer.OnEnterSubscribed += (ISubscription sub) => 
-            Console.WriteLine("Subscribed to: " + sub.SubscriptionId);
-
-        observer.OnLeaveSubscribed += (ISubscription sub) => 
-            Console.WriteLine("Unsubscribed from: " + sub.SubscriptionId);
 
         observer.OnSubscriptionData += (ISubscription sub, RtmSubscriptionData data) =>
         {
@@ -38,18 +29,6 @@ class Program
                 Console.WriteLine("Got message: " + msg);
             }
         };
-
-        observer.OnSubscribeError += (ISubscription sub, Exception err) => 
-        {
-            var rtmEx = err as SubscribeException;
-            if (rtmEx != null) 
-                Console.WriteLine("Failed to subscribe because RTM replied with the error {0}: {1}", rtmEx.Error.Code, rtmEx.Error.Reason);
-            else 
-                Console.WriteLine("Failed to subscribe: " + err.Message);
-        };
-
-        observer.OnSubscriptionError += (ISubscription sub, RtmSubscriptionError err) => 
-            Console.WriteLine("Subscription failed. RTM sent the unsolicited error {0}: {1}", err.Code, err.Reason);
 
         client.CreateSubscription(channel, SubscriptionModes.Simple, observer);
 
