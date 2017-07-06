@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -38,14 +38,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
+    <Reference Include="nunit.framework, Version=3.7.1.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\..\..\.packages\NUnit.3.7.1\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\..\..\.packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="nunit.framework">
-      <HintPath>..\..\..\.packages\NUnit.3.6.0\lib\net45\nunit.framework.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -67,7 +67,6 @@
   </ItemGroup>
   <Import Project="..\Satori.RTM.Test\Satori.RTM.Test.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-
   <PropertyGroup Condition=" '$(OS)' == 'Unix' ">
     <NUnitConsole>mono ../../../.packages/NUnit.ConsoleRunner.3.6.1/tools/nunit3-console.exe</NUnitConsole>
   </PropertyGroup>
@@ -78,24 +77,19 @@
     <NUnitResultsFolder>$(OutputPath)test-results</NUnitResultsFolder>
     <NUnitArgs>$(OutputPath)$(AssemblyName).dll --timeout=60000 --work=$(NUnitResultsFolder)</NUnitArgs>
   </PropertyGroup>
-
   <Target Name="RunTests" DependsOnTargets="Build">
     <Message Text="Run tests in $(Configuration) mode" />
     <Exec Command="$(NUnitConsole) $(NUnitArgs)" IgnoreStandardErrorWarningFormat="true" />
   </Target>
-
   <UsingTask AssemblyFile="..\..\..\.packages\OpenCover.4.6.519\MSBuild\OpenCover.MSBuild.dll" TaskName="OpenCover.MSBuild.OpenCover" />
   <UsingTask TaskName="ReportGenerator" AssemblyFile="..\..\..\.packages\ReportGenerator.2.5.6\tools\ReportGenerator.exe" />
-
   <Target Name="ComputeCoverage" DependsOnTargets="Build">
     <Error Condition=" '$(OS)' == 'Unix' " Text="Computing test coverage works on Windows only" />
     <OpenCover ReturnTargetCode="True" ToolPath="..\..\..\.packages\OpenCover.4.6.519\tools" Filter="+[*]* -[*.Test.*]* -[Autofac*]* -[Newtonsoft.Json]* -[*]System.*" ExcludeByAttribute="System.ObsoleteAttribute" ToolExe="OpenCover.Console.exe" Register="True" ShowUnvisited="True" Target="$(NUnitConsole)" TargetWorkingDir="." TargetArgs="$(NUnitArgs) --output=nunit.log" Output="$(NUnitResultsFolder)\CoverageResult.xml">
       <Output TaskParameter="ExitCode" PropertyName="TestExitCode" />
     </OpenCover>
     <ReportGenerator ReportFiles="$(NUnitResultsFolder)\CoverageResult.xml" TargetDirectory="$(NUnitResultsFolder)" ReportTypes="Html" VerbosityLevel="Verbose" />
-
   </Target>
-
   <PropertyGroup>
     <StyleCopOverrideSettingsFile>..\..\..\Settings.StyleCop</StyleCopOverrideSettingsFile>
   </PropertyGroup>

@@ -72,11 +72,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Satori.RTM.Nuget", "sources
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Satori.RTM.Portable", "sources\Satori.RTM.Portable\Satori.RTM.Portable.csproj", "{87D0D183-F833-4AE6-A7A8-ECEFB496CF81}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Satori.RTM.Test.Net46", "tests\integration\Satori.RTM.Test.Net46\Satori.RTM.Test.Net46.csproj", "{87B238E0-6674-46C4-8264-B582AB8610EC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Satori.RTM.Test.Net46", "tests\integration\Satori.RTM.Test.Net46\Satori.RTM.Test.Net46.csproj", "{19EC6AD1-DDAF-4DBD-8C71-2C02342039D4}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		3rd\System.Threading.Net35\System.Threading.Net35.projitems*{06c9db81-f14a-46bd-8140-c70ab41fd6c4}*SharedItemsImports = 13
+		tests\integration\Satori.RTM.Test\Satori.RTM.Test.projitems*{19ec6ad1-ddaf-4dbd-8c71-2c02342039d4}*SharedItemsImports = 4
 		3rd\System.Buffers.Net35\System.Buffers.Net35.projitems*{1aad0257-4825-4596-a8ae-6fe6635c27e1}*SharedItemsImports = 4
 		3rd\System.Net.WebSockets.Managed\System.Net.WebSockets.Managed.projitems*{1aad0257-4825-4596-a8ae-6fe6635c27e1}*SharedItemsImports = 4
 		3rd\System.Threading.Net35\System.Threading.Net35.projitems*{1aad0257-4825-4596-a8ae-6fe6635c27e1}*SharedItemsImports = 4
@@ -84,7 +85,6 @@ Global
 		sources\Satori.RTM\Satori.RTM.projitems*{1aad0257-4825-4596-a8ae-6fe6635c27e1}*SharedItemsImports = 4
 		tests\integration\Satori.RTM.Test\Satori.RTM.Test.projitems*{8116d9ee-a195-4772-a559-8b6e68719806}*SharedItemsImports = 4
 		3rd\System.Buffers.Net35\System.Buffers.Net35.projitems*{83496bac-e06c-4c09-bcda-e242059def0f}*SharedItemsImports = 13
-		tests\integration\Satori.RTM.Test\Satori.RTM.Test.projitems*{87b238e0-6674-46c4-8264-b582ab8610ec}*SharedItemsImports = 4
 		sources\Satori.Common\Satori.Common.projitems*{87d0d183-f833-4ae6-a7a8-ecefb496cf81}*SharedItemsImports = 4
 		sources\Satori.RTM\Satori.RTM.projitems*{87d0d183-f833-4ae6-a7a8-ecefb496cf81}*SharedItemsImports = 4
 		sources\Satori.RTM\Satori.RTM.projitems*{90743487-cbea-41f0-9162-6bf7081caf01}*SharedItemsImports = 13
@@ -96,6 +96,7 @@ Global
 		tests\integration\Satori.RTM.Test\Satori.RTM.Test.projitems*{a1de2c47-59a0-4124-9ed9-7fa9786d2beb}*SharedItemsImports = 4
 		tests\integration\Satori.RTM.Test\Satori.RTM.Test.projitems*{c7bb1436-6489-43ed-8f82-321fc36ba207}*SharedItemsImports = 13
 		tests\integration\Satori.RTM.Test\Satori.RTM.Test.projitems*{d2ef9463-c63a-4c7d-8a53-6ec22c455197}*SharedItemsImports = 4
+		tests\integration\Satori.RTM.Test\Satori.RTM.Test.projitems*{dd600da4-b57d-4261-a642-a881ea31ab09}*SharedItemsImports = 4
 		sources\Satori.Common\Satori.Common.projitems*{fe354457-bdd5-4bd4-b29d-861b4974ac56}*SharedItemsImports = 13
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -402,22 +403,22 @@ Global
 		{87D0D183-F833-4AE6-A7A8-ECEFB496CF81}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{87D0D183-F833-4AE6-A7A8-ECEFB496CF81}.Release|x86.ActiveCfg = Release|Any CPU
 		{87D0D183-F833-4AE6-A7A8-ECEFB496CF81}.Release|x86.Build.0 = Release|Any CPU
-		{87B238E0-6674-46C4-8264-B582AB8610EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{87B238E0-6674-46C4-8264-B582AB8610EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{87B238E0-6674-46C4-8264-B582AB8610EC}.Debug|iPhone.ActiveCfg = Debug|Any CPU
-		{87B238E0-6674-46C4-8264-B582AB8610EC}.Debug|iPhone.Build.0 = Debug|Any CPU
-		{87B238E0-6674-46C4-8264-B582AB8610EC}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
-		{87B238E0-6674-46C4-8264-B582AB8610EC}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
-		{87B238E0-6674-46C4-8264-B582AB8610EC}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{87B238E0-6674-46C4-8264-B582AB8610EC}.Debug|x86.Build.0 = Debug|Any CPU
-		{87B238E0-6674-46C4-8264-B582AB8610EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{87B238E0-6674-46C4-8264-B582AB8610EC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{87B238E0-6674-46C4-8264-B582AB8610EC}.Release|iPhone.ActiveCfg = Release|Any CPU
-		{87B238E0-6674-46C4-8264-B582AB8610EC}.Release|iPhone.Build.0 = Release|Any CPU
-		{87B238E0-6674-46C4-8264-B582AB8610EC}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
-		{87B238E0-6674-46C4-8264-B582AB8610EC}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
-		{87B238E0-6674-46C4-8264-B582AB8610EC}.Release|x86.ActiveCfg = Release|Any CPU
-		{87B238E0-6674-46C4-8264-B582AB8610EC}.Release|x86.Build.0 = Release|Any CPU
+		{19EC6AD1-DDAF-4DBD-8C71-2C02342039D4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19EC6AD1-DDAF-4DBD-8C71-2C02342039D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19EC6AD1-DDAF-4DBD-8C71-2C02342039D4}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{19EC6AD1-DDAF-4DBD-8C71-2C02342039D4}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{19EC6AD1-DDAF-4DBD-8C71-2C02342039D4}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{19EC6AD1-DDAF-4DBD-8C71-2C02342039D4}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{19EC6AD1-DDAF-4DBD-8C71-2C02342039D4}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{19EC6AD1-DDAF-4DBD-8C71-2C02342039D4}.Debug|x86.Build.0 = Debug|Any CPU
+		{19EC6AD1-DDAF-4DBD-8C71-2C02342039D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19EC6AD1-DDAF-4DBD-8C71-2C02342039D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19EC6AD1-DDAF-4DBD-8C71-2C02342039D4}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{19EC6AD1-DDAF-4DBD-8C71-2C02342039D4}.Release|iPhone.Build.0 = Release|Any CPU
+		{19EC6AD1-DDAF-4DBD-8C71-2C02342039D4}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{19EC6AD1-DDAF-4DBD-8C71-2C02342039D4}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{19EC6AD1-DDAF-4DBD-8C71-2C02342039D4}.Release|x86.ActiveCfg = Release|Any CPU
+		{19EC6AD1-DDAF-4DBD-8C71-2C02342039D4}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -445,7 +446,7 @@ Global
 		{E6E9F576-CC28-4CF9-92C7-907F1855C9DC} = {1F2487DD-EEA1-4558-B850-0F788E9A26D4}
 		{1947E95E-4E5F-4987-B7B4-2E4E177A4A62} = {1F2487DD-EEA1-4558-B850-0F788E9A26D4}
 		{92FF0814-798C-4693-A395-B26DFD98D9B9} = {5BCCB028-0330-4936-BCFE-34CAED8AC4F2}
-		{87B238E0-6674-46C4-8264-B582AB8610EC} = {68EB9F49-7CCE-4796-A0E7-6315A39517F5}
+		{19EC6AD1-DDAF-4DBD-8C71-2C02342039D4} = {68EB9F49-7CCE-4796-A0E7-6315A39517F5}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		Policies = $0

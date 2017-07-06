@@ -49,15 +49,15 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="../Satori.RTM.Portable/bin/$configuration$/Satori.RTM.dll" target="lib\netstandard10" />
+    <file src="../Satori.RTM.Portable/bin/$configuration$/Satori.RTM.Portable.dll" target="lib\netstandard10" />
     <file src="../../3rd/System.Net.WebSockets.Portable/bin/$configuration$/System.Net.WebSockets.Portable.dll" target="lib\netstandard10" />
     
     <file src="../Satori.RTM.Net45/bin/$configuration$/Satori.RTM.Net45.dll" target="lib\net45" />
     
-    <file src="../Satori.RTM.Portable/bin/$configuration$/Satori.RTM.dll" target="lib\monoandroid10" />
+    <file src="../Satori.RTM.Portable/bin/$configuration$/Satori.RTM.Portable.dll" target="lib\monoandroid10" />
     <file src="../../3rd/System.Net.WebSockets.Portable/bin/$configuration$/System.Net.WebSockets.Portable.dll" target="lib\monoandroid10" />
     
-    <file src="../Satori.RTM.Portable/bin/$configuration$/Satori.RTM.dll" target="lib\xamarinios10" />
+    <file src="../Satori.RTM.Portable/bin/$configuration$/Satori.RTM.Portable.dll" target="lib\xamarinios10" />
     <file src="../../3rd/System.Net.WebSockets.Portable/bin/$configuration$/System.Net.WebSockets.Portable.dll" target="lib\xamarinios10" />
   </files>
 </package>
