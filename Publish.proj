@@ -7,6 +7,9 @@
     <OutputPath>bin</OutputPath>
     <ApiDocProject>sources\Satori.RTM.DocFx\Satori.RTM.DocFx.csproj</ApiDocProject>
     <GitRepo>git@github.com:satori-com/satori-rtm-sdk-csharp.git</GitRepo>
+    <NugetProject>sources\Satori.RTM.Nuget\Satori.RTM.Nuget.csproj</NugetProject>
+    <NugetFile>Satori.RTM.SDK.$(SatoriSdkVersion).nupkg</NugetFile>
+    <NugetPath>sources\Satori.RTM.Nuget\bin\$(Configuration)\$(NugetFile)</NugetPath>
   </PropertyGroup>
   
   <Target Name="Build" DependsOnTargets="CreateDirectories">
@@ -38,5 +41,12 @@
     <Exec Command="git add --all" WorkingDirectory="$(OutputPath)\satori-rtm-sdk-csharp" />
     <Exec Command="git commit -m &quot;Update API Doc&quot;" WorkingDirectory="$(OutputPath)\satori-rtm-sdk-csharp" />
     <Exec Command="git push" WorkingDirectory="$(OutputPath)\satori-rtm-sdk-csharp" />
+  </Target>
+
+  <Target Name="BuildNuget" DependsOnTargets="Build">
+    <MsBuild Projects="$(NugetProject)" Targets="Build"
+          Properties="Configuration=$(Configuration)" BuildInParallel="true"/>
+    <Copy SourceFiles="$(NugetPath)" 
+        DestinationFiles="$(OutputPath)\$(NugetFile)" />
   </Target>
 </Project>

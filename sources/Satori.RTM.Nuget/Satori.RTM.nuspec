@@ -8,8 +8,9 @@
     <owners>satori</owners>
     <licenseUrl>https://github.com/satori-com/satori-rtm-sdk-csharp/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/satori-com/satori-rtm-sdk-csharp</projectUrl>
-    <!--<iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>-->
+    <iconUrl>https://raw.githubusercontent.com/satori-com/satori-rtm-sdk-csharp/master/icon%4064x64.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <summary>C# SDK for Satori RTM is a foundation for creating mobile, desktop, or server-based applications communicating with RTM (realtime messaging service at the core of the Satori platform)</summary>
     <description>Satori is a cloud-based, live data ecosystem that manages schema-less real-time live data as it happens. The ecosystem includes a fast and massively scalable messaging engine known as RTM. Use the C# SDK for Satori RTM to create mobile, desktop or server-based applications that communicate with the RTM to publish and subscribe. </description>
     <!--<releaseNotes>Summary of changes made in this release of the package.</releaseNotes>-->
     <language>en-US</language>
@@ -42,15 +43,15 @@
         <dependency id="System.Security.Cryptography.Primitives" version="[4.0.0]" />
         <dependency id="System.Security.Cryptography.X509Certificates" version="[4.1.0]" />
       </group>
-      <group targetFramework="netstandard10">
+      <group targetFramework="netstandard1.3">
         <dependency id="Newtonsoft.Json" version="9.0.1" />
         <dependency id="System.Buffers" version="4.3.0" />
       </group>
     </dependencies>
   </metadata>
   <files>
-    <file src="../Satori.RTM.Portable/bin/$configuration$/Satori.RTM.Portable.dll" target="lib\netstandard10" />
-    <file src="../../3rd/System.Net.WebSockets.Portable/bin/$configuration$/System.Net.WebSockets.Portable.dll" target="lib\netstandard10" />
+    <file src="../Satori.RTM.Portable/bin/$configuration$/Satori.RTM.Portable.dll" target="lib\netstandard1.3" />
+    <file src="../../3rd/System.Net.WebSockets.Portable/bin/$configuration$/System.Net.WebSockets.Portable.dll" target="lib\netstandard1.3" />
     
     <file src="../Satori.RTM.Net45/bin/$configuration$/Satori.RTM.Net45.dll" target="lib\net45" />
     

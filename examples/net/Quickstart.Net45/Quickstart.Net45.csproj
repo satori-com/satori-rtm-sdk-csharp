@@ -26,7 +26,8 @@
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>anycpu</PlatformTarget>
-    <DebugType></DebugType>
+    <DebugType>
+    </DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
@@ -44,13 +45,15 @@
       <HintPath>..\..\..\.packages\System.Buffers.4.3.0\lib\netstandard1.1\System.Buffers.dll</HintPath>
     </Reference>
     <Reference Include="Satori.RTM.Net45">
-      <HintPath>..\..\..\.packages\Satori.RTM.SDK.1.0.1-beta\lib\net45\Satori.RTM.Net45.dll</HintPath>
+      <HintPath>..\..\..\.packages\Satori.RTM.SDK.1.0.2-beta\lib\net45\Satori.RTM.Net45.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="properties\AssemblyInfo.cs" />
     <None Include="app.config" />
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
