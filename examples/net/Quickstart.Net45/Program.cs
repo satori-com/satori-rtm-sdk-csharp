@@ -30,6 +30,12 @@ class Program
 
         [JsonProperty("where")]
         public float[] Where { get; set; }
+
+        public override string ToString()
+        {
+            return string.Format("[Animal: Who={0}, Where={1}]"
+                                 , Who, string.Join(",", Where ?? new float[0]));
+        }
     }
 
     static void Main()
@@ -131,7 +137,7 @@ class Program
                 // If the client is not connected, the SDK internally queues the publish request and
                 // will send it once the client connects
                 RtmPublishReply reply = await client.Publish(channel, message, Ack.Yes);
-                Console.WriteLine("Publish confirmed");
+                Console.WriteLine("Animal is published: {0}", message);
             }
             catch(PduException ex) 
             {
