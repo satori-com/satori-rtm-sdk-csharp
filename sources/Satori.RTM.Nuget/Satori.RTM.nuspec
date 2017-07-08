@@ -4,7 +4,7 @@
     <id>Satori.RTM.SDK</id>
     <version>0.0.0</version>
     <title>C# SDK for Satori RTM</title>
-    <authors>satori</authors>
+    <authors>Satori Worldwide, Inc.</authors>
     <owners>satori</owners>
     <licenseUrl>https://github.com/satori-com/satori-rtm-sdk-csharp/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/satori-com/satori-rtm-sdk-csharp</projectUrl>
