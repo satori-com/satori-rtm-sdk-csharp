@@ -75,7 +75,6 @@ class Program
         observer.OnSubscriptionError += (ISubscription sub, RtmSubscriptionError err) => 
             Console.WriteLine("Subscription failed. RTM sent the unsolicited error {0}: {1}", err.Code, err.Reason);
 
-        // Assume that someone publishes animals to the channel 'animals'
         client.CreateSubscription("animals", SubscriptionModes.Simple, observer);
 
         Console.ReadKey();
