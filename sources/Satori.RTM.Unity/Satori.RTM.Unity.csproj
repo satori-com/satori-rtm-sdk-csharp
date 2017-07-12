@@ -46,7 +46,7 @@
       <Name>Newtonsoft.Json.Net35</Name>
     </ProjectReference>
     <Reference Include="UnityEngine" Condition=" '$(OS)' != 'Unix' ">
-      <HintPath>$(MSBuildExtensionsPath)\..\..\Program Files\Unity\Editor\Data\Managed\UnityEngine.dll</HintPath>
+      <HintPath>$(MSBuildExtensionsPath)\..\..\..\..\..\Program Files\Unity\Editor\Data\Managed\UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine" Condition=" '$(OS)' == 'Unix' ">
       <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/UnityEngine.dll</HintPath>
@@ -60,7 +60,7 @@
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="..\AssemblyVersion.targets" />
   <PropertyGroup>
-    <UnityToolPath>$(MSBuildExtensionsPath)\..\..\Program Files\Unity\Editor\Unity.exe</UnityToolPath>
+    <UnityToolPath>$(MSBuildExtensionsPath)\..\..\..\..\..\Program Files\Unity\Editor\Unity.exe</UnityToolPath>
     <SatoriRtmAssembly>Satori.RTM.Unity.dll</SatoriRtmAssembly>
     <NewtonsoftJsonAssembly>Newtonsoft.Json.dll</NewtonsoftJsonAssembly>
     <PackageFileName>Satori.RTM-$(SatoriSdkVersion).unitypackage</PackageFileName>

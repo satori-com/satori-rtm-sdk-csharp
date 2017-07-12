@@ -4,10 +4,7 @@
 
 using System.Globalization;
 using System.Text;
-
-#if !NET_4_6
 using System.Net.WebSockets.Managed;
-#endif
 
 namespace System.Net.WebSockets
 {

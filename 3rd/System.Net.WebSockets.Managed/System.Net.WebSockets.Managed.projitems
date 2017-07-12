@@ -24,13 +24,12 @@
     <Compile Include="$(MSBuildThisFileDirectory)SocketExtensions.3rd.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)NetEventSource.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)WebSocket.3rd.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)WebSocketCloseStatus.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)WebSocketState.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)WebSocketReceiveResult.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)WebSocketMessageType.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)WebSocketError.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)WebSocketException.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ClientWebSocket.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)WebSocketCloseStatus.3rd.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)WebSocketState.3rd.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)WebSocketReceiveResult.3rd.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)WebSocketMessageType3rd.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)WebSocketError.3rd.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)WebSocketException.3rd.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)StringEx.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DnsEx.cs" />
   </ItemGroup>

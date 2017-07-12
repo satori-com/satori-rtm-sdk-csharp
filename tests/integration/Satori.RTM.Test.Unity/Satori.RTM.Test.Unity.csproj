@@ -56,7 +56,7 @@
       <Name>Satori.RTM.Unity</Name>
     </ProjectReference>
     <Reference Include="nunit.framework" Condition=" '$(OS)' != 'Unix' ">
-      <HintPath>$(MSBuildExtensionsPath)\..\..\Program Files\Unity\Editor\Data\Managed\nunit.framework.dll</HintPath>
+      <HintPath>$(MSBuildExtensionsPath)\..\..\..\..\..\Program Files\Unity\Editor\Data\Managed\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine" Condition=" '$(OS)' == 'Unix' ">
       <HintPath>/Applications/Unity/Unity.app/Contents/Frameworks/nunit.framework.dll</HintPath>
