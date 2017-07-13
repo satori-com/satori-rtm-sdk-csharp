@@ -70,7 +70,7 @@ namespace Satori.Rtm.Client
                         Log.V("CreateConnection method started, state: {0}", this);
                         try
                         {
-                            con = await Fsm._connector(Fsm._url, ct).ConfigureAwait(false);
+                            con = await Fsm._connector(Fsm._url, Fsm._connectionOptions, ct).ConfigureAwait(false);
                             Log.V("Connector callback completed, state: {0}", this);
 
                             if (Fsm._authenticator != null)

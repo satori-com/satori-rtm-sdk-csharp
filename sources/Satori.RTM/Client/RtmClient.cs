@@ -12,14 +12,16 @@ namespace Satori.Rtm.Client
     internal partial class RtmClient
     {
         private readonly string _url;
+        private readonly ConnectionOptions _connectionOptions;
+        private readonly Func<string, ConnectionOptions, CancellationToken, Task<IConnection>> _connector;
+        private readonly Func<IConnection, Task<JToken>> _authenticator;
+
         private readonly RtmModule _rtmModule;
         private State _state;
 
-        private Func<string, CancellationToken, Task<IConnection>> _connector;
-        private Func<IConnection, Task<JToken>> _authenticator;
-
         public RtmClient(
-            Func<string, CancellationToken, Task<IConnection>> connector, 
+            Func<string, ConnectionOptions, CancellationToken, Task<IConnection>> connector, 
+            ConnectionOptions connectionOptions,
             Func<IConnection, Task<JToken>> authenticator, 
             IDispatcher dispatcher, 
             string url, 
@@ -43,6 +45,7 @@ namespace Satori.Rtm.Client
             }
 
             _connector = connector ?? DefaultConnector;
+            _connectionOptions = connectionOptions ?? new ConnectionOptions();
             _authenticator = authenticator;
             Dispatcher = dispatcher ?? new Dispatcher();
             _url = url;
@@ -60,11 +63,11 @@ namespace Satori.Rtm.Client
             }
         }
 
-        public Func<string, CancellationToken, Task<IConnection>> Connector => _connector;
+        public Func<string, ConnectionOptions, CancellationToken, Task<IConnection>> Connector => _connector;
 
-        public static Task<IConnection> DefaultConnector(string url, CancellationToken ct)
+        public static Task<IConnection> DefaultConnector(string url, ConnectionOptions options, CancellationToken ct)
         {
-            return Connection.Connect(url, ct);
+            return Connection.Connect(url, options, ct);
         }
 
         private void Cleanup()

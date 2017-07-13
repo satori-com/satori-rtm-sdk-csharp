@@ -52,7 +52,7 @@ namespace Satori.Rtm.Test
             var connector = client.Connector;
             try 
             {
-                await connector(url, CancellationToken.None);
+                await connector(url, new ConnectionOptions(), CancellationToken.None);
                 Assert.Fail();
             } 
             catch (Exception ex)

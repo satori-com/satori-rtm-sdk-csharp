@@ -38,6 +38,7 @@
         <dependency id="System.Net.Security" version="[4.0.0]" />
         <dependency id="System.Net.Sockets" version="[4.1.0]" />
         <dependency id="System.Net.WebSockets" version="[4.0.0]" />
+        <dependency id="System.Net.WebSockets.Client" version="[4.0.0]" />
         <dependency id="System.Security.Cryptography.Algorithms" version="[4.2.0]" />
         <dependency id="System.Security.Cryptography.Encoding" version="[4.0.0]" />
         <dependency id="System.Security.Cryptography.Primitives" version="[4.0.0]" />

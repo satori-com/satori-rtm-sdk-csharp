@@ -62,6 +62,19 @@ DefaultLoggers.Client.SetLevel(Logger.LogLevel.Verbose);
 DefaultLoggers.ClientRtm.SetLevel(Logger.LogLevel.Verbose);
 DefaultLoggers.ClientRtmSubscription.SetLevel(Logger.LogLevel.Verbose);
 ```
+
+# Using https proxy
+
+The SDK supports working through an HTTPS proxy. The following is an example to set a secure (HTTPS) proxy server:
+
+```
+IRtmClient client = new RtmClientBuilder("YOUR_ENDPOINT", "YOUR_APPKEY")
+    .SetHttpsProxy(new Uri("https://proxy.example.com"))
+    .Build();
+```
+
+This functionality is available when running on .NET Framework. Proxy options are ignored on Mono (including Xamarin and Unity).
+
 # Build
 
 ## .NET, Mono, Xamarin 

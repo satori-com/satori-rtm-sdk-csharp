@@ -1,6 +1,7 @@
 #pragma warning disable 1591
 
 using System;
+using System.Net;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
@@ -67,7 +68,7 @@ namespace Satori.Rtm.Client
         /// Gets or sets the connector which will be used by the client to connect to RTM endpoint. 
         /// </summary>
         /// <remarks>Connector should provide a connection which is already connected.</remarks>
-        public Func<string, CancellationToken, Task<IConnection>> Connector { get; set; }
+        public Func<string, ConnectionOptions, CancellationToken, Task<IConnection>> Connector { get; set; }
 
         /// <summary>
         /// Gets or sets an authentication provider for the client.
@@ -89,6 +90,11 @@ namespace Satori.Rtm.Client
         /// Gets URL to RTM endpoint.
         /// </summary>
         public string Url { get; private set; }
+
+        /// <summary>
+        /// Options to use when establishing a connection
+        /// </summary>
+        public ConnectionOptions ConnectionOptions { get; } = new ConnectionOptions();
 
         /// <summary>
         /// Gets or sets the minimum time period to wait between reconnection attempts. 
@@ -142,10 +148,25 @@ namespace Satori.Rtm.Client
         }
 
         /// <summary>
+        /// Sets the address and credentials of the HTTPS proxy server.
+        /// </summary>
+        /// <remarks>
+        /// This functionality is available when running on .NET Framework. 
+        /// Proxy options are ignored on Mono (including Xamarin and Unity).
+        /// </remarks>
+        /// <returns>The instance of the builder.</returns>
+        public RtmClientBuilder SetHttpsProxy(Uri address, ICredentials credentials = null)
+        {
+            ConnectionOptions.HttpsProxy = address;
+            ConnectionOptions.ProxyCredentials = credentials;
+            return this;
+        }
+
+        /// <summary>
         /// See <see cref="Connector"/>.
         /// </summary>
         /// <returns>The instance of the builder.</returns>
-        public RtmClientBuilder SetConnector(Func<string, CancellationToken, Task<IConnection>> connector)
+        public RtmClientBuilder SetConnector(Func<string, ConnectionOptions, CancellationToken, Task<IConnection>> connector)
         {
             Connector = connector;
             return this;
@@ -193,6 +214,7 @@ namespace Satori.Rtm.Client
         {
             return new RtmClient(
                 Connector, 
+                ConnectionOptions,
                 Authenticator, 
                 Dispatcher, 
                 Url,

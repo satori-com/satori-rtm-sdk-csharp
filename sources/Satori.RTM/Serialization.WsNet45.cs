@@ -3,6 +3,7 @@
 using System;
 using System.Globalization;
 using System.IO;
+using System.Net;
 using System.Net.WebSockets;
 using System.Text;
 using System.Threading;
@@ -31,18 +32,14 @@ namespace Satori.Rtm
         // for diagnostics
         public bool IsDisposed => _wsock == null;
 
-        public static async Task<WsSerialization> Connect(Uri uri, CancellationToken ct, Logger log)
+        public static async Task<WsSerialization> Connect(Uri uri, ConnectionOptions options, CancellationToken ct, Logger log)
         {
             // Do not print query because it contains app key
             log.V("Connecting to '{0}://{1}:{2}'", uri?.Scheme, uri?.Host, uri?.Port);
 
-            var wsock = new System.Net.WebSockets.Managed.ClientWebSocket();
-
-            #if UNITY
-            wsock.ValidationCallback = Satori.Rtm.ChainValidationHelper.RemoteCertificateValidationCallback;
-            #endif
-
-            wsock.Options.KeepAliveInterval = TimeSpan.FromSeconds(60);
+            var wsock = new WsSerialization.ClientWebSocket();
+            wsock.SetOptions(options);
+            
             try
             {
                 await wsock.ConnectAsync(uri, ct).ConfigureAwait(false);
@@ -61,7 +58,7 @@ namespace Satori.Rtm
                 throw;
             }
 
-            return new WsSerialization(wsock, log);
+            return new WsSerialization(wsock.WebSocket, log);
         }
 
         public async Task Send(Pdu pdu)
@@ -212,6 +209,91 @@ namespace Satori.Rtm
             }
 
             Dispose();
+        }
+
+        private class ClientWebSocket
+        {
+#if !UNITY
+            private System.Net.WebSockets.ClientWebSocket standardImpl;
+#endif
+
+            private System.Net.WebSockets.Managed.ClientWebSocket managedImpl;
+
+            public ClientWebSocket()
+            {
+                // Fallback to the managed implementation on Mono (including Xamarin) 
+                // because the Mono's websocket implementation
+                // - doesn't support a secure connection (wss) on .NETStandard 1.3
+                // - not implemented on Mono version of .NET 4.5
+                // Only the .NET Framework websocket implementation supports proxies.             
+                if (IsRunningOnMono()) 
+                {
+                    managedImpl = new System.Net.WebSockets.Managed.ClientWebSocket();
+                    managedImpl.Options.KeepAliveInterval = TimeSpan.FromSeconds(60);
+
+#if UNITY
+                    // Unity uses Mono runtime
+                    managedImpl.ValidationCallback = Satori.Rtm.ChainValidationHelper.RemoteCertificateValidationCallback;
+#endif
+                }
+                else 
+                {
+#if !UNITY
+                    standardImpl = new System.Net.WebSockets.ClientWebSocket();
+                    standardImpl.Options.KeepAliveInterval = TimeSpan.FromSeconds(60);
+#endif
+                }
+            }
+
+            public WebSocket WebSocket
+            {
+                get
+                {
+#if !UNITY
+                    return standardImpl != null ? (WebSocket)standardImpl : (WebSocket)managedImpl;
+#else
+                    return managedImpl;
+#endif
+                }
+            }
+
+            public void SetOptions(ConnectionOptions options)
+            {
+#if !UNITY
+                // Proxies are not supported in the managed implementation
+                if (standardImpl != null)
+                {
+                    if (options.HttpsProxy != null)
+                    {
+                        standardImpl.Options.Proxy = new WebProxy(options.HttpsProxy)
+                        {
+                            Credentials = options.ProxyCredentials
+                        };
+                    }
+                }
+#endif
+            }
+
+            public Task ConnectAsync(Uri uri, CancellationToken ct)
+            {
+                if (managedImpl != null)
+                {
+                    return managedImpl.ConnectAsync(uri, ct);
+                }
+                else 
+                {
+#if !UNITY
+                    return standardImpl.ConnectAsync(uri, ct);
+#endif
+                }
+
+                throw new InvalidOperationException();
+            }
+
+            private static bool IsRunningOnMono()
+            {
+                return Type.GetType("Mono.Runtime") != null;
+            }
         }
     }
 }
