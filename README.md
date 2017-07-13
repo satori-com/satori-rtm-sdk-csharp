@@ -63,7 +63,7 @@ DefaultLoggers.ClientRtm.SetLevel(Logger.LogLevel.Verbose);
 DefaultLoggers.ClientRtmSubscription.SetLevel(Logger.LogLevel.Verbose);
 ```
 
-# Using https proxy
+# Using HTTPS proxy
 
 The SDK supports working through an HTTPS proxy. The following is an example to set a secure (HTTPS) proxy server:
 
