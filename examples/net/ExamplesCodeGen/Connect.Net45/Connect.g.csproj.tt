@@ -1,0 +1,7 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ output extension=".out" #>
+<#
+var projectName = "Connect";
+var projectGuid = "{5BDABDF9-65C3-406A-9B0F-840DB44F08E1}";
+#>
+<#@ include file="..\Project.csproj.t4" #>
