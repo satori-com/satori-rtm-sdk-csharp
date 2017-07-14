@@ -72,6 +72,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Publish.g.csproj.tt</DependentUpon>
     </None>
+    <None Include="SubscribeToChannel.Net45\packages.config.out">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>packages.config.tt</DependentUpon>
+    </None>
+    <None Include="SubscribeToChannel.Net45\SubscribeToChannel.g.cs.out">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SubscribeToChannel.g.cs.tt</DependentUpon>
+    </None>
+    <None Include="SubscribeToChannel.Net45\SubscribeToChannel.g.csproj.out">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SubscribeToChannel.g.csproj.tt</DependentUpon>
+    </None>
     <None Include="TestInstallation.Net45\packages.config.out">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -122,6 +137,18 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Publish.g.csproj.out</LastGenOutput>
     </Content>
+    <Content Include="SubscribeToChannel.Net45\packages.config.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>packages.config.out</LastGenOutput>
+    </Content>
+    <Content Include="SubscribeToChannel.Net45\SubscribeToChannel.g.cs.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SubscribeToChannel.g.cs.out</LastGenOutput>
+    </Content>
+    <Content Include="SubscribeToChannel.Net45\SubscribeToChannel.g.csproj.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SubscribeToChannel.g.csproj.out</LastGenOutput>
+    </Content>
     <Content Include="TestInstallation.Net45\packages.config.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>packages.config.out</LastGenOutput>
@@ -137,18 +164,15 @@
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-
-  <!-- Optionally make the import portable across VS versions -->  
-  <PropertyGroup>  
-    <!-- Get the Visual Studio version – defaults to 10: -->  
-    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>  
-    <!-- Keep the next element all on one line: -->  
-    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>  
-  </PropertyGroup>  
-  
-  <!-- This is the important line: -->  
-  <Import Project="$(VSToolsPath)\TextTemplating\Microsoft.TextTemplating.targets" />  
-
+  <!-- Optionally make the import portable across VS versions -->
+  <PropertyGroup>
+    <!-- Get the Visual Studio version – defaults to 10: -->
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <!-- Keep the next element all on one line: -->
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <!-- This is the important line: -->
+  <Import Project="$(VSToolsPath)\TextTemplating\Microsoft.TextTemplating.targets" />
   <Target Name="CopyOutputFiles" AfterTargets="Build">
     <Copy SourceFiles="@(OutputFiles)" DestinationFiles="@(OutputFiles->'..\%(RecursiveDir)%(Filename)')" />
   </Target>
