@@ -35,47 +35,76 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="Connect.Net45\Connect.g.csproj.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Connect.g.csproj.out</LastGenOutput>
-    </Content>
-    <Content Include="Connect.Net45\packages.config.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>packages.config.out</LastGenOutput>
-    </Content>
     <None Include="Animal.cs.t4" />
-    <None Include="BeginConnect.cs.t4" />
-    <Content Include="Connect.Net45\Connect.g.cs.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Connect.g.cs.out</LastGenOutput>
-    </Content>
-    <None Include="Connect.Net45\Connect.g.cs.out">
+    <None Include="Authenticate.Net45\Authenticate.g.cs.out">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Connect.g.cs.tt</DependentUpon>
+      <DependentUpon>Authenticate.g.cs.tt</DependentUpon>
     </None>
-    <None Include="Connect.Net45\Connect.g.csproj.out">
+    <None Include="Authenticate.Net45\Authenticate.g.csproj.out">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Connect.g.csproj.tt</DependentUpon>
+      <DependentUpon>Authenticate.g.csproj.tt</DependentUpon>
     </None>
-    <None Include="Connect.Net45\packages.config.out">
+    <None Include="Authenticate.Net45\packages.config.out">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>packages.config.tt</DependentUpon>
     </None>
+    <None Include="BeginConnect.cs.t4" />
     <None Include="EndConnect.cs.t4" />
     <None Include="packages.config.t4" />
     <None Include="Project.csproj.t4" />
+    <None Include="TestInstallation.Net45\packages.config.out">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>packages.config.tt</DependentUpon>
+    </None>
+    <None Include="TestInstallation.Net45\TestInstallation.g.cs.out">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TestInstallation.g.cs.tt</DependentUpon>
+    </None>
+    <None Include="TestInstallation.Net45\TestInstallation.g.csproj.out">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TestInstallation.g.csproj.tt</DependentUpon>
+    </None>
     <None Include="Usings.cs.t4" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <OutputFiles Include="**\*.out" >
+    <OutputFiles Include="**\*.out">
       <InProject>false</InProject>
     </OutputFiles>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Authenticate.Net45\Authenticate.g.cs.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Authenticate.g.cs.out</LastGenOutput>
+    </Content>
+    <Content Include="Authenticate.Net45\Authenticate.g.csproj.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Authenticate.g.csproj.out</LastGenOutput>
+    </Content>
+    <Content Include="Authenticate.Net45\packages.config.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>packages.config.out</LastGenOutput>
+    </Content>
+    <Content Include="TestInstallation.Net45\packages.config.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>packages.config.out</LastGenOutput>
+    </Content>
+    <Content Include="TestInstallation.Net45\TestInstallation.g.cs.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TestInstallation.g.cs.out</LastGenOutput>
+    </Content>
+    <Content Include="TestInstallation.Net45\TestInstallation.g.csproj.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TestInstallation.g.csproj.out</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="CopyOutputFiles" AfterTargets="Build">

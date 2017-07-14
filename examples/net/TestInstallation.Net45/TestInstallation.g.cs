@@ -3,17 +3,6 @@ using System.Diagnostics;
 using Satori.Rtm.Client;
 using Newtonsoft.Json;
 
-// Objects of the Animal type are used in the SDK examples to show
-// how to send or recieve custom types over RTM 
-class Animal
-{
-    [JsonProperty("who")]
-    public string Who { get; set; }
-
-    [JsonProperty("where")]
-    public float[] Where { get; set; }
-}
-
 class Program
 {
     const string endpoint = "YOUR_ENDPOINT";

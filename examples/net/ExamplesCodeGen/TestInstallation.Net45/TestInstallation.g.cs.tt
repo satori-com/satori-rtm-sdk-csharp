@@ -2,8 +2,6 @@
 <#@ output extension=".out" #>
 <#@ include file="..\Usings.cs.t4" #>
 
-<#@ include file="..\Animal.cs.t4" #>
-
 <#@ include file="..\BeginConnect.cs.t4" #>
 
 <# PushIndent("        "); #>

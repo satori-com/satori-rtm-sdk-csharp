@@ -1,0 +1,2 @@
+All examples in this folder are auto-generated, except Quickstart.Net45. The examples' templates are located in
+the ExamplesCodeGen project. To make changes in the examples, put changes in the examples' templates (tt and t4 files) and rebuild the ExamplesCodeGen project. 

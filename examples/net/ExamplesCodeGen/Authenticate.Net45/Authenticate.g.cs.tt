@@ -1,7 +1,6 @@
-﻿using System;
-using System.Diagnostics;
-using Satori.Rtm;
-using Satori.Rtm.Client;
+﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ output extension=".out" #>
+<#@ include file="..\Usings.cs.t4" #>
 
 class Program
 {
@@ -33,9 +32,4 @@ class Program
 
         client.Start();
 
-        Console.ReadKey();
-
-        // Stop and clean up the client before exiting the program
-        client.Dispose().Wait();
-    }
-}
+<#@ include file="..\EndConnect.cs.t4" #>

@@ -3,10 +3,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    <ProjectGuid>{5BDABDF9-65C3-406A-9B0F-840DB44F08E1}</ProjectGuid>
+    <ProjectGuid>{5CDABDF9-67C3-406A-9B0F-840DB44F08E0}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Connect</RootNamespace>
-    <AssemblyName>Connect.Net45</AssemblyName>
+    <RootNamespace>TestInstallation</RootNamespace>
+    <AssemblyName>TestInstallation.Net45</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -35,7 +35,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Connect.g.cs" />
+    <Compile Include="TestInstallation.g.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\sources\Satori.RTM.Net45\Satori.RTM.Net45.csproj">
