@@ -76,7 +76,19 @@ class Program
         observer.OnSubscriptionError += (ISubscription sub, RtmSubscriptionError err) => 
             Console.WriteLine("Subscription failed. RTM sent the unsolicited error {0}: {1}", err.Code, err.Reason);
         
-        client.CreateSubscription("animals", SubscriptionModes.Simple, observer);
+        var cfg = new SubscriptionConfig(SubscriptionModes.Simple, observer)
+        {
+            Filter = "SELECT * FROM `animals` WHERE who = 'zebra'"
+        };
+        client.CreateSubscription("favorite_animals", cfg);
+        
+        client.RemoveSubscription("favorite_animals");
+        
+        var cfg = new SubscriptionConfig(SubscriptionModes.Simple, observer)
+        {
+            Filter = "SELECT * FROM `animals` WHERE who = 'giraffes'"
+        };
+        client.CreateSubscription("favorite_animals", cfg);
 
         Console.ReadKey();
 

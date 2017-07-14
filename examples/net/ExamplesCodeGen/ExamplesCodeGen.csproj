@@ -54,6 +54,22 @@
       <DependentUpon>packages.config.tt</DependentUpon>
     </None>
     <None Include="BeginConnect.cs.t4" />
+    <None Include="BeginSubscribe.cs.t4" />
+    <None Include="ChangeSubscription.Net45\ChangeSubscription.g.cs.out">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ChangeSubscription.g.cs.tt</DependentUpon>
+    </None>
+    <None Include="ChangeSubscription.Net45\ChangeSubscription.g.csproj.out">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ChangeSubscription.g.csproj.tt</DependentUpon>
+    </None>
+    <None Include="ChangeSubscription.Net45\packages.config.out">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>packages.config.tt</DependentUpon>
+    </None>
     <None Include="EndConnect.cs.t4" />
     <None Include="packages.config.t4" />
     <None Include="Project.csproj.t4" />
@@ -122,6 +138,18 @@
       <LastGenOutput>Authenticate.g.csproj.out</LastGenOutput>
     </Content>
     <Content Include="Authenticate.Net45\packages.config.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>packages.config.out</LastGenOutput>
+    </Content>
+    <Content Include="ChangeSubscription.Net45\ChangeSubscription.g.cs.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ChangeSubscription.g.cs.out</LastGenOutput>
+    </Content>
+    <Content Include="ChangeSubscription.Net45\ChangeSubscription.g.csproj.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ChangeSubscription.g.csproj.out</LastGenOutput>
+    </Content>
+    <Content Include="ChangeSubscription.Net45\packages.config.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>packages.config.out</LastGenOutput>
     </Content>
