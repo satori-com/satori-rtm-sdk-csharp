@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Diagnostics;
-using Satori.Rtm.Client;
+using System.Threading.Tasks;
 using Newtonsoft.Json;
+using Satori.Rtm;
+using Satori.Rtm.Client;
 
 class Program
 {

@@ -1,0 +1,31 @@
+﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ output extension=".out" #>
+<#@ include file="..\Usings.cs.t4" #>
+
+<#@ include file="..\Animal.cs.t4" #>
+
+<#@ include file="..\BeginConnect.cs.t4" #>
+
+<# PushIndent("        "); #>
+try 
+{
+    var message = new Animal 
+    {
+        Who = "zebra",
+        Where =  new float[] { 34.134358f, -118.321506f }
+    };
+
+    RtmPublishReply reply = await client.Publish("animals", message, Ack.Yes);
+    Console.WriteLine("Publish confirmed");
+}
+catch(PduException ex) 
+{
+    Console.WriteLine("Failed to publish. RTM replied with the error {0}: {1}", ex.Error.Code, ex.Error.Reason);
+}
+catch (Exception ex) 
+{
+    Console.WriteLine("Failed to publish: " + ex.Message);
+}
+<# ClearIndent(); #>
+
+<#@ include file="..\EndConnect.cs.t4" #>

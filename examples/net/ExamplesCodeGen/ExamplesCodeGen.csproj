@@ -11,6 +11,8 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TransformOnBuild>true</TransformOnBuild>
+    <TransformOutOfDateOnly>false</TransformOutOfDateOnly>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -55,6 +57,21 @@
     <None Include="EndConnect.cs.t4" />
     <None Include="packages.config.t4" />
     <None Include="Project.csproj.t4" />
+    <None Include="Publish.Net45\packages.config.out">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>packages.config.tt</DependentUpon>
+    </None>
+    <None Include="Publish.Net45\Publish.g.cs.out">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Publish.g.cs.tt</DependentUpon>
+    </None>
+    <None Include="Publish.Net45\Publish.g.csproj.out">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Publish.g.csproj.tt</DependentUpon>
+    </None>
     <None Include="TestInstallation.Net45\packages.config.out">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -93,6 +110,18 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>packages.config.out</LastGenOutput>
     </Content>
+    <Content Include="Publish.Net45\packages.config.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>packages.config.out</LastGenOutput>
+    </Content>
+    <Content Include="Publish.Net45\Publish.g.cs.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Publish.g.cs.out</LastGenOutput>
+    </Content>
+    <Content Include="Publish.Net45\Publish.g.csproj.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Publish.g.csproj.out</LastGenOutput>
+    </Content>
     <Content Include="TestInstallation.Net45\packages.config.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>packages.config.out</LastGenOutput>
@@ -106,7 +135,20 @@
       <LastGenOutput>TestInstallation.g.csproj.out</LastGenOutput>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+
+  <!-- Optionally make the import portable across VS versions -->  
+  <PropertyGroup>  
+    <!-- Get the Visual Studio version – defaults to 10: -->  
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>  
+    <!-- Keep the next element all on one line: -->  
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>  
+  </PropertyGroup>  
+  
+  <!-- This is the important line: -->  
+  <Import Project="$(VSToolsPath)\TextTemplating\Microsoft.TextTemplating.targets" />  
+
   <Target Name="CopyOutputFiles" AfterTargets="Build">
     <Copy SourceFiles="@(OutputFiles)" DestinationFiles="@(OutputFiles->'..\%(RecursiveDir)%(Filename)')" />
   </Target>
