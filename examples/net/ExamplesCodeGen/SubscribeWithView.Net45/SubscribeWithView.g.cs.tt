@@ -9,15 +9,11 @@
 <# PushIndent("        "); #>
 <#@ include file="..\BeginSubscribe.cs.t4" #>
 
-client.CreateSubscription("animals", SubscriptionModes.Simple, observer);
-
-client.RemoveSubscription("animals");
-
 var cfg = new SubscriptionConfig(SubscriptionModes.Simple, observer)
 {
-    Filter = "SELECT * FROM `animals` WHERE who LIKE 'z%'"
+    Filter = "SELECT * FROM `animals` WHERE who = 'zebra'"
 };
-client.CreateSubscription("animals", cfg);
+client.CreateSubscription("zebras", cfg);
 <# ClearIndent(); #>
 
 <#@ include file="..\EndConnect.cs.t4" #>
