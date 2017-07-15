@@ -43,10 +43,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Authenticate.g.cs.tt</DependentUpon>
     </None>
-    <None Include="Authenticate.Net45\Authenticate.g.csproj.out">
+    <None Include="Authenticate.Net45\Authenticate.Net45.g.csproj.out">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Authenticate.g.csproj.tt</DependentUpon>
+      <DependentUpon>Authenticate.Net45.g.csproj.tt</DependentUpon>
     </None>
     <None Include="Authenticate.Net45\packages.config.out">
       <AutoGen>True</AutoGen>
@@ -60,10 +60,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ChangeSubscription.g.cs.tt</DependentUpon>
     </None>
-    <None Include="ChangeSubscription.Net45\ChangeSubscription.g.csproj.out">
+    <None Include="ChangeSubscription.Net45\ChangeSubscription.Net45.g.csproj.out">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ChangeSubscription.g.csproj.tt</DependentUpon>
+      <DependentUpon>ChangeSubscription.Net45.g.csproj.tt</DependentUpon>
     </None>
     <None Include="ChangeSubscription.Net45\packages.config.out">
       <AutoGen>True</AutoGen>
@@ -86,10 +86,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Publish.g.cs.tt</DependentUpon>
     </None>
-    <None Include="Publish.Net45\Publish.g.csproj.out">
+    <None Include="Publish.Net45\Publish.Net45.g.csproj.out">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Publish.g.csproj.tt</DependentUpon>
+      <DependentUpon>Publish.Net45.g.csproj.tt</DependentUpon>
     </None>
     <None Include="SubscribeToChannel.Net45\packages.config.out">
       <AutoGen>True</AutoGen>
@@ -101,10 +101,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SubscribeToChannel.g.cs.tt</DependentUpon>
     </None>
-    <None Include="SubscribeToChannel.Net45\SubscribeToChannel.g.csproj.out">
+    <None Include="SubscribeToChannel.Net45\SubscribeToChannel.Net45.g.csproj.out">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SubscribeToChannel.g.csproj.tt</DependentUpon>
+      <DependentUpon>SubscribeToChannel.Net45.g.csproj.tt</DependentUpon>
     </None>
     <None Include="SubscribeWithMultipleViews.Net45\packages.config.out">
       <AutoGen>True</AutoGen>
@@ -116,10 +116,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SubscribeWithMultipleViews.g.cs.tt</DependentUpon>
     </None>
-    <None Include="SubscribeWithMultipleViews.Net45\SubscribeWithMultipleViews.g.csproj.out">
+    <None Include="SubscribeWithMultipleViews.Net45\SubscribeWithMultipleViews.Net45.g.csproj.out">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SubscribeWithMultipleViews.g.csproj.tt</DependentUpon>
+      <DependentUpon>SubscribeWithMultipleViews.Net45.g.csproj.tt</DependentUpon>
     </None>
     <None Include="SubscribeWithView.Net45\packages.config.out">
       <AutoGen>True</AutoGen>
@@ -131,10 +131,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SubscribeWithView.g.cs.tt</DependentUpon>
     </None>
-    <None Include="SubscribeWithView.Net45\SubscribeWithView.g.csproj.out">
+    <None Include="SubscribeWithView.Net45\SubscribeWithView.Net45.g.csproj.out">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>SubscribeWithView.g.csproj.tt</DependentUpon>
+      <DependentUpon>SubscribeWithView.Net45.g.csproj.tt</DependentUpon>
     </None>
     <None Include="TestInstallation.Net45\packages.config.out">
       <AutoGen>True</AutoGen>
@@ -146,10 +146,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>TestInstallation.g.cs.tt</DependentUpon>
     </None>
-    <None Include="TestInstallation.Net45\TestInstallation.g.csproj.out">
+    <None Include="TestInstallation.Net45\TestInstallation.Net45.g.csproj.out">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>TestInstallation.g.csproj.tt</DependentUpon>
+      <DependentUpon>TestInstallation.Net45.g.csproj.tt</DependentUpon>
     </None>
     <None Include="Usings.cs.t4" />
   </ItemGroup>
@@ -166,9 +166,9 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Authenticate.g.cs.out</LastGenOutput>
     </Content>
-    <Content Include="Authenticate.Net45\Authenticate.g.csproj.tt">
+    <Content Include="Authenticate.Net45\Authenticate.Net45.g.csproj.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Authenticate.g.csproj.out</LastGenOutput>
+      <LastGenOutput>Authenticate.Net45.g.csproj.out</LastGenOutput>
     </Content>
     <Content Include="Authenticate.Net45\packages.config.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -178,9 +178,9 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ChangeSubscription.g.cs.out</LastGenOutput>
     </Content>
-    <Content Include="ChangeSubscription.Net45\ChangeSubscription.g.csproj.tt">
+    <Content Include="ChangeSubscription.Net45\ChangeSubscription.Net45.g.csproj.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ChangeSubscription.g.csproj.out</LastGenOutput>
+      <LastGenOutput>ChangeSubscription.Net45.g.csproj.out</LastGenOutput>
     </Content>
     <Content Include="ChangeSubscription.Net45\packages.config.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -194,9 +194,9 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Publish.g.cs.out</LastGenOutput>
     </Content>
-    <Content Include="Publish.Net45\Publish.g.csproj.tt">
+    <Content Include="Publish.Net45\Publish.Net45.g.csproj.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Publish.g.csproj.out</LastGenOutput>
+      <LastGenOutput>Publish.Net45.g.csproj.out</LastGenOutput>
     </Content>
     <Content Include="SubscribeToChannel.Net45\packages.config.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -206,9 +206,9 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>SubscribeToChannel.g.cs.out</LastGenOutput>
     </Content>
-    <Content Include="SubscribeToChannel.Net45\SubscribeToChannel.g.csproj.tt">
+    <Content Include="SubscribeToChannel.Net45\SubscribeToChannel.Net45.g.csproj.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>SubscribeToChannel.g.csproj.out</LastGenOutput>
+      <LastGenOutput>SubscribeToChannel.Net45.g.csproj.out</LastGenOutput>
     </Content>
     <Content Include="SubscribeWithMultipleViews.Net45\packages.config.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -218,9 +218,9 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>SubscribeWithMultipleViews.g.cs.out</LastGenOutput>
     </Content>
-    <Content Include="SubscribeWithMultipleViews.Net45\SubscribeWithMultipleViews.g.csproj.tt">
+    <Content Include="SubscribeWithMultipleViews.Net45\SubscribeWithMultipleViews.Net45.g.csproj.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>SubscribeWithMultipleViews.g.csproj.out</LastGenOutput>
+      <LastGenOutput>SubscribeWithMultipleViews.Net45.g.csproj.out</LastGenOutput>
     </Content>
     <Content Include="SubscribeWithView.Net45\packages.config.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -230,9 +230,9 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>SubscribeWithView.g.cs.out</LastGenOutput>
     </Content>
-    <Content Include="SubscribeWithView.Net45\SubscribeWithView.g.csproj.tt">
+    <Content Include="SubscribeWithView.Net45\SubscribeWithView.Net45.g.csproj.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>SubscribeWithView.g.csproj.out</LastGenOutput>
+      <LastGenOutput>SubscribeWithView.Net45.g.csproj.out</LastGenOutput>
     </Content>
     <Content Include="TestInstallation.Net45\packages.config.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -242,9 +242,9 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>TestInstallation.g.cs.out</LastGenOutput>
     </Content>
-    <Content Include="TestInstallation.Net45\TestInstallation.g.csproj.tt">
+    <Content Include="TestInstallation.Net45\TestInstallation.Net45.g.csproj.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>TestInstallation.g.csproj.out</LastGenOutput>
+      <LastGenOutput>TestInstallation.Net45.g.csproj.out</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup />
