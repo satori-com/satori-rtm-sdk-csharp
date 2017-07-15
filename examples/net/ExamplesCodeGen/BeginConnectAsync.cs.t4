@@ -1,0 +1,12 @@
+﻿<#@ include file="..\BeginConnect.cs.t4" #>
+
+        Async(client);
+
+        Console.ReadKey();
+
+        // Stop and clean up the client before exiting the program
+        client.Dispose().Wait();
+    }
+
+    static async Task Async(IRtmClient client)
+    {

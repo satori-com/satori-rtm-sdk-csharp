@@ -72,6 +72,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubscribeWithMultipleViews.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubscribeToChannel.Net45.g", "examples\net\SubscribeToChannel.Net45\SubscribeToChannel.Net45.g.csproj", "{50354B99-ACE1-4451-9553-05147D2072A6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SubscribeWithPosition.Net45.g", "examples\net\SubscribeWithPosition.Net45\SubscribeWithPosition.Net45.g.csproj", "{101F5F97-55EC-47E2-A382-ACE1ECC36ED9}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		3rd\System.Threading.Net35\System.Threading.Net35.projitems*{06c9db81-f14a-46bd-8140-c70ab41fd6c4}*SharedItemsImports = 13
@@ -404,6 +406,16 @@ Global
 		{50354B99-ACE1-4451-9553-05147D2072A6}.Release|iPhoneSimulator.ActiveCfg = Release|x86
 		{50354B99-ACE1-4451-9553-05147D2072A6}.Release|x86.ActiveCfg = Release|x86
 		{50354B99-ACE1-4451-9553-05147D2072A6}.Release|x86.Build.0 = Release|x86
+		{101F5F97-55EC-47E2-A382-ACE1ECC36ED9}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{101F5F97-55EC-47E2-A382-ACE1ECC36ED9}.Debug|iPhone.ActiveCfg = Debug|x86
+		{101F5F97-55EC-47E2-A382-ACE1ECC36ED9}.Debug|iPhoneSimulator.ActiveCfg = Debug|x86
+		{101F5F97-55EC-47E2-A382-ACE1ECC36ED9}.Debug|x86.ActiveCfg = Debug|x86
+		{101F5F97-55EC-47E2-A382-ACE1ECC36ED9}.Debug|x86.Build.0 = Debug|x86
+		{101F5F97-55EC-47E2-A382-ACE1ECC36ED9}.Release|Any CPU.ActiveCfg = Release|x86
+		{101F5F97-55EC-47E2-A382-ACE1ECC36ED9}.Release|iPhone.ActiveCfg = Release|x86
+		{101F5F97-55EC-47E2-A382-ACE1ECC36ED9}.Release|iPhoneSimulator.ActiveCfg = Release|x86
+		{101F5F97-55EC-47E2-A382-ACE1ECC36ED9}.Release|x86.ActiveCfg = Release|x86
+		{101F5F97-55EC-47E2-A382-ACE1ECC36ED9}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -431,6 +443,7 @@ Global
 		{C349871D-3705-4DAD-952B-27B1B387F30E} = {B3373B10-AF4D-4050-87BA-4C5D109F0569}
 		{D99550A4-4A27-4D54-98DA-C5ACEC514800} = {B3373B10-AF4D-4050-87BA-4C5D109F0569}
 		{50354B99-ACE1-4451-9553-05147D2072A6} = {B3373B10-AF4D-4050-87BA-4C5D109F0569}
+		{101F5F97-55EC-47E2-A382-ACE1ECC36ED9} = {B3373B10-AF4D-4050-87BA-4C5D109F0569}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
 		Policies = $0

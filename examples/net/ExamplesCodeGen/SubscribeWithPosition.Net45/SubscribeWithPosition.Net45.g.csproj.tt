@@ -1,0 +1,7 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ output extension=".out" #>
+<#
+var projectName = "SubscribeWithPosition";
+var projectGuid = "{101F5F97-55EC-47E2-A382-ACE1ECC36ED9}";
+#>
+<#@ include file="..\Project.csproj.t4" #>

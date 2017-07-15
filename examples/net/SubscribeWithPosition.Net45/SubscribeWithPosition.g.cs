@@ -46,6 +46,7 @@ class Program
 
     static async Task Async(IRtmClient client)
     {
+        RtmPublishReply reply = null;
         try
         {
             var message = new Animal
@@ -54,16 +55,40 @@ class Program
                 Where = new float[] { 34.134358f, -118.321506f }
             };
         
-            RtmPublishReply reply = await client.Publish("animals", message, Ack.Yes);
+            reply = await client.Publish("animals", message, Ack.Yes);
             Console.WriteLine("Publish confirmed");
-        }
-        catch (PduException ex)
-        {
-            Console.WriteLine("Failed to publish. RTM replied with the error {0}: {1}", ex.Error.Code, ex.Error.Reason);
         }
         catch (Exception ex)
         {
             Console.WriteLine("Failed to publish: " + ex.Message);
         }
+        
+        var observer = new SubscriptionObserver();
+        
+        observer.OnEnterSubscribed += (ISubscription sub) => 
+            Console.WriteLine("Subscribed to: " + sub.SubscriptionId);
+        
+        observer.OnLeaveSubscribed += (ISubscription sub) => 
+            Console.WriteLine("Unsubscribed from: " + sub.SubscriptionId);
+        
+        observer.OnSubscriptionData += (ISubscription sub, RtmSubscriptionData data) => 
+        {
+            foreach(JToken jToken in data.Messages)
+            {
+                Console.WriteLine("Got message: " + jToken);
+            }
+        };
+        
+        observer.OnSubscribeError += (ISubscription sub, Exception err) => 
+            Console.WriteLine("Failed to subscribe: " + err.Message);
+                
+        observer.OnSubscriptionError += (ISubscription sub, RtmSubscriptionError err) => 
+            Console.WriteLine("Subscription failed. RTM sent the unsolicited error {0}: {1}", err.Code, err.Reason);
+        
+        var cfg = new SubscriptionConfig(SubscriptionModes.Simple, observer)
+        {
+            Position = reply?.Position
+        };
+        client.CreateSubscription("animals", cfg);
     }
 }

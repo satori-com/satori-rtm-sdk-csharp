@@ -6,6 +6,7 @@
 
 <#@ include file="..\BeginConnectAsync.cs.t4" #>
 <# PushIndent("        "); #>
+RtmPublishReply reply = null;
 try
 {
     var message = new Animal
@@ -14,16 +15,20 @@ try
         Where = new float[] { 34.134358f, -118.321506f }
     };
 
-    RtmPublishReply reply = await client.Publish("animals", message, Ack.Yes);
+    reply = await client.Publish("animals", message, Ack.Yes);
     Console.WriteLine("Publish confirmed");
-}
-catch (PduException ex)
-{
-    Console.WriteLine("Failed to publish. RTM replied with the error {0}: {1}", ex.Error.Code, ex.Error.Reason);
 }
 catch (Exception ex)
 {
     Console.WriteLine("Failed to publish: " + ex.Message);
 }
+
+<#@ include file="..\BeginSubscribe.cs.t4" #>
+
+var cfg = new SubscriptionConfig(SubscriptionModes.Simple, observer)
+{
+    Position = reply?.Position
+};
+client.CreateSubscription("animals", cfg);
 <# ClearIndent(); #>
 <#@ include file="..\EndConnectAsync.cs.t4" #>
