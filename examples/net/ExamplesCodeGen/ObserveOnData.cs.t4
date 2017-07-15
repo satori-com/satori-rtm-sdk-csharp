@@ -1,0 +1,7 @@
+﻿observer.OnSubscriptionData += (ISubscription sub, RtmSubscriptionData data) => 
+{
+    foreach(JToken jToken in data.Messages)
+    {
+        Console.WriteLine("Got message: " + jToken);
+    }
+};

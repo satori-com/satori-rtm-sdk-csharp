@@ -1,0 +1,7 @@
+﻿var observer = new SubscriptionObserver();
+
+observer.OnEnterSubscribed += (ISubscription sub) => 
+    Console.WriteLine("Subscribed to: " + sub.SubscriptionId);
+
+observer.OnLeaveSubscribed += (ISubscription sub) => 
+    Console.WriteLine("Unsubscribed from: " + sub.SubscriptionId);

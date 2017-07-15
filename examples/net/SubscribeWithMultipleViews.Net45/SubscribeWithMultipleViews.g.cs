@@ -48,7 +48,10 @@ class Program
         {
             foreach(JToken jToken in data.Messages)
             {
-                Console.WriteLine("Got message: " + jToken);
+                if (data.SubscriptionId == "zebras")
+                    Console.WriteLine("Got a zebra: " + jToken);
+                else 
+                    Console.WriteLine("Got a count: " + jToken);
             }
         };
         
@@ -58,15 +61,17 @@ class Program
         observer.OnSubscriptionError += (ISubscription sub, RtmSubscriptionError err) => 
             Console.WriteLine("Subscription failed. RTM sent the unsolicited error {0}: {1}", err.Code, err.Reason);
         
-        client.CreateSubscription("animals", SubscriptionModes.Simple, observer);
-        
-        client.RemoveSubscription("animals");
-        
-        var cfg = new SubscriptionConfig(SubscriptionModes.Simple, observer)
+        var zebraCfg = new SubscriptionConfig(SubscriptionModes.Simple, observer)
         {
-            Filter = "SELECT * FROM `animals` WHERE who LIKE 'z%'"
+            Filter = "SELECT * FROM `animals` WHERE who = 'zebra'"
         };
-        client.CreateSubscription("animals", cfg);
+        client.CreateSubscription("zebras", zebraCfg);
+        
+        var statsCfg = new SubscriptionConfig(SubscriptionModes.Simple, observer)
+        {
+            Filter = "SELECT count(*) as count, who FROM `animals` GROUP BY who"
+        };
+        client.CreateSubscription("stats", statsCfg);
 
         Console.ReadKey();
 

@@ -6,26 +6,34 @@
 
 <#@ include file="..\BeginConnect.cs.t4" #>
 
-<# PushIndent("        "); #>
-try 
-{
-    var message = new Animal 
+        PublishAsync(client);
+
+        Console.ReadKey();
+
+        // Stop and clean up the client before exiting the program
+        client.Dispose().Wait();
+    }
+
+    static async Task PublishAsync(IRtmClient client)
     {
-        Who = "zebra",
-        Where =  new float[] { 34.134358f, -118.321506f }
-    };
+        try
+        {
+            var message = new Animal
+            {
+                Who = "zebra",
+                Where = new float[] { 34.134358f, -118.321506f }
+            };
 
-    RtmPublishReply reply = await client.Publish("animals", message, Ack.Yes);
-    Console.WriteLine("Publish confirmed");
+            RtmPublishReply reply = await client.Publish("animals", message, Ack.Yes);
+            Console.WriteLine("Publish confirmed");
+        }
+        catch (PduException ex)
+        {
+            Console.WriteLine("Failed to publish. RTM replied with the error {0}: {1}", ex.Error.Code, ex.Error.Reason);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Failed to publish: " + ex.Message);
+        }
+    }
 }
-catch(PduException ex) 
-{
-    Console.WriteLine("Failed to publish. RTM replied with the error {0}: {1}", ex.Error.Code, ex.Error.Reason);
-}
-catch (Exception ex) 
-{
-    Console.WriteLine("Failed to publish: " + ex.Message);
-}
-<# ClearIndent(); #>
-
-<#@ include file="..\EndConnect.cs.t4" #>

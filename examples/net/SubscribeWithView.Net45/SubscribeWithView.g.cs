@@ -48,31 +48,13 @@ class Program
         {
             foreach(JToken jToken in data.Messages)
             {
-                try 
-                {
-                    Animal msg = jToken.ToObject<Animal>();
-                    Console.WriteLine("Got animal {0}: {1}", msg.Who, jToken);
-                } 
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Failed to handle the incoming message: {0}", ex.Message);
-                }
+                Console.WriteLine("Got message: " + jToken);
             }
         };
         
         observer.OnSubscribeError += (ISubscription sub, Exception err) => 
-        {
-            var rtmEx = err as SubscribeException;
-            if (rtmEx != null) 
-            {
-                Console.WriteLine("Failed to subscribe. RTM replied with the error {0}: {1}", rtmEx.Error.Code, rtmEx.Error.Reason);
-            }
-            else
-            {
-                Console.WriteLine("Failed to subscribe: " + err.Message);
-            }
-        };
-        
+            Console.WriteLine("Failed to subscribe: " + err.Message);
+                
         observer.OnSubscriptionError += (ISubscription sub, RtmSubscriptionError err) => 
             Console.WriteLine("Subscription failed. RTM sent the unsolicited error {0}: {1}", err.Code, err.Reason);
         

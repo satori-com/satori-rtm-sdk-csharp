@@ -71,6 +71,9 @@
       <DependentUpon>packages.config.tt</DependentUpon>
     </None>
     <None Include="EndConnect.cs.t4" />
+    <None Include="ObserveOnData.cs.t4" />
+    <None Include="ObserveOnSubError.cs.t4" />
+    <None Include="ObserveOnSubscribed.cs.t4" />
     <None Include="packages.config.t4" />
     <None Include="Project.csproj.t4" />
     <None Include="Publish.Net45\packages.config.out">
@@ -102,6 +105,21 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>SubscribeToChannel.g.csproj.tt</DependentUpon>
+    </None>
+    <None Include="SubscribeWithMultipleViews.Net45\packages.config.out">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>packages.config.tt</DependentUpon>
+    </None>
+    <None Include="SubscribeWithMultipleViews.Net45\SubscribeWithMultipleViews.g.cs.out">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SubscribeWithMultipleViews.g.cs.tt</DependentUpon>
+    </None>
+    <None Include="SubscribeWithMultipleViews.Net45\SubscribeWithMultipleViews.g.csproj.out">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SubscribeWithMultipleViews.g.csproj.tt</DependentUpon>
     </None>
     <None Include="SubscribeWithView.Net45\packages.config.out">
       <AutoGen>True</AutoGen>
@@ -191,6 +209,18 @@
     <Content Include="SubscribeToChannel.Net45\SubscribeToChannel.g.csproj.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>SubscribeToChannel.g.csproj.out</LastGenOutput>
+    </Content>
+    <Content Include="SubscribeWithMultipleViews.Net45\packages.config.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>packages.config.out</LastGenOutput>
+    </Content>
+    <Content Include="SubscribeWithMultipleViews.Net45\SubscribeWithMultipleViews.g.cs.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SubscribeWithMultipleViews.g.cs.out</LastGenOutput>
+    </Content>
+    <Content Include="SubscribeWithMultipleViews.Net45\SubscribeWithMultipleViews.g.csproj.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SubscribeWithMultipleViews.g.csproj.out</LastGenOutput>
     </Content>
     <Content Include="SubscribeWithView.Net45\packages.config.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
