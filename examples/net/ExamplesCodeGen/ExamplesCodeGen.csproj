@@ -108,6 +108,37 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SubscribeToChannel.Net45.g.csproj.tt</DependentUpon>
     </None>
+    <None Include="SubscribeWithAge.Net45\packages.config.out">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>packages.config.tt</DependentUpon>
+    </None>
+    <None Include="SubscribeWithAge.Net45\SubscribeWithAge.g.cs.out">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SubscribeWithAge.g.cs.tt</DependentUpon>
+    </None>
+    <None Include="SubscribeWithAge.Net45\SubscribeWithAge.Net45.g.csproj.out">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SubscribeWithAge.Net45.g.csproj.tt</DependentUpon>
+    </None>
+    <None Include="SubscribeWithCount.Net45\packages.config.out">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>packages.config.tt</DependentUpon>
+    </None>
+    <None Include="SubscribeWithCount.Net45\SubscribeWithCount.g.cs.out">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SubscribeWithCount.g.cs.tt</DependentUpon>
+    </None>
+    <None Include="SubscribeWithCount.Net45\SubscribeWithCount.Net45.g.csproj.out">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SubscribeWithCount.Net45.g.csproj.tt</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
     <None Include="SubscribeWithMultipleViews.Net45\packages.config.out">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -226,6 +257,30 @@
     <Content Include="SubscribeToChannel.Net45\SubscribeToChannel.Net45.g.csproj.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>SubscribeToChannel.Net45.g.csproj.out</LastGenOutput>
+    </Content>
+    <Content Include="SubscribeWithAge.Net45\packages.config.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>packages.config.out</LastGenOutput>
+    </Content>
+    <Content Include="SubscribeWithAge.Net45\SubscribeWithAge.g.cs.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SubscribeWithAge.g.cs.out</LastGenOutput>
+    </Content>
+    <Content Include="SubscribeWithAge.Net45\SubscribeWithAge.Net45.g.csproj.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SubscribeWithAge.Net45.g.csproj.out</LastGenOutput>
+    </Content>
+    <Content Include="SubscribeWithCount.Net45\packages.config.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>packages.config.out</LastGenOutput>
+    </Content>
+    <Content Include="SubscribeWithCount.Net45\SubscribeWithCount.g.cs.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SubscribeWithCount.g.cs.out</LastGenOutput>
+    </Content>
+    <Content Include="SubscribeWithCount.Net45\SubscribeWithCount.Net45.g.csproj.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SubscribeWithCount.Net45.g.csproj.out</LastGenOutput>
     </Content>
     <Content Include="SubscribeWithMultipleViews.Net45\packages.config.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
