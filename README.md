@@ -65,11 +65,11 @@ DefaultLoggers.ClientRtmSubscription.SetLevel(Logger.LogLevel.Verbose);
 
 # Using HTTPS proxy
 
-The SDK supports working through an HTTPS proxy. The following is an example to set a secure (HTTPS) proxy server:
+The SDK supports working through an HTTPS proxy. The following is an example how to set a proxy server:
 
 ```
 IRtmClient client = new RtmClientBuilder("YOUR_ENDPOINT", "YOUR_APPKEY")
-    .SetHttpsProxy(new Uri("https://proxy.example.com"))
+    .SetHttpsProxy(new Uri("http://127.0.0.1:3128"))
     .Build();
 ```
 
