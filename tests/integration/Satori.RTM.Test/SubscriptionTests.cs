@@ -254,7 +254,7 @@ namespace Satori.Rtm.Test
             var reqs = new QueueAsync<Pdu<object>>();
             var reps = new QueueAsync<Pdu>();
             var client = (RtmClient)new RtmClientBuilder(Config.Endpoint, Config.AppKey)
-                .SetConnector((url, ct) => TestConnection.Connect(url, ct, reqs, reps))
+                .SetConnector((url, opts, ct) => TestConnection.Connect(url, opts, ct, reqs, reps))
                 .Build();
 
             client.Start();
@@ -314,7 +314,7 @@ namespace Satori.Rtm.Test
             var reqs = new QueueAsync<Pdu<object>>();
             var reps = new QueueAsync<Pdu>();
             var client = (RtmClient)new RtmClientBuilder(Config.Endpoint, Config.AppKey)
-                .SetConnector((url, ct) => TestConnection.Connect(url, ct, reqs, reps))
+                .SetConnector((url, opts, ct) => TestConnection.Connect(url, opts, ct, reqs, reps))
                 .Build();
 
             client.Start();
@@ -374,8 +374,9 @@ namespace Satori.Rtm.Test
             var channel = GenerateRandomChannelName();
             var client = new RtmClientBuilder(Config.Endpoint, Config.AppKey)
                 .SetConnector(
-                    (url, ct) => TestConnection.Connect(
+                    (url, opts, ct) => TestConnection.Connect(
                         url, 
+                        opts,
                         ct, 
                         transform: res => 
                         {

@@ -2,7 +2,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using NUnit.Framework;
-using Satori.Common;
+using Satori.Rtm;
 using Satori.Rtm.Client;
 
 namespace Satori.Rtm.Test
@@ -119,10 +119,11 @@ namespace Satori.Rtm.Test
             await client.Dispose();
         }
 
-        private static Task<IConnection> ConnectAndFastForwardOnData(string url, CancellationToken ct) 
+        private static Task<IConnection> ConnectAndFastForwardOnData(string url, ConnectionOptions opts, CancellationToken ct) 
         { 
             return TestConnection.Connect(
                 url, 
+                opts,
                 ct, 
                 transform: (ConnectionStepResult res) => 
                 {
@@ -146,10 +147,11 @@ namespace Satori.Rtm.Test
                 });
         }
 
-        private static Task<IConnection> ConnectAndOutOfSyncOnData(string url, CancellationToken ct) 
+        private static Task<IConnection> ConnectAndOutOfSyncOnData(string url, ConnectionOptions opts, CancellationToken ct) 
         { 
             return TestConnection.Connect(
                 url, 
+                opts,
                 ct, 
                 transform: (ConnectionStepResult res) => 
             {

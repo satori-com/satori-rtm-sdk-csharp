@@ -41,6 +41,7 @@ public class UnityTestBase
             Debug.LogError("Unhandled exception in event handler: " + exn);
         };
 
+        RtmConfigImpl.Init();
     }
 
 }

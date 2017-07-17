@@ -23,9 +23,9 @@ namespace Satori.Rtm
 
         public Logger Log { get; } = DefaultLoggers.Connection;
 
-        public static async Task<IConnection> Connect(string url, CancellationToken ct)
+        public static async Task<IConnection> Connect(string url, ConnectionOptions options, CancellationToken ct)
         {
-            var plink = await WsSerialization.Connect(new Uri(url), ct, DefaultLoggers.Serialization).ConfigureAwait(false);
+            var plink = await WsSerialization.Connect(new Uri(url), options, ct, DefaultLoggers.Serialization).ConfigureAwait(false);
             return new Connection(plink);
         }
 

@@ -2,6 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using Satori.Common;
+using Satori.Rtm;
 
 namespace Satori.Rtm.Test
 {
@@ -27,25 +28,26 @@ namespace Satori.Rtm.Test
             _replies = replies;
         }
 
-        public static async Task<IConnection> Connect(string url, CancellationToken ct, Func<ConnectionStepResult, ConnectionStepResult> transform)
+        public static async Task<IConnection> Connect(string url, ConnectionOptions opts, CancellationToken ct, Func<ConnectionStepResult, ConnectionStepResult> transform)
         {
-            var con = await Connection.Connect(url, ct).ConfigureAwait(false);
+            var con = await Connection.Connect(url, opts, ct).ConfigureAwait(false);
             return new TestConnection(con, null, transform, null, null);
         }
 
-        public static async Task<IConnection> Connect(string url, CancellationToken ct, Func<ConnectionOperationResult, ConnectionOperationResult> transform)
+        public static async Task<IConnection> Connect(string url, ConnectionOptions opts, CancellationToken ct, Func<ConnectionOperationResult, ConnectionOperationResult> transform)
         {
-            var con = await Connection.Connect(url, ct).ConfigureAwait(false);
+            var con = await Connection.Connect(url, opts, ct).ConfigureAwait(false);
             return new TestConnection(con, transform, null, null, null);
         }
 
         public static async Task<IConnection> Connect(
-            string url, 
+            string url,
+            ConnectionOptions opts,
             CancellationToken ct, 
             QueueAsync<Pdu<object>> requests,
             QueueAsync<Pdu> replies)
         {
-            var con = await Connection.Connect(url, ct).ConfigureAwait(false);
+            var con = await Connection.Connect(url, opts, ct).ConfigureAwait(false);
             return new TestConnection(con, null, null, requests, replies);
         }
 
