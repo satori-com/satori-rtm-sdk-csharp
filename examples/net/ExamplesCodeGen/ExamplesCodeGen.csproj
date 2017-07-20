@@ -108,6 +108,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SubscribeToChannel.Net45.g.csproj.tt</DependentUpon>
     </None>
+    <None Include="SubscribeToOpenChannel.Net45\packages.config.out">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>packages.config.tt</DependentUpon>
+    </None>
+    <None Include="SubscribeToOpenChannel.Net45\SubscribeToOpenChannel.g.cs.out">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SubscribeToOpenChannel.g.cs.tt</DependentUpon>
+    </None>
+    <None Include="SubscribeToOpenChannel.Net45\SubscribeToOpenChannel.Net45.g.csproj.out">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SubscribeToOpenChannel.Net45.g.csproj.tt</DependentUpon>
+    </None>
     <None Include="SubscribeWithAge.Net45\packages.config.out">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -257,6 +272,18 @@
     <Content Include="SubscribeToChannel.Net45\SubscribeToChannel.Net45.g.csproj.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>SubscribeToChannel.Net45.g.csproj.out</LastGenOutput>
+    </Content>
+    <Content Include="SubscribeToOpenChannel.Net45\packages.config.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>packages.config.out</LastGenOutput>
+    </Content>
+    <Content Include="SubscribeToOpenChannel.Net45\SubscribeToOpenChannel.g.cs.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SubscribeToOpenChannel.g.cs.out</LastGenOutput>
+    </Content>
+    <Content Include="SubscribeToOpenChannel.Net45\SubscribeToOpenChannel.Net45.g.csproj.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>SubscribeToOpenChannel.Net45.g.csproj.out</LastGenOutput>
     </Content>
     <Content Include="SubscribeWithAge.Net45\packages.config.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

@@ -1,0 +1,29 @@
+﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ output extension=".out" #>
+<#@ include file="..\Usings.cs.t4" #>
+
+class Program
+{
+    const string endpoint = "YOUR_ENDPOINT";
+    const string appkey = "YOUR_APPKEY";
+    const string channel = "OPEN_CHANNEL";
+
+    static void Main()
+    {
+        // Log messages from SDK to the console
+        Trace.Listeners.Add(new ConsoleTraceListener());
+
+        IRtmClient client = new RtmClientBuilder(endpoint, appkey).Build();
+        client.OnEnterConnected += cn => Console.WriteLine("Connected to Satori RTM!");
+        client.Start();
+
+        // Create subscription observer to observe channel subscription events 
+        var observer = new SubscriptionObserver();
+
+<# PushIndent("        "); #>
+<#@ include file="..\ObserveOnData.cs.t4" #>
+
+ client.CreateSubscription(channel, SubscriptionModes.Simple, observer);
+<# ClearIndent(); #>
+
+<#@ include file="..\EndConnect.cs.t4" #>
