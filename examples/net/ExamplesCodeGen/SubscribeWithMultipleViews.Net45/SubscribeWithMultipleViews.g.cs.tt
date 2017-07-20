@@ -1,0 +1,38 @@
+﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ output extension=".out" #>
+<#@ include file="..\Usings.cs.t4" #>
+
+<#@ include file="..\Animal.cs.t4" #>
+
+<#@ include file="..\BeginConnect.cs.t4" #>
+
+<# PushIndent("        "); #>
+<#@ include file="..\ObserveOnSubscribed.cs.t4" #>
+
+observer.OnSubscriptionData += (ISubscription sub, RtmSubscriptionData data) => 
+{
+    foreach(JToken jToken in data.Messages)
+    {
+        if (data.SubscriptionId == "zebras")
+            Console.WriteLine("Got a zebra: " + jToken);
+        else 
+            Console.WriteLine("Got a count: " + jToken);
+    }
+};
+
+<#@ include file="..\ObserveOnSubError.cs.t4" #>
+
+var zebraCfg = new SubscriptionConfig(SubscriptionModes.Simple, observer)
+{
+    Filter = "SELECT * FROM `animals` WHERE who = 'zebra'"
+};
+client.CreateSubscription("zebras", zebraCfg);
+
+var statsCfg = new SubscriptionConfig(SubscriptionModes.Simple, observer)
+{
+    Filter = "SELECT count(*) as count, who FROM `animals` GROUP BY who"
+};
+client.CreateSubscription("stats", statsCfg);
+<# ClearIndent(); #>
+
+<#@ include file="..\EndConnect.cs.t4" #>

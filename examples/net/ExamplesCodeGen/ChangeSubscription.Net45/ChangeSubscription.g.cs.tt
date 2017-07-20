@@ -1,0 +1,23 @@
+﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ output extension=".out" #>
+<#@ include file="..\Usings.cs.t4" #>
+
+<#@ include file="..\Animal.cs.t4" #>
+
+<#@ include file="..\BeginConnect.cs.t4" #>
+
+<# PushIndent("        "); #>
+<#@ include file="..\BeginSubscribe.cs.t4" #>
+
+client.CreateSubscription("animals", SubscriptionModes.Simple, observer);
+
+client.RemoveSubscription("animals");
+
+var cfg = new SubscriptionConfig(SubscriptionModes.Simple, observer)
+{
+    Filter = "SELECT * FROM `animals` WHERE who LIKE 'z%'"
+};
+client.CreateSubscription("animals", cfg);
+<# ClearIndent(); #>
+
+<#@ include file="..\EndConnect.cs.t4" #>

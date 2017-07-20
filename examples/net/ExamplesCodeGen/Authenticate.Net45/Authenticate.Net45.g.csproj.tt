@@ -1,0 +1,7 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ output extension=".out" #>
+<#
+var projectName = "Authenticate";
+var projectGuid = "{A7F62E70-58D8-480F-9A65-5A2FFA1D6E9D}";
+#>
+<#@ include file="..\Project.csproj.t4" #>

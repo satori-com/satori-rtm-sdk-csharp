@@ -1,0 +1,11 @@
+﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ output extension=".out" #>
+<#@ include file="..\Usings.cs.t4" #>
+
+<#@ include file="..\BeginConnect.cs.t4" #>
+
+<# PushIndent("        "); #>
+// Publish, subscribe, and perform other operations here
+<# ClearIndent(); #>
+
+<#@ include file="..\EndConnect.cs.t4" #>
