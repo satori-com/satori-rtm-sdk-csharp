@@ -66,27 +66,6 @@ namespace Satori.Rtm.Client
     /// Create an instance of the client with <see cref="RtmClientBuilder"/> 
     /// and use the <see cref="IRtmClient"/>  methods to start, stop, and restart 
     /// the client WebSocket connection, and publish and subscribe to channels.
-    /// <example>
-    /// This snippet shows how to create a client: 
-    /// <code>
-    /// var client = new RtmClientBuilder("YOUR RTM ENFDPOINT", "YOUR APP KEY").Build();
-    /// await client.Start();
-    /// </code> 
-    /// This snippet shows how to subscribe to a channel: 
-    /// <code>
-    /// var observer = new SubscriptionObserver();
-    /// observer.OnSubscriptionData += (sub, data) => 
-    ///     {
-    ///         foreach (var m in data.Messages)
-    ///             Console.WriteLine(m);
-    ///     };
-    /// await client.CreateSubscription(channel, SubscriptionModes.Simple, observer);
-    /// </code>
-    /// This snippet shows how to publish to a channel: 
-    /// <code>
-    /// await client.Publish(channel, "Hello World!", Ack.Yes);
-    /// </code>
-    /// </example>
     /// </remarks>
     public interface IRtmClient : IDispatchObject
     {
