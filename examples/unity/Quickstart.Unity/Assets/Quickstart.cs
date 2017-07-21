@@ -38,7 +38,7 @@ public class Quickstart : MonoBehaviour
     // Replace these values with your project's credentials
     // from Dev Portal (https://developer.satori.com/#/projects).
     string endpoint = "YOUR_ENDPOINT";
-    string appKey = "YOUR_APPKEY";
+    string appKey = "YOUR_APPKeY";
 
     // Role and secret are optional: replace only if you need to authenticate. 
     string role = "YOUR_ROLE";

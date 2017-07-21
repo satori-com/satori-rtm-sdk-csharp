@@ -20,7 +20,7 @@ class Animal
 class Program
 {
     const string endpoint = "YOUR_ENDPOINT";
-    const string appkey = "YOUR_APPKEY";
+    const string appkey = "YOUR_APPKeY";
 
     static void Main()
     {

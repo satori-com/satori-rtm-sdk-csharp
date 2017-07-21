@@ -1,4 +1,4 @@
-#pragma warning disable 4014 // suppress not awaited
+﻿#pragma warning disable 4014 // suppress not awaited
 
 using System;
 using System.Threading;

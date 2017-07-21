@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Threading.Tasks;
 using Satori.Common;
 using Satori.Rtm.Client;

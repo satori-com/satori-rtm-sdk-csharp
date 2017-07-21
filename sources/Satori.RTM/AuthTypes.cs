@@ -1,4 +1,4 @@
-#pragma warning disable 1591
+﻿#pragma warning disable 1591
 
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;

@@ -9,7 +9,7 @@ using Satori.Rtm.Client;
 class Program
 {
     const string endpoint = "YOUR_ENDPOINT";
-    const string appkey = "YOUR_APPKEY";
+    const string appkey = "YOUR_APPKeY";
     const string role = "YOUR_ROLE";
     const string roleSecretKey = "YOUR_SECRET";
 

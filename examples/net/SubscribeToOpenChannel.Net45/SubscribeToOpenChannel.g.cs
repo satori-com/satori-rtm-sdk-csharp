@@ -9,7 +9,7 @@ using Satori.Rtm.Client;
 class Program
 {
     const string endpoint = "YOUR_ENDPOINT";
-    const string appkey = "YOUR_APPKEY";
+    const string appkey = "YOUR_APPKeY";
     const string channel = "OPEN_CHANNEL";
 
     static void Main()
