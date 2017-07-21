@@ -11,7 +11,7 @@ class Program
     const string endpoint = "YOUR_ENDPOINT";
     const string appkey = "YOUR_APPKEY";
     const string role = "YOUR_ROLE";
-    const string roleSecret = "YOUR_SECRET";
+    const string roleSecretKey = "YOUR_SECRET";
 
     static void Main()
     {
@@ -19,7 +19,7 @@ class Program
         Trace.Listeners.Add(new ConsoleTraceListener());
 
         IRtmClient client = new RtmClientBuilder(endpoint, appkey)
-            .SetRoleSecretAuthenticator(role, roleSecret)
+            .SetRoleSecretAuthenticator(role, roleSecretKey)
             .Build();
 
         client.OnEnterConnected += cn => 

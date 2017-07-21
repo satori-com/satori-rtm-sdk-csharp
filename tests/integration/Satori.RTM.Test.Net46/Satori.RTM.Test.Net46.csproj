@@ -92,9 +92,6 @@
     <Compile Include="..\Satori.RTM.Test.Net45\OneTimeSetup.net45.cs">
       <Link>OneTimeSetup.net45.cs</Link>
     </Compile>
-    <Compile Include="..\Satori.RTM.Test.Net45\RtmConfig.net45.cs">
-      <Link>RtmConfig.net45.cs</Link>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

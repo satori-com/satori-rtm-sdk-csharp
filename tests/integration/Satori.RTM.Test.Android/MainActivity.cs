@@ -29,9 +29,7 @@ namespace Satori.Rtm.Test
             DefaultLoggers.Client.SetLevel(Logger.LogLevel.Verbose);
             DefaultLoggers.ClientRtm.SetLevel(Logger.LogLevel.Verbose);
             DefaultLoggers.ClientRtmSubscription.SetLevel(Logger.LogLevel.Verbose);
-
-            RtmConfigImpl.Init(Intent);
-
+            
             // tests can be inside the main assembly
             AddTest(Assembly.GetExecutingAssembly());
 

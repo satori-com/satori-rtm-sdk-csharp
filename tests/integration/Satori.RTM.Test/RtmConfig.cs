@@ -4,21 +4,12 @@ namespace Satori.Rtm.Test
 {
     public class RtmConfig
     {
-        public static RtmConfig Instance { get; protected set; }
+        public static readonly RtmConfig Instance = new RtmConfig();
 
-        [JsonProperty("endpoint")]
-        public string Endpoint { get; set; }
-
-        [JsonProperty("appkey")]
-        public string AppKey { get; set; }
-
-        [JsonProperty("auth_role_name")]
-        public string AuthRoleName { get; set; }
-
-        [JsonProperty("auth_role_secret_key")]
-         public string AuthRoleSecretKey { get; set; }
-
-        [JsonProperty("auth_restricted_channel")]
-        public string AuthRestrictedChannel { get; set; }
+        public readonly string Endpoint = "YOUR_ENDPOINT";
+        public readonly string AppKey = "YOUR_APPKEY";
+        public readonly string Role = "YOUR_ROLE";
+        public readonly string RoleSecretKey = "YOUR_SECRET";
+        public readonly string RestrictedChannel = "YOUR_CHANNEL";
     }
 }

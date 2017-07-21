@@ -42,7 +42,7 @@ public class Quickstart : MonoBehaviour
 
     // Role and secret are optional: replace only if you need to authenticate. 
     string role = "YOUR_ROLE";
-    string secret = "YOUR_SECRET";
+    string roleSecretKey = "YOUR_SECRET";
 
     string channel = "animals";
 

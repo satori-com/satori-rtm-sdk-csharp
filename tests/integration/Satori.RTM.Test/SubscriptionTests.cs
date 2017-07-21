@@ -468,7 +468,7 @@ namespace Satori.Rtm.Test
             var client = new RtmClientBuilder(Config.Endpoint, Config.AppKey).Build();
             await client.StartAndWaitConnected();
 
-            var channel = Config.AuthRestrictedChannel;
+            var channel = Config.RestrictedChannel;
 
             var queue = client.CreateStateQueue();
             client.SetClientErrorObserver(queue);

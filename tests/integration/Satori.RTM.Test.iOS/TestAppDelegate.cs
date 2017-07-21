@@ -38,8 +38,6 @@ namespace Satori.Rtm.Test
             DefaultLoggers.ClientRtm.SetLevel(Logger.LogLevel.Verbose);
             DefaultLoggers.ClientRtmSubscription.SetLevel(Logger.LogLevel.Verbose);
 
-            RtmConfigImpl.Init();
-
             // create a new window instance based on the screen size
             _window = new UIWindow(UIScreen.MainScreen.Bounds);
             _runner = new TouchRunner(_window);

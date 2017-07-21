@@ -21,7 +21,7 @@ namespace Satori.Rtm.Test
         public async Task AuthenticateWithSuccess()
         {
             var client = new RtmClientBuilder(Config.Endpoint, Config.AppKey)
-                .SetRoleSecretAuthenticator(Config.AuthRoleName, Config.AuthRoleSecretKey)
+                .SetRoleSecretAuthenticator(Config.Role, Config.RoleSecretKey)
                 .Build();
 
             var queue = client.CreateStateQueue();
@@ -42,7 +42,7 @@ namespace Satori.Rtm.Test
         public async Task FailToAuthenticateWithBadKey()
         {
             var client = new RtmClientBuilder(Config.Endpoint, Config.AppKey)
-                .SetRoleSecretAuthenticator(Config.AuthRoleName, "bad_secret_key")
+                .SetRoleSecretAuthenticator(Config.Role, "bad_secret_key")
                 .Build();
 
             Exception error = null;
@@ -92,7 +92,7 @@ namespace Satori.Rtm.Test
         public async Task SubscribeToRestrictedChannelWhenAuthorized()
         {
             var client = new RtmClientBuilder(Config.Endpoint, Config.AppKey)
-                .SetRoleSecretAuthenticator(Config.AuthRoleName, Config.AuthRoleSecretKey)
+                .SetRoleSecretAuthenticator(Config.Role, Config.RoleSecretKey)
                 .Build();
 
             var queue = client.CreateStateQueue();
@@ -129,7 +129,7 @@ namespace Satori.Rtm.Test
 
             try
             {
-                var restrictedChannel = Config.AuthRestrictedChannel;
+                var restrictedChannel = Config.RestrictedChannel;
                 await client.Publish(restrictedChannel, "foo", Ack.Yes);
             }
             catch (PduException ex)

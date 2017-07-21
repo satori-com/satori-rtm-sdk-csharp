@@ -120,7 +120,6 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="TestAppDelegate.cs" />
-    <Compile Include="RtmConfig.ios.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\sources\Satori.RTM.Portable\Satori.RTM.Portable.csproj">
