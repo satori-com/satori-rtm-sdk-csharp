@@ -16,7 +16,7 @@ The ecosystem includes a fast and scalable messaging engine known as RTM. Use th
 
 To install C# SDK for Satori RTM, run the following command in the Package Manager Console:
 ```
-PM> Install-Package Satori.RTM.SDK -Version 1.0.1-beta -Pre
+PM> Install-Package Satori.RTM.SDK
 ```
 Alternatively, install the package via the user interface provided by Xamarin Studio or Visual Studio. 
 
@@ -78,23 +78,16 @@ This functionality is available when running on .NET Framework. Proxy options ar
 # Build
 
 ## .NET, Mono, Xamarin 
-
-### Build on Mac
-
-1. Open `./Satori.XS.sln` with Xamarin Studio. 
-2. Build the `Satori.RTM.Portable` and `Satori.RTM.Net45`  projects
  
-### Build on Windows
-
-1. Open `./Satori.VS.sln` with Visual Studio 2015.
+1. Open `Satori.VS.sln` with Visual Studio 2017 on Windows.
 2. Build the `Satori.RTM.Portable` and `Satori.RTM.Net45` projects
 
 ## Unity
 
-1. Open `./Satori.VS.sln` with Visual Studio 2015.
+1. Open `Satori.VS.sln` with Visual Studio 2017 on Windows.
 2. Build the `Satori.RTM.Unity` project
 
-Note, the `Satori.RTM.Unity` project must be built by msbuild (Visual Studio). Assemblies, built by xbuild (Xamarin Studio), won't work. 
+Note, the `Satori.RTM.Unity` project must be built by `msbuild` (Visual Studio). Assemblies, built by `xbuild` (Xamarin Studio), won't work. 
 
 # Running Tests
 
@@ -102,50 +95,73 @@ Tests require credentials to establish connection to Satori endpoint. Credential
 the following format: 
 
 ```
-{
-  "endpoint": "wss://<SATORI HOST>/",
-  "appkey": "<APP KEY>",
-  "auth_role_name": "<ROLE NAME>",
-  "auth_role_secret_key": "<ROLE SECRET KEY>",
-  "auth_restricted_channel": "<CHANNEL NAME>"
-}
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+  	<Endpoint>wss://<SATORI HOST>/</Endpoint>
+  	<Appkey><APP KEY></Appkey>
+  	<AuthRoleName><ROLE NAME></AuthRoleName>
+  	<AuthRoleSecretKey><ROLE SECRET KEY></AuthRoleSecretKey>
+  	<AuthRestrictedChannel><CHANNEL NAME></AuthRestrictedChannel>
+  </PropertyGroup>
+</Project>
 ```
 
-* `endpoint` is your customer-specific DNS name for RTM access.
-* `appkey` is your application key.
-* `auth_role_name` is a role name that permits to publish / subscribe to `auth_restricted_channel`. Must be not `default`.
-* `auth_role_secret_key` is a secret key for `auth_role_name`.
-* `auth_restricted_channel` is a channel with subscribe and publish access for `auth_role_name` role only.
+* `Endpoint` is your customer-specific DNS name for RTM access.
+* `Appkey` is your application key.
+* `AuthRoleName` is a role name that permits to publish / subscribe to `AuthRestrictedChannel`. Must be not `default`.
+* `AuthRoleSecretKey` is a secret key for `AuthRoleName`.
+* `AuthRestrictedChannel` is a channel with subscribe and publish access for `AuthRoleName` role only.
 
 You must use [DevPortal](https://developer.satori.com/) to create role and set channel permissions.
 
-## Command line on Windows
-Save credentials to `credentials.json` file and set path to this file to `RTM_CONFIG` environment variable. Path should be relative to `Satori.RTM.Test.Net45.csproj` file. 
+To replace placeholders in the SDK source code with the provided credentials:
+1. Save the credentials to the `..\Satori.RTM.Credentials.props` path, relative to the `Satori.VS.sln` file 
+2. Build the `ApplyCredentials.csproj` project
+3. To revert changes back, run the Clean task of the `ApplyCredentials.csproj` project
+
+## .NET/Mono 4.5
+
+Tests for .NET/Mono 4.6 can be run in the similar way. The project with tests for .NET 4.6 is called `Satori.RTM.Test.Net46`.  
+
+### Command line on Windows
 ```
-set RTM_CONFIG=<PATH TO credentials.json>
-nuget restore Satori.XS.sln -ConfigFile nuget.config
+nuget restore Satori.VS.sln -ConfigFile nuget.config
 msbuild tests\integration\Satori.RTM.Test.Net45\Satori.RTM.Test.Net45.csproj /t:RunTests /p:Configuration=Release
 ```
 
-## Command line on Linux/Mac
-Save credentials to `credentials.json` file and set path to this file to `RTM_CONFIG` environment variable. Path should be relative to `Satori.RTM.Test.Net45.csproj` file. 
+### Command line on Linux/Mac
 ```
-export RTM_CONFIG=<PATH TO credentials.json>
 nuget restore Satori.XS.sln -ConfigFile nuget.config
 xbuild tests/integration/Satori.RTM.Test.Net45/Satori.RTM.Test.Net45.csproj /t:RunTests /p:Configuration=Release
 ```
 
-## Xamarin Studio
+### Visual Studio 2017
 
-1. Put the `credentials.json` file next to the solution folder or define the environment varialbe `RTM_CONFIG` as described above
+1. Build the `tests/integration/Satori.RTM.Test.Net45` project
+2. Click 'Test > Run > All Tests' in the top menu 
+
+### Xamarin Studio
+
+1. Build the `tests/integration/Satori.RTM.Test.Net45` project
 2. Click 'Run > Run Unit tests' in the top menu
-3. Click `View > Pads > Test Results` to view test results 
+3. Click 'View > Pads > Test Results' to view test results 
 
-## Visual Studio 2015
+## Xamarin
 
-1. Put the `credentials.json` file next to the solution folder or define the environment varialbe `RTM_CONFIG` as described above
-2. Build the solution
-3. Click `Test > Run > All Tests` in the top menu 
+Tu run tests for Xamarin (Android or iOS) on a device or simulator:
+1. Build the `tests/integration/Satori.RTM.Test.Android` (or .iOS) project with Visual Studio 2017
+2. Start this project. It deploys the test app on the device.
+3. Run tests using the UI of the deployed app
+
+## Unity
+
+To run tests for Unity on a device:
+1. Open the `tests/integration/Satori.RTM.Test.Unity/Satori.RTM.TestRunner/` folder in the Unity Editor 
+2. Switch to one of the platforms in Build Settings: Standalone, Android, or iOS
+3. Click 'Window > Test Runner' in the top menu
+4. Select the PlayMode tab
+5. Press the 'Run all in player' button
 
 # Code Style
 We follow [C# Coding Style](https://github.com/dotnet/corefx/blob/master/Documentation/coding-guidelines/coding-style.md) of .NET Core Libraries (CoreFX) project. Code style is enforced by [StyleCop](https://github.com/StyleCop/StyleCop). Not all StyleCop rules are enabled. 
