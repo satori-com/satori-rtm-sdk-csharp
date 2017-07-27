@@ -64,11 +64,7 @@
   </ItemGroup>
   <Import Project="..\Satori.RTM.Test\Satori.RTM.Test.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
+  <Target Name="UpdateTestRunner" AfterTargets="Build">
+    <Copy SourceFiles="$(OutputPath)\Newtonsoft.Json.dll;$(OutputPath)\Satori.RTM.Unity.dll;$(OutputPath)\Satori.RTM.Test.Unity.dll" DestinationFolder="Satori.RTM.TestRunner\Assets" />
   </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>
