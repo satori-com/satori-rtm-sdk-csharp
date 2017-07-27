@@ -1,0 +1,9 @@
+!Library
+**/Library/*
+!LastSceneManagerSetup.txt
+
+*.dll
+*.csproj
+*.sln
+
+.vs

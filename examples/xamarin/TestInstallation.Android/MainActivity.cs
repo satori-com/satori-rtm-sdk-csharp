@@ -20,8 +20,8 @@ public class MainActivity : Activity
 
         IRtmClient client = new RtmClientBuilder(endpoint, appkey).Build();
 
-        client.OnEnterConnected += cn 
-            => Log.Info("", "Connected to Satori RTM!");
+        client.OnEnterConnected += cn => 
+            Log.Info("", "Connected to Satori RTM!");
 
         client.OnError += ex =>
             Log.Error("", "Failed to connect: " + ex.Message);

@@ -15,8 +15,8 @@ public class AppDelegate : UIApplicationDelegate
     {
         IRtmClient client = new RtmClientBuilder(endpoint, appkey).Build();
 
-        client.OnEnterConnected += cn
-            => Console.WriteLine("Connected to Satori RTM!");
+        client.OnEnterConnected += cn => 
+            Console.WriteLine("Connected to Satori RTM!");
 
         client.OnError += ex =>
             Console.WriteLine("Failed to connect: " + ex.Message);
