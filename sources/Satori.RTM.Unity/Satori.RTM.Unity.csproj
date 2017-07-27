@@ -65,6 +65,9 @@
     <NewtonsoftJsonAssembly>Newtonsoft.Json.dll</NewtonsoftJsonAssembly>
     <PackageFileName>Satori.RTM-$(SatoriSdkVersion).unitypackage</PackageFileName>
   </PropertyGroup>
+  <Target Name="UpdateExamples" AfterTargets="Build">
+  	<Copy Condition=" $(Configuration) == 'Release' " SourceFiles="$(OutputPath)\Newtonsoft.Json.dll;$(OutputPath)\Satori.RTM.Unity.dll" DestinationFolder="..\..\examples\unity\Quickstart.Unity\Assets" />
+  </Target>
   <Target Name="CleanPackage" AfterTargets="Clean">
     <Delete Files="UnityPackage\Assets\Satori\Assets\$(SatoriRtmAssembly);UnityPackage\Assets\Satori\Assets\$(NewtonsoftJsonAssembly);UnityPackage\$(PackageFileName)" />
   </Target>
