@@ -18,7 +18,7 @@ To install C# SDK for Satori RTM, run the following command in the Package Manag
 ```
 PM> Install-Package Satori.RTM.SDK
 ```
-Alternatively, install the package via the user interface provided by Xamarin Studio or Visual Studio. 
+Alternatively, install the package via the user interface provided by Visual Studio or Xamarin Studio. 
 
 The package is hosted on [Nuget Gallery](https://www.nuget.org/packages/Satori.RTM.SDK/). 
 
