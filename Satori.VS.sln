@@ -24,6 +24,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "misc", "misc", "{A08955FD-A
 	ProjectSection(SolutionItems) = preProject
 		LICENSE = LICENSE
 		README.md = README.md
+		Satori.RTM.props = Satori.RTM.props
 	EndProjectSection
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "System.Net.WebSockets.Managed", "3rd\System.Net.WebSockets.Managed\System.Net.WebSockets.Managed.shproj", "{92BFE9E9-143C-4B76-B11A-1FF6263F12FD}"

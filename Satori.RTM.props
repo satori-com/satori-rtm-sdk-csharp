@@ -3,9 +3,9 @@
   <PropertyGroup>
     <!-- SatoriSdkAssemblyVersion cannot contain '-' and other non-digit characters except '.'.
          Check documentation about AssemblyVersionAttribute class. --> 
-    <SatoriSdkAssemblyVersion>1.0.2</SatoriSdkAssemblyVersion>
+    <SatoriSdkAssemblyVersion>1.0.3</SatoriSdkAssemblyVersion>
     <!-- SatoriSdkVersion must have '-' after SatoriSdkAssemblyVersion part. 
          Check documentation about version element in .nuspec file -->
-    <SatoriSdkVersion>$(SatoriSdkAssemblyVersion)-beta</SatoriSdkVersion>
+    <SatoriSdkVersion>$(SatoriSdkAssemblyVersion)</SatoriSdkVersion>
   </PropertyGroup>
 </Project>
