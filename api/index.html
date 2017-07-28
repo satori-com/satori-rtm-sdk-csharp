@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="../styles/docfx.css">
     <link rel="stylesheet" href="../styles/main.css">
     <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
     
     
   </head>
@@ -35,14 +35,7 @@
         </div>
       </header>
       <div role="main" class="container body-content hide-when-search">
-        
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
-        </div>
-        <div class="article row grid-right">
+        <div class="article row grid">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
               <h1 id="c-sdk-for-satori-rtm">C# SDK for Satori RTM</h1>
@@ -52,19 +45,18 @@
 The ecosystem includes a fast and scalable messaging engine known as RTM. Use the C# SDK for Satori RTM to create mobile, desktop or server-based applications that communicate with the RTM to publish and subscribe.</p>
 <h1 id="target-frameworks">Target Frameworks</h1>
 <ul>
+<li>.NET Standard 1.3+ (Xamarin.Android, Xamarin.iOS, .NET Framework, Mono, etc)</li>
 <li>Mono / .NET 4.5+</li>
-<li>Xamarin.Android (Android 4.4+)</li>
-<li>Xamarin.iOS (iOS 8.1+)</li>
 <li>Unity 5.6+ (Standalone, iOS, Android)</li>
 </ul>
 <h1 id="setup">Setup</h1>
 <h2 id="nuget">NuGet</h2>
 <p>To install C# SDK for Satori RTM, run the following command in the Package Manager Console:</p>
-<pre><code>PM&gt; Install-Package Satori.RTM.SDK -Version 1.0.1-beta -Pre
+<pre><code>PM&gt; Install-Package Satori.RTM.SDK
 </code></pre><p>Alternatively, install the package via the user interface provided by Xamarin Studio or Visual Studio. </p>
 <p>The package is hosted on <a href="https://www.nuget.org/packages/Satori.RTM.SDK/">Nuget Gallery</a>. </p>
 <h2 id="unity">Unity</h2>
-<p>To add C# SDK for Satori RTM to a Unity project, copy the following files from <a href="https://github.com/satori-com/satori-rtm-sdk-csharp/tree/master/examples/Quickstart.Unity/Assets">Quickstart on GitHub</a> to the Assets folder: </p>
+<p>To add C# SDK for Satori RTM to a Unity project, copy the following files from <a href="https://github.com/satori-com/satori-rtm-sdk-csharp/tree/master/examples/unity/Quickstart.Unity/Assets">Quickstart on GitHub</a> to the Assets folder: </p>
 <ul>
 <li><code>link.xml</code></li>
 <li><code>Newtonsoft.Json.dll</code></li>
@@ -93,63 +85,85 @@ DefaultLoggers.Connection.SetLevel(Logger.LogLevel.Verbose);
 DefaultLoggers.Client.SetLevel(Logger.LogLevel.Verbose);
 DefaultLoggers.ClientRtm.SetLevel(Logger.LogLevel.Verbose);
 DefaultLoggers.ClientRtmSubscription.SetLevel(Logger.LogLevel.Verbose);
-</code></pre><h1 id="build">Build</h1>
+</code></pre><h1 id="using-https-proxy">Using HTTPS proxy</h1>
+<p>The SDK supports working through an HTTPS proxy. The following is an example how to set a proxy server:</p>
+<pre><code>IRtmClient client = new RtmClientBuilder(&quot;YOUR_ENDPOINT&quot;, &quot;YOUR_APPKEY&quot;)
+    .SetHttpsProxy(new Uri(&quot;http://127.0.0.1:3128&quot;))
+    .Build();
+</code></pre><p>This functionality is available when running on .NET Framework. Proxy options are ignored on Mono (including Xamarin and Unity).</p>
+<h1 id="build">Build</h1>
 <h2 id="net-mono-xamarin">.NET, Mono, Xamarin</h2>
-<h3 id="build-on-mac">Build on Mac</h3>
 <ol>
-<li>Open <code>./Satori.All.sln</code> with Xamarin Studio. </li>
-<li>Build the <code>Satori.RTM.Net45</code>, <code>Satori.RTM.iOS</code>, <code>Satori.RTM.Android</code> projects</li>
-</ol>
-<h3 id="build-on-windows">Build on Windows</h3>
-<ol>
-<li>Open <code>./Satori.VS.sln</code> with Visual Studio 2015.</li>
-<li>Build the <code>Satori.RTM.Net45</code>, <code>Satori.RTM.iOS</code>, <code>Satori.RTM.Android</code> projects</li>
+<li>Open <code>Satori.VS.sln</code> with Visual Studio 2017 on Windows.</li>
+<li>Build the <code>Satori.RTM.Portable</code> and <code>Satori.RTM.Net45</code> projects</li>
 </ol>
 <h2 id="unity-1">Unity</h2>
 <ol>
-<li>Open <code>./Satori.VS.sln</code> with Visual Studio 2015.</li>
+<li>Open <code>Satori.VS.sln</code> with Visual Studio 2017 on Windows.</li>
 <li>Build the <code>Satori.RTM.Unity</code> project</li>
 </ol>
-<p>Note, the <code>Satori.RTM.Unity</code> project must be built by msbuild (Visual Studio). Assemblies, built by xbuild (Xamarin Studio), won&#39;t work. </p>
+<p>Note, the <code>Satori.RTM.Unity</code> project must be built by <code>msbuild</code> (Visual Studio). Assemblies, built by <code>xbuild</code> (Xamarin Studio), won&#39;t work. </p>
 <h1 id="running-tests">Running Tests</h1>
 <p>Tests require credentials to establish connection to Satori endpoint. Credentials should be provided in 
 the following format: </p>
-<pre><code>{
-  &quot;endpoint&quot;: &quot;wss://&lt;SATORI HOST&gt;/&quot;,
-  &quot;appkey&quot;: &quot;&lt;APP KEY&gt;&quot;,
-  &quot;auth_role_name&quot;: &quot;&lt;ROLE NAME&gt;&quot;,
-  &quot;auth_role_secret_key&quot;: &quot;&lt;ROLE SECRET KEY&gt;&quot;,
-  &quot;auth_restricted_channel&quot;: &quot;&lt;CHANNEL NAME&gt;&quot;
-}
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;Project ToolsVersion=&quot;14.0&quot; xmlns=&quot;http://schemas.microsoft.com/developer/msbuild/2003&quot;&gt;
+  &lt;PropertyGroup&gt;
+    &lt;Endpoint&gt;wss://&lt;SATORI HOST&gt;/&lt;/Endpoint&gt;
+    &lt;Appkey&gt;&lt;APP KEY&gt;&lt;/Appkey&gt;
+    &lt;AuthRoleName&gt;&lt;ROLE NAME&gt;&lt;/AuthRoleName&gt;
+    &lt;AuthRoleSecretKey&gt;&lt;ROLE SECRET KEY&gt;&lt;/AuthRoleSecretKey&gt;
+    &lt;AuthRestrictedChannel&gt;&lt;CHANNEL NAME&gt;&lt;/AuthRestrictedChannel&gt;
+  &lt;/PropertyGroup&gt;
+&lt;/Project&gt;
 </code></pre><ul>
-<li><code>endpoint</code> is your customer-specific DNS name for RTM access.</li>
-<li><code>appkey</code> is your application key.</li>
-<li><code>auth_role_name</code> is a role name that permits to publish / subscribe to <code>auth_restricted_channel</code>. Must be not <code>default</code>.</li>
-<li><code>auth_role_secret_key</code> is a secret key for <code>auth_role_name</code>.</li>
-<li><code>auth_restricted_channel</code> is a channel with subscribe and publish access for <code>auth_role_name</code> role only.</li>
+<li><code>Endpoint</code> is your customer-specific DNS name for RTM access.</li>
+<li><code>Appkey</code> is your application key.</li>
+<li><code>AuthRoleName</code> is a role name that permits to publish / subscribe to <code>AuthRestrictedChannel</code>. Must be not <code>default</code>.</li>
+<li><code>AuthRoleSecretKey</code> is a secret key for <code>AuthRoleName</code>.</li>
+<li><code>AuthRestrictedChannel</code> is a channel with subscribe and publish access for <code>AuthRoleName</code> role only.</li>
 </ul>
 <p>You must use <a href="https://developer.satori.com/">DevPortal</a> to create role and set channel permissions.</p>
-<h2 id="command-line-on-windows">Command line on Windows</h2>
-<p>Save credentials to <code>credentials.json</code> file and set path to this file to <code>RTM_CONFIG</code> environment variable. Path should be relative to <code>Satori.RTM.Test.Net45.csproj</code> file. </p>
-<pre><code>set RTM_CONFIG=&lt;PATH TO credentials.json&gt;
-nuget restore Satori.All.sln -ConfigFile nuget.config
-msbuild tests\integration\Satori.RTM.Test.Net45\Satori.RTM.Test.Net45.csproj /t:RunTests /p:Configuration=Release
-</code></pre><h2 id="command-line-on-linuxmac">Command line on Linux/Mac</h2>
-<p>Save credentials to <code>credentials.json</code> file and set path to this file to <code>RTM_CONFIG</code> environment variable. Path should be relative to <code>Satori.RTM.Test.Net45.csproj</code> file. </p>
-<pre><code>export RTM_CONFIG=&lt;PATH TO credentials.json&gt;
-nuget restore Satori.All.sln -ConfigFile nuget.config
-xbuild tests/integration/Satori.RTM.Test.Net45/Satori.RTM.Test.Net45.csproj /t:RunTests /p:Configuration=Release
-</code></pre><h2 id="xamarin-studio">Xamarin Studio</h2>
+<p>To replace placeholders in the SDK source code with the provided credentials:</p>
 <ol>
-<li>Put the <code>credentials.json</code> file next to the solution folder or define the environment varialbe <code>RTM_CONFIG</code> as described above</li>
-<li>Click &#39;Run &gt; Run Unit tests&#39; in the top menu</li>
-<li>Click <code>View &gt; Pads &gt; Test Results</code> to view test results </li>
+<li>Save the credentials to the <code>..\Satori.RTM.Credentials.props</code> path, relative to the <code>Satori.VS.sln</code> file </li>
+<li>Build the <code>ApplyCredentials.csproj</code> project</li>
+<li>To revert changes back, run the Clean task of the <code>ApplyCredentials.csproj</code> project</li>
 </ol>
-<h2 id="visual-studio-2015">Visual Studio 2015</h2>
+<h2 id="netmono-45">.NET/Mono 4.5</h2>
+<p>Tests for .NET/Mono 4.6 can be run in the similar way. The project with tests for .NET 4.6 is called <code>Satori.RTM.Test.Net46</code>.  </p>
+<h3 id="command-line-on-windows">Command line on Windows</h3>
+<pre><code>nuget restore Satori.VS.sln -ConfigFile nuget.config
+msbuild tests\integration\Satori.RTM.Test.Net45\Satori.RTM.Test.Net45.csproj /t:RunTests /p:Configuration=Release
+</code></pre><h3 id="command-line-on-linuxmac">Command line on Linux/Mac</h3>
+<pre><code>nuget restore Satori.XS.sln -ConfigFile nuget.config
+xbuild tests/integration/Satori.RTM.Test.Net45/Satori.RTM.Test.Net45.csproj /t:RunTests /p:Configuration=Release
+</code></pre><h3 id="visual-studio-2017">Visual Studio 2017</h3>
 <ol>
-<li>Put the <code>credentials.json</code> file next to the solution folder or define the environment varialbe <code>RTM_CONFIG</code> as described above</li>
-<li>Build the solution</li>
-<li>Click <code>Test &gt; Run &gt; All Tests</code> in the top menu </li>
+<li>Build the <code>tests/integration/Satori.RTM.Test.Net45</code> project</li>
+<li>Click &#39;Test &gt; Run &gt; All Tests&#39; in the top menu </li>
+</ol>
+<h3 id="xamarin-studio">Xamarin Studio</h3>
+<ol>
+<li>Build the <code>tests/integration/Satori.RTM.Test.Net45</code> project</li>
+<li>Click &#39;Run &gt; Run Unit tests&#39; in the top menu</li>
+<li>Click &#39;View &gt; Pads &gt; Test Results&#39; to view test results </li>
+</ol>
+<h2 id="xamarin">Xamarin</h2>
+<p>Tu run tests for Xamarin (Android or iOS) on a device or simulator:</p>
+<ol>
+<li>Build the <code>tests/integration/Satori.RTM.Test.Android</code> (or .iOS) project with Visual Studio 2017</li>
+<li>Start this project. It deploys the test app on the device.</li>
+<li>Run tests using the UI of the deployed app</li>
+</ol>
+<h2 id="unity-2">Unity</h2>
+<p>To run tests for Unity on a device:</p>
+<ol>
+<li>Open the <code>tests/integration/Satori.RTM.Test.Unity/Satori.RTM.TestRunner/</code> folder in the Unity Editor </li>
+<li>Switch to one of the platforms in Build Settings: Standalone, Android, or iOS</li>
+<li>Click &#39;Window &gt; Test Runner&#39; in the top menu</li>
+<li>Select the PlayMode tab</li>
+<li>Press the &#39;Run all in player&#39; button</li>
 </ol>
 <h1 id="code-style">Code Style</h1>
 <p>We follow <a href="https://github.com/dotnet/corefx/blob/master/Documentation/coding-guidelines/coding-style.md">C# Coding Style</a> of .NET Core Libraries (CoreFX) project. Code style is enforced by <a href="https://github.com/StyleCop/StyleCop">StyleCop</a>. Not all StyleCop rules are enabled. </p>
