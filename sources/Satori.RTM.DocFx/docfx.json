@@ -15,7 +15,7 @@
           "src": "../Satori.RTM.Net45"
         }
       ],
-      "dest": "obj/api"
+      "dest": "../obj/api"
     }
   ],
   "build": {

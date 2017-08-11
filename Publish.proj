@@ -30,6 +30,12 @@
         Properties="Configuration=$(Configuration)" BuildInParallel="true"/>
   </Target>
 
+  <Target Name="ServeApiDoc" DependsOnTargets="Build">
+  	<!-- Build API doc and make it available at http://localhost -->
+    <MSBuild Projects="$(ApiDocProject)" Targets="Serve" 
+        Properties="Configuration=$(Configuration)" BuildInParallel="true"/>
+  </Target>
+
   <Target Name="PublishApiDoc" DependsOnTargets="BuildApiDoc">
     <Exec Command="git clone $(GitRepo) -b gh-pages --single-branch" WorkingDirectory="$(OutputPath)" />
     <Exec Command="git rm -rf ." WorkingDirectory="$(OutputPath)\satori-rtm-sdk-csharp" />
