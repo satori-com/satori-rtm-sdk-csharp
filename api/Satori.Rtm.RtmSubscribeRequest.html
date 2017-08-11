@@ -1,0 +1,376 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class RtmSubscribeRequest
+   | C# SDK for Satori RTM </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class RtmSubscribeRequest
+   | C# SDK for Satori RTM ">
+    <meta name="generator" content="docfx 2.22.1.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <div class="subnav navbar navbar-default" style="display: table; width:100%;">
+          <a href="index.html" style="display: table-cell; vertical-align: middle;">
+            <img id="logo" class="svg" src="../api/logo.png" alt="" style="width: 177px; height: 30px; margin: 10px 15px 10px 10px">
+          </a>
+          <div class="container hide-when-search" id="breadcrumb" style="display: table-cell; vertical-align: middle; padding: 4px 0 0 0;">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Satori.Rtm.RtmSubscribeRequest">
+  
+  
+  <h1 id="Satori_Rtm_RtmSubscribeRequest" data-uid="Satori.Rtm.RtmSubscribeRequest" class="text-break">Class RtmSubscribeRequest
+  </h1>
+  <div class="markdown level0 summary"><p>Describes a subscribe request. 
+A subscribe request creates a long term relationship between the endpoint 
+and a specified channel. All messages which other endpoints send into 
+the channel will be received by all endpoints which requested a subscription. 
+The subscription may fail for many reasons, including authentication. 
+A positive subscription confirmation will appear prior to any messages from 
+the channel sent to the endpoint. At any point of time the channel may get closed. 
+No channel specific data will be sent to the endpoint after the channel is 
+closed either during subscription action or after sporadic closure.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">RtmSubscribeRequest</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Satori.Rtm.html">Satori.Rtm</a></h6>
+  <h6><strong>Assembly</strong>: Satori.RTM.Net45.dll</h6>
+  <h5 id="Satori_Rtm_RtmSubscribeRequest_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class RtmSubscribeRequest</code></pre>
+  </div>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="Satori_Rtm_RtmSubscribeRequest_Channel_" data-uid="Satori.Rtm.RtmSubscribeRequest.Channel*"></a>
+  <h4 id="Satori_Rtm_RtmSubscribeRequest_Channel" data-uid="Satori.Rtm.RtmSubscribeRequest.Channel">Channel</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the channel. This property is mutually exclusive with 
+the <a class="xref" href="Satori.Rtm.RtmSubscribeRequest.html#Satori_Rtm_RtmSubscribeRequest_SubscriptionId">SubscriptionId</a>, <a class="xref" href="Satori.Rtm.RtmSubscribeRequest.html#Satori_Rtm_RtmSubscribeRequest_Filter">Filter</a>,  and
+<a class="xref" href="Satori.Rtm.RtmSubscribeRequest.html#Satori_Rtm_RtmSubscribeRequest_Period">Period</a>  properties.  </p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;channel&quot;, NullValueHandling = NullValueHandling.Ignore)]
+public string Channel { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Satori_Rtm_RtmSubscribeRequest_FastForward_" data-uid="Satori.Rtm.RtmSubscribeRequest.FastForward*"></a>
+  <h4 id="Satori_Rtm_RtmSubscribeRequest_FastForward" data-uid="Satori.Rtm.RtmSubscribeRequest.FastForward">FastForward</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the fast_forward flag. 
+The RTM service does not maintain messages forever, in case the subscriber is 
+reading the messages from the connection too slow it may start falling behind. 
+If the subscriber falls behind far enough so that it will miss some messages, 
+then RTM will unsubscribe the client (default) unless the &quot;fast_forward&quot; flag 
+was set to true in which case the RTM service will fast-forward the client.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;fast_forward&quot;, NullValueHandling = NullValueHandling.Ignore)]
+public bool FastForward { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Satori_Rtm_RtmSubscribeRequest_Filter_" data-uid="Satori.Rtm.RtmSubscribeRequest.Filter*"></a>
+  <h4 id="Satori_Rtm_RtmSubscribeRequest_Filter" data-uid="Satori.Rtm.RtmSubscribeRequest.Filter">Filter</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the filter. This property is mutually exclusive with 
+the <a class="xref" href="Satori.Rtm.RtmSubscribeRequest.html#Satori_Rtm_RtmSubscribeRequest_Channel">Channel</a> property. </p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;filter&quot;, NullValueHandling = NullValueHandling.Ignore)]
+public string Filter { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Satori_Rtm_RtmSubscribeRequest_Filter_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The filter service supports a subset of SQL2003 syntax that makes sense in the 
+context of filtering streaming data. It does not support operations that create 
+or modify data. It does not support JOIN operations as only one row of data is 
+from a single channel is considered at any given moment. 
+Read about filters on <a href="https://www.satori.com/docs/using-satori/filters">satori.com</a>. </p>
+</div>
+  
+  
+  <a id="Satori_Rtm_RtmSubscribeRequest_Force_" data-uid="Satori.Rtm.RtmSubscribeRequest.Force*"></a>
+  <h4 id="Satori_Rtm_RtmSubscribeRequest_Force" data-uid="Satori.Rtm.RtmSubscribeRequest.Force">Force</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the force flag. The subscribe request will be rejected 
+if there already is a subscription with the provided <a class="xref" href="Satori.Rtm.RtmSubscribeRequest.html#Satori_Rtm_RtmSubscribeRequest_Channel">Channel</a> name 
+or <a class="xref" href="Satori.Rtm.RtmSubscribeRequest.html#Satori_Rtm_RtmSubscribeRequest_SubscriptionId">SubscriptionId</a> unless &quot;force&quot; is set to true in which case the 
+subscription is left as is and the request will have a positive reply.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;force&quot;, NullValueHandling = NullValueHandling.Ignore)]
+public bool Force { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Satori_Rtm_RtmSubscribeRequest_History_" data-uid="Satori.Rtm.RtmSubscribeRequest.History*"></a>
+  <h4 id="Satori_Rtm_RtmSubscribeRequest_History" data-uid="Satori.Rtm.RtmSubscribeRequest.History">History</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the history. History&quot; means we want messages older than the one 
+specified by the <a class="xref" href="Satori.Rtm.RtmSubscribeRequest.html#Satori_Rtm_RtmSubscribeRequest_Position">Position</a> property, default is no history.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;history&quot;, NullValueHandling = NullValueHandling.Ignore)]
+public RtmSubscribeHistory History { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Satori.Rtm.RtmSubscribeHistory.html">RtmSubscribeHistory</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Satori_Rtm_RtmSubscribeRequest_Period_" data-uid="Satori.Rtm.RtmSubscribeRequest.Period*"></a>
+  <h4 id="Satori_Rtm_RtmSubscribeRequest_Period" data-uid="Satori.Rtm.RtmSubscribeRequest.Period">Period</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the period. This property is mutually exclusive with 
+the <a class="xref" href="Satori.Rtm.RtmSubscribeRequest.html#Satori_Rtm_RtmSubscribeRequest_Channel">Channel</a> property. The RTM service sends the accumulated 
+messages once every &quot;period&quot; seconds. It can be a number 1-60 in seconds.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;period&quot;, DefaultValueHandling = DefaultValueHandling.Ignore)]
+public uint ? Period { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.UInt32</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Satori_Rtm_RtmSubscribeRequest_Position_" data-uid="Satori.Rtm.RtmSubscribeRequest.Position*"></a>
+  <h4 id="Satori_Rtm_RtmSubscribeRequest_Position" data-uid="Satori.Rtm.RtmSubscribeRequest.Position">Position</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the position. Position sets the first message to receive, default 
+is current position. See the <a class="xref" href="Satori.Rtm.RtmSubscribeRequest.html#Satori_Rtm_RtmSubscribeRequest_History">History</a> property.  </p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;position&quot;, NullValueHandling = NullValueHandling.Ignore)]
+public string Position { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Satori_Rtm_RtmSubscribeRequest_SubscriptionId_" data-uid="Satori.Rtm.RtmSubscribeRequest.SubscriptionId*"></a>
+  <h4 id="Satori_Rtm_RtmSubscribeRequest_SubscriptionId" data-uid="Satori.Rtm.RtmSubscribeRequest.SubscriptionId">SubscriptionId</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the subscription identifier. This property is mutually 
+exclusive with the <a class="xref" href="Satori.Rtm.RtmSubscribeRequest.html#Satori_Rtm_RtmSubscribeRequest_Channel">Channel</a> property. </p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[JsonProperty(&quot;subscription_id&quot;, NullValueHandling = NullValueHandling.Ignore)]
+public string SubscriptionId { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright (c) 2017, Satori Worldwide, Inc.
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

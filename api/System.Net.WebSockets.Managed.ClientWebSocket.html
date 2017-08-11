@@ -1,0 +1,628 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class ClientWebSocket
+   | C# SDK for Satori RTM </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class ClientWebSocket
+   | C# SDK for Satori RTM ">
+    <meta name="generator" content="docfx 2.22.1.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <div class="subnav navbar navbar-default" style="display: table; width:100%;">
+          <a href="index.html" style="display: table-cell; vertical-align: middle;">
+            <img id="logo" class="svg" src="../api/logo.png" alt="" style="width: 177px; height: 30px; margin: 10px 15px 10px 10px">
+          </a>
+          <div class="container hide-when-search" id="breadcrumb" style="display: table-cell; vertical-align: middle; padding: 4px 0 0 0;">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="System.Net.WebSockets.Managed.ClientWebSocket">
+  
+  
+  <h1 id="System_Net_WebSockets_Managed_ClientWebSocket" data-uid="System.Net.WebSockets.Managed.ClientWebSocket" class="text-break">Class ClientWebSocket
+  </h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">System.Net.WebSockets.WebSocket</span></div>
+    <div class="level2"><span class="xref">ClientWebSocket</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Net.WebSockets.WebSocket.CreateClientBuffer(System.Int32, System.Int32)</span>
+    </div>
+    <div>
+      <span class="xref">System.Net.WebSockets.WebSocket.CreateServerBuffer(System.Int32)</span>
+    </div>
+    <div>
+      <span class="xref">System.Net.WebSockets.WebSocket.ThrowOnInvalidState(System.Net.WebSockets.WebSocketState, System.Net.WebSockets.WebSocketState[])</span>
+    </div>
+    <div>
+      <span class="xref">System.Net.WebSockets.WebSocket.IsStateTerminal(System.Net.WebSockets.WebSocketState)</span>
+    </div>
+    <div>
+      <span class="xref">System.Net.WebSockets.WebSocket.DefaultKeepAliveInterval</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="System.Net.WebSockets.Managed.html">System.Net.WebSockets.Managed</a></h6>
+  <h6><strong>Assembly</strong>: Satori.RTM.Net45.dll</h6>
+  <h5 id="System_Net_WebSockets_Managed_ClientWebSocket_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class ClientWebSocket : WebSocket, IDisposable</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="System_Net_WebSockets_Managed_ClientWebSocket__ctor_" data-uid="System.Net.WebSockets.Managed.ClientWebSocket.#ctor*"></a>
+  <h4 id="System_Net_WebSockets_Managed_ClientWebSocket__ctor" data-uid="System.Net.WebSockets.Managed.ClientWebSocket.#ctor">ClientWebSocket()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ClientWebSocket()</code></pre>
+  </div>
+  <h3 id="fields">Fields
+  </h3>
+  
+  
+  <h4 id="System_Net_WebSockets_Managed_ClientWebSocket_SelectionCallback" data-uid="System.Net.WebSockets.Managed.ClientWebSocket.SelectionCallback">SelectionCallback</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public LocalCertificateSelectionCallback SelectionCallback</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Net.Security.LocalCertificateSelectionCallback</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="System_Net_WebSockets_Managed_ClientWebSocket_ValidationCallback" data-uid="System.Net.WebSockets.Managed.ClientWebSocket.ValidationCallback">ValidationCallback</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RemoteCertificateValidationCallback ValidationCallback</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Net.Security.RemoteCertificateValidationCallback</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="System_Net_WebSockets_Managed_ClientWebSocket_CloseStatus_" data-uid="System.Net.WebSockets.Managed.ClientWebSocket.CloseStatus*"></a>
+  <h4 id="System_Net_WebSockets_Managed_ClientWebSocket_CloseStatus" data-uid="System.Net.WebSockets.Managed.ClientWebSocket.CloseStatus">CloseStatus</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override WebSocketCloseStatus? CloseStatus { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Net.WebSockets.WebSocketCloseStatus</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Net.WebSockets.WebSocket.CloseStatus</span></div>
+  
+  
+  <a id="System_Net_WebSockets_Managed_ClientWebSocket_CloseStatusDescription_" data-uid="System.Net.WebSockets.Managed.ClientWebSocket.CloseStatusDescription*"></a>
+  <h4 id="System_Net_WebSockets_Managed_ClientWebSocket_CloseStatusDescription" data-uid="System.Net.WebSockets.Managed.ClientWebSocket.CloseStatusDescription">CloseStatusDescription</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string CloseStatusDescription { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Net.WebSockets.WebSocket.CloseStatusDescription</span></div>
+  
+  
+  <a id="System_Net_WebSockets_Managed_ClientWebSocket_Options_" data-uid="System.Net.WebSockets.Managed.ClientWebSocket.Options*"></a>
+  <h4 id="System_Net_WebSockets_Managed_ClientWebSocket_Options" data-uid="System.Net.WebSockets.Managed.ClientWebSocket.Options">Options</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ClientWebSocketOptions Options { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="System.Net.WebSockets.Managed.ClientWebSocketOptions.html">ClientWebSocketOptions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="System_Net_WebSockets_Managed_ClientWebSocket_State_" data-uid="System.Net.WebSockets.Managed.ClientWebSocket.State*"></a>
+  <h4 id="System_Net_WebSockets_Managed_ClientWebSocket_State" data-uid="System.Net.WebSockets.Managed.ClientWebSocket.State">State</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override WebSocketState State { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Net.WebSockets.WebSocketState</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Net.WebSockets.WebSocket.State</span></div>
+  
+  
+  <a id="System_Net_WebSockets_Managed_ClientWebSocket_SubProtocol_" data-uid="System.Net.WebSockets.Managed.ClientWebSocket.SubProtocol*"></a>
+  <h4 id="System_Net_WebSockets_Managed_ClientWebSocket_SubProtocol" data-uid="System.Net.WebSockets.Managed.ClientWebSocket.SubProtocol">SubProtocol</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string SubProtocol { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Net.WebSockets.WebSocket.SubProtocol</span></div>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="System_Net_WebSockets_Managed_ClientWebSocket_Abort_" data-uid="System.Net.WebSockets.Managed.ClientWebSocket.Abort*"></a>
+  <h4 id="System_Net_WebSockets_Managed_ClientWebSocket_Abort" data-uid="System.Net.WebSockets.Managed.ClientWebSocket.Abort">Abort()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Abort()</code></pre>
+  </div>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Net.WebSockets.WebSocket.Abort()</span></div>
+  
+  
+  <a id="System_Net_WebSockets_Managed_ClientWebSocket_CloseAsync_" data-uid="System.Net.WebSockets.Managed.ClientWebSocket.CloseAsync*"></a>
+  <h4 id="System_Net_WebSockets_Managed_ClientWebSocket_CloseAsync_System_Net_WebSockets_WebSocketCloseStatus_System_String_System_Threading_CancellationToken_" data-uid="System.Net.WebSockets.Managed.ClientWebSocket.CloseAsync(System.Net.WebSockets.WebSocketCloseStatus,System.String,System.Threading.CancellationToken)">CloseAsync(WebSocketCloseStatus, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Task CloseAsync(WebSocketCloseStatus closeStatus, string statusDescription, CancellationToken cancellationToken)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Net.WebSockets.WebSocketCloseStatus</span></td>
+        <td><span class="parametername">closeStatus</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">statusDescription</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Net.WebSockets.WebSocket.CloseAsync(System.Net.WebSockets.WebSocketCloseStatus, System.String, System.Threading.CancellationToken)</span></div>
+  
+  
+  <a id="System_Net_WebSockets_Managed_ClientWebSocket_CloseOutputAsync_" data-uid="System.Net.WebSockets.Managed.ClientWebSocket.CloseOutputAsync*"></a>
+  <h4 id="System_Net_WebSockets_Managed_ClientWebSocket_CloseOutputAsync_System_Net_WebSockets_WebSocketCloseStatus_System_String_System_Threading_CancellationToken_" data-uid="System.Net.WebSockets.Managed.ClientWebSocket.CloseOutputAsync(System.Net.WebSockets.WebSocketCloseStatus,System.String,System.Threading.CancellationToken)">CloseOutputAsync(WebSocketCloseStatus, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Task CloseOutputAsync(WebSocketCloseStatus closeStatus, string statusDescription, CancellationToken cancellationToken)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Net.WebSockets.WebSocketCloseStatus</span></td>
+        <td><span class="parametername">closeStatus</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">statusDescription</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Net.WebSockets.WebSocket.CloseOutputAsync(System.Net.WebSockets.WebSocketCloseStatus, System.String, System.Threading.CancellationToken)</span></div>
+  
+  
+  <a id="System_Net_WebSockets_Managed_ClientWebSocket_ConnectAsync_" data-uid="System.Net.WebSockets.Managed.ClientWebSocket.ConnectAsync*"></a>
+  <h4 id="System_Net_WebSockets_Managed_ClientWebSocket_ConnectAsync_System_Uri_System_Threading_CancellationToken_" data-uid="System.Net.WebSockets.Managed.ClientWebSocket.ConnectAsync(System.Uri,System.Threading.CancellationToken)">ConnectAsync(Uri, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task ConnectAsync(Uri uri, CancellationToken cancellationToken)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Uri</span></td>
+        <td><span class="parametername">uri</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="System_Net_WebSockets_Managed_ClientWebSocket_Dispose_" data-uid="System.Net.WebSockets.Managed.ClientWebSocket.Dispose*"></a>
+  <h4 id="System_Net_WebSockets_Managed_ClientWebSocket_Dispose" data-uid="System.Net.WebSockets.Managed.ClientWebSocket.Dispose">Dispose()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Dispose()</code></pre>
+  </div>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Net.WebSockets.WebSocket.Dispose()</span></div>
+  
+  
+  <a id="System_Net_WebSockets_Managed_ClientWebSocket_ReceiveAsync_" data-uid="System.Net.WebSockets.Managed.ClientWebSocket.ReceiveAsync*"></a>
+  <h4 id="System_Net_WebSockets_Managed_ClientWebSocket_ReceiveAsync_System_ArraySegment_System_Byte__System_Threading_CancellationToken_" data-uid="System.Net.WebSockets.Managed.ClientWebSocket.ReceiveAsync(System.ArraySegment{System.Byte},System.Threading.CancellationToken)">ReceiveAsync(ArraySegment&lt;Byte&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Task&lt;WebSocketReceiveResult&gt; ReceiveAsync(ArraySegment&lt;byte&gt; buffer, CancellationToken cancellationToken)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArraySegment</span>&lt;<span class="xref">System.Byte</span>&gt;</td>
+        <td><span class="parametername">buffer</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<span class="xref">System.Net.WebSockets.WebSocketReceiveResult</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Net.WebSockets.WebSocket.ReceiveAsync(System.ArraySegment&lt;System.Byte&gt;, System.Threading.CancellationToken)</span></div>
+  
+  
+  <a id="System_Net_WebSockets_Managed_ClientWebSocket_SendAsync_" data-uid="System.Net.WebSockets.Managed.ClientWebSocket.SendAsync*"></a>
+  <h4 id="System_Net_WebSockets_Managed_ClientWebSocket_SendAsync_System_ArraySegment_System_Byte__System_Net_WebSockets_WebSocketMessageType_System_Boolean_System_Threading_CancellationToken_" data-uid="System.Net.WebSockets.Managed.ClientWebSocket.SendAsync(System.ArraySegment{System.Byte},System.Net.WebSockets.WebSocketMessageType,System.Boolean,System.Threading.CancellationToken)">SendAsync(ArraySegment&lt;Byte&gt;, WebSocketMessageType, Boolean, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override Task SendAsync(ArraySegment&lt;byte&gt; buffer, WebSocketMessageType messageType, bool endOfMessage, CancellationToken cancellationToken)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArraySegment</span>&lt;<span class="xref">System.Byte</span>&gt;</td>
+        <td><span class="parametername">buffer</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Net.WebSockets.WebSocketMessageType</span></td>
+        <td><span class="parametername">messageType</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">endOfMessage</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Net.WebSockets.WebSocket.SendAsync(System.ArraySegment&lt;System.Byte&gt;, System.Net.WebSockets.WebSocketMessageType, System.Boolean, System.Threading.CancellationToken)</span></div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright (c) 2017, Satori Worldwide, Inc.
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

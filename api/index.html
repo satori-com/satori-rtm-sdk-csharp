@@ -8,14 +8,14 @@
     <title>C# SDK for Satori RTM | C# SDK for Satori RTM </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="C# SDK for Satori RTM | C# SDK for Satori RTM ">
-    <meta name="generator" content="docfx 2.16.5.0">
+    <meta name="generator" content="docfx 2.22.1.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
     <link rel="stylesheet" href="../styles/docfx.css">
     <link rel="stylesheet" href="../styles/main.css">
     <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
     
     
   </head>
@@ -35,12 +35,19 @@
         </div>
       </header>
       <div role="main" class="container body-content hide-when-search">
-        <div class="article row grid">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-              <h1 id="c-sdk-for-satori-rtm">C# SDK for Satori RTM</h1>
-              
-<p>[<img src="https://img.shields.io/nuget/vpre/Satori.RTM.SDK.svg" alt="NuGet Pre Release">]()</p>
+<h1 id="c-sdk-for-satori-rtm">C# SDK for Satori RTM</h1>
+
+<p><a href=""><img src="https://img.shields.io/nuget/vpre/Satori.RTM.SDK.svg" alt="NuGet Pre Release"></a></p>
 <p>Satori is a cloud-based, live data ecosystem that manages any form of schema-less real-time live data as it happens. 
 The ecosystem includes a fast and scalable messaging engine known as RTM. Use the C# SDK for Satori RTM to create mobile, desktop or server-based applications that communicate with the RTM to publish and subscribe.</p>
 <h1 id="target-frameworks">Target Frameworks</h1>
@@ -53,7 +60,7 @@ The ecosystem includes a fast and scalable messaging engine known as RTM. Use th
 <h2 id="nuget">NuGet</h2>
 <p>To install C# SDK for Satori RTM, run the following command in the Package Manager Console:</p>
 <pre><code>PM&gt; Install-Package Satori.RTM.SDK
-</code></pre><p>Alternatively, install the package via the user interface provided by Xamarin Studio or Visual Studio. </p>
+</code></pre><p>Alternatively, install the package via the user interface provided by Visual Studio or Xamarin Studio. </p>
 <p>The package is hosted on <a href="https://www.nuget.org/packages/Satori.RTM.SDK/">Nuget Gallery</a>. </p>
 <h2 id="unity">Unity</h2>
 <p>To add C# SDK for Satori RTM to a Unity project, copy the following files from <a href="https://github.com/satori-com/satori-rtm-sdk-csharp/tree/master/examples/unity/Quickstart.Unity/Assets">Quickstart on GitHub</a> to the Assets folder: </p>
@@ -97,7 +104,7 @@ DefaultLoggers.ClientRtmSubscription.SetLevel(Logger.LogLevel.Verbose);
 <li>Open <code>Satori.VS.sln</code> with Visual Studio 2017 on Windows.</li>
 <li>Build the <code>Satori.RTM.Portable</code> and <code>Satori.RTM.Net45</code> projects</li>
 </ol>
-<h2 id="unity-1">Unity</h2>
+<h2 id="unity">Unity</h2>
 <ol>
 <li>Open <code>Satori.VS.sln</code> with Visual Studio 2017 on Windows.</li>
 <li>Build the <code>Satori.RTM.Unity</code> project</li>
@@ -156,7 +163,7 @@ xbuild tests/integration/Satori.RTM.Test.Net45/Satori.RTM.Test.Net45.csproj /t:R
 <li>Start this project. It deploys the test app on the device.</li>
 <li>Run tests using the UI of the deployed app</li>
 </ol>
-<h2 id="unity-2">Unity</h2>
+<h2 id="unity">Unity</h2>
 <p>To run tests for Unity on a device:</p>
 <ol>
 <li>Open the <code>tests/integration/Satori.RTM.Test.Unity/Satori.RTM.TestRunner/</code> folder in the Unity Editor </li>
@@ -167,8 +174,7 @@ xbuild tests/integration/Satori.RTM.Test.Net45/Satori.RTM.Test.Net45.csproj /t:R
 </ol>
 <h1 id="code-style">Code Style</h1>
 <p>We follow <a href="https://github.com/dotnet/corefx/blob/master/Documentation/coding-guidelines/coding-style.md">C# Coding Style</a> of .NET Core Libraries (CoreFX) project. Code style is enforced by <a href="https://github.com/StyleCop/StyleCop">StyleCop</a>. Not all StyleCop rules are enabled. </p>
-
-            </article>
+</article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">

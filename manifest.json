@@ -1,1 +1,2094 @@
-{"homepages":[],"source_base_path":"c:/Work/platform-client/satori-rtm-sdk-net/sources/Satori.RTM.DocFx","xrefmap":"xrefmap.yml","files":[{"type":"Toc","source_relative_path":"toc.yml","output":{".html":{"relative_path":"toc.html","hash":"L/b6csKz9DNZBDraC1qU+g=="}},"is_incremental":false,"version":""},{"type":"Conceptual","source_relative_path":"obj/api/index.md","output":{".html":{"relative_path":"api/index.html","hash":"a6njFGs6dXNtJ1+kyPnnOQ=="}},"is_incremental":false,"version":""},{"type":"Conceptual","source_relative_path":"index.md","output":{".html":{"relative_path":"index.html","hash":"tl+gI/Y81BgiSWijcYgXUw=="}},"is_incremental":false,"version":""},{"type":"Resource","source_relative_path":"api/logo.png","output":{"resource":{"relative_path":"api/logo.png"}},"is_incremental":false,"version":""}],"version_info":{}}
+{
+  "homepages": [],
+  "source_base_path": "c:/Work/platform-client/satori-rtm-sdk-net/sources/Satori.RTM.DocFx",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "source_relative_path": "api/logo.png",
+      "output": {
+        "resource": {
+          "relative_path": "api/logo.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "InvalidFileLink"
+      ],
+      "type": "Conceptual",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "K497aSOcXokAEfrrsYOvKQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Common.ActionExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Common.ActionExtensions.html",
+          "hash": "kb7G/ZIlJbNGU9q9nkPXVg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Common.AwaiterExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Common.AwaiterExtensions.html",
+          "hash": "NklUeTLBuW3In4x6pgPs6g=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Common.IAwaiter-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Common.IAwaiter-1.html",
+          "hash": "n3xAlDK2abNsMaj76DjsJQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Common.IAwaiter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Common.IAwaiter.html",
+          "hash": "WXyZKXWvYM5lMdmi8tjzzA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Common.ICompletionSink-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Common.ICompletionSink-1.html",
+          "hash": "GMbNX7YoYhBNPttbeNw0dg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Common.ICompletionSink.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Common.ICompletionSink.html",
+          "hash": "eWtKo0cKysonrmz5TNfCdw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Common.IObservableSink-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Common.IObservableSink-1.html",
+          "hash": "lXnMuuZ0MCm/1pbF302C/g=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Common.ISuccessfulAwaiter-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Common.ISuccessfulAwaiter-1.html",
+          "hash": "66qXA0X1hZibEovCZ64t4g=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Common.ISuccessfulAwaiter.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Common.ISuccessfulAwaiter.html",
+          "hash": "myKPRKyxCXs4cc1VusM7DQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Common.ISuccessfulCompletionSink-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Common.ISuccessfulCompletionSink-1.html",
+          "hash": "pzPo5lapLyOOQeK5Zlj2Cw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Common.ISuccessfulCompletionSink.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Common.ISuccessfulCompletionSink.html",
+          "hash": "eK1eheYzcFNidXO43RxSJA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Common.MonitorAsync.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Common.MonitorAsync.html",
+          "hash": "KUgZet6dqHdhqAE4zg4mxQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Common.QueueAsync-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Common.QueueAsync-1.html",
+          "hash": "NZMMoATiDMQw/4r5LINOFA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Common.QueueAsyncExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Common.QueueAsyncExtensions.html",
+          "hash": "u/4gqPm6Xy8MGevvGQoEIg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Common.SuccessfulAwaiter-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Common.SuccessfulAwaiter-1.html",
+          "hash": "kHWqzLuyXlxD6mLc25cFYA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Common.SuccessfulAwaiterTransform-2.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Common.SuccessfulAwaiterTransform-2.html",
+          "hash": "XCBamXPYtVGH1tEwq02acA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Common.UnhandledExceptionWatcher.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Common.UnhandledExceptionWatcher.html",
+          "hash": "/MaraSDbUUHlnyOhv/RU5Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Common.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Common.html",
+          "hash": "hirHpgj1joOWtJmC0sp3tA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.Auth.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.Auth.html",
+          "hash": "ei82noTOq8EraeyWH4USvw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.AuthActions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.AuthActions.html",
+          "hash": "zG/48JYotyyrXlIiaI47lA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.AuthErrorCodes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.AuthErrorCodes.html",
+          "hash": "kZRUc1XTgcXATTCr8bM9kg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.AuthException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.AuthException.html",
+          "hash": "BPtCda0kxSIfX3Iv9HJboQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.AuthHandshakeReply-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.AuthHandshakeReply-1.html",
+          "hash": "iWKE0u/B1MTtqvR2LV1lhg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.AuthHandshakeReply.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.AuthHandshakeReply.html",
+          "hash": "Xq/a5okWhoxoAfi8xqoumQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.AuthHandshakeRequest-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.AuthHandshakeRequest-1.html",
+          "hash": "RVTzAY8VLYr0+Bk7Tx/p9w=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.AuthHandshakeRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.AuthHandshakeRequest.html",
+          "hash": "088iEpQm+sndwWyW74D4Fg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.AuthOperations.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.AuthOperations.html",
+          "hash": "roEb8rFOui1cO3dYeHMcvQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.AuthRoleSecret.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.AuthRoleSecret.html",
+          "hash": "j2/JdBXkTd1i5inIshXnOw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.AuthRoleSecretAthenticateRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.AuthRoleSecretAthenticateRequest.html",
+          "hash": "HwsnuEmC1H4XtnT5FS4Dfw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.AuthRoleSecretCredentials.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.AuthRoleSecretCredentials.html",
+          "hash": "PJNBJzO54CwYct23VRrksA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.AuthRoleSecretHandshakeData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.AuthRoleSecretHandshakeData.html",
+          "hash": "0akgkxMiulG24xA1e3mxbA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.AuthRoleSecretHandshakeNonce.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.AuthRoleSecretHandshakeNonce.html",
+          "hash": "VcRuMTHeIuL8wvwFGaJ2Qg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.AuthRoleSecretHandshakeReply.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.AuthRoleSecretHandshakeReply.html",
+          "hash": "/58N9fWcJ/N/LpUeF8jxYA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.AuthRoleSecretHandshakeRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.AuthRoleSecretHandshakeRequest.html",
+          "hash": "6otXz04OfUTW2a3fniEgtg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.AuthenticateMethods.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.AuthenticateMethods.html",
+          "hash": "V+UWWiGPK3kY75B9nSfrQw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.AuthenticateRequest-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.AuthenticateRequest-1.html",
+          "hash": "KOKLmfrsprXkEOUhEPa94g=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.AuthenticateRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.AuthenticateRequest.html",
+          "hash": "nmUp8rZuT4HShggnCrSjwQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.Client.Ack.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.Client.Ack.html",
+          "hash": "6d6pCnQPVOAgMjleq9YS8w=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.Client.DefaultLoggers.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.Client.DefaultLoggers.html",
+          "hash": "5aNOA+pcvfFqMFdF/a/krQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.Client.IRtmClient.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.Client.IRtmClient.html",
+          "hash": "NHT/+vE67WLrrSwaFyaMWA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.Client.ISubscription.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.Client.ISubscription.html",
+          "hash": "2azPFav5TRDEst7sEJ22Dw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.Client.ISubscriptionEventSource.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.Client.ISubscriptionEventSource.html",
+          "hash": "vGqe41Xq+GelBxmKea18qw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.Client.ISubscriptionObserver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.Client.ISubscriptionObserver.html",
+          "hash": "aTpD6T5R66ps17UX3KaJqQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.Client.QueueFullException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.Client.QueueFullException.html",
+          "hash": "MeiZ+FN3oHt3wm+ONNQnCA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.Client.RtmClientBuilder.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.Client.RtmClientBuilder.html",
+          "hash": "TOyS4rs+gacVuZCYKFrH9Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.Client.SubscriptionCompoundObserver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.Client.SubscriptionCompoundObserver.html",
+          "hash": "peg8Zps2nDFNtznv0O8Uvw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.Client.SubscriptionConfig.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.Client.SubscriptionConfig.html",
+          "hash": "o6PzFE1fHiLR8CxRIJUscw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.Client.SubscriptionModes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.Client.SubscriptionModes.html",
+          "hash": "/PjIlsxm9GlicYMspPLqmQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.Client.SubscriptionObserver.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.Client.SubscriptionObserver.html",
+          "hash": "86jM4PjKUKcq1hPNjLYbtQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.Client.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.Client.html",
+          "hash": "dEP85lixw6BEWlzDZX6k8w=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.CommonError.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.CommonError.html",
+          "hash": "T8PFYHLc/qVVEtBAX6EQCg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.Connection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.Connection.html",
+          "hash": "AjumBPeUr2MBHZY7UQMHvQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionExtensions.html",
+          "hash": "VMdopyOp0NLGWP84wbvo0g=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionOperationResult.Disconnected.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionOperationResult.Disconnected.html",
+          "hash": "Vxd1GJc5mTSgDX3GOmCLGw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionOperationResult.Failure.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionOperationResult.Failure.html",
+          "hash": "cYzxehElJcQo+yKcX0zFhQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionOperationResult.IMatch-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionOperationResult.IMatch-1.html",
+          "hash": "tjvVJjKQmNdnGgyPl2bk+g=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionOperationResult.IMatch.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionOperationResult.IMatch.html",
+          "hash": "QFoDAngrYdDAEnMcvhfvEg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionOperationResult.Id.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionOperationResult.Id.html",
+          "hash": "OfjffFGrnpH2Fezin2jGWQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionOperationResult.OnDisconnectedCallback-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionOperationResult.OnDisconnectedCallback-1.html",
+          "hash": "iB/rNWxQ1nZVU99WB7LrSw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionOperationResult.OnDisconnectedCallback.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionOperationResult.OnDisconnectedCallback.html",
+          "hash": "7uZ49kDE4VaNy3Zbc8kWPg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionOperationResult.OnFailureCallback-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionOperationResult.OnFailureCallback-1.html",
+          "hash": "YbmOM5vDynU2L7UvJkf0dw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionOperationResult.OnFailureCallback.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionOperationResult.OnFailureCallback.html",
+          "hash": "B1frjIxa5X+jVNrjAcmo9A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionOperationResult.OnReplyCallback-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionOperationResult.OnReplyCallback-1.html",
+          "hash": "QsrKknfQO+NSjSNO/0gGMA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionOperationResult.OnReplyCallback.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionOperationResult.OnReplyCallback.html",
+          "hash": "hSWOX3UQ6SB0ixEH0fRrJw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionOperationResult.Reply.IMatch-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionOperationResult.Reply.IMatch-1.html",
+          "hash": "LCEjFrlDX+O81olag74V8A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionOperationResult.Reply.IMatch.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionOperationResult.Reply.IMatch.html",
+          "hash": "K6N70fSY0Kmzzp7iN1ffTA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionOperationResult.Reply.Id.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionOperationResult.Reply.Id.html",
+          "hash": "Z5VaGcd6GIeuxV55E9qqzw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionOperationResult.Reply.Negative.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionOperationResult.Reply.Negative.html",
+          "hash": "BAnURRWfdIZNzrXszU54DA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionOperationResult.Reply.OnNegativeCallback-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionOperationResult.Reply.OnNegativeCallback-1.html",
+          "hash": "lfmzkhA6TEZia0kgFuU1Og=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionOperationResult.Reply.OnNegativeCallback.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionOperationResult.Reply.OnNegativeCallback.html",
+          "hash": "nVZg1PEn3HNa7iL/rB0I0g=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionOperationResult.Reply.OnPositiveCallback-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionOperationResult.Reply.OnPositiveCallback-1.html",
+          "hash": "9BoMX9pfN8kl/4sNnw2ONg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionOperationResult.Reply.OnPositiveCallback.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionOperationResult.Reply.OnPositiveCallback.html",
+          "hash": "zxv1JycQS0AOrhPa1imW/g=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionOperationResult.Reply.OnUnknownCallback-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionOperationResult.Reply.OnUnknownCallback-1.html",
+          "hash": "e2C2mqfDVLYj2xkLAgUo3g=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionOperationResult.Reply.OnUnknownCallback.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionOperationResult.Reply.OnUnknownCallback.html",
+          "hash": "6385tdhO0V3ADpKHniKRig=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionOperationResult.Reply.Positive.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionOperationResult.Reply.Positive.html",
+          "hash": "SpknifrWXqWx3qhD9qMaiA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionOperationResult.Reply.Unknown.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionOperationResult.Reply.Unknown.html",
+          "hash": "e1geTJcLGRG4y5CkBcuI6w=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionOperationResult.Reply.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionOperationResult.Reply.html",
+          "hash": "XUiHsjz+VLptBoRXISFhTQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionOperationResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionOperationResult.html",
+          "hash": "8TLn5/ixbjNUd1R5IsEAJg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionOptions.html",
+          "hash": "MtwMZD4mm6dbFZEdxEgD5A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionStepResult.Disconnected.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionStepResult.Disconnected.html",
+          "hash": "XY+rmprWHl0HNWyknG2v8A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionStepResult.Error.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionStepResult.Error.html",
+          "hash": "Czy/ctKBB1qCbzRYr5y+wQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionStepResult.ExpectedReply.IMatch-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionStepResult.ExpectedReply.IMatch-1.html",
+          "hash": "tfPzFpFKqcDrHB1aH2orog=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionStepResult.ExpectedReply.IMatch.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionStepResult.ExpectedReply.IMatch.html",
+          "hash": "YmjXflxLzfLSYCV8GeeQoQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionStepResult.ExpectedReply.Id.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionStepResult.ExpectedReply.Id.html",
+          "hash": "HNZs5LpfbIpXDeQfLAuQ+A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionStepResult.ExpectedReply.Negative.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionStepResult.ExpectedReply.Negative.html",
+          "hash": "XRUt4x9VcSXPvdD99qawGw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionStepResult.ExpectedReply.OnNegativeCallback-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionStepResult.ExpectedReply.OnNegativeCallback-1.html",
+          "hash": "p0SrKnOh85zIx0YeByATww=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionStepResult.ExpectedReply.OnNegativeCallback.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionStepResult.ExpectedReply.OnNegativeCallback.html",
+          "hash": "9nirr5xKhUdv+1PhGqpFUQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionStepResult.ExpectedReply.OnPositiveCallback-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionStepResult.ExpectedReply.OnPositiveCallback-1.html",
+          "hash": "uQVrsiZVMlwYJtcJeVuUFQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionStepResult.ExpectedReply.OnPositiveCallback.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionStepResult.ExpectedReply.OnPositiveCallback.html",
+          "hash": "yXepRYEI1YSkexJOdSrAng=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionStepResult.ExpectedReply.OnUnknownOutcomeCallback-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionStepResult.ExpectedReply.OnUnknownOutcomeCallback-1.html",
+          "hash": "YL0G3JSfwfTBkfZM2nbb6g=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionStepResult.ExpectedReply.OnUnknownOutcomeCallback.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionStepResult.ExpectedReply.OnUnknownOutcomeCallback.html",
+          "hash": "BP1xWMO6jv+a/32dFyhIvg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionStepResult.ExpectedReply.Positive.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionStepResult.ExpectedReply.Positive.html",
+          "hash": "077T9kOO35kZhZE/mvN/sw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionStepResult.ExpectedReply.UnknownOutcome.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionStepResult.ExpectedReply.UnknownOutcome.html",
+          "hash": "frsgzJEJYIx3Qt0lckXkLw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionStepResult.ExpectedReply.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionStepResult.ExpectedReply.html",
+          "hash": "a1gr+8L6TaSQsnsbW4cFSg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionStepResult.IMatch-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionStepResult.IMatch-1.html",
+          "hash": "eAQ8FQs4PY8GtmYHE5LyBA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionStepResult.IMatch.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionStepResult.IMatch.html",
+          "hash": "QD21Prs13CN7AssoKEcsQQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionStepResult.Id.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionStepResult.Id.html",
+          "hash": "KmplQrwrz1xpRImRj0zLAA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionStepResult.OnDisconnectedCallback-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionStepResult.OnDisconnectedCallback-1.html",
+          "hash": "zLxjLYMRsYCcaNmDuvmT9w=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionStepResult.OnDisconnectedCallback.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionStepResult.OnDisconnectedCallback.html",
+          "hash": "QCcRCFQd9Ccp06oIPZ2iEg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionStepResult.OnErrorCallback-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionStepResult.OnErrorCallback-1.html",
+          "hash": "nVFbqM07/W1M3yKokn/7Pw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionStepResult.OnErrorCallback.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionStepResult.OnErrorCallback.html",
+          "hash": "txxjPZ9x80HKIkHffEOp9Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionStepResult.OnExpectedReplyCallback-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionStepResult.OnExpectedReplyCallback-1.html",
+          "hash": "6sPxIkwFe/2CFMajhimjWA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionStepResult.OnExpectedReplyCallback.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionStepResult.OnExpectedReplyCallback.html",
+          "hash": "+9tkXt1syLe4YqsaeSTccQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionStepResult.OnUnexpectedReplyCallback-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionStepResult.OnUnexpectedReplyCallback-1.html",
+          "hash": "UFDD17zexLNoYlbHp46dKQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionStepResult.OnUnexpectedReplyCallback.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionStepResult.OnUnexpectedReplyCallback.html",
+          "hash": "XChT+FzXdfTBYIg8wbcqjQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionStepResult.OnUnsolicitedEventCallback-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionStepResult.OnUnsolicitedEventCallback-1.html",
+          "hash": "Xxd0bse9AYrndhJd5kShKg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionStepResult.OnUnsolicitedEventCallback.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionStepResult.OnUnsolicitedEventCallback.html",
+          "hash": "LsvMfLDLG6kSVB4lm/hpFQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionStepResult.UnexpectedReply.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionStepResult.UnexpectedReply.html",
+          "hash": "zbuLXqZu+JAtcFMoSwKmbw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionStepResult.UnsolicitedEvent.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionStepResult.UnsolicitedEvent.html",
+          "hash": "RMuZQO6r85B9z/nlvCUwPw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ConnectionStepResult.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ConnectionStepResult.html",
+          "hash": "Sg3i3OF+SZG0k6gU77xotA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.DefaultLogger.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.DefaultLogger.html",
+          "hash": "YpX68L9iYLHEdyT4D5w3rQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.DisconnectedException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.DisconnectedException.html",
+          "hash": "SMxJJPV1xxCmKbojksFeEg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.DispatchObjectExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.DispatchObjectExtensions.html",
+          "hash": "KyApoTcVcBUpJG/BS5orvw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.Dispatcher.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.Dispatcher.html",
+          "hash": "aRPDfltwEyN6ooZJ6Zx14g=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.IConnection.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.IConnection.html",
+          "hash": "mvjeT0BLzAc7OECKwxv1HQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.IDispatchObject.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.IDispatchObject.html",
+          "hash": "AV9DKafmGCyOgNsL6dsrsQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.IDispatcher.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.IDispatcher.html",
+          "hash": "7VsJF+TnCFGZGFLMHTlGLA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.ISerialization.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.ISerialization.html",
+          "hash": "kUiC/xOWcumnuzaqMmEZ7Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.Logger.LogLevel.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.Logger.LogLevel.html",
+          "hash": "HIJWdzwb1E1fTuujsIVR3g=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.Logger.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.Logger.html",
+          "hash": "pk9Me/Yoebky6FoJEwFi9w=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.LoggerExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.LoggerExtensions.html",
+          "hash": "J+DdW8biDdXYyXKNR0fwuQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.Pdu-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.Pdu-1.html",
+          "hash": "6WwqrFCPz6ZV2QjCb4afEg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.Pdu.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.Pdu.html",
+          "hash": "7jW57FQUl447f7vKKII1Sw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.PduException-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.PduException-1.html",
+          "hash": "flEwcvsEL4uM7daIY+wgmw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.PduException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.PduException.html",
+          "hash": "z0gthxHcuLxZFyb3AvOoag=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.Rtm.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.Rtm.html",
+          "hash": "jWNhIAjcuwnA93M6z27LwQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.RtmActions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.RtmActions.html",
+          "hash": "xZp8vkJrkWKIh8czH+xsEQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.RtmDeleteReply.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.RtmDeleteReply.html",
+          "hash": "LCtWqrx8c90nOYqYOAdCSQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.RtmDeleteRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.RtmDeleteRequest.html",
+          "hash": "UYC09Rwjn3mfESMrbxLEnw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.RtmError.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.RtmError.html",
+          "hash": "EbhviAVkCd2/Gvf6QeJUQA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.RtmOperations.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.RtmOperations.html",
+          "hash": "pfFJEh/VIwtdGxkApUV3VQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.RtmOutcomes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.RtmOutcomes.html",
+          "hash": "hUfL328eS1D2mY+Z5QzatQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.RtmPublishReply.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.RtmPublishReply.html",
+          "hash": "xV9rPvMyabVDhQvTrriv7Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.RtmPublishRequest-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.RtmPublishRequest-1.html",
+          "hash": "il1OUACF27tR4IoEOz8yrQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.RtmPublishRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.RtmPublishRequest.html",
+          "hash": "z+Zq33bzmLj97RDuuIIxCQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.RtmReadReply-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.RtmReadReply-1.html",
+          "hash": "2gGpmLJ2wGyS9DRLpnXJ8A=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.RtmReadReply.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.RtmReadReply.html",
+          "hash": "YcNkaX4nEDRM4Jwz06bQRA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.RtmReadRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.RtmReadRequest.html",
+          "hash": "tqn+pYQatgXyvHH8yN5j6Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.RtmSubscribeError.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.RtmSubscribeError.html",
+          "hash": "fbfruyqTG9ot1WoQhqEtUw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.RtmSubscribeHistory.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.RtmSubscribeHistory.html",
+          "hash": "bXNMogzAJvy6GEAVXiIiYg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.RtmSubscribeReply.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.RtmSubscribeReply.html",
+          "hash": "GwFctvL+JG9nvbZywLn5CA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.RtmSubscribeRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.RtmSubscribeRequest.html",
+          "hash": "0rm1d5HiYi4cF12BlR4clw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.RtmSubscriptionData-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.RtmSubscriptionData-1.html",
+          "hash": "Xg8kD4wqqWZL74BahDzl2w=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.RtmSubscriptionData.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.RtmSubscriptionData.html",
+          "hash": "r5Ahh+Q+EOJCeNH2/7LVig=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.RtmSubscriptionError.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.RtmSubscriptionError.html",
+          "hash": "Dywy4symzWlotl6Ow6TxGg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.RtmSubscriptionInfo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.RtmSubscriptionInfo.html",
+          "hash": "gHRwBv6viDZrqNO9orgvbg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.RtmUnsubscribeError.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.RtmUnsubscribeError.html",
+          "hash": "N1BNuhEA510vDo9Jowc3ZA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.RtmUnsubscribeReply.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.RtmUnsubscribeReply.html",
+          "hash": "6+CuijB+nQTWDs9l1y970g=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.RtmUnsubscribeRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.RtmUnsubscribeRequest.html",
+          "hash": "k05gqFhTULvHH5xKK3HCpg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.RtmWriteReply.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.RtmWriteReply.html",
+          "hash": "V9/O318CQMjc831axRKPmw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.RtmWriteRequest-1.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.RtmWriteRequest-1.html",
+          "hash": "gFp0U4l9NWpqbseEz/4i8g=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.RtmWriteRequest.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.RtmWriteRequest.html",
+          "hash": "KBvLKEcIfrxWBWDTfWYNnQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.SubscribeException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.SubscribeException.html",
+          "hash": "SvqU4tR7J2GK6DZ0vPyD2g=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.TaskExtensions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.TaskExtensions.html",
+          "hash": "0SguqQ9rg/iQNj7p1eAsyw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.TraceLogger.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.TraceLogger.html",
+          "hash": "wSBpZ2+Hn1dbzgx1XhKhmg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.UnsubscribeException.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.UnsubscribeException.html",
+          "hash": "ByCdezvU2y7f02ZvPxV1NA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.WsSerialization.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.WsSerialization.html",
+          "hash": "gzK+XFtulFsSUqzyMC6Y7Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/Satori.Rtm.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Satori.Rtm.html",
+          "hash": "hBI0aUW+1HIN9hYlzssTCA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/System.Net.DnsEx.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/System.Net.DnsEx.html",
+          "hash": "fjXSPsp9e3Ihx/rUnYKprw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/System.Net.WebSockets.Managed.ClientWebSocket.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/System.Net.WebSockets.Managed.ClientWebSocket.html",
+          "hash": "a6ekaqvFT/S0lFx6rH4UnQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/System.Net.WebSockets.Managed.ClientWebSocketOptions.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/System.Net.WebSockets.Managed.ClientWebSocketOptions.html",
+          "hash": "MAMp1FK60nDsZYpe9jVuMg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/System.Net.WebSockets.Managed.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/System.Net.WebSockets.Managed.html",
+          "hash": "PZHceRSHY/3kg/K/S9QyTA=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/System.Net.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/System.Net.html",
+          "hash": "T0UM+aIIEpvIwu8tZkfuYg=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/System.StringEx.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/System.StringEx.html",
+          "hash": "8/p2Ow2sjLqtHgClXF9N9Q=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "obj/api/System.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/System.html",
+          "hash": "BYAlDGQsS1yhG+FFCT8UPQ=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "obj/api/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "api/index.html",
+          "hash": "ITBZI6CKIEGIU9dslKaWZw=="
+        }
+      },
+      "is_incremental": true,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "obj/api/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/toc.html",
+          "hash": "XjlDzNQsuHqQ0W8I4DndcQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "log_codes": [
+        "InvalidFileLink"
+      ],
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "Nc4AoATDSJlFwkruccJqqw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": true,
+        "incrementalPhase": "build"
+      },
+      "processors": {
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build"
+        },
+        "RestApiDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor RestApiDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build"
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build"
+        },
+        "ConceptualDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build"
+        },
+        "ResourceDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor ResourceDocumentProcessor cannot suppport incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build"
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": true,
+        "details": "Can support incremental post processing.",
+        "incrementalPhase": "postProcessing"
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {}
+}
