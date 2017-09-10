@@ -83,7 +83,7 @@ public class Quickstart : MonoBehaviour
 
             if (toAuthenticate)
             {
-                client = RtmManager.Instance.Register(endpoint, appKey, role, secret);
+                client = RtmManager.Instance.Register(endpoint, appKey, role, roleSecretKey);
             } else 
             {   //no authentication (default role)
                 client = RtmManager.Instance.Register(endpoint, appKey);
